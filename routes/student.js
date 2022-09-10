@@ -32,5 +32,6 @@ router.post(
 	ensureAuth,
 	studentController.postAccommodations
 );
+router.get('/editStudent/:id', ensureAuth, studentController.getEditPage);
 
 module.exports = router;

@@ -13,7 +13,7 @@ html
           input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full mt-8" class='input bg-white')
           input(type="submit", value="Search!" class='mt-4  btn bg-success text-accent  w-60')
       if data
-        section.grid.grid-cols-2(class='w-full').bg-white.px-16.py-4.mt-4.mb-0.card
+        section.grid.grid-cols-2(class='w-full').bg-white.px-16.py-4.mt-4.mb-0.card.relative
           section.bg-base-100.border-4.border-primary.p-8.grid.grid-cols-2.gap-2.text-2xl.card.text-center(class="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 text-accent")
             h1.border-r-2.border-r-accent Full Name: 
             h1 #{data.name}
@@ -28,34 +28,41 @@ html
             h1.border-r-2.border-r-accent Next IEP: 
             h1 #{data.IEP}
           img(src=data.image class='max-w-3/4 w-96 m-auto')
+          form.absolute.top-4.right-4(action='/student/editStudent/'+ data.ID + '?_method=GET' method='POST')
+            button(type='submit')
+              i.fa-regular.fa-pen-to-square
     if data 
       section.accommodations.px-8.text-neutral.pb-8
         h1.text-5xl.mb-4.text-neutral Accommodations:
         section.px-8.grid.gap-2
-          if data.presentation.length>0
-            h1.text-4xl.text-center.pt-4 Presentation
-            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-              for entry in data.presentation
-                div.rounded-md
-                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.response.length>0
-            h1.text-4xl.text-center.pt-4 Response
-            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-              for entry in data.response
-                 div.rounded-md
-                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.setting.length>0
-            h1.text-4xl.text-center.pt-4 Setting
-            div.accom-container.grid.grid-cols-3.gap-2.bg-white.card.p-2
-              for entry in data.setting
-                div.rounded-md
-                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.scheduling.length>0
-            h1.text-4xl.text-center.pt-4 Scheduling
-            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-              for entry in data.scheduling
-                div.rounded-md
-                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name             
+          if data.presentation
+            if data.presentation.length>0
+              h1.text-4xl.text-center.pt-4 Presentation
+              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+                for entry in data.presentation
+                  div.rounded-md
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
+          if data.response
+            if data.response.length>0
+              h1.text-4xl.text-center.pt-4 Response
+              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+                for entry in data.response
+                  div.rounded-md
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
+          if data.setting
+            if data.setting.length>0
+              h1.text-4xl.text-center.pt-4 Setting
+              div.accom-container.grid.grid-cols-3.gap-2.bg-white.card.p-2
+                for entry in data.setting
+                  div.rounded-md
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
+          if data.scheduling
+            if data.scheduling.length>0
+              h1.text-4xl.text-center.pt-4 Scheduling
+              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+                for entry in data.scheduling
+                  div.rounded-md
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name             
     if data
       section.p-8.bg-neutral
         h1.text-5xl.mb-4.text-secondary Goal History:

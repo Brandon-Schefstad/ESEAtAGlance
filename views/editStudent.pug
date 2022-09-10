@@ -1,0 +1,16 @@
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
+    include partials/_nav.pug
+    form(method='POST' action='/editStudent/'+data.id).bg-base-100.text-accent.grid.grid-cols-8.gap-8
+    - const keys = Object.keys(data)
+        for key in keys 
+          span.text-neutral= key + data[key]
+          br
+        for prop in data 
+          label= prop
+          input

@@ -11,56 +11,8 @@ module.exports = {
 
 	searchStudent: async (req, res) => {
 		try {
-			let student = await Student.findOne({
-				ID: req.query.ID,
-			})
-				.populate({
-					path: 'history',
-				})
-				.populate({
-					path: 'caseManager',
-				})
-				.populate({
-					path: 'accommodations',
-				})
-				.lean();
-			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
-			console.log(student);
-			student.history.forEach((goal) => {
-				history[parseInt(goal.grade)].push(goal);
-			});
-			let returnHistory = history.filter((subArr) => {
-				return subArr.length > 0;
-			});
-			let presentation = student.accommodations.filter((accomm) => {
-				return accomm.category === 'presentation';
-			});
-			let response = student.accommodations.filter((accomm) => {
-				return accomm.category === 'response';
-			});
-			let setting = student.accommodations.filter((accomm) => {
-				return accomm.category === 'setting';
-			});
-			let scheduling = student.accommodations.filter((accomm) => {
-				return accomm.category === 'scheduling';
-			});
-			const resObject = {
-				name: student.firstName + ' ' + student.lastName,
-				ID: student.ID,
-				grade: student.grade,
-				caseManager: student.caseManager.userName,
-				primary: student.primaryExceptionality,
-				history: returnHistory,
-				presentation: presentation,
-				response: response,
-				setting: setting,
-				scheduling: scheduling,
-				IEP: student.IEPDueDate.toDateString()
-					.split(' ')
-					.splice(1, 4)
-					.join(' '),
-				image: student.image,
-			};
+			console.log(req.query.ID);
+			const resObject = await populateStudentResObject(req.query.ID);
 			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
 		} catch (error) {
@@ -220,7 +172,78 @@ module.exports = {
 			res.redirect('/dashboard');
 		}
 	},
+	getEditPage: async (req, res) => {
+		try {
+			console.log(req.params);
+			const resObject = await populateStudentResObject(req.params.id);
+			console.log(resObject);
+			res.render('editStudent', {
+				data: resObject,
+			});
+		} catch (error) {
+			console.error(error);
+		}
+	},
 };
+
+async function populateStudentResObject(ID) {
+	console.log(`ID:${ID}`);
+	try {
+		let student = await Student.findOne({
+			ID: ID,
+		})
+			.populate({
+				path: 'history',
+			})
+			.populate({
+				path: 'caseManager',
+			})
+			.populate({
+				path: 'accommodations',
+			})
+			.lean();
+		let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+		student.history.forEach((goal) => {
+			history[parseInt(goal.grade)].push(goal);
+		});
+		let returnHistory = history.filter((subArr) => {
+			return subArr.length > 0;
+		});
+		let presentation = student.accommodations.filter((accomm) => {
+			return accomm.category === 'presentation';
+		});
+		let response = student.accommodations.filter((accomm) => {
+			return accomm.category === 'response';
+		});
+		let setting = student.accommodations.filter((accomm) => {
+			return accomm.category === 'setting';
+		});
+		let scheduling = student.accommodations.filter((accomm) => {
+			return accomm.category === 'scheduling';
+		});
+		const resObject = {
+			name: student.firstName + ' ' + student.lastName,
+			ID: student.ID,
+			grade: student.grade,
+			caseManager: student.caseManager.userName,
+			primary: student.primaryExceptionality,
+			history: returnHistory,
+			presentation: presentation || 0,
+			response: response || 0,
+			setting: setting || 0,
+			scheduling: scheduling || 0,
+			IEP: student.IEPDueDate.toDateString()
+				.split(' ')
+				.splice(1, 4)
+				.join(' '),
+			image: student.image,
+		};
+		// console.log(resObject);
+		return resObject;
+	} catch (error) {
+		console.error(error);
+	}
+}
 
 const presentation = [
 	'Receptive Sign Language',
