@@ -1,0 +1,19 @@
+html 
+  head
+  body
+    h1.title ESE AT A GLANCE
+    div.login
+      h1= "Login!"
+      form(action="/login" method="POST")
+        ul.login__list
+          li.login__listitem
+            p Username:
+            input(type="text" name="email" placeholder="")
+          li.login__listitem
+            p Password:
+            input(type="text" name="password" placeholder="")
+          li.login__listitem
+            input(type="submit" value='Login')
+
+
+    a.signup(href='/signup') signup here today!

@@ -1,0 +1,17 @@
+doctype html 
+html(lang='en')
+  head 
+    title Register!
+body
+  div.signup
+    h1= "Register"
+    form(action="/signup" method="POST")
+      p Username:
+        input(type="text" name="username" placeholder="")
+      p Email:
+        input(type="text" name="email" placeholder="")
+      p Password:
+        input(type="text" name="password" placeholder="")
+      p Confirm Password:
+        input(type="text" name="confirm-password" placeholder="")
+      input(type="submit" value='Register')
