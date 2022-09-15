@@ -6,12 +6,12 @@ body
   div.signup
     h1= "Register"
     form(action="/signup" method="POST")
-      p Username:
-        input(type="text" name="username" placeholder="")
       p Email:
-        input(type="text" name="email" placeholder="")
+        input(type="email" name="email" placeholder="")
+      p Username:
+        input(type="text" name="userName" placeholder="")
       p Password:
-        input(type="text" name="password" placeholder="")
+        input(type="password" name="password" placeholder="")
       p Confirm Password:
-        input(type="text" name="confirm-password" placeholder="")
+        input(type="password" name="confirmPassword" placeholder="")
       input(type="submit" value='Register')

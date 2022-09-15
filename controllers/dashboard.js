@@ -1,6 +1,7 @@
 module.exports = {
 	getDashboard: (req, res) => {
-		console.log(req);
+		const user = req.user;
+		console.log(req.user);
 		res.render('dashboard');
 	},
 };

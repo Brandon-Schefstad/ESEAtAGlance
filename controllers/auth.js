@@ -1,7 +1,7 @@
 const passport = require('passport');
 const validator = require('validator');
 //
-const User = require('../models/User');
+const Teacher = require('../models/Teacher');
 
 exports.getLogin = (req, res) => {
 	if (req.user) {
@@ -35,6 +35,7 @@ exports.postLogin = (req, res, next) => {
 			req.flash('errors', info);
 			return res.redirect('/login');
 		}
+
 		req.logIn(user, (err) => {
 			if (err) {
 				return next(err);
@@ -62,7 +63,6 @@ exports.getSignup = (req, res) => {
 };
 
 exports.postSignup = (req, res, next) => {
-	console.log(req);
 	// Validators
 	const validationErrors = [];
 	if (!validator.isEmail(req.body.email))
@@ -82,14 +82,13 @@ exports.postSignup = (req, res, next) => {
 		gmail_remove_dots: false,
 	});
 
-	const user = new User({
+	const user = new Teacher({
 		userName: req.body.userName,
 		email: req.body.email,
 		password: req.body.password,
 	});
-	console.log(user);
 
-	User.findOne(
+	Teacher.findOne(
 		{
 			$or: [{ email: req.body.email }, { userName: req.body.userName }],
 		},
