@@ -2,9 +2,23 @@ const Student = require('../models/Student');
 
 module.exports = {
 	getStudent: (req, res) => {
-		res.render('student');
+		res.render('studentInfo');
 	},
-	addNewStudent: async (req, res) => {
+	searchStudent: async (req, res) => {
+		try {
+			console.log(req.query.ID);
+			const student = await Student.findOne({
+				ID: req.query.ID,
+			});
+			res.render('studentInfo', { name: student.firstName });
+		} catch (error) {
+			res.render('studentInfo');
+		}
+	},
+	addNewStudent: (req, res) => {
+		res.render('addStudent');
+	},
+	postNewStudent: async (req, res) => {
 		try {
 			await Student.create({
 				firstName: req.body.firstName,
@@ -27,20 +41,39 @@ module.exports = {
 	addGoals: async (req, res) => {
 		try {
 			const succeed = req.body.succeed === 'on' ? true : false;
+			const goalGrade = req.body.goalGrade;
+			let domain;
+			switch (req.body.domain) {
+				case 'curriculum':
+					domain = 'Curriculum and Learning Environment';
+					break;
+				case 'socialEmotional':
+					domain = 'Social / Emotional';
+					break;
+				case 'independentFunctioning':
+					domain = 'Independent Functioning';
+					break;
+				case 'healthcare':
+					domain = 'HealthCare';
+					break;
+				case 'communication':
+					domain = 'Communication';
+					break;
+			}
 			const goal = {
-				grade: req.body.goalGrade,
-				domain: req.body.domain,
+				domain: domain,
 				text: req.body.goalText,
 				succeed: succeed,
 				notes: req.body.notes,
 			};
+			console.log(goal);
+			console.log(goalGrade);
 			const student = Student.find({
 				ID: req.body.ID,
 			});
 			await student.updateOne({
-				$push: { history: { goal } },
+				$push: { [goalGrade]: { goal } },
 			});
-			console.log(goal);
 		} catch (error) {
 			console.error(error);
 		}

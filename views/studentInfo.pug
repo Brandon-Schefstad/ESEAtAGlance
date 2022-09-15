@@ -1,0 +1,11 @@
+html 
+  head
+  body
+    h1 Search a student 
+    form(action="/student/searchStudent" method="GET")
+      p ID Number
+        input(type="text" name="ID" placeholder="")
+      input(type="submit", value="Search!")
+
+    h1= name
+    a(href="/student/addNewStudent") Add a new student

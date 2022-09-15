@@ -48,7 +48,48 @@ const StudentSchema = new mongoose.Schema({
 		type: String,
 	},
 	caseManager: { type: String },
-	history: [{}],
+	GradeK: {
+		type: Array,
+	},
+	Grade1: {
+		type: Array,
+	},
+	Grade2: {
+		type: Array,
+	},
+	Grade3: {
+		type: Array,
+	},
+	Grade4: {
+		type: Array,
+	},
+	Grade5: {
+		type: Array,
+	},
+	Grade6: {
+		type: Array,
+	},
+	Grade7: {
+		type: Array,
+	},
+	Grade8: {
+		type: Array,
+	},
+	Grade9: {
+		type: Array,
+	},
+	Grade10: {
+		type: Array,
+	},
+	Grade11: {
+		type: Array,
+	},
+	Grade12: {
+		type: Array,
+	},
+	Grade13: {
+		type: Array,
+	},
 	accommodations: {
 		type: Array,
 	},

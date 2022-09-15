@@ -4,7 +4,10 @@ const studentController = require('../controllers/student');
 const { ensureAuth } = require('../middleware/auth');
 
 router.get('/', ensureAuth, studentController.getStudent);
-router.post('/addNewStudent', ensureAuth, studentController.addNewStudent);
+router.get('/searchStudent', ensureAuth, studentController.searchStudent);
+router.post('/searchStudent', ensureAuth, studentController.searchStudent);
+router.get('/addNewStudent', ensureAuth, studentController.addNewStudent);
+router.post('/addNewStudent', ensureAuth, studentController.postNewStudent);
 router.get('/addGoals', ensureAuth, studentController.addGoalsPage);
 router.post('/addGoals', ensureAuth, studentController.addGoals);
 
