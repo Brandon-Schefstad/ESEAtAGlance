@@ -10,7 +10,14 @@ module.exports = {
 			const student = await Student.findOne({
 				ID: req.query.ID,
 			});
-			res.render('studentInfo', { name: student.firstName });
+			console.log(student);
+			res.render('studentInfo', {
+				name: student.firstName + ' ' + student.lastName,
+				ID: student.ID,
+				grade: student.grade,
+				primary: student.primaryExceptionality,
+				history: [student],
+			});
 		} catch (error) {
 			res.render('studentInfo');
 		}

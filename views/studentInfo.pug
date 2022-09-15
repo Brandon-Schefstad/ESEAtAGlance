@@ -7,5 +7,44 @@ html
         input(type="text" name="ID" placeholder="")
       input(type="submit", value="Search!")
 
-    h1= name
+    h1 Full Name: #{name}
+    h2 ID Number: #{ID} 
+    h2 Grade: #{grade} 
+    h3 Primary Exceptionality: #{primary}
+    h1 Goal History: 
+    form(class="goalForm")
+      span Kindergarten
+      input(type="checkbox", value="GradeK",) 
+      span 1st
+      input(type="checkbox", value="Grade1")
+      span 2nd
+      input(type="checkbox", value="Grade2")
+      span 3rd
+      input(type="checkbox", value="Grade3")
+      span 4th
+      input(type="checkbox", value="Grade4")
+      span 5th
+      input(type="checkbox", value="Grade5")
+      span 6th
+      input(type="checkbox", value="Grade6")
+      span 7th
+      input(type="checkbox", value="Grade7")
+      span 8th
+      input(type="checkbox", value="Grade8")
+      span 9th
+      input(type="checkbox", value="Grade9")
+      span 10th
+      input(type="checkbox", value="Grade10")
+      span 11th
+      input(type="checkbox", value="Grade11")
+      span 12th
+      input(type="checkbox", value="Grade12")
+      span Post
+      input(type="checkbox", value="Grade13")
+    button(class='goalSearch') Submit
+      //- p
+        //- - for(let i=0; i<=3;i++)
+        //-   li #{i}
     a(href="/student/addNewStudent") Add a new student
+    script(src="../js/student.js") 
+//- action="/student/searchStudent" method="GET"
