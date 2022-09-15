@@ -1,5 +1,3 @@
-const User = require('../Teacher.js');
-
 module.exports = {
 	getTime: async (req, res) => {
 		const user = req.user;

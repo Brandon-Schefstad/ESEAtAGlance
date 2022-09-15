@@ -17,7 +17,9 @@ const TeacherSchema = new mongoose.Schema({
 		unique: true,
 		required: true,
 	},
-	studentArray: [StudentSchema],
+	studentArray: {
+		type: Array,
+	},
 });
 
 // Password hash middleware.

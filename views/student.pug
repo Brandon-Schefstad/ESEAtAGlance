@@ -1,0 +1,17 @@
+html 
+  head
+  body
+    h1 STUDENT VIEW
+    form(action="/student/addNewStudent" method="POST")
+      p First Name:
+        input(type="text" name="firstName" placeholder="")
+      p Last Name:
+        input(type="text" name="lastName" placeholder="")
+      p ID Number:
+        input(type="number" name="idNumber" placeholder="")
+      p Grade:
+        input(type="number" name="grade" placeholder="")
+      p Primary Exceptionality:
+        input(type="text" name="primary" placeholder="")
+      input(type="submit")
+    a(class='button', href='/logout') Logout

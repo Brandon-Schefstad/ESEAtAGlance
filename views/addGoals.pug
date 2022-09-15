@@ -1,0 +1,21 @@
+html 
+  head
+  body
+   
+    h2 History
+    form(action="/student/addGoals" method="POST")
+      p ID Number:
+        input(type="text" name="ID" placeholder="")
+      p Grade:
+        input(type="number" name="goalGrade" placeholder="")
+      h3 Goal1
+      p Domain:
+        input(type="text" name="domain" placeholder="")
+      p Text:
+        input(type="text" name="goalText" placeholder="")
+      p Succeed
+        input(type="checkbox" name="succeed" placeholder="")
+      p Notes:
+        input(type="text" name="notes" placeholder="")
+      input(type="submit", value="Submit Goal")
+      a(href="/dashboard") Back to Dashboard 

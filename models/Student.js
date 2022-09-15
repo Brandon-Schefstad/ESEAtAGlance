@@ -1,38 +1,29 @@
 const mongoose = require('mongoose');
 const TeacherSchema = require('./Teacher.js').schema;
 
-const ClassSchema = new mongoose.Schema({
-	grade: {
-		type: Number,
-	},
-	subject: {
-		type: String,
-	},
-	// teacher: {
-	// 	type: mongoose.Schema.Types.ObjectId,
-	// 	ref: 'Teacher',
-	// },
-});
+// const ClassSchema = new mongoose.Schema({
+// 	grade: {
+// 		type: Number,
+// 	},
+// 	subject: {
+// 		type: String,
+// 	},
+// teacher: {
+// 	type: mongoose.Schema.Types.ObjectId,
+// 	ref: 'Teacher',
+// },
+// });
 
-const GoalSchema = new mongoose.Schema({
-	domain: {
-		type: String,
-		required: true,
-	},
-	text: { type: String, required: true },
-	succeed: {
-		type: Boolean,
-		required: true,
-	},
-	notes: { type: String, required: true },
-	teacher: { type: mongoose.Schema.Types.ObjectId, ref: 'Teacher' },
-});
-const HistorySchema = new mongoose.Schema({
-	grade: {
-		type: Number,
-	},
-	goals: [GoalSchema],
-});
+// const GoalSchema = new mongoose.Schema({
+// 	domain: {
+// 		type: String,
+// 	},
+// 	text: { type: String },
+// 	succeed: {
+// 		type: String,
+// 	},
+// 	notes: { type: String },
+// });
 
 const StudentSchema = new mongoose.Schema({
 	firstName: {
@@ -46,6 +37,9 @@ const StudentSchema = new mongoose.Schema({
 	ID: {
 		type: Number,
 	},
+	grade: {
+		type: Number,
+	},
 	primaryExceptionality: {
 		type: String,
 		required: true,
@@ -53,9 +47,8 @@ const StudentSchema = new mongoose.Schema({
 	secondaryExceptionality: {
 		type: String,
 	},
-	caseManager: { type: mongoose.Schema.Types.ObjectId, ref: 'Teacher' },
-	currSchedule: [ClassSchema],
-	history: HistorySchema,
+	caseManager: { type: String },
+	history: [{}],
 	accommodations: {
 		type: Array,
 	},
