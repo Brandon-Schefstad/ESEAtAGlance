@@ -1,6 +1,5 @@
 .goal__container {
 	border: 2px solid red;
-	width: 500px;
 	display: flex;
 }
 .green {
@@ -11,5 +10,5 @@
 }
 .goal__information {
 	display: grid;
-	grid-template-columns: 150px;
+	grid-template-columns: 350px;
 }
