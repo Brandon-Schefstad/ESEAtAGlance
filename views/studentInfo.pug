@@ -1,3 +1,4 @@
+include partials/_head.pug
 html 
   head
   body
@@ -12,39 +13,59 @@ html
     h2 Grade: #{grade} 
     h3 Primary Exceptionality: #{primary}
     h1 Goal History: 
-    form(class="goalForm")
-      span Kindergarten
-      input(type="checkbox", value="GradeK",) 
-      span 1st
-      input(type="checkbox", value="Grade1")
-      span 2nd
-      input(type="checkbox", value="Grade2")
-      span 3rd
-      input(type="checkbox", value="Grade3")
-      span 4th
-      input(type="checkbox", value="Grade4")
-      span 5th
-      input(type="checkbox", value="Grade5")
-      span 6th
-      input(type="checkbox", value="Grade6")
-      span 7th
-      input(type="checkbox", value="Grade7")
-      span 8th
-      input(type="checkbox", value="Grade8")
-      span 9th
-      input(type="checkbox", value="Grade9")
-      span 10th
-      input(type="checkbox", value="Grade10")
-      span 11th
-      input(type="checkbox", value="Grade11")
-      span 12th
-      input(type="checkbox", value="Grade12")
-      span Post
-      input(type="checkbox", value="Grade13")
-    button(class='goalSearch') Submit
-      //- p
-        //- - for(let i=0; i<=3;i++)
-        //-   li #{i}
+    if history
+      ul 
+        h3 Kindergarten 
+        for goal in history[0]
+          div.goal__container
+            div.goal__information
+              h4 Domain
+              span= goal.goal.domain
+            div.goal__information
+              h4 Text
+              span= goal.goal.text
+            div.goal__information
+              h4 Succeed
+              if goal.goal.succeed === true
+                span.green= goal.goal.succeed
+              else
+                span.red= goal.goal.succeed
+            div.goal__information
+              h4 Notes
+              span= goal.goal.notes
+        h3 First
+        for goal in history[1]
+          div.goal__container
+            h4 Domain
+            span= goal.goal.domain
+            h4 Text
+            span= goal.goal.text
+            h4 Succeed
+            span= goal.goal.succeed
+            h4 Notes
+            span= goal.goal.notes
+        h3 Second
+        for goal in history[2]
+          div.goal__container
+            h4 Domain
+            span= goal.goal.domain
+            h4 Text
+            span= goal.goal.text
+            h4 Succeed
+            span= goal.goal.succeed
+            h4 Notes
+            span= goal.goal.notes
+        h3 3
+        h3 4
+        h3 5
+        h3 6
+        h3 7
+        h3 8
+        h3 9
+        h3 10
+        h3 11
+        h3 12
+        h3 Post
     a(href="/student/addNewStudent") Add a new student
     script(src="../js/student.js") 
 //- action="/student/searchStudent" method="GET"

@@ -4,27 +4,49 @@ module.exports = {
 	getStudent: (req, res) => {
 		res.render('studentInfo');
 	},
+	addNewStudent: (req, res) => {
+		res.render('addStudent');
+	},
+
 	searchStudent: async (req, res) => {
 		try {
-			console.log(req.query.ID);
 			const student = await Student.findOne({
 				ID: req.query.ID,
 			});
-			console.log(student);
+			console.log(req.query);
 			res.render('studentInfo', {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
 				grade: student.grade,
 				primary: student.primaryExceptionality,
-				history: [student],
+				history: [
+					student.GradeK,
+					student.Grade1,
+					student.Grade2,
+					student.Grade3,
+					student.Grade4,
+					student.Grade5,
+					student.Grade6,
+					student.Grade7,
+					student.Grade8,
+					student.Grade9,
+					student.Grade10,
+					student.Grade11,
+					student.Grade12,
+					student.Grade13,
+				],
 			});
 		} catch (error) {
 			res.render('studentInfo');
 		}
 	},
-	addNewStudent: (req, res) => {
-		res.render('addStudent');
-	},
+
+	// searchGoals: async (req, res) => {
+	// 	const student = await Student.findOne({
+	// 		ID: req.params.ID,
+	// 	});
+	// 	res.redirect('/student/searchStudent');
+	// },
 	postNewStudent: async (req, res) => {
 		try {
 			await Student.create({
