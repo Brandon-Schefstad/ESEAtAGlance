@@ -54,8 +54,22 @@
   margin-block: auto;
 }
 
+.goal__container {
+  margin-bottom: 1rem;
+  margin-inline: 5rem;
+}
+
+.goal__information {
+  height: 50px;
+}
+
 body {
   padding: 2rem;
+}
+
+.green {
+  color: green;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=style.css.map */

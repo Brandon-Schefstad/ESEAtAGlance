@@ -83,7 +83,9 @@ exports.postSignup = (req, res, next) => {
 	});
 
 	const user = new Teacher({
-		userName: req.body.userName,
+		userName: req.body.email,
+		firstName: req.body.firstName,
+		lastName: req.body.lastName,
 		email: req.body.email,
 		password: req.body.password,
 	});

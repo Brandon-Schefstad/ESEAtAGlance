@@ -1,29 +1,6 @@
 const mongoose = require('mongoose');
 const TeacherSchema = require('./Teacher.js').schema;
-
-// const ClassSchema = new mongoose.Schema({
-// 	grade: {
-// 		type: Number,
-// 	},
-// 	subject: {
-// 		type: String,
-// 	},
-// teacher: {
-// 	type: mongoose.Schema.Types.ObjectId,
-// 	ref: 'Teacher',
-// },
-// });
-
-// const GoalSchema = new mongoose.Schema({
-// 	domain: {
-// 		type: String,
-// 	},
-// 	text: { type: String },
-// 	succeed: {
-// 		type: String,
-// 	},
-// 	notes: { type: String },
-// });
+const GoalSchema = require('./Goals.js').schema;
 
 const StudentSchema = new mongoose.Schema({
 	firstName: {
@@ -47,49 +24,16 @@ const StudentSchema = new mongoose.Schema({
 	secondaryExceptionality: {
 		type: String,
 	},
-	caseManager: { type: String },
-	GradeK: {
-		type: Array,
+	caseManager: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Teacher',
 	},
-	Grade1: {
-		type: Array,
-	},
-	Grade2: {
-		type: Array,
-	},
-	Grade3: {
-		type: Array,
-	},
-	Grade4: {
-		type: Array,
-	},
-	Grade5: {
-		type: Array,
-	},
-	Grade6: {
-		type: Array,
-	},
-	Grade7: {
-		type: Array,
-	},
-	Grade8: {
-		type: Array,
-	},
-	Grade9: {
-		type: Array,
-	},
-	Grade10: {
-		type: Array,
-	},
-	Grade11: {
-		type: Array,
-	},
-	Grade12: {
-		type: Array,
-	},
-	Grade13: {
-		type: Array,
-	},
+	history: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Goals',
+		},
+	],
 	accommodations: {
 		type: Array,
 	},

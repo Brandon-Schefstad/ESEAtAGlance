@@ -1,6 +1,12 @@
 @use 'login.scss';
 @use 'dashboard.scss';
+@use 'search-student.scss';
 
 body {
 	padding: 2rem;
+}
+
+.green {
+	color: green;
+	text-decoration: underline;
 }

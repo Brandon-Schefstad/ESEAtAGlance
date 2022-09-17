@@ -1,44 +1,35 @@
 const Student = require('../models/Student');
+const Goal = require('../models/Goals.js');
 
 module.exports = {
-	getStudent: (req, res) => {
-		res.render('studentInfo');
-	},
 	addNewStudent: (req, res) => {
 		res.render('addStudent');
 	},
 
 	searchStudent: async (req, res) => {
 		try {
-			const student = await Student.findOne({
+			let student = await Student.find({
 				ID: req.query.ID,
+			})
+				.populate({
+					path: 'history',
+				})
+				.lean();
+			student = student[0];
+			student.history.forEach((grade) => {
+				console.log(grade.grade.split('th'));
 			});
-			console.log(req.query);
-			res.render('studentInfo', {
+			student.history.sort((a, b) => (a.grade > b.grade ? 1 : -1));
+			res.render('searchStudent', {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
 				grade: student.grade,
+				caseManager: student.caseManager.userName,
 				primary: student.primaryExceptionality,
-
-				history: [
-					student.GradeK.sort(),
-					student.Grade1,
-					student.Grade2,
-					student.Grade3,
-					student.Grade4,
-					student.Grade5,
-					student.Grade6,
-					student.Grade7,
-					student.Grade8,
-					student.Grade9,
-					student.Grade10,
-					student.Grade11,
-					student.Grade12,
-					student.Grade13,
-				],
+				history: student.history,
 			});
 		} catch (error) {
-			res.render('studentInfo');
+			res.render('dashboard');
 		}
 	},
 
@@ -56,6 +47,7 @@ module.exports = {
 				ID: req.body.idNumber,
 				grade: req.body.grade,
 				primaryExceptionality: req.body.primary,
+				caseManager: req.user._id,
 				history: [],
 				accommodations: [],
 			});
@@ -71,7 +63,6 @@ module.exports = {
 	addGoals: async (req, res) => {
 		try {
 			const succeed = req.body.succeed === 'on' ? true : false;
-			const goalGrade = req.body.goalGrade;
 			let domain;
 			switch (req.body.domain) {
 				case 'curriculum':
@@ -90,19 +81,18 @@ module.exports = {
 					domain = 'Communication';
 					break;
 			}
-			const goal = {
+			const goal = await Goal.create({
+				grade: req.body.goalGrade,
 				domain: domain,
 				text: req.body.goalText,
 				succeed: succeed,
 				notes: req.body.notes,
-			};
-			console.log(goal);
-			console.log(goalGrade);
+			});
 			const student = Student.find({
 				ID: req.body.ID,
 			});
 			await student.updateOne({
-				$push: { [goalGrade]: { goal } },
+				$push: { history: goal },
 			});
 		} catch (error) {
 			console.error(error);

@@ -1,0 +1,256 @@
+
+html 
+  include partials/_head.pug
+  body
+    h1 Search a student 
+    form(action="/student/searchStudent" method="GET")
+      p ID Number
+        input(type="text" name="ID" placeholder="")
+      input(type="submit", value="Search!")
+
+    h1 Full Name: #{name}
+    h2(class='ID') ID Number: #{ID} 
+    h2 Grade: #{grade} 
+    h2 Case Manager: #{caseManager}
+    h3 Primary Exceptionality: #{primary}
+    h1 Goal History: 
+    if history
+      ul 
+        for goal in history
+          div.goal__container
+            h1= goal.grade
+              div.goal__information
+                h4 Domain
+                span= goal.domain
+              div.goal__information
+                h4 Text
+                span= goal.text
+              div.goal__information
+                h4 Succeed
+                if goal.succeed === true
+                  span.green True
+                else
+                  span.red False
+              div.goal__information
+                h4 Notes
+                span= goal.notes
+          //- h3 First Grade
+        //- for goal in history[1]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Second Grade
+        //- for goal in history[2]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Third Grade
+        //- for goal in history[3]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Fourth Grade
+        //- for goal in history[4]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Fifth Grade
+        //- for goal in history[5]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Sixth Grade
+        //- for goal in history[6]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Seventh Grade
+        //- for goal in history[7]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Eighth Grade
+        //- for goal in history[8]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Ninth Grade
+        //- for goal in history[9]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Tenth Grade
+        //- for goal in history[10]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Eleventh Grade
+        //- for goal in history[11]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Twelfth Grade
+        //- for goal in history[12]
+        //-   div.goal__container
+        //-     div.goal__information
+        //-       h4 Domain
+        //-       span= goal.goal.domain
+        //-     div.goal__information
+        //-       h4 Text
+        //-       span= goal.goal.text
+        //-     div.goal__information
+        //-       h4 Succeed
+        //-       if goal.goal.succeed === true
+        //-         span.green= goal.goal.succeed
+        //-       else
+        //-         span.red= goal.goal.succeed
+        //-     div.goal__information
+        //-       h4 Notes
+        //-       span= goal.goal.notes
+        //- h3 Post
+    a(href="/student/addNewStudent") Add a new student
+    script(src="../js/student.js") 
+//- action="/student/searchStudent" method="GET"
