@@ -1,6 +1,6 @@
-include partials/_head.pug
+
 html 
-  head
+  include partials/_head.pug
   body
     h1 Search a student 
     form(action="/student/searchStudent" method="GET")
@@ -33,7 +33,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 First
+        h3 First Grade
         for goal in history[1]
           div.goal__container
             div.goal__information
@@ -51,7 +51,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 Second
+        h3 Second Grade
         for goal in history[2]
           div.goal__container
             div.goal__information
@@ -69,7 +69,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 3
+        h3 Third Grade
         for goal in history[3]
           div.goal__container
             div.goal__information
@@ -87,7 +87,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 4
+        h3 Fourth Grade
         for goal in history[4]
           div.goal__container
             div.goal__information
@@ -105,7 +105,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 5
+        h3 Fifth Grade
         for goal in history[5]
           div.goal__container
             div.goal__information
@@ -123,7 +123,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 6
+        h3 Sixth Grade
         for goal in history[6]
           div.goal__container
             div.goal__information
@@ -141,7 +141,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 7
+        h3 Seventh Grade
         for goal in history[7]
           div.goal__container
             div.goal__information
@@ -159,7 +159,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 8
+        h3 Eighth Grade
         for goal in history[8]
           div.goal__container
             div.goal__information
@@ -177,7 +177,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 9
+        h3 Ninth Grade
         for goal in history[9]
           div.goal__container
             div.goal__information
@@ -195,7 +195,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 10
+        h3 Tenth Grade
         for goal in history[10]
           div.goal__container
             div.goal__information
@@ -213,7 +213,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 11
+        h3 Eleventh Grade
         for goal in history[11]
           div.goal__container
             div.goal__information
@@ -231,7 +231,7 @@ html
             div.goal__information
               h4 Notes
               span= goal.goal.notes
-        h3 12
+        h3 Twelfth Grade
         for goal in history[12]
           div.goal__container
             div.goal__information

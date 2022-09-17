@@ -1,0 +1,15 @@
+.dashboard__list {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 3rem;
+}
+.dashboard__listitem {
+	height: 200px;
+	border: 2px solid black;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}
+.card__container {
+	margin-block: auto;
+}

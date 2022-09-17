@@ -19,8 +19,9 @@ module.exports = {
 				ID: student.ID,
 				grade: student.grade,
 				primary: student.primaryExceptionality,
+
 				history: [
-					student.GradeK,
+					student.GradeK.sort(),
 					student.Grade1,
 					student.Grade2,
 					student.Grade3,
@@ -106,6 +107,8 @@ module.exports = {
 		} catch (error) {
 			console.error(error);
 		}
-		res.redirect('/student/addGoals');
+		res.render('addGoals.pug', {
+			ID: req.body.ID,
+		});
 	},
 };

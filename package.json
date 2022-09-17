@@ -25,6 +25,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
+    "sass": "^1.54.9",
     "validator": "^13.6.0"
   }
 }

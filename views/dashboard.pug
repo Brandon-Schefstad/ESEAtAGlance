@@ -1,8 +1,19 @@
 html 
-  head
+  include partials/_head.pug
   body
-    h1 YOU DID IT!! 
-    a(class='button', href='/student') Student
-    a(class='button', href='/student/addNewStudent') Add Student
-    br
-    a(class='button', href='/logout') Logout
+    h1 Welcome to your dashboard:
+    ul.dashboard__list
+      li.dashboard__listitem
+        div.card__container
+          h2 Search Student: 
+          form(action="/student/searchStudent" method="GET")
+            p ID Number
+              input(type="text" name="ID" placeholder="Use '123' for testing")
+            input(type="submit", value="Search!")
+      li.dashboard__listitem
+        div.card__container
+         a(class='button', href='/student/addNewStudent') Add Student
+      li.dashboard__listitem
+        div.card__container
+         a(class='button', href='/student/addGoals') Add Goal
+    a.logout.navbutton(class='button', href='/logout') Logout

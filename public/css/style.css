@@ -1,14 +1,61 @@
-.goal__container {
-	border: 2px solid red;
-	display: flex;
+.login__container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4rem;
 }
-.green {
-	color: green;
+
+.title {
+  display: block;
+  text-align: center;
+  font-size: 3rem;
 }
-.red {
-	color: red;
+
+.login {
+  margin: auto;
 }
-.goal__information {
-	display: grid;
-	grid-template-columns: 350px;
+
+.login__list {
+  list-style: none;
 }
+
+.navbutton {
+  display: block;
+  margin: auto;
+  font-size: 1.5rem;
+  background: blue;
+  color: white;
+  text-decoration: underline;
+  text-align: center;
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-radius: 2rem;
+}
+
+.logout {
+  width: 50%;
+}
+
+.dashboard__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.dashboard__listitem {
+  height: 200px;
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.card__container {
+  margin-block: auto;
+}
+
+body {
+  padding: 2rem;
+}
+
+/*# sourceMappingURL=style.css.map */

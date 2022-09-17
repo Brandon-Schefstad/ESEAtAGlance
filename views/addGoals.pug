@@ -4,6 +4,9 @@ html
     h2 History
     form(action="/student/addGoals" method="POST")
       p ID Number:
+      if ID 
+        input(type="text" name="ID" value=ID)
+      else
         input(type="text" name="ID" placeholder="")
       p What grade is this goal for?
         br

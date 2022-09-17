@@ -3,7 +3,7 @@ const router = express.Router();
 const studentController = require('../controllers/student');
 const { ensureAuth } = require('../middleware/auth');
 
-router.get('/', ensureAuth, studentController.getStudent);
+// router.get('/', ensureAuth, studentController.getStudent);
 router.get('/searchStudent', ensureAuth, studentController.searchStudent);
 router.post('/searchStudent', ensureAuth, studentController.searchStudent);
 router.get('/addNewStudent', ensureAuth, studentController.addNewStudent);
