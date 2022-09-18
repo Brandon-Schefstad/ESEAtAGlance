@@ -16,18 +16,25 @@ module.exports = {
 				})
 				.lean();
 			student = student[0];
-			student.history.forEach((grade) => {
-				console.log(grade.grade.split('th'));
+			console.log('line19');
+			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+			student.history.forEach((goal) => {
+				history[parseInt(goal.grade)].push(goal);
 			});
-			student.history.sort((a, b) => (a.grade > b.grade ? 1 : -1));
-			res.render('searchStudent', {
+			let returnHistory = history.filter((subArr) => {
+				return subArr.length > 0;
+			});
+			console.log(returnHistory);
+			const resObject = {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
 				grade: student.grade,
 				caseManager: student.caseManager.userName,
 				primary: student.primaryExceptionality,
-				history: student.history,
-			});
+				history: returnHistory,
+			};
+			console.log(resObject);
+			res.render('searchStudent', { data: resObject });
 		} catch (error) {
 			res.render('dashboard');
 		}
