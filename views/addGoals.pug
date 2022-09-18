@@ -1,6 +1,7 @@
 html 
-  head
+  include partials/_head.pug
   body
+    include partials/_nav.pug
     h2 History
     form(action="/student/addGoals" method="POST")
       p ID Number:
@@ -42,5 +43,6 @@ html
       input(type="submit", value="Submit Goal")
       br
       a(href="/dashboard") Back to Dashboard 
+  include partials/_footer.pug
 
 script(src="../js/main.js") 

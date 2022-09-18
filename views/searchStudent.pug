@@ -2,6 +2,7 @@
 html 
   include partials/_head.pug
   body
+    include partials/_nav.pug
     h1 Search a student 
     form(action="/student/searchStudent" method="GET")
       p ID Number
@@ -34,5 +35,5 @@ html
 
 
     a(href="/student/addNewStudent") Add a new student
-    script(src="../js/student.js") 
+   include partials/_footer.pug 
 //- action="/student/searchStudent" method="GET"

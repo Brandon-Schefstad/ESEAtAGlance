@@ -1,6 +1,7 @@
 html 
-  head
+  include partials/_head.pug
   body
+    include partials/_nav.pug
     h1 STUDENT VIEW
     form(action="/student/addNewStudent" method="POST")
       p First Name:
@@ -14,5 +15,5 @@ html
       p Primary Exceptionality:
         input(type="text" name="primary" placeholder="")
       input(type="submit")
-    
+      include partials/_footer.pug
     a(class='button', href='/logout') Logout
