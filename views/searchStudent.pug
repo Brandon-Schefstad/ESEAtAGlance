@@ -28,7 +28,8 @@ html
       div 
         h3= goal.domain 
         span= goal.text 
-        span= goal.succeed 
+        br
+        span Attained? #{goal.succeed.toString()[0].toUpperCase()} 
         span= goal.notes
 
 
