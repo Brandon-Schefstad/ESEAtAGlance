@@ -1,22 +1,19 @@
 html 
   include partials/_head.pug
   body
+    include partials/_nav.pug
     h1 Welcome to your dashboard:
     ul.dashboard__list
+     h2 Search Student: 
       li.dashboard__listitem
         div.card__container
-          h2 Search Student: 
+          
           form(action="/student/searchStudent" method="GET")
             p ID Number
               input(type="text" name="ID" placeholder="Use '123' for testing")
             input(type="submit", value="Search!")
-      li.dashboard__listitem
-        div.card__container
-         a(class='button', href='/student/addNewStudent') Add Student
-      li.dashboard__listitem
-        div.card__container
-         a(class='button', href='/student/addGoals') Add Goal
-      li.dashboard__listitem
-        div.card__container
-         a(class='button', href='/teacher/studentList') See your students
+      h2 At-A-Glance
+        li.dashboard__listitem 
+          div.card__container
+    include partials/_footer.pug
     a.logout.navbutton(class='button', href='/logout') Logout

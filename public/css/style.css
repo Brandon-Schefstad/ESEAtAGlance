@@ -1,3 +1,4 @@
+@import 'https://unpkg.com/open-props';
 .login__container {
   display: flex;
   flex-direction: column;
@@ -38,7 +39,6 @@
 
 .dashboard__list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
   gap: 3rem;
 }
 
@@ -63,13 +63,88 @@
   height: 50px;
 }
 
+.nav__list {
+  display: flex;
+  position: relative;
+  list-style: none;
+  background-color: var(--gray-8);
+  padding-left: 20rem;
+  margin-bottom: 3rem;
+}
+
+.nav__listitem {
+  padding-inline: 5rem;
+  padding-block: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
+}
+.nav__listitem > a {
+  color: var(--green-4);
+  text-decoration: none;
+}
+.nav__listitem:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+  width: 30%;
+  position: absolute;
+  left: 1%;
+  border-radius: 2rem;
+}
+
+.add {
+  position: relative;
+}
+
+.add__options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  top: 5rem;
+  padding-inline: 1rem;
+  width: 100%;
+  left: 0px;
+  background-color: var(--gray-8);
+  font-size: 80%;
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+.add__options > a {
+  color: var(--green-4);
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
 body {
-  padding: 2rem;
+  padding-inline: 2rem;
 }
 
 .green {
   color: green;
   text-decoration: underline;
+}
+
+/* light */
+html {
+  --brand-light: var(--orange-6);
+  --text1-light: var(--gray-8);
+  --text2-light: var(--gray-7);
+  --surface1-light: var(--gray-0);
+  --surface2-light: var(--gray-1);
+  --surface3-light: var(--gray-2);
+  --surface4-light: var(--gray-3);
+  --surface-shadow-light: 200 10% 20%;
+  --shadow-strength-light: 2%;
 }
 
 /*# sourceMappingURL=style.css.map */
