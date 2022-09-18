@@ -2,17 +2,12 @@ nav.nav
   ul.nav__list
     li.logo 
       a(href="/dashboard") 
-        img.logo(src="/assets/logo.png", alt="")
-        
-    li.nav__listitem
-      a(class='button', href='/dashboard') Dashboard
-    li.nav__listitem.add
-      a(class='button', href='/student/addNewStudent') Add
-      .hidden.add__options
-        a(class='button', href='/student/addNewStudent') Add Student
-        br
-        a(class='button', href='/student/addGoals') Add Goal
-    li.nav__listitem
-      a(class='button', href='/student/searchStudent') Search
-    li.nav__listitem
-      a(class='button', href='/teacher/studentList') Your Students
+        img.logo(src="/assets/logo.png", alt="")  
+    a(class='nav__btn', href='/dashboard') Dashboard    
+      a(class='nav__btn add') Add
+      div.hidden.add__options
+        a(class='nav__btn', href='/student/addNewStudent') Student
+        a(class='nav__btn', href='/student/addGoals') Goal
+        a(class='nav__btn', href='/student/addGoals') Accommodation
+    a(class='nav__btn', href='/student/searchStudent') Search
+    a(class='nav__btn', href='/teacher/studentList') Your Students

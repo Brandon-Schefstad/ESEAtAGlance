@@ -70,28 +70,32 @@
   background-color: var(--gray-8);
   padding-left: 20rem;
   margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
-.nav__listitem {
-  padding-inline: 5rem;
-  padding-block: 1rem;
+a.nav__btn {
+  color: var(--green-4);
+  text-decoration: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 2rem;
+  padding-inline: 5rem;
+  padding-block: 1rem;
 }
-.nav__listitem > a {
-  color: var(--green-4);
-  text-decoration: none;
-}
-.nav__listitem:hover {
+a.nav__btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav__listitem {
+  font-size: 2rem;
 }
 
 .logo {
   width: 30%;
+  min-width: 180px;
+  max-width: 500px;
   position: absolute;
-  left: 1%;
+  left: 1rem;
   border-radius: 2rem;
 }
 
@@ -101,20 +105,14 @@
 
 .add__options {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   text-align: center;
+  display: flex;
+  gap: 1rem;
   top: 5rem;
-  padding-inline: 1rem;
-  width: 100%;
-  left: 0px;
+  left: 38.5rem;
   background-color: var(--gray-8);
-  font-size: 80%;
   border-bottom-left-radius: 2rem;
   border-bottom-right-radius: 2rem;
-  padding-inline: 2rem;
-  padding-block: 1rem;
 }
 .add__options > a {
   color: var(--green-4);
