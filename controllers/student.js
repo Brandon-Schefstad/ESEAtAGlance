@@ -1,4 +1,5 @@
 const Student = require('../models/Student');
+const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
 
 module.exports = {
@@ -111,11 +112,19 @@ module.exports = {
 		});
 	},
 	addAccommodations: async (req, res) => {
-		console.log('accoms');
+		//  Add dynamic page for add/delete accoms?
 		res.render('addAccommodations');
 	},
 	postAccommodations: async (req, res) => {
-		console.log('accoms');
+		console.log(req.body);
+		let student = await Student.findOne({
+			ID: req.body.ID,
+		});
+		let accommodationArray = Object.keys(req.body).filter((element) => {
+			return element !== 'ID';
+		});
+		console.log(accommodationArray);
+		const accommodation = await Accommodations.create({});
 		res.render('addAccommodations');
 	},
 };
