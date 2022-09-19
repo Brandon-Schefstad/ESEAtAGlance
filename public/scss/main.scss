@@ -6,8 +6,17 @@
 
 @import 'https://unpkg.com/open-props';
 
+$dark-blue: #515fce;
+$light-blue: #72d3f7;
+$dark-organge: #f6902d;
+$lightest-orange: #f4dbae;
+$light-orange: #facc75;
+$white: #fafafe;
+
 body {
 	padding-inline: 2rem;
+	color: black;
+	background-color: $lightest-orange;
 }
 
 .green {
@@ -15,6 +24,14 @@ body {
 	text-decoration: underline;
 }
 
+.dropout {
+	animation: var(--animation-fade-out) forwards,
+		var(--animation-slide-out-down);
+	animation-timing-function: var(--ease-squish-3);
+	animation-duration: 1s;
+}
+
+//
 html {
 	font-size: 62.5%;
 }

@@ -1,22 +1,41 @@
+@import 'config.scss';
 .student__info {
 	font-size: 2rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding-left: 4rem;
 }
 .grade__info {
-	height: 250px;
+	height: 350px;
 	display: flex;
 	gap: 4rem;
 	position: relative;
 	overflow-x: scroll;
 }
 .goal__info {
-	display: flex;
-	width: 350px;
-	flex-direction: column;
-	text-align: center;
+	font-size: 115%;
+	color: black;
+	display: grid;
+	width: 390px;
+	grid-template-rows: 1fr 1fr 0.2fr;
+	text-align: left;
 	border: 2px solid black;
-	padding: 3rem;
+	padding-inline: 3rem;
+	padding-top: 3rem;
 	margin-bottom: 1rem;
+	border-radius: var(--radius-3);
+	box-shadow: var(--shadow-2);
+	background-color: $light-blue;
+	opacity: 70%;
 }
+.goal__attained {
+	background-color: $light-orange;
+	color: black;
+	opacity: 100%;
+}
+// .text__container {
+// 	height: 130px;
+// }
 .carousel__container {
 	// width: 150%;
 	display: flex;
