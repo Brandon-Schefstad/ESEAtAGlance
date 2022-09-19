@@ -18,9 +18,10 @@ module.exports = {
 				.populate({
 					path: 'caseManager',
 				})
+				.populate({
+					path: 'accommodations',
+				})
 				.lean();
-			// student = student[0];
-			console.log(student);
 			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal);
@@ -35,6 +36,7 @@ module.exports = {
 				caseManager: student.caseManager.userName,
 				primary: student.primaryExceptionality,
 				history: returnHistory,
+				accommodations: student.accommodations,
 			};
 			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
@@ -120,11 +122,22 @@ module.exports = {
 		let student = await Student.findOne({
 			ID: req.body.ID,
 		});
+		// console.log(student);
 		let accommodationArray = Object.keys(req.body).filter((element) => {
 			return element !== 'ID';
 		});
-		console.log(accommodationArray);
-		const accommodation = await Accommodations.create({});
+		let accommodationPushArray = [];
+		for (let i = 0; i < accommodationArray.length; i++) {
+			const returnAccomm = await Accommodations.create({
+				student: student._id,
+				name: accommodationArray[i],
+				dateAdded: Date.now(),
+			});
+			accommodationPushArray.push(returnAccomm);
+		}
+		await student.updateOne({
+			$push: { accommodations: accommodationPushArray },
+		});
 		res.render('addAccommodations');
 	},
 };

@@ -6,11 +6,14 @@ const AccommodationSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Student',
 	},
-	description: {
+	name: {
 		type: String,
+		required: true,
+		unique: true,
 	},
-	Testing: {
-		type: Boolean,
+	dateAdded: {
+		type: Date,
+		default: Date.now(),
 	},
 });
 module.exports = mongoose.model('Accommodations', AccommodationSchema);
