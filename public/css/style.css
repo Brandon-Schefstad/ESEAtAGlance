@@ -9,7 +9,7 @@
 }
 
 .large {
-  font-size: 500%;
+  font-size: 300%;
 }
 
 .login__container {
@@ -77,16 +77,22 @@
 }
 
 .large {
-  font-size: 500%;
+  font-size: 300%;
 }
 
-.search {
-  font-size: 200%;
+.student {
+  font-size: 1rem;
+  width: 80%;
+  margin: auto;
   padding-inline: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.6fr 1fr;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.student__search {
+  font-size: 1.5rem;
 }
 
 .input {
@@ -124,7 +130,6 @@
 }
 
 .grade__info {
-  height: 350px;
   border-radius: 1rem;
   display: flex;
   gap: 4rem;
@@ -138,7 +143,7 @@
   background-color: #e4edff;
   border-radius: 1rem;
   padding-inline: 2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -146,7 +151,7 @@
   font-size: 150%;
   display: grid;
   gap: 1rem;
-  width: 390px;
+  width: 450px;
   grid-template-rows: 1fr 0.3fr 0.5fr;
   text-align: left;
   border: 2px solid white;
@@ -174,7 +179,7 @@
 }
 
 .attained {
-  border: 2px solid white;
+  border: 3px solid rgb(26, 201, 26);
 }
 
 .carousel__container {
@@ -193,19 +198,23 @@
 }
 
 .large {
-  font-size: 500%;
+  font-size: 300%;
 }
 
 .nav__list {
+  width: 100%;
+  background-color: #0893a0;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+
+.center {
   display: flex;
   position: relative;
   list-style: none;
-  background-color: #0893a0;
-  padding-left: 20rem;
-  margin-bottom: 2rem;
-  margin-inline: 2rem;
-  font-size: 2rem;
-  border-radius: 1rem;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 4rem;
 }
 
 a.nav__btn {
@@ -244,7 +253,7 @@ a.nav__btn:hover {
   display: flex;
   gap: 1rem;
   top: 5rem;
-  left: 38.5rem;
+  left: 19.2rem;
   background-color: #0893a0;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -266,7 +275,7 @@ a.nav__btn:hover {
 }
 
 .large {
-  font-size: 500%;
+  font-size: 300%;
 }
 
 body {

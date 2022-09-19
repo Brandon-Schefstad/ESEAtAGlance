@@ -1,11 +1,16 @@
 @import 'config.scss';
-.search {
-	font-size: 200%;
+.student {
+	font-size: 1rem;
+	width: 80%;
+	margin: auto;
 	padding-inline: 2rem;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 0.6fr 1fr;
 	gap: 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
+}
+.student__search {
+	font-size: 1.5rem;
 }
 .input {
 	width: 80%;
@@ -37,7 +42,7 @@
 	color: black;
 }
 .grade__info {
-	height: 350px;
+	// height: 350px;
 	border-radius: 1rem;
 	display: flex;
 	gap: 4rem;
@@ -50,14 +55,14 @@
 	background-color: $white;
 	border-radius: 1rem;
 	padding-inline: 2rem;
-	padding-top: 2rem;
+	padding-top: 1rem;
 	margin-bottom: 1rem;
 }
 .goal__info {
 	font-size: 150%;
 	display: grid;
 	gap: 1rem;
-	width: 390px;
+	width: 450px;
 	grid-template-rows: 1fr 0.3fr 0.5fr;
 	text-align: left;
 	border: 2px solid white;
@@ -82,7 +87,7 @@
 	border: 2px solid black;
 }
 .attained {
-	border: 2px solid white;
+	border: 3px solid rgb(26, 201, 26);
 }
 .carousel__container {
 	// width: 150%;

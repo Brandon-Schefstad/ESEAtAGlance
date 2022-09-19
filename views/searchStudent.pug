@@ -3,19 +3,20 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    section.search
-      h1 Search a student 
-        form(action="/student/searchStudent" method="GET" class="search__form")
-          p ID Number: 
-            input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
-          input(type="submit", value="Search!" class='search__btn')
+    section.student
+      section.student__search
+        h1 Search a student 
+          form(action="/student/searchStudent" method="GET" class="search__form")
+            p ID Number: 
+              input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
+            input(type="submit", value="Search!" class='search__btn')
       if data
           section.student__info
             h1 Full Name: #{data.name}
             h1(class='ID') ID Number: #{data.ID} 
-            h2 Grade: #{data.grade} 
-            h2 Case Manager: #{data.caseManager}
-            h3 Primary Exceptionality: #{data.primary}
+            h1 Grade: #{data.grade} 
+            h1 Case Manager: #{data.caseManager}
+            h1 Primary Exceptionality: #{data.primary}
   if data
     for grade in data.history 
       - var gradeCheck = grade[0].grade
