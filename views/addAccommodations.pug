@@ -1,6 +1,29 @@
 html 
   include partials/_head.pug
 body
-  
   include partials/_nav.pug
+  form(action="/student/addAccommodations" method="POST")
+      p ID Number:
+      if ID 
+        input(type="text" name="ID" value=ID)
+      else
+        input(type="text" name="ID" placeholder="")
+      h1 Accommodations List 
+      h1 Presentation
+      section.presentation
+        input(type="checkbox" name="sign_language") 
+        label(for="sign_language") Sign Language
+        input(type="checkbox" name="large_print") 
+        label(for="large_print") Large Print
+        input(type="checkbox" name="color_contrast") 
+        label(for="color_contrast") Color Contrast
+        input(type="checkbox" name="video_recordings") 
+        label(for="video_recordings") Video Recordings
+      h1 Response
+      section.response
+      h1 Setting
+      section.setting
+      h1 Scheduling
+      section.scheduling
+      input(type="submit", value="TURN IT IN") 
   include partials/_footer.pug
