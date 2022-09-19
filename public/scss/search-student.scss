@@ -1,7 +1,24 @@
-.goal__container {
-	margin-bottom: 1rem;
-	margin-inline: 5rem;
+.student__info {
+	font-size: 2rem;
 }
-.goal__information {
-	height: 50px;
+.grade__info {
+	height: 250px;
+	display: flex;
+	gap: 4rem;
+	position: relative;
+	overflow-x: scroll;
+}
+.goal__info {
+	display: flex;
+	width: 350px;
+	flex-direction: column;
+	text-align: center;
+	border: 2px solid black;
+	padding: 3rem;
+	margin-bottom: 1rem;
+}
+.carousel__container {
+	// width: 150%;
+	display: flex;
+	gap: 2rem;
 }
