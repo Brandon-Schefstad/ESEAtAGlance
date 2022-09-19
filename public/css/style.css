@@ -1,4 +1,17 @@
 @import 'https://unpkg.com/open-props';
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 500%;
+}
+
 .login__container {
   display: flex;
   flex-direction: column;
@@ -24,9 +37,9 @@
   display: block;
   margin: auto;
   font-size: 1.5rem;
-  background: blue;
-  color: white;
-  text-decoration: underline;
+  background: #2c1b48;
+  text-decoration: none;
+  color: #d27d3f;
   text-align: center;
   padding-inline: 1rem;
   padding-block: 0.5rem;
@@ -34,7 +47,7 @@
 }
 
 .logout {
-  width: 50%;
+  width: 25%;
 }
 
 .dashboard__list {
@@ -63,20 +76,56 @@
   text-align: left;
 }
 
-.student__info {
-  font-size: 2rem;
+.large {
+  font-size: 500%;
+}
+
+.search {
+  font-size: 200%;
+  padding-inline: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding-left: 4rem;
-  background-color: #fafafe;
-  color: black;
-  padding-block: 2rem;
-  margin-inline: 2rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.input {
+  width: 80%;
   border-radius: 1rem;
 }
 
+.search__form {
+  justify-items: left;
+  gap: 1rem;
+}
+
+.search__btn {
+  background-color: #2c1b48;
+  color: white;
+  border-radius: 1rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.student__info {
+  font-size: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  background-color: #e4edff;
+  color: black;
+  border-radius: 1rem;
+}
+
+.grade__header {
+  color: black;
+}
+
 .grade__info {
-  height: 300px;
+  height: 350px;
+  border-radius: 1rem;
   display: flex;
   gap: 4rem;
   position: relative;
@@ -84,47 +133,83 @@
   margin-bottom: 2rem;
 }
 
+.grade__info__container {
+  grid-column: 1/span 2;
+  background-color: #e4edff;
+  border-radius: 1rem;
+  padding-inline: 2rem;
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+
 .goal__info {
   font-size: 150%;
-  color: black;
   display: grid;
+  gap: 1rem;
   width: 390px;
-  grid-template-rows: 1fr 0.2fr 0.4fr;
+  grid-template-rows: 1fr 0.3fr 0.5fr;
   text-align: left;
-  border: 2px solid black;
+  border: 2px solid white;
   padding-inline: 3rem;
-  padding-top: 3rem;
-  margin-bottom: 1rem;
+  padding-block: 1rem;
+  margin-bottom: 3rem;
   border-radius: var(--radius-3);
-  box-shadow: var(--shadow-2);
-  background-color: #63c5cf;
-  opacity: 70%;
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+  background-color: #d27d3f;
+  opacity: 90%;
 }
 
 .goal__attained {
-  background-color: #c17344;
-  color: black;
+  background-color: #0893a0;
+  color: #2c1b48;
   opacity: 100%;
+}
+
+.text__container {
+  background-color: #c6d0e5;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+.attained {
+  border: 2px solid white;
 }
 
 .carousel__container {
   display: flex;
   gap: 2rem;
+  border-radius: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 500%;
 }
 
 .nav__list {
   display: flex;
   position: relative;
   list-style: none;
-  background-color: var(--gray-8);
+  background-color: #0893a0;
   padding-left: 20rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  margin-inline: 2rem;
   font-size: 2rem;
   border-radius: 1rem;
 }
 
 a.nav__btn {
-  color: var(--green-4);
+  color: #2c1b48;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -160,14 +245,15 @@ a.nav__btn:hover {
   gap: 1rem;
   top: 5rem;
   left: 38.5rem;
-  background-color: var(--gray-8);
+  background-color: #0893a0;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
 .add__options > a {
-  color: var(--green-4);
+  color: #2c1b48;
   text-decoration: none;
-  border-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 .hidden {
@@ -179,11 +265,15 @@ a.nav__btn:hover {
   text-align: left;
 }
 
+.large {
+  font-size: 500%;
+}
+
 body {
   padding-inline: 2rem;
-  color: white;
+  color: #2c1b48;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background-color: #2d1d49;
+  background-color: #c6d0e5;
 }
 
 .green {

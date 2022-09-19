@@ -1,49 +1,92 @@
 @import 'config.scss';
-.student__info {
-	font-size: 2rem;
+.search {
+	font-size: 200%;
+	padding-inline: 2rem;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	padding-left: 4rem;
-	background-color: $white;
-	color: black;
-	padding-block: 2rem;
-	margin-inline: 2rem;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+.input {
+	width: 80%;
 	border-radius: 1rem;
 }
+.search__form {
+	justify-items: left;
+	gap: 1rem;
+}
+.search__btn {
+	background-color: $dark-blue;
+	color: white;
+	border-radius: 1rem;
+	padding-inline: 2rem;
+	padding-block: 1rem;
+}
+.student__info {
+	font-size: 1.5rem;
+	display: grid;
+	gap: 1rem;
+	text-align: left;
+	grid-template-columns: 1fr 1fr;
+	padding: 2rem;
+	background-color: $white;
+	color: black;
+	border-radius: 1rem;
+}
+.grade__header {
+	color: black;
+}
 .grade__info {
-	height: 300px;
+	height: 350px;
+	border-radius: 1rem;
 	display: flex;
 	gap: 4rem;
 	position: relative;
 	overflow-x: scroll;
 	margin-bottom: 2rem;
 }
+.grade__info__container {
+	grid-column: 1 / span 2;
+	background-color: $white;
+	border-radius: 1rem;
+	padding-inline: 2rem;
+	padding-top: 2rem;
+	margin-bottom: 1rem;
+}
 .goal__info {
 	font-size: 150%;
-	color: black;
 	display: grid;
+	gap: 1rem;
 	width: 390px;
-	grid-template-rows: 1fr 0.2fr 0.4fr;
+	grid-template-rows: 1fr 0.3fr 0.5fr;
 	text-align: left;
-	border: 2px solid black;
+	border: 2px solid white;
 	padding-inline: 3rem;
-	padding-top: 3rem;
-	margin-bottom: 1rem;
+	padding-block: 1rem;
+	margin-bottom: 3rem;
 	border-radius: var(--radius-3);
-	box-shadow: var(--shadow-2);
-	background-color: $light-blue;
-	opacity: 70%;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+	background-color: $dark-orange;
+	opacity: 90%;
 }
 .goal__attained {
-	background-color: $dark-orange;
-	color: black;
+	background-color: $light-blue;
+	color: $dark-blue;
 	opacity: 100%;
 }
-// .text__container {
-// 	height: 130px;
-// }
+.text__container {
+	background-color: $light-grey;
+	color: black;
+	padding: 1rem;
+	border-radius: 1rem;
+	border: 2px solid black;
+}
+.attained {
+	border: 2px solid white;
+}
 .carousel__container {
 	// width: 150%;
 	display: flex;
 	gap: 2rem;
+	border-radius: 1rem;
 }

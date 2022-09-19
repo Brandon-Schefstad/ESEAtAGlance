@@ -8,14 +8,18 @@ module.exports = {
 
 	searchStudent: async (req, res) => {
 		try {
-			let student = await Student.find({
+			let student = await Student.findOne({
 				ID: req.query.ID,
 			})
 				.populate({
 					path: 'history',
 				})
+				.populate({
+					path: 'caseManager',
+				})
 				.lean();
-			student = student[0];
+			// student = student[0];
+			console.log(student);
 			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal);
@@ -23,7 +27,6 @@ module.exports = {
 			let returnHistory = history.filter((subArr) => {
 				return subArr.length > 0;
 			});
-			console.log(returnHistory);
 			const resObject = {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
@@ -32,6 +35,7 @@ module.exports = {
 				primary: student.primaryExceptionality,
 				history: returnHistory,
 			};
+			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
 		} catch (error) {
 			res.render('searchStudent');

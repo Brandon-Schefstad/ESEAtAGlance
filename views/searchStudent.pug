@@ -3,27 +3,30 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    h1 Search a student 
-    form(action="/student/searchStudent" method="GET")
-      p ID Number
-        input(type="text" name="ID" placeholder="")
-      input(type="submit", value="Search!")
+    section.search
+      h1 Search a student 
+        form(action="/student/searchStudent" method="GET" class="search__form")
+          p ID Number: 
+            input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
+          input(type="submit", value="Search!" class='search__btn')
+      if data
+          section.student__info
+            h1 Full Name: #{data.name}
+            h1(class='ID') ID Number: #{data.ID} 
+            h2 Grade: #{data.grade} 
+            h2 Case Manager: #{data.caseManager}
+            h3 Primary Exceptionality: #{data.primary}
   if data
-    section.student__info
-      h1 Full Name: #{data.name}
-      h2(class='ID') ID Number: #{data.ID} 
-      h2 Grade: #{data.grade} 
-      h2 Case Manager: #{data.caseManager}
-      h3 Primary Exceptionality: #{data.primary}
     for grade in data.history 
       - var gradeCheck = grade[0].grade
+      section.grade__info__container
         case gradeCheck
-              when '0': h1 Kindergarten
-              when '1': h1 1st Grade 
-              when '2': h1 2nd Grade 
-              when '3': h1 3rd Grade 
-              when '13': h1 Post-School\
-              default: h1 #{gradeCheck}th Grade
+              when '0': h1.large.grade__header Kindergarten
+              when '1': h1.large.grade__header 1st Grade 
+              when '2': h1.large.grade__header 2nd Grade 
+              when '3': h1.large.grade__header 3rd Grade 
+              when '13': h1.large.grade__header Post-School\
+              default: h1.large.grade__header #{gradeCheck}th Grade
         section.grade__info
           section.carousel__container
             for goal in grade
@@ -32,7 +35,7 @@ html
                   section.text__container
                       span.bold Goal: 
                       span= goal.text
-                  section.text__container
+                  section.text__container.attained
                       span.bold Attained: 
                       span= goal.succeed.toString().toUpperCase()
                   section.text__container

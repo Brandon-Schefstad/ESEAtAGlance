@@ -1,3 +1,4 @@
+@import 'config.scss';
 .login__container {
 	display: flex;
 	flex-direction: column;
@@ -19,14 +20,14 @@
 	display: block;
 	margin: auto;
 	font-size: 1.5rem;
-	background: blue;
-	color: white;
-	text-decoration: underline;
+	background: $dark-blue;
+	text-decoration: none;
+	color: $dark-orange;
 	text-align: center;
 	padding-inline: 1rem;
 	padding-block: 0.5rem;
 	border-radius: 2rem;
 }
 .logout {
-	width: 50%;
+	width: 25%;
 }
