@@ -15,7 +15,6 @@ html
       h2 Grade: #{data.grade} 
       h2 Case Manager: #{data.caseManager}
       h3 Primary Exceptionality: #{data.primary}
-    h1 Goal History: 
     for grade in data.history 
       - var gradeCheck = grade[0].grade
         case gradeCheck

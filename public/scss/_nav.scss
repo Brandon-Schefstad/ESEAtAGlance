@@ -6,6 +6,7 @@
 	padding-left: 20rem;
 	margin-bottom: 3rem;
 	font-size: 2rem;
+	border-radius: 1rem;
 }
 a.nav__btn {
 	color: var(--green-4);
@@ -28,7 +29,7 @@ a.nav__btn {
 	max-width: 500px;
 	position: absolute;
 	left: 1rem;
-	border-radius: 2rem;
+	border-radius: 1rem;
 }
 .add {
 	position: relative;
@@ -41,10 +42,11 @@ a.nav__btn {
 	top: 5rem;
 	left: 38.5rem;
 	background-color: var(--gray-8);
-	border-bottom-left-radius: 2rem;
-	border-bottom-right-radius: 2rem;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
 	& > a {
 		color: var(--green-4);
 		text-decoration: none;
+		border-radius: 1rem;
 	}
 }

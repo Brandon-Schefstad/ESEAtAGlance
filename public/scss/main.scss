@@ -6,17 +6,17 @@
 
 @import 'https://unpkg.com/open-props';
 
-$dark-blue: #515fce;
-$light-blue: #72d3f7;
-$dark-organge: #f6902d;
-$lightest-orange: #f4dbae;
+$dark-blue: #2d1d49;
+$light-blue: #63c5cf;
+$dark-orange: #c17344;
 $light-orange: #facc75;
 $white: #fafafe;
 
 body {
 	padding-inline: 2rem;
-	color: black;
-	background-color: $lightest-orange;
+	color: white;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	background-color: $dark-blue;
 }
 
 .green {

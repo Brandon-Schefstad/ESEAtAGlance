@@ -4,20 +4,26 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	padding-left: 4rem;
+	background-color: $white;
+	color: black;
+	padding-block: 2rem;
+	margin-inline: 2rem;
+	border-radius: 1rem;
 }
 .grade__info {
-	height: 350px;
+	height: 300px;
 	display: flex;
 	gap: 4rem;
 	position: relative;
 	overflow-x: scroll;
+	margin-bottom: 2rem;
 }
 .goal__info {
-	font-size: 115%;
+	font-size: 150%;
 	color: black;
 	display: grid;
 	width: 390px;
-	grid-template-rows: 1fr 1fr 0.2fr;
+	grid-template-rows: 1fr 0.2fr 0.4fr;
 	text-align: left;
 	border: 2px solid black;
 	padding-inline: 3rem;
@@ -29,7 +35,7 @@
 	opacity: 70%;
 }
 .goal__attained {
-	background-color: $light-orange;
+	background-color: $dark-orange;
 	color: black;
 	opacity: 100%;
 }
