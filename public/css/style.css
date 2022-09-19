@@ -188,6 +188,20 @@
   border-radius: 1rem;
 }
 
+.accommodations {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.accommodation__container {
+  background-color: #2c1b48;
+  color: white;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  border-radius: 1rem;
+}
+
 .hidden {
   display: none;
 }

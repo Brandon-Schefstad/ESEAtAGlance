@@ -17,6 +17,12 @@ html
             h1 Grade: #{data.grade} 
             h1 Case Manager: #{data.caseManager}
             h1 Primary Exceptionality: #{data.primary}
+    if data.accommodations.length>0 
+      h1 Accommodations:
+      section.accommodations 
+        for entry in data.accommodations
+          div.accommodation__container 
+            span= entry.name
   if data
     for grade in data.history 
       - var gradeCheck = grade[0].grade

@@ -95,3 +95,16 @@
 	gap: 2rem;
 	border-radius: 1rem;
 }
+
+.accommodations {
+	display: flex;
+	gap: 2rem;
+	margin-bottom: 2rem;
+}
+.accommodation__container {
+	background-color: $dark-blue;
+	color: white;
+	padding-inline: 2rem;
+	padding-block: 1rem;
+	border-radius: 1rem;
+}

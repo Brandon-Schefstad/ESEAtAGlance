@@ -118,23 +118,33 @@ module.exports = {
 		res.render('addAccommodations');
 	},
 	postAccommodations: async (req, res) => {
-		console.log(req.body);
+		// Identify a student
 		let student = await Student.findOne({
 			ID: req.body.ID,
 		});
-		// console.log(student);
+		// Make array of Accommodation names, sans ID
 		let accommodationArray = Object.keys(req.body).filter((element) => {
 			return element !== 'ID';
 		});
+		// Array to push to DB
 		let accommodationPushArray = [];
 		for (let i = 0; i < accommodationArray.length; i++) {
-			const returnAccomm = await Accommodations.create({
-				student: student._id,
+			let accommodation = await Accommodations.findOne({
 				name: accommodationArray[i],
-				dateAdded: Date.now(),
 			});
-			accommodationPushArray.push(returnAccomm);
+			console.log(accommodation);
+			if (!accommodation) {
+				const returnAccomm = await Accommodations.create({
+					student: student._id,
+					name: accommodationArray[i],
+					dateAdded: Date.now(),
+				});
+				accommodationPushArray.push(returnAccomm);
+			} else if (!student.accommodations.includes(accommodation._id)) {
+				accommodationPushArray.push(accommodation._id);
+			}
 		}
+
 		await student.updateOne({
 			$push: { accommodations: accommodationPushArray },
 		});
