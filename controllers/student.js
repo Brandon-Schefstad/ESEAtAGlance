@@ -16,7 +16,6 @@ module.exports = {
 				})
 				.lean();
 			student = student[0];
-			console.log('line19');
 			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal);
@@ -33,10 +32,9 @@ module.exports = {
 				primary: student.primaryExceptionality,
 				history: returnHistory,
 			};
-			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
 		} catch (error) {
-			res.render('dashboard');
+			res.render('searchStudent');
 		}
 	},
 
@@ -107,5 +105,13 @@ module.exports = {
 		res.render('addGoals.pug', {
 			ID: req.body.ID,
 		});
+	},
+	addAccommodations: async (req, res) => {
+		console.log('accoms');
+		res.render('addAccommodations');
+	},
+	postAccommodations: async (req, res) => {
+		console.log('accoms');
+		res.render('addAccommodations');
 	},
 };
