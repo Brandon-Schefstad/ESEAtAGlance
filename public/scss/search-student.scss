@@ -1,7 +1,7 @@
 @import 'config.scss';
 .student {
 	font-size: 1rem;
-	width: 80%;
+	width: 150rem;
 	margin: auto;
 	padding-inline: 2rem;
 	display: grid;
@@ -41,6 +41,9 @@
 .grade__header {
 	color: black;
 }
+.searchStudent__title {
+	font-size: 3rem;
+}
 .grade__info {
 	// height: 350px;
 	border-radius: 1rem;
@@ -57,13 +60,14 @@
 	padding-inline: 2rem;
 	padding-top: 1rem;
 	margin-bottom: 1rem;
+	width: 150rem;
 }
 .goal__info {
 	font-size: 150%;
 	display: grid;
 	gap: 1rem;
 	width: 450px;
-	grid-template-rows: 1fr 0.3fr 0.5fr;
+	grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
 	text-align: left;
 	border: 2px solid white;
 	padding-inline: 3rem;
@@ -97,14 +101,21 @@
 }
 
 .accommodations {
-	display: flex;
-	gap: 2rem;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-column: 1 / span 2;
+	gap: 1rem;
 	margin-bottom: 2rem;
 }
 .accommodation__container {
-	background-color: $dark-blue;
-	color: white;
-	padding-inline: 2rem;
+	border: 2px solid $dark-blue;
+	color: $dark-blue;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.3rem;
+	padding-inline: 1rem;
 	padding-block: 1rem;
 	border-radius: 1rem;
 }

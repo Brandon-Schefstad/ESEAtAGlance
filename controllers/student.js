@@ -132,7 +132,7 @@ module.exports = {
 			let accommodation = await Accommodations.findOne({
 				name: accommodationArray[i],
 			});
-			console.log(accommodation);
+
 			if (!accommodation) {
 				const returnAccomm = await Accommodations.create({
 					student: student._id,
@@ -144,6 +144,7 @@ module.exports = {
 				accommodationPushArray.push(accommodation._id);
 			}
 		}
+		console.log(accommodationPushArray);
 
 		await student.updateOne({
 			$push: { accommodations: accommodationPushArray },

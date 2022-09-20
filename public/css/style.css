@@ -82,7 +82,7 @@
 
 .student {
   font-size: 1rem;
-  width: 80%;
+  width: 150rem;
   margin: auto;
   padding-inline: 2rem;
   display: grid;
@@ -129,6 +129,10 @@
   color: black;
 }
 
+.searchStudent__title {
+  font-size: 3rem;
+}
+
 .grade__info {
   border-radius: 1rem;
   display: flex;
@@ -145,6 +149,7 @@
   padding-inline: 2rem;
   padding-top: 1rem;
   margin-bottom: 1rem;
+  width: 150rem;
 }
 
 .goal__info {
@@ -152,7 +157,7 @@
   display: grid;
   gap: 1rem;
   width: 450px;
-  grid-template-rows: 1fr 0.3fr 0.5fr;
+  grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
   text-align: left;
   border: 2px solid white;
   padding-inline: 3rem;
@@ -189,15 +194,22 @@
 }
 
 .accommodations {
-  display: flex;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column: 1/span 2;
+  gap: 1rem;
   margin-bottom: 2rem;
 }
 
 .accommodation__container {
-  background-color: #2c1b48;
-  color: white;
-  padding-inline: 2rem;
+  border: 2px solid #2c1b48;
+  color: #2c1b48;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+  padding-inline: 1rem;
   padding-block: 1rem;
   border-radius: 1rem;
 }
@@ -216,7 +228,8 @@
 }
 
 .nav__list {
-  width: 100%;
+  width: 175rem;
+  margin: auto;
   background-color: #0893a0;
   font-size: 2rem;
   border-radius: 1rem;
@@ -226,7 +239,6 @@
   display: flex;
   position: relative;
   list-style: none;
-  width: 50%;
   margin: auto;
   margin-bottom: 4rem;
 }
@@ -267,7 +279,7 @@ a.nav__btn:hover {
   display: flex;
   gap: 1rem;
   top: 5rem;
-  left: 19.2rem;
+  left: 0rem;
   background-color: #0893a0;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
@@ -277,6 +289,32 @@ a.nav__btn:hover {
   text-decoration: none;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
+}
+
+.accommodation__form {
+  font-size: 1.5rem;
+}
+
+.accommodation__sectiontitle {
+  display: block;
+  width: 15%;
+}
+
+.presentation__subsection {
+  display: grid;
+  grid-template-columns: 0.1fr 2fr;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  min-width: 60rem;
+}
+
+.presentation__subsection {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1rem;
 }
 
 .hidden {

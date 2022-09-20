@@ -1,6 +1,7 @@
 @import 'config.scss';
 .nav__list {
-	width: 100%;
+	width: 175rem;
+	margin: auto;
 	background-color: $light-blue;
 	font-size: 2rem;
 	border-radius: 1rem;
@@ -9,7 +10,6 @@
 	display: flex;
 	position: relative;
 	list-style: none;
-	width: 50%;
 	margin: auto;
 	margin-bottom: 4rem;
 }
@@ -45,7 +45,7 @@ a.nav__btn {
 	display: flex;
 	gap: 1rem;
 	top: 5rem;
-	left: 19.2rem;
+	left: 0rem;
 	background-color: $light-blue;
 	border-bottom-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
