@@ -53,6 +53,7 @@ module.exports = {
 	// },
 	postNewStudent: async (req, res) => {
 		try {
+			console.log(req.body);
 			await Student.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,

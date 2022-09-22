@@ -69,7 +69,7 @@
 	width: 450px;
 	grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
 	text-align: left;
-	border: 2px solid white;
+	border: 2px solid black;
 	padding-inline: 3rem;
 	padding-block: 1rem;
 	margin-bottom: 3rem;
@@ -82,6 +82,7 @@
 	background-color: $light-blue;
 	color: $dark-blue;
 	opacity: 100%;
+	border: 2px solid white;
 }
 .text__container {
 	background-color: $light-grey;

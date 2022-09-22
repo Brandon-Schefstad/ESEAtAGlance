@@ -1,0 +1,31 @@
+@import 'config.scss';
+
+.index__intro {
+	text-align: center;
+
+	display: block;
+}
+.index__image-wrapper {
+	background-color: $dark-orange;
+	margin-bottom: 2rem;
+}
+.index__title {
+	font-size: 3rem;
+	color: $dark-orange;
+	background-color: $dark-blue;
+	margin-bottom: 2rem;
+}
+a.index__button {
+	width: 75%;
+	padding-block: 1.2rem;
+}
+.index__image {
+	width: 25%;
+	margin: auto;
+}
+.index__buttons {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	width: 50%;
+	margin: auto;
+}

@@ -3,6 +3,7 @@
 @use 'search-student.scss';
 @use 'nav.scss';
 @use '_accommodations.scss';
+@use '_index.scss';
 
 @import 'config.scss';
 @import 'https://unpkg.com/open-props';
@@ -12,6 +13,7 @@ body {
 	color: $dark-blue;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	background-color: $light-grey;
+	padding: 0px;
 }
 
 .green {
@@ -88,7 +90,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-	max-width: 100%;
+	// max-width: 100%;
 	display: block;
 }
 

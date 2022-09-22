@@ -4,17 +4,55 @@
 	flex-direction: column;
 	align-items: stretch;
 	gap: 4rem;
+	font-size: 2rem;
 }
+.signup {
+	margin: auto;
+	font-size: 200%;
+	padding-left: 3rem;
+	display: grid;
+	grid-template-columns: 0.4fr 1fr;
+}
+.signup__form,
+.login__form {
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.login__form {
+	padding-left: 0rem;
+}
+.signup__img {
+	margin-right: 0px;
+}
+
 .title {
 	display: block;
 	text-align: center;
 	font-size: 3rem;
 }
 .login {
-	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 0.4fr;
 }
 .login__list {
 	list-style: none;
+	padding-left: 0rem;
+}
+.login__image {
+	height: 100vh;
+}
+input.login__button,
+input.signup__button {
+	padding-inline: 5rem;
+	margin-top: 2rem;
+	margin-left: 0rem;
+}
+.login__listitem {
+	& > input {
+		width: 100%;
+	}
 }
 .navbutton {
 	display: block;

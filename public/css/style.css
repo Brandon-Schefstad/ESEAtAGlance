@@ -17,6 +17,31 @@
   flex-direction: column;
   align-items: stretch;
   gap: 4rem;
+  font-size: 2rem;
+}
+
+.signup {
+  margin: auto;
+  font-size: 200%;
+  padding-left: 3rem;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.signup__form,
+.login__form {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login__form {
+  padding-left: 0rem;
+}
+
+.signup__img {
+  margin-right: 0px;
 }
 
 .title {
@@ -26,11 +51,28 @@
 }
 
 .login {
-  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
 }
 
 .login__list {
   list-style: none;
+  padding-left: 0rem;
+}
+
+.login__image {
+  height: 100vh;
+}
+
+input.login__button,
+input.signup__button {
+  padding-inline: 5rem;
+  margin-top: 2rem;
+  margin-left: 0rem;
+}
+
+.login__listitem > input {
+  width: 100%;
 }
 
 .navbutton {
@@ -39,7 +81,7 @@
   font-size: 1.5rem;
   background: #2c1b48;
   text-decoration: none;
-  color: #d27d3f;
+  color: #ffd8c6;
   text-align: center;
   padding-inline: 1rem;
   padding-block: 0.5rem;
@@ -159,13 +201,13 @@
   width: 450px;
   grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
   text-align: left;
-  border: 2px solid white;
+  border: 2px solid black;
   padding-inline: 3rem;
   padding-block: 1rem;
   margin-bottom: 3rem;
   border-radius: var(--radius-3);
   box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
-  background-color: #d27d3f;
+  background-color: #ffd8c6;
   opacity: 90%;
 }
 
@@ -173,6 +215,7 @@
   background-color: #0893a0;
   color: #2c1b48;
   opacity: 100%;
+  border: 2px solid white;
 }
 
 .text__container {
@@ -330,11 +373,59 @@ a.nav__btn:hover {
   font-size: 300%;
 }
 
+.index__intro {
+  text-align: center;
+  display: block;
+}
+
+.index__image-wrapper {
+  background-color: #ffd8c6;
+  margin-bottom: 2rem;
+}
+
+.index__title {
+  font-size: 3rem;
+  color: #ffd8c6;
+  background-color: #2c1b48;
+  margin-bottom: 2rem;
+}
+
+a.index__button {
+  width: 75%;
+  padding-block: 1.2rem;
+}
+
+.index__image {
+  width: 25%;
+  margin: auto;
+}
+
+.index__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 50%;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 300%;
+}
+
 body {
   padding-inline: 2rem;
   color: #2c1b48;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: #c6d0e5;
+  padding: 0px;
 }
 
 .green {
@@ -409,7 +500,6 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
   display: block;
 }
 
