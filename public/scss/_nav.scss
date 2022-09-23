@@ -2,7 +2,7 @@
 .nav__list {
 	width: 175rem;
 	margin: auto;
-	background-color: $light-blue;
+	background-color: $dark-orange;
 	font-size: 2rem;
 	border-radius: 1rem;
 }
@@ -18,6 +18,7 @@ a.nav__btn {
 	text-decoration: none;
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.2);
+		outline: 2px solid rgba(0, 0, 0, 0.2);
 	}
 	display: flex;
 	flex-direction: column;

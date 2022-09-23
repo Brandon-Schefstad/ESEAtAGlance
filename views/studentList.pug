@@ -5,6 +5,7 @@ html
   h1 Welcome #{userName}
   h1 Here is your list of students:s 
   if studentList
+    section.student__list
     for student in studentList
       div.student__card
         h1 Student Name: #{student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()}
