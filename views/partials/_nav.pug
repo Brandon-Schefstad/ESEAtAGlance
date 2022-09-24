@@ -1,13 +1,14 @@
 nav.nav
   ul.nav__list
-    li.logo 
-      a(href="/dashboard") 
-        img.logo(src="/assets/logo.png", alt="")  
-    a(class='nav__btn', href='/dashboard') Dashboard    
+    //- li.logo 
+    //-   a(href="/dashboard") 
+    //-     img.logo(src="/assets/logo.png", alt="")  
+    div.center
       a(class='nav__btn add') Add
       div.hidden.add__options
         a(class='nav__btn', href='/student/addNewStudent') Student
         a(class='nav__btn', href='/student/addGoals') Goal
-        a(class='nav__btn', href='/student/addGoals') Accommodation
-    a(class='nav__btn', href='/student/searchStudent') Search
-    a(class='nav__btn', href='/teacher/studentList') Your Students
+        a(class='nav__btn', href='/student/addAccommodations') Accommodation
+      a(class='nav__btn', href='/dashboard') Dashboard    
+      a(class='nav__btn', href='/student/searchStudent') Search
+      a(class='nav__btn', href='/teacher/studentList') Your Students

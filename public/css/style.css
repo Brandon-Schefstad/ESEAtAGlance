@@ -1,4 +1,17 @@
 @import 'https://unpkg.com/open-props';
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 300%;
+}
+
 .login__container {
   display: flex;
   flex-direction: column;
@@ -24,9 +37,9 @@
   display: block;
   margin: auto;
   font-size: 1.5rem;
-  background: blue;
-  color: white;
-  text-decoration: underline;
+  background: #2c1b48;
+  text-decoration: none;
+  color: #d27d3f;
   text-align: center;
   padding-inline: 1rem;
   padding-block: 0.5rem;
@@ -34,7 +47,7 @@
 }
 
 .logout {
-  width: 50%;
+  width: 25%;
 }
 
 .dashboard__list {
@@ -54,27 +67,184 @@
   margin-block: auto;
 }
 
-.goal__container {
-  margin-bottom: 1rem;
-  margin-inline: 5rem;
+.hidden {
+  display: none;
 }
 
-.goal__information {
-  height: 50px;
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 300%;
+}
+
+.student {
+  font-size: 1rem;
+  width: 150rem;
+  margin: auto;
+  padding-inline: 2rem;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.student__search {
+  font-size: 1.5rem;
+}
+
+.input {
+  width: 80%;
+  border-radius: 1rem;
+}
+
+.search__form {
+  justify-items: left;
+  gap: 1rem;
+}
+
+.search__btn {
+  background-color: #2c1b48;
+  color: white;
+  border-radius: 1rem;
+  padding-inline: 2rem;
+  padding-block: 1rem;
+}
+
+.student__info {
+  font-size: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem;
+  background-color: #e4edff;
+  color: black;
+  border-radius: 1rem;
+}
+
+.grade__header {
+  color: black;
+}
+
+.searchStudent__title {
+  font-size: 3rem;
+}
+
+.grade__info {
+  border-radius: 1rem;
+  display: flex;
+  gap: 4rem;
+  position: relative;
+  overflow-x: scroll;
+  margin-bottom: 2rem;
+}
+
+.grade__info__container {
+  grid-column: 1/span 2;
+  background-color: #e4edff;
+  border-radius: 1rem;
+  padding-inline: 2rem;
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  width: 150rem;
+}
+
+.goal__info {
+  font-size: 150%;
+  display: grid;
+  gap: 1rem;
+  width: 450px;
+  grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
+  text-align: left;
+  border: 2px solid white;
+  padding-inline: 3rem;
+  padding-block: 1rem;
+  margin-bottom: 3rem;
+  border-radius: var(--radius-3);
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+  background-color: #d27d3f;
+  opacity: 90%;
+}
+
+.goal__attained {
+  background-color: #0893a0;
+  color: #2c1b48;
+  opacity: 100%;
+}
+
+.text__container {
+  background-color: #c6d0e5;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+.attained {
+  border: 3px solid rgb(26, 201, 26);
+}
+
+.carousel__container {
+  display: flex;
+  gap: 2rem;
+  border-radius: 1rem;
+}
+
+.accommodations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column: 1/span 2;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.accommodation__container {
+  border: 2px solid #2c1b48;
+  color: #2c1b48;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+  border-radius: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 300%;
 }
 
 .nav__list {
+  width: 175rem;
+  margin: auto;
+  background-color: #0893a0;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+
+.center {
   display: flex;
   position: relative;
   list-style: none;
-  background-color: var(--gray-8);
-  padding-left: 20rem;
-  margin-bottom: 3rem;
-  font-size: 2rem;
+  margin: auto;
+  margin-bottom: 4rem;
 }
 
 a.nav__btn {
-  color: var(--green-4);
+  color: #2c1b48;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -96,7 +266,7 @@ a.nav__btn:hover {
   max-width: 500px;
   position: absolute;
   left: 1rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 .add {
@@ -109,22 +279,62 @@ a.nav__btn:hover {
   display: flex;
   gap: 1rem;
   top: 5rem;
-  left: 38.5rem;
-  background-color: var(--gray-8);
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  left: 0rem;
+  background-color: #0893a0;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 .add__options > a {
-  color: var(--green-4);
+  color: #2c1b48;
   text-decoration: none;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.accommodation__form {
+  font-size: 1.5rem;
+}
+
+.accommodation__sectiontitle {
+  display: block;
+  width: 15%;
+}
+
+.presentation__subsection {
+  display: grid;
+  grid-template-columns: 0.1fr 2fr;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  min-width: 60rem;
+}
+
+.presentation__subsection {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1rem;
 }
 
 .hidden {
   display: none;
 }
 
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 300%;
+}
+
 body {
   padding-inline: 2rem;
+  color: #2c1b48;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: #c6d0e5;
 }
 
 .green {
@@ -132,17 +342,98 @@ body {
   text-decoration: underline;
 }
 
-/* light */
+.dropout {
+  animation: var(--animation-fade-out) forwards, var(--animation-slide-out-down);
+  animation-timing-function: var(--ease-squish-3);
+  animation-duration: 1s;
+}
+
 html {
-  --brand-light: var(--orange-6);
-  --text1-light: var(--gray-8);
-  --text2-light: var(--gray-7);
-  --surface1-light: var(--gray-0);
-  --surface2-light: var(--gray-1);
-  --surface3-light: var(--gray-2);
-  --surface4-light: var(--gray-3);
-  --surface-shadow-light: 200 10% 20%;
-  --shadow-strength-light: 2%;
+  font-size: 62.5%;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.not {
+  text-decoration: underline;
+}
+
+/* ##### CSS RESET ##### */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

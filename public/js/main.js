@@ -12,3 +12,13 @@ function showSubMenu() {
 function hideSubMenu() {
 	addOptions.classList.add('hidden');
 }
+
+let accommodationDivs = document.querySelectorAll(
+	'.accommodation__sectiontitle'
+);
+accommodationDivs.forEach((div) => {
+	div.addEventListener('click', () => {
+		console.log(div);
+		div.nextSibling.classList.toggle('hidden');
+	});
+});

@@ -1,14 +1,20 @@
+@import 'config.scss';
 .nav__list {
+	width: 175rem;
+	margin: auto;
+	background-color: $light-blue;
+	font-size: 2rem;
+	border-radius: 1rem;
+}
+.center {
 	display: flex;
 	position: relative;
 	list-style: none;
-	background-color: var(--gray-8);
-	padding-left: 20rem;
-	margin-bottom: 3rem;
-	font-size: 2rem;
+	margin: auto;
+	margin-bottom: 4rem;
 }
 a.nav__btn {
-	color: var(--green-4);
+	color: $dark-blue;
 	text-decoration: none;
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.2);
@@ -28,7 +34,7 @@ a.nav__btn {
 	max-width: 500px;
 	position: absolute;
 	left: 1rem;
-	border-radius: 2rem;
+	border-radius: 1rem;
 }
 .add {
 	position: relative;
@@ -39,12 +45,14 @@ a.nav__btn {
 	display: flex;
 	gap: 1rem;
 	top: 5rem;
-	left: 38.5rem;
-	background-color: var(--gray-8);
-	border-bottom-left-radius: 2rem;
-	border-bottom-right-radius: 2rem;
+	left: 0rem;
+	background-color: $light-blue;
+	border-bottom-left-radius: 1rem;
+	border-bottom-right-radius: 1rem;
 	& > a {
-		color: var(--green-4);
+		color: $dark-blue;
 		text-decoration: none;
+		border-bottom-left-radius: 1rem;
+		border-bottom-right-radius: 1rem;
 	}
 }

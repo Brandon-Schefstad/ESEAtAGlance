@@ -1,4 +1,5 @@
 const Student = require('../models/Student');
+const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
 
 module.exports = {
@@ -8,15 +9,19 @@ module.exports = {
 
 	searchStudent: async (req, res) => {
 		try {
-			let student = await Student.find({
+			let student = await Student.findOne({
 				ID: req.query.ID,
 			})
 				.populate({
 					path: 'history',
 				})
+				.populate({
+					path: 'caseManager',
+				})
+				.populate({
+					path: 'accommodations',
+				})
 				.lean();
-			student = student[0];
-			console.log('line19');
 			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal);
@@ -24,7 +29,6 @@ module.exports = {
 			let returnHistory = history.filter((subArr) => {
 				return subArr.length > 0;
 			});
-			console.log(returnHistory);
 			const resObject = {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
@@ -32,11 +36,12 @@ module.exports = {
 				caseManager: student.caseManager.userName,
 				primary: student.primaryExceptionality,
 				history: returnHistory,
+				accommodations: student.accommodations,
 			};
 			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
 		} catch (error) {
-			res.render('dashboard');
+			res.render('searchStudent');
 		}
 	},
 
@@ -107,5 +112,43 @@ module.exports = {
 		res.render('addGoals.pug', {
 			ID: req.body.ID,
 		});
+	},
+	addAccommodations: async (req, res) => {
+		//  Add dynamic page for add/delete accoms?
+		res.render('addAccommodations');
+	},
+	postAccommodations: async (req, res) => {
+		// Identify a student
+		let student = await Student.findOne({
+			ID: req.body.ID,
+		});
+		// Make array of Accommodation names, sans ID
+		let accommodationArray = Object.keys(req.body).filter((element) => {
+			return element !== 'ID';
+		});
+		// Array to push to DB
+		let accommodationPushArray = [];
+		for (let i = 0; i < accommodationArray.length; i++) {
+			let accommodation = await Accommodations.findOne({
+				name: accommodationArray[i],
+			});
+
+			if (!accommodation) {
+				const returnAccomm = await Accommodations.create({
+					student: student._id,
+					name: accommodationArray[i],
+					dateAdded: Date.now(),
+				});
+				accommodationPushArray.push(returnAccomm);
+			} else if (!student.accommodations.includes(accommodation._id)) {
+				accommodationPushArray.push(accommodation._id);
+			}
+		}
+		console.log(accommodationPushArray);
+
+		await student.updateOne({
+			$push: { accommodations: accommodationPushArray },
+		});
+		res.render('addAccommodations');
 	},
 };
