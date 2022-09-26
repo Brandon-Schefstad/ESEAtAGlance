@@ -4,17 +4,20 @@ body
   include partials/_nav.pug
   form(action="/student/addAccommodations" method="POST" class="accommodation__form")
       p ID Number:
+     
       if ID 
         input(type="text" name="ID" value=ID)
       else
         input(type="text" name="ID" placeholder="")
-      h1 Accommodations List 
+      button Load Student Profile
+        a(href="/student/loadAccommodations") 
+      h1.accommodation__cta Select a category:
       h1.accommodation__sectiontitle Presentation
       section.container.hidden
         section.accommodation__wrapper
           h1.accommodation__title Visual Formats
           section.presentation__subsection
-            input(type="checkbox" name="Receptive Sign Language") 
+            input(type="checkbox" name="Receptive Sign Language" ) 
             label(for="Receptive Sign Language") Receptive Sign Language
             input(type="checkbox" name="Large Print") 
             label(for="Large Print") Large Print

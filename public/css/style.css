@@ -257,6 +257,48 @@ input.signup__button {
   border-radius: 1rem;
 }
 
+.addStudent__wrapper,
+.addGoals__wrapper {
+  padding-inline: 3rem;
+  margin-top: -2rem;
+}
+
+.addStudent__form,
+.addGoals__form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 0.4fr 1fr;
+  width: 50%;
+  min-width: 30rem;
+  text-align: right;
+}
+
+.addStudent__title,
+.addGoals__title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.checkbox {
+  text-align: left;
+  width: 1rem;
+}
+
+.large__input {
+  height: 200%;
+}
+
+.attained__wrapper {
+  grid-column: 1/span 2;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+.goal__submit {
+  margin-top: 1rem;
+}
+
 .hidden {
   display: none;
 }
@@ -332,6 +374,17 @@ a.nav__btn:hover {
 
 .accommodation__form {
   font-size: 1.5rem;
+  padding-inline: 3rem;
+  margin-top: -2rem;
+  font-size: 90%;
+}
+.accommodation__form > h1 {
+  font-size: 2rem;
+}
+
+.accommodation__cta {
+  font-size: 2.5rem;
+  text-decoration: underline;
 }
 
 .accommodation__sectiontitle {
@@ -371,7 +424,12 @@ a.nav__btn:hover {
 
 .index__intro {
   text-align: center;
-  display: block;
+  display: flex;
+}
+
+.hero {
+  width: 75%;
+  max-height: 100vh;
 }
 
 .index__image-wrapper {
@@ -379,15 +437,8 @@ a.nav__btn:hover {
   margin-bottom: 2rem;
 }
 
-.index__title {
-  font-size: 3rem;
-  color: #ffd8c6;
-  background-color: #2c1b48;
-  margin-bottom: 2rem;
-}
-
 a.index__button {
-  width: 75%;
+  width: 100%;
   padding-block: 1.2rem;
 }
 
@@ -398,9 +449,15 @@ a.index__button {
 
 .index__buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 50%;
   margin: auto;
+  gap: 2rem;
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0px;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
 }
 
 .hidden {

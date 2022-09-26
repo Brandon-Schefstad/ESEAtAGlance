@@ -1,5 +1,15 @@
 .accommodation__form {
 	font-size: 1.5rem;
+	padding-inline: 3rem;
+	margin-top: -2rem;
+	font-size: 90%;
+	> h1 {
+		font-size: 2rem;
+	}
+}
+.accommodation__cta {
+	font-size: 2.5rem;
+	text-decoration: underline;
 }
 .accommodation__sectiontitle {
 	display: block;

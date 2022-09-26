@@ -120,3 +120,38 @@
 	padding-block: 1rem;
 	border-radius: 1rem;
 }
+.addStudent__wrapper,
+.addGoals__wrapper {
+	padding-inline: 3rem;
+	margin-top: -2rem;
+}
+.addStudent__form,
+.addGoals__form {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 0.4fr 1fr;
+	width: 50%;
+	min-width: 30rem;
+	text-align: right;
+}
+.addStudent__title,
+.addGoals__title {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+.checkbox {
+	text-align: left;
+	width: 1rem;
+}
+.large__input {
+	height: 200%;
+}
+.attained__wrapper {
+	grid-column: 1 / span 2;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 0.4fr 1fr;
+}
+.goal__submit {
+	margin-top: 1rem;
+}

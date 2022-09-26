@@ -3,20 +3,20 @@
 .index__intro {
 	text-align: center;
 
-	display: block;
+	display: flex;
+}
+.hero {
+	width: 75%;
+	max-height: 100vh;
 }
 .index__image-wrapper {
 	background-color: $dark-orange;
 	margin-bottom: 2rem;
 }
 .index__title {
-	font-size: 3rem;
-	color: $dark-orange;
-	background-color: $dark-blue;
-	margin-bottom: 2rem;
 }
 a.index__button {
-	width: 75%;
+	width: 100%;
 	padding-block: 1.2rem;
 }
 .index__image {
@@ -25,7 +25,12 @@ a.index__button {
 }
 .index__buttons {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	width: 50%;
 	margin: auto;
+	gap: 2rem;
+}
+.attribution {
+	position: absolute;
+	bottom: 0px;
+	padding-left: 2rem;
+	padding-bottom: 2rem;
 }
