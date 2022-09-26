@@ -1,7 +1,7 @@
 @import 'config.scss';
 .student {
 	font-size: 1rem;
-	width: 150rem;
+	// width: 150rem;
 	margin: auto;
 	padding-inline: 2rem;
 	display: grid;
@@ -10,7 +10,7 @@
 	margin-bottom: 2rem;
 }
 .student__search {
-	font-size: 1.5rem;
+	font-size: 1rem;
 }
 .input {
 	width: 80%;
@@ -28,7 +28,7 @@
 	padding-block: 1rem;
 }
 .student__info {
-	font-size: 1.5rem;
+	font-size: 1rem;
 	display: grid;
 	gap: 1rem;
 	text-align: left;
@@ -42,7 +42,7 @@
 	color: black;
 }
 .searchStudent__title {
-	font-size: 3rem;
+	font-size: 2rem;
 }
 .grade__info {
 	// height: 350px;
@@ -60,10 +60,10 @@
 	padding-inline: 2rem;
 	padding-top: 1rem;
 	margin-bottom: 1rem;
-	width: 150rem;
+	width: 100%;
 }
 .goal__info {
-	font-size: 150%;
+	font-size: 100%;
 	display: grid;
 	gap: 1rem;
 	width: 450px;

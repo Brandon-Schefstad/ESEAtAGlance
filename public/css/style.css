@@ -9,7 +9,7 @@
 }
 
 .large {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 .login__container {
@@ -120,12 +120,11 @@ input.signup__button {
 }
 
 .large {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 .student {
   font-size: 1rem;
-  width: 150rem;
   margin: auto;
   padding-inline: 2rem;
   display: grid;
@@ -135,7 +134,7 @@ input.signup__button {
 }
 
 .student__search {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .input {
@@ -157,7 +156,7 @@ input.signup__button {
 }
 
 .student__info {
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: grid;
   gap: 1rem;
   text-align: left;
@@ -173,7 +172,7 @@ input.signup__button {
 }
 
 .searchStudent__title {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .grade__info {
@@ -192,11 +191,11 @@ input.signup__button {
   padding-inline: 2rem;
   padding-top: 1rem;
   margin-bottom: 1rem;
-  width: 150rem;
+  width: 100%;
 }
 
 .goal__info {
-  font-size: 150%;
+  font-size: 100%;
   display: grid;
   gap: 1rem;
   width: 450px;
@@ -268,15 +267,19 @@ input.signup__button {
 }
 
 .large {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 .nav__list {
-  width: 175rem;
   margin: auto;
   background-color: #ffd8c6;
-  font-size: 2rem;
   border-radius: 1rem;
+}
+
+.logout__nav {
+  display: flex;
+  flex-flow: row-reverse;
+  margin-left: 20rem;
 }
 
 .center {
@@ -294,7 +297,7 @@ a.nav__btn {
   flex-direction: column;
   justify-content: center;
   padding-inline: 5rem;
-  padding-block: 1rem;
+  padding-block: 0.5rem;
 }
 a.nav__btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
@@ -303,15 +306,6 @@ a.nav__btn:hover {
 
 .nav__listitem {
   font-size: 2rem;
-}
-
-.logo {
-  width: 30%;
-  min-width: 180px;
-  max-width: 500px;
-  position: absolute;
-  left: 1rem;
-  border-radius: 1rem;
 }
 
 .add {
@@ -323,9 +317,9 @@ a.nav__btn:hover {
   text-align: center;
   display: flex;
   gap: 1rem;
-  top: 5rem;
+  top: 2.5rem;
   left: 0rem;
-  background-color: #0893a0;
+  background-color: #ffd8c6;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
 }
@@ -372,7 +366,7 @@ a.nav__btn:hover {
 }
 
 .large {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 .index__intro {
@@ -409,8 +403,42 @@ a.index__button {
   margin: auto;
 }
 
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 200%;
+}
+
 .student__list {
-  color: red;
+  padding-inline: 2rem;
+  margin: auto;
+}
+
+.student__list__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding-inline: 2rem;
+}
+
+.student__card {
+  border-radius: 2rem;
+  background-color: #e4edff;
+  padding: 1rem;
+  font-size: 150%;
+  text-decoration: none;
+}
+
+.student__link {
+  text-decoration: none;
+  color: #2c1b48;
 }
 
 .hidden {
@@ -423,7 +451,7 @@ a.index__button {
 }
 
 .large {
-  font-size: 300%;
+  font-size: 200%;
 }
 
 body {
@@ -432,6 +460,8 @@ body {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: #c6d0e5;
   padding: 0px;
+  max-width: 1920px;
+  margin: auto;
 }
 
 .green {
@@ -443,10 +473,6 @@ body {
   animation: var(--animation-fade-out) forwards, var(--animation-slide-out-down);
   animation-timing-function: var(--ease-squish-3);
   animation-duration: 1s;
-}
-
-html {
-  font-size: 62.5%;
 }
 
 .completed {

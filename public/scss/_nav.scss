@@ -1,10 +1,13 @@
 @import 'config.scss';
 .nav__list {
-	width: 175rem;
 	margin: auto;
 	background-color: $dark-orange;
-	font-size: 2rem;
 	border-radius: 1rem;
+}
+.logout__nav {
+	display: flex;
+	flex-flow: row-reverse;
+	margin-left: 20rem;
 }
 .center {
 	display: flex;
@@ -24,18 +27,10 @@ a.nav__btn {
 	flex-direction: column;
 	justify-content: center;
 	padding-inline: 5rem;
-	padding-block: 1rem;
+	padding-block: 0.5rem;
 }
 .nav__listitem {
 	font-size: 2rem;
-}
-.logo {
-	width: 30%;
-	min-width: 180px;
-	max-width: 500px;
-	position: absolute;
-	left: 1rem;
-	border-radius: 1rem;
 }
 .add {
 	position: relative;
@@ -45,9 +40,9 @@ a.nav__btn {
 	text-align: center;
 	display: flex;
 	gap: 1rem;
-	top: 5rem;
+	top: 2.5rem;
 	left: 0rem;
-	background-color: $light-blue;
+	background-color: $dark-orange;
 	border-bottom-left-radius: 1rem;
 	border-bottom-right-radius: 1rem;
 	& > a {
