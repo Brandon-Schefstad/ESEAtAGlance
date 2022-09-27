@@ -11,11 +11,8 @@ html
               a(href="/student/searchStudent?ID="+student.ID class="student__link") 
                 div.student__card
                   span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
-                  br
                   span ID: #{student.ID} 
-                  br
                   span Excep: #{student.primaryExceptionality}
-                  br
                   span CM: #{student.caseManager.userName}  
       else 
         section.student__list
