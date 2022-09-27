@@ -31,6 +31,20 @@
 	gap: 1rem;
 	grid-template-columns: 0.4fr 1fr;
 }
-.goal__submit {
-	margin-top: 1rem;
+.submit__btn,
+.accommodations__btn {
+	padding-inline: 1rem;
+	text-decoration: none;
+	color: $dark-orange;
+	background-color: $dark-blue;
+	border: 2px solid $white;
+	&:hover {
+		background-color: $dark-orange;
+		color: $dark-blue;
+	}
+}
+.accommodations__btn {
+	display: block;
+	width: 242px;
+	text-align: center;
 }

@@ -1,4 +1,3 @@
-@import 'https://unpkg.com/open-props';
 .hidden {
   display: none;
 }
@@ -37,10 +36,6 @@
 .signup__form > h1,
 .login__form > h1 {
   font-size: 200%;
-}
-
-.login__form {
-  padding-left: 0rem;
 }
 
 .signup__img {
@@ -515,8 +510,24 @@ a.index__button {
   grid-template-columns: 0.4fr 1fr;
 }
 
-.goal__submit {
-  margin-top: 1rem;
+.submit__btn,
+.accommodations__btn {
+  padding-inline: 1rem;
+  text-decoration: none;
+  color: #ffd8c6;
+  background-color: #2c1b48;
+  border: 2px solid #e4edff;
+}
+.submit__btn:hover,
+.accommodations__btn:hover {
+  background-color: #ffd8c6;
+  color: #2c1b48;
+}
+
+.accommodations__btn {
+  display: block;
+  width: 242px;
+  text-align: center;
 }
 
 .hidden {

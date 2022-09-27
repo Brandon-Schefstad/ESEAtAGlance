@@ -40,9 +40,9 @@ html
           input(type="checkbox" name="succeed" placeholder="" class="checkbox")
         p Notes:
         textarea(name="notes", cols="30", rows="5") 
-        input(type="submit", value="Submit Goal" class="goal__submit")
-      a(href="/student/addAccommodations")
-        button Add Accommodations
+        input(type="submit", value="Submit Goal" class="goal__submit submit__btn")
+      a(href="/student/addAccommodations" class="accommodations__btn") Add Accommodations 
+        i(class="fa-sharp fa-solid fa-arrow-right")
   include partials/_footer.pug
 
 script(src="../js/main.js") 
