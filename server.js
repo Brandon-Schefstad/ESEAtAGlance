@@ -46,7 +46,7 @@ app.use(flash());
 app.use('/', mainRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/student', studentRoutes);
-app.use('/teacher', teacherRoutes);
+// app.use('/teacher', teacherRoutes);
 
 app.listen(process.env.PORT || 2121, () => {
 	console.log('Server is running, you better catch it!');

@@ -80,7 +80,7 @@ input.signup__button {
   font-size: 1.5rem;
   background: #2c1b48;
   text-decoration: none;
-  color: #ffd8c6;
+  color: #ffc14d;
   text-align: center;
   padding-inline: 1rem;
   padding-block: 0.5rem;
@@ -97,7 +97,7 @@ input.signup__button {
 
 .dashboard__list {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .dashboard__listitem {
@@ -155,7 +155,7 @@ input.signup__button {
 }
 
 .search__btn {
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
   color: #2c1b48;
   border-radius: 1rem;
   padding-inline: 1rem;
@@ -213,7 +213,7 @@ input.signup__button {
   margin-bottom: 1rem;
   border-radius: 1rem;
   box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
   opacity: 90%;
 }
 
@@ -281,7 +281,7 @@ input.signup__button {
 
 .nav__list {
   margin: auto;
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
 }
 
 .logout__nav {
@@ -327,7 +327,7 @@ a.nav__btn:hover {
   gap: 1rem;
   top: 2.5rem;
   left: 0rem;
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
 }
 .add__options > a {
   color: #2c1b48;
@@ -337,7 +337,7 @@ a.nav__btn:hover {
 
 a.logout__btn {
   background-color: #2c1b48;
-  color: #ffd8c6;
+  color: #ffc14d;
   font-weight: 600;
   letter-spacing: 0.1ch;
   margin: auto;
@@ -407,7 +407,7 @@ a.logout__btn:hover {
 }
 
 .index__image-wrapper {
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
   margin-bottom: 2rem;
 }
 
@@ -454,7 +454,7 @@ a.index__button {
 
 .student__list__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
   padding-inline: 2rem;
 }
@@ -463,8 +463,8 @@ a.index__button {
   border-radius: 2rem;
   background-color: #e4edff;
   padding: 1rem;
-  font-size: 150%;
   text-decoration: none;
+  font-size: 75%;
 }
 
 .student__link {
@@ -526,13 +526,13 @@ a.index__button {
 .accommodations__btn {
   padding-inline: 1rem;
   text-decoration: none;
-  color: #ffd8c6;
+  color: #ffc14d;
   background-color: #2c1b48;
   border: 2px solid #e4edff;
 }
 .submit__btn:hover,
 .accommodations__btn:hover {
-  background-color: #ffd8c6;
+  background-color: #ffc14d;
   color: #2c1b48;
 }
 
@@ -594,7 +594,7 @@ a.index__button {
 }
 
 .HOVER.FLASH span {
-  background: #ffd8c6;
+  background: #ffc14d;
 }
 
 .animated {
