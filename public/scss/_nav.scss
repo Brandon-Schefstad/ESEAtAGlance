@@ -6,7 +6,7 @@
 .logout__nav {
 	display: flex;
 	flex-flow: row-reverse;
-	margin-left: 20rem;
+	margin-left: 40rem;
 }
 .center {
 	display: flex;
@@ -47,5 +47,17 @@ a.nav__btn {
 		color: $dark-blue;
 		text-decoration: none;
 		padding-inline: 2.4rem;
+	}
+}
+
+a.logout__btn {
+	background-color: $dark-blue;
+	color: $dark-orange;
+	font-weight: 600;
+	letter-spacing: 0.1ch;
+	margin: auto;
+	height: 80%;
+	&:hover {
+		color: $dark-blue;
 	}
 }
