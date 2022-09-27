@@ -2,17 +2,18 @@ html
   include partials/_head.pug
   body
     div.login__container
-      h1.title ESE AT A GLANCE
       div.login
-        h1= "Login!"
-        form(action="/login" method="POST")
-          ul.login__list
-            li.login__listitem
-              p Email:
-              input(type="text" name="email" placeholder="")
-            li.login__listitem
-              p Password:
-              input(type="password" name="password" placeholder="")
-            li.login__listitem
-            input.navbutton(type="submit" value='Login')
+        img(class="login__image" src="assets/login__image.png", alt="", srcset="")
+        section.login__form
+          form(action="/login" method="POST")
+            ul.login__list
+              li.login__listitem
+                p Email:
+                input(type="text" name="email" placeholder="")
+              li.login__listitem
+                p Password:
+                input(type="password" name="password" placeholder="")
+              li.login__listitem
+              input.navbutton.login__button(type="submit" value='Login')
+    include partials/_footer.pug
       a.signup.navbutton(href='/signup') signup here today!

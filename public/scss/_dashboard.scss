@@ -1,6 +1,8 @@
+.dahsboard__wrapper {
+	padding: 3rem;
+}
 .dashboard__list {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
 	gap: 3rem;
 }
 .dashboard__listitem {

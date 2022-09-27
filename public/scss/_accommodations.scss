@@ -1,0 +1,32 @@
+.accommodation__form {
+	font-size: 1.5rem;
+	padding: 3rem;
+	font-size: 90%;
+	> h1 {
+		font-size: 2rem;
+	}
+}
+.accommodation__cta {
+	font-size: 2.5rem;
+	text-decoration: underline;
+}
+.accommodation__sectiontitle {
+	display: block;
+	width: 15%;
+}
+.presentation__subsection {
+	display: grid;
+	grid-template-columns: 0.1fr 2fr;
+}
+.container {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	// width: 90%;
+	min-width: 60rem;
+	// max-width: 150rem;
+}
+.presentation__subsection {
+	display: grid;
+	gap: 1rem;
+	margin-block: 1rem;
+}

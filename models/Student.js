@@ -34,9 +34,12 @@ const StudentSchema = new mongoose.Schema({
 			ref: 'Goals',
 		},
 	],
-	accommodations: {
-		type: Array,
-	},
+	accommodations: [
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: 'Accommodations',
+		},
+	],
 });
 
 module.exports = mongoose.model('Student', StudentSchema);

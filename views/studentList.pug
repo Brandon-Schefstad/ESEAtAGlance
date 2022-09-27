@@ -1,9 +1,24 @@
 html 
   include partials/_head.pug
   body
-  h1 Welcome #{userName}
-  h1 Here is your list of students: 
-  if studentList
-    for student in studentList
-      div.student__card
-        h1 Student Name: #{student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()}
+  include partials/_nav.pug
+
+  if studentList.length > 0
+    section.student__list
+      h1 Welcome #{userName}
+      h1 Here is your list of students
+      section.student__list__cards
+        for student in studentList
+          a(href="/student/searchStudent?ID="+student.ID class="student__link") 
+            div.student__card
+              span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+              br
+              span ID: #{student.ID} 
+              br
+              span Excep: #{student.primaryExceptionality}
+              br
+              span CM: #{student.caseManager.userName}  
+  else 
+    section.student__list
+      h1 Seems you don't have any students yet!
+  include partials/_footer.pug

@@ -2,36 +2,69 @@
 html 
   include partials/_head.pug
   body
-    h1 Search a student 
-    form(action="/student/searchStudent" method="GET")
-      p ID Number
-        input(type="text" name="ID" placeholder="")
-      input(type="submit", value="Search!")
-
-    h1 Full Name: #{name}
-    h2(class='ID') ID Number: #{ID} 
-    h2 Grade: #{grade} 
-    h2 Case Manager: #{caseManager}
-    h3 Primary Exceptionality: #{primary}
-    h1 Goal History: 
-
-    for goal in data.history 
-      -var goal = goal[0]
-      - var gradeCheck = goal.grade
-          case gradeCheck
-            when '0': h1 Kindergarten
-            when '1': h1 1st Grade 
-            when '2': h1 2nd Grade 
-            when '3': h1 3rd Grade 
-            when '13': h1 Post-School\
-            default: h1 #{gradeCheck}th Grade
-      div 
-        h3= goal.domain 
-        span= goal.text 
-        span= goal.succeed 
-        span= goal.notes
-
-
-    a(href="/student/addNewStudent") Add a new student
-    script(src="../js/student.js") 
+    include partials/_nav.pug
+    section.student
+      section.student__search
+        h1.searchStudent__title Search a student 
+        form(action="/student/searchStudent" method="GET" class="search__form")
+          input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
+          input(type="submit", value="Search!" class='search__btn')
+      if data
+          section.student__info
+            h1 Full Name: #{data.name}
+            h1(class='ID') ID Number: #{data.ID} 
+            h1 Grade: #{data.grade} 
+            h1 Case Manager: #{data.caseManager}
+            h1 Primary Exceptionality: #{data.primary}
+          if data.accommodations.length>0 
+            h1.searchStudent__title Accommodations:
+            section.accommodations 
+              for entry in data.accommodations
+                div.accommodation__container 
+                  span= entry.name
+      if data
+        for grade in data.history 
+          - var gradeCheck = grade[0].grade
+          section.grade__info__container
+            case gradeCheck
+                  when '0': h1.large.grade__header Kindergarten
+                  when '1': h1.large.grade__header 1st Grade 
+                  when '2': h1.large.grade__header 2nd Grade 
+                  when '3': h1.large.grade__header 3rd Grade 
+                  when '13': h1.large.grade__header Post-School\
+                  default: h1.large.grade__header #{gradeCheck}th Grade
+            section.grade__info
+              section.carousel__container
+                for goal in grade
+                  if goal.succeed === true
+                    section.goal__info.goal__attained 
+                      section.text__container
+                          span.bold Domain: 
+                          span= goal.domain
+                      section.text__container
+                          span.bold Goal: 
+                          span= goal.text
+                      section.text__container.attained
+                          span.bold Attained: 
+                          span= goal.succeed.toString().toUpperCase()
+                      section.text__container
+                          if goal.notes
+                            span.bold Notes: 
+                            span= goal.notes
+                  else
+                    section.goal__info
+                      section.text__container
+                          span.bold Domain: 
+                          span= goal.domain
+                      section.text__container
+                        span.bold Goal: 
+                        span= goal.text
+                      section.text__container
+                        span.bold Attained: 
+                        span= goal.succeed.toString().toUpperCase()
+                      section.text__container
+                        if goal.notes
+                          span.bold Notes: 
+                          span= goal.notes
+    include partials/_footer.pug 
 //- action="/student/searchStudent" method="GET"
