@@ -5,7 +5,7 @@
 }
 .student__list__cards {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	gap: 2rem;
 	padding-inline: 2rem;
 }
@@ -13,8 +13,8 @@
 	border-radius: 2rem;
 	background-color: $white;
 	padding: 1rem;
-	font-size: 150%;
 	text-decoration: none;
+	font-size: 75%;
 }
 .student__link {
 	text-decoration: none;

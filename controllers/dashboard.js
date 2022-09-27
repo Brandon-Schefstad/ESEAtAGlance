@@ -1,7 +1,21 @@
+const Student = require('../models/Student');
 module.exports = {
-	getDashboard: (req, res) => {
+	getDashboard: async (req, res) => {
 		const user = req.user;
-		// console.log(req.user);
-		res.render('dashboard');
+		const mongoID = user._id.toString().split('"').join('');
+		try {
+			const studentList = await Student.find({
+				caseManager: req.user._id,
+			}).populate({
+				path: 'caseManager',
+			});
+			res.render('dashboard', {
+				userName: req.user.userName,
+				studentList: studentList,
+			});
+		} catch (error) {
+			console.error(error);
+			res.redirect('/');
+		}
 	},
 };

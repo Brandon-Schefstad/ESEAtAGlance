@@ -97,7 +97,7 @@ input.signup__button {
 
 .dashboard__list {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .dashboard__listitem {
@@ -454,7 +454,7 @@ a.index__button {
 
 .student__list__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
   padding-inline: 2rem;
 }
@@ -463,8 +463,8 @@ a.index__button {
   border-radius: 2rem;
   background-color: #e4edff;
   padding: 1rem;
-  font-size: 150%;
   text-decoration: none;
+  font-size: 75%;
 }
 
 .student__link {
