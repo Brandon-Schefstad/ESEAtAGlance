@@ -91,8 +91,27 @@ input.signup__button {
   width: 25%;
 }
 
-.dahsboard__wrapper {
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 200%;
+}
+
+.dashboard__wrapper {
   padding: 3rem;
+  background: #e4edff;
+  margin: 2rem;
+}
+.dashboard__wrapper > h1 {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .dashboard__list {
@@ -461,10 +480,9 @@ a.index__button {
 
 .student__card {
   border-radius: 2rem;
-  background-color: #e4edff;
+  background-color: #ffc14d;
   padding: 1rem;
   text-decoration: none;
-  font-size: 75%;
 }
 
 .student__link {
