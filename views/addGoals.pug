@@ -2,15 +2,15 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    h2 History
-    form(action="/student/addGoals" method="POST")
-      p ID Number:
-      if ID 
-        input(type="text" name="ID" value=ID)
-      else
-        input(type="text" name="ID" placeholder="")
-      p What grade is this goal for?
-        br
+    section.addGoals__wrapper
+      h1.addGoals__title History
+      form(action="/student/addGoals" method="POST" class="addGoals__form")
+        p ID Number:
+        if ID 
+          input(type="text" name="ID" value=ID)
+        else
+          input(type="text" name="ID" placeholder="")
+        p What grade is this goal for?
         select(name="goalGrade")
           option(value=0) Kindergarten 
           option(value=1) 1st Grade 
@@ -26,23 +26,23 @@ html
           option(value=11) 11th Grade 
           option(value=12) 12th Grade 
           option(value=13) Other 
-      h3 Goal1
-      p Domain:
+        p Domain:
         select(name="domain")
           option(value="curriculum") Curriculum and Learning Environment
           option(value="socialEmotional") Social/Emotional
           option(value="independentFunctioning") Independent Functioning
           option(value="healthcare") Healthcare
           option(value="communication") Communication
-      p Text:
-        input(type="text" name="goalText" placeholder="")
-      p Succeed
-        input(type="checkbox" name="succeed" placeholder="")
-      p Notes:
-        input(type="text" name="notes" placeholder="")
-      input(type="submit", value="Submit Goal")
-      br
-      a(href="/dashboard") Back to Dashboard 
+        p Text:
+        textarea(name="goalText", cols="30", rows="5") 
+        section.attained__wrapper
+          p Attained
+          input(type="checkbox" name="succeed" placeholder="" class="checkbox")
+        p Notes:
+        textarea(name="notes", cols="30", rows="5") 
+        input(type="submit", value="Submit Goal" class="goal__submit submit__btn")
+      a(href="/student/addAccommodations" class="accommodations__btn") Add Accommodations 
+        i(class="fa-sharp fa-solid fa-arrow-right")
   include partials/_footer.pug
 
 script(src="../js/main.js") 

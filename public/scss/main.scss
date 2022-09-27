@@ -3,15 +3,22 @@
 @use 'search-student.scss';
 @use 'nav.scss';
 @use '_accommodations.scss';
+@use '_index.scss';
+@use '_studentList.scss';
+@use '_addStudent.scss';
+@use '_ripple.scss';
 
 @import 'config.scss';
-@import 'https://unpkg.com/open-props';
+// @import 'https://unpkg.com/open-props';
 
 body {
 	padding-inline: 2rem;
 	color: $dark-blue;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	background-color: $light-grey;
+	padding: 0px;
+	max-width: 1920px;
+	margin: auto;
 }
 
 .green {
@@ -24,11 +31,6 @@ body {
 		var(--animation-slide-out-down);
 	animation-timing-function: var(--ease-squish-3);
 	animation-duration: 1s;
-}
-
-//
-html {
-	font-size: 62.5%;
 }
 
 .completed {
@@ -88,7 +90,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-	max-width: 100%;
+	// max-width: 100%;
 	display: block;
 }
 

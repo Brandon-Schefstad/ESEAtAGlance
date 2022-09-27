@@ -53,6 +53,7 @@ module.exports = {
 	// },
 	postNewStudent: async (req, res) => {
 		try {
+			console.log(req.body);
 			await Student.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
@@ -117,11 +118,17 @@ module.exports = {
 		//  Add dynamic page for add/delete accoms?
 		res.render('addAccommodations');
 	},
+	loadAccommodations: async (req, res) => {
+		console.log(req.body);
+		res.render('addAccommodations');
+	},
 	postAccommodations: async (req, res) => {
 		// Identify a student
 		let student = await Student.findOne({
 			ID: req.body.ID,
 		});
+		console.log(req.body);
+		console.log(student);
 		// Make array of Accommodation names, sans ID
 		let accommodationArray = Object.keys(req.body).filter((element) => {
 			return element !== 'ID';

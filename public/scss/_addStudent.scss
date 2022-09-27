@@ -1,0 +1,50 @@
+@import 'config.scss';
+
+.addStudent__wrapper,
+.addGoals__wrapper {
+	padding: 3rem;
+}
+.addStudent__form,
+.addGoals__form {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 0.4fr 1fr;
+	width: 50%;
+	min-width: 30rem;
+	text-align: right;
+}
+.addStudent__title,
+.addGoals__title {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+.checkbox {
+	text-align: left;
+	width: 1rem;
+}
+.large__input {
+	height: 200%;
+}
+.attained__wrapper {
+	grid-column: 1 / span 2;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 0.4fr 1fr;
+}
+.submit__btn,
+.accommodations__btn {
+	padding-inline: 1rem;
+	text-decoration: none;
+	color: $dark-orange;
+	background-color: $dark-blue;
+	border: 2px solid $white;
+	&:hover {
+		background-color: $dark-orange;
+		color: $dark-blue;
+	}
+}
+.accommodations__btn {
+	display: block;
+	width: 242px;
+	text-align: center;
+}

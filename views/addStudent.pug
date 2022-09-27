@@ -2,18 +2,18 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    h1 STUDENT VIEW
-    form(action="/student/addNewStudent" method="POST")
-      p First Name:
+    section.addStudent__wrapper
+      h1.addStudent__title Add New Student
+      form(action="/student/addNewStudent" method="POST" class="addStudent__form")
+        p First Name:
         input(type="text" name="firstName" placeholder="")
-      p Last Name:
+        p Last Name:
         input(type="text" name="lastName" placeholder="")
-      p ID Number:
+        p ID Number:
         input(type="number" name="idNumber" placeholder="")
-      p Grade:
+        p Grade:
         input(type="number" name="grade" placeholder="")
-      p Primary Exceptionality:
+        p Primary Exceptionality:
         input(type="text" name="primary" placeholder="")
-      input(type="submit")
+        input(type="submit" value="Submit" class="submit__btn") 
       include partials/_footer.pug
-    a(class='button', href='/logout') Logout

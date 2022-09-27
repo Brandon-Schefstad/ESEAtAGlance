@@ -2,18 +2,32 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    h1 Welcome to your dashboard:
-    ul.dashboard__list
-     h2 Search Student: 
-      li.dashboard__listitem
-        div.card__container
-          
-          form(action="/student/searchStudent" method="GET")
-            p ID Number
-              input(type="text" name="ID" placeholder="Use '123' for testing")
-            input(type="submit", value="Search!")
-      h2 At-A-Glance
-        li.dashboard__listitem 
-          div.card__container
-    include partials/_footer.pug
-    a.logout.navbutton(class='button', href='/logout') Logout
+    section.dahsboard__wrapper
+      h1 Welcome to your dashboard:
+      ul.dashboard__list
+        h2 Search Student: 
+          li.dashboard__listitem
+            div.card__container
+              form(action="/student/searchStudent" method="GET")
+                p ID Number
+                  input(type="text" name="ID" placeholder="Use '123' for testing")
+                input(type="submit", value="Search!")
+          h2 At-A-Glance
+            if studentList.length > 0
+              section.student__list
+                section.student__list__cards
+                  for student in studentList
+                    a(href="/student/searchStudent?ID="+student.ID class="student__link") 
+                      div.student__card
+                        span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                        br
+                        span ID: #{student.ID} 
+                        br
+                        span Excep: #{student.primaryExceptionality}
+                        br
+                        span CM: #{student.caseManager.userName}  
+            else 
+              section.student__list
+                h1 Seems you don't have any students yet!
+  include partials/_footer.pug
+  //- test
