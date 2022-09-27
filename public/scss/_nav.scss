@@ -2,7 +2,6 @@
 .nav__list {
 	margin: auto;
 	background-color: $dark-orange;
-	border-radius: 1rem;
 }
 .logout__nav {
 	display: flex;
@@ -14,7 +13,6 @@
 	position: relative;
 	list-style: none;
 	margin: auto;
-	margin-bottom: 4rem;
 }
 a.nav__btn {
 	color: $dark-blue;
@@ -38,17 +36,16 @@ a.nav__btn {
 .add__options {
 	position: absolute;
 	text-align: center;
+
 	display: flex;
+	flex-direction: column;
 	gap: 1rem;
 	top: 2.5rem;
 	left: 0rem;
 	background-color: $dark-orange;
-	border-bottom-left-radius: 1rem;
-	border-bottom-right-radius: 1rem;
 	& > a {
 		color: $dark-blue;
 		text-decoration: none;
-		border-bottom-left-radius: 1rem;
-		border-bottom-right-radius: 1rem;
+		padding-inline: 2.4rem;
 	}
 }

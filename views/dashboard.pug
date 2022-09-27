@@ -2,17 +2,18 @@ html
   include partials/_head.pug
   body
     include partials/_nav.pug
-    h1 Welcome to your dashboard:
-    ul.dashboard__list
-     h2 Search Student: 
-      li.dashboard__listitem
-        div.card__container
-          form(action="/student/searchStudent" method="GET")
-            p ID Number
-              input(type="text" name="ID" placeholder="Use '123' for testing")
-            input(type="submit", value="Search!")
-      h2 At-A-Glance
-        li.dashboard__listitem 
+    section.dahsboard__wrapper
+      h1 Welcome to your dashboard:
+      ul.dashboard__list
+      h2 Search Student: 
+        li.dashboard__listitem
           div.card__container
+            form(action="/student/searchStudent" method="GET")
+              p ID Number
+                input(type="text" name="ID" placeholder="Use '123' for testing")
+              input(type="submit", value="Search!")
+        h2 At-A-Glance
+          li.dashboard__listitem 
+            div.card__container
     include partials/_footer.pug
     a.logout.navbutton(class='button', href='/logout') Logout

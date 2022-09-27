@@ -5,11 +5,10 @@ html
     include partials/_nav.pug
     section.student
       section.student__search
-        h1 Search a student 
-          form(action="/student/searchStudent" method="GET" class="search__form")
-            p ID Number: 
-              input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
-            input(type="submit", value="Search!" class='search__btn')
+        h1.searchStudent__title Search a student 
+        form(action="/student/searchStudent" method="GET" class="search__form")
+          input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
+          input(type="submit", value="Search!" class='search__btn')
       if data
           section.student__info
             h1 Full Name: #{data.name}

@@ -1,31 +1,33 @@
 @import 'config.scss';
 .student {
 	font-size: 1rem;
-	// width: 150rem;
 	margin: auto;
 	padding-inline: 2rem;
 	display: grid;
-	grid-template-columns: 0.6fr 1fr;
+	grid-template-columns: 0.7fr 1fr;
 	gap: 1rem;
 	margin-bottom: 2rem;
 }
 .student__search {
 	font-size: 1rem;
+	padding-top: 2rem;
 }
 .input {
 	width: 80%;
-	border-radius: 1rem;
+}
+.searchStudent__title {
+	font-size: 2rem;
 }
 .search__form {
 	justify-items: left;
 	gap: 1rem;
+	display: flex;
 }
 .search__btn {
-	background-color: $dark-blue;
-	color: white;
+	background-color: $dark-orange;
+	color: $dark-blue;
 	border-radius: 1rem;
-	padding-inline: 2rem;
-	padding-block: 1rem;
+	padding-inline: 1rem;
 }
 .student__info {
 	font-size: 1rem;
@@ -63,17 +65,17 @@
 	width: 100%;
 }
 .goal__info {
-	font-size: 100%;
+	font-size: 80%;
 	display: grid;
 	gap: 1rem;
-	width: 450px;
+	width: 400px;
 	grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
 	text-align: left;
 	border: 2px solid black;
-	padding-inline: 3rem;
+	padding-inline: 1rem;
 	padding-block: 1rem;
-	margin-bottom: 3rem;
-	border-radius: var(--radius-3);
+	margin-bottom: 1rem;
+	border-radius: 1rem;
 	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
 	background-color: $dark-orange;
 	opacity: 90%;
@@ -87,7 +89,7 @@
 .text__container {
 	background-color: $light-grey;
 	color: black;
-	padding: 1rem;
+	padding: 0.5rem;
 	border-radius: 1rem;
 	border: 2px solid black;
 }
@@ -97,61 +99,29 @@
 .carousel__container {
 	// width: 150%;
 	display: flex;
-	gap: 2rem;
+	gap: 0.75rem;
 	border-radius: 1rem;
 }
-
 .accommodations {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	grid-column: 1 / span 2;
-	gap: 1rem;
+	gap: 0.5rem;
 	margin-bottom: 2rem;
+	background-color: $white;
+	padding: 1rem;
+	border-radius: 1rem;
 }
 .accommodation__container {
 	border: 2px solid $dark-blue;
-	color: $dark-blue;
-	font-weight: 700;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	background-color: $dark-blue;
+	// font-weight: 700;
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	font-size: 1.3rem;
-	padding-inline: 1rem;
-	padding-block: 1rem;
+	padding: 0.5rem;
 	border-radius: 1rem;
-}
-.addStudent__wrapper,
-.addGoals__wrapper {
-	padding-inline: 3rem;
-	margin-top: -2rem;
-}
-.addStudent__form,
-.addGoals__form {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: 0.4fr 1fr;
-	width: 50%;
-	min-width: 30rem;
-	text-align: right;
-}
-.addStudent__title,
-.addGoals__title {
-	font-size: 2rem;
-	margin-bottom: 2rem;
-}
-.checkbox {
-	text-align: left;
-	width: 1rem;
-}
-.large__input {
-	height: 200%;
-}
-.attained__wrapper {
-	grid-column: 1 / span 2;
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: 0.4fr 1fr;
-}
-.goal__submit {
-	margin-top: 1rem;
 }

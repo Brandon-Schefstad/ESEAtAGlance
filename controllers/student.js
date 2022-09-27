@@ -128,6 +128,7 @@ module.exports = {
 			ID: req.body.ID,
 		});
 		console.log(req.body);
+		console.log(student);
 		// Make array of Accommodation names, sans ID
 		let accommodationArray = Object.keys(req.body).filter((element) => {
 			return element !== 'ID';
