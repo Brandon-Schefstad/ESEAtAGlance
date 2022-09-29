@@ -17,7 +17,8 @@
 ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall. As a previous ESE teacher, making this information available to general education teachers was my largest hurdle, so this app seeks to solve that problem! 
 
 <div align="center">
-    <img width="1440" src="">
+    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/f8b6004a4930c10c742c1a060f99665dada72a41/public/assets/preview-login.png">
+    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/f8b6004a4930c10c742c1a060f99665dada72a41/public/assets/preview.png">
 </div>
 
 ### Project Installation
