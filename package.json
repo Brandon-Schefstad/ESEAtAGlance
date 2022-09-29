@@ -1,7 +1,7 @@
 {
-  "name": "Timeato",
+  "name": "ESE-At-A-Glance",
   "version": "1.0.0",
-  "description": "Timer app used to track productivity, alott time for focusing on tasks, and increase your effectiveness during study sessions.",
+  "description": "ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall.",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -11,12 +11,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^4.6.0",
-    "daisyui": "^2.31.0",
     "dotenv": "^8.2.0",
-    "ejs": "^3.1.6",
     "express": "^4.18.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.3",
