@@ -11,10 +11,12 @@
 }
 .student__card {
 	border-radius: 2rem;
-	background-color: $white;
+	background-color: $dark-orange;
 	padding: 1rem;
 	text-decoration: none;
-	font-size: 75%;
+	display: flex;
+	flex-direction: column;
+	// gap: 0.25rem;
 }
 .student__link {
 	text-decoration: none;

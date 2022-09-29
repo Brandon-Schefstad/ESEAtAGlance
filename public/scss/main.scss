@@ -13,6 +13,7 @@
 
 body {
 	padding-inline: 2rem;
+	font-size: 150%;
 	color: $dark-blue;
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	background-color: $light-grey;
@@ -21,10 +22,10 @@ body {
 	margin: auto;
 }
 
-.green {
-	color: green;
-	text-decoration: underline;
-}
+// .green {
+// 	color: green;
+// 	text-decoration: underline;
+// }
 
 .dropout {
 	animation: var(--animation-fade-out) forwards,
