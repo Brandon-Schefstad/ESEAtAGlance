@@ -1,8 +1,7 @@
 <div align="center">
-    <img width="150px" src="https://user-images.githubusercontent.com/77141303/189505187-cdd05b52-c769-4595-9c33-3238c94b963f.png" />
-    <h1>Timeato</h1>
-    <p>A pomodoro app that allows you to track your study sessions</p>
-    <a href="https://timeato-production.up.railway.app/">timeato-production.up.railway.app/</a>
+    <img width="150px" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/71251b5ecadc27ceb2422b057358d8507030434a/public/assets/favicon.png" />
+    <h1>ESE-At-A-Glance</h1>
+    <p>A dashboard for ESE student accommodations and IEP goals.</p>
 </div>
 
 
@@ -15,27 +14,27 @@
 - [Our Team](#our-team)
 
 ## Introduction
-Timeato is an open source pomodoro study buddy built in JavaScript. Our platform aims to provide users the ability to increase productivity while setting aside time to study and do work. Create an account and start tracking study session information. After we authenticate you as a user, we are able to track the amount of time you have spent studying each of your selected tasks. 
+ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall. As a previous ESE teacher, making this information available to general education teachers was my largest hurdle, so this app seeks to solve that problem! 
 
 <div align="center">
-    <img width="1440" alt="188342389-7fa669a1-e757-42da-b3c1-36146e0adacd" src="https://user-images.githubusercontent.com/77141303/189505675-4f3a023f-2d40-44be-a53d-56ab1c336f4a.png">
+    <img width="1440" src="">
 </div>
 
 ### Project Installation
-1. Fork our repository
+1. Fork this repository
 2. Navigate to a local directory where you would like the project to be cloned to
 3. Clone the repository to your local environment (`git clone <link here>`)
 4. Install all of our dependencies (`npm install` or `npm i`)
 5. Create a `.env` file and add the following variables:
     - DB_STRING = `mongodb connection URI`.
     - SECRET_SESSION = `string secret to pass into express-session instance`.
+    - PORT = `Port you would like localhost to grab onto`
 
 ### Project Dependencies
 
  - bcrypt - used to encrypt user password information.
  - connect-mongo - used for creating connection to mongodb database.
  - dotenv - used to process environment variables
- - ejs - used as view engine to render html
  - express - used for routing and handling request / response operations.
  - express-flash - used to display error information to user when logging or signing up.
  - express-session - used to maintain user state (such as if they are currently logged in or not).
@@ -45,13 +44,9 @@ Timeato is an open source pomodoro study buddy built in JavaScript. Our platform
  - nodemon - used for testing and speeding up development process.
  - passport - used for user authentication.
  - passport-local - passport strategy used.
+ - pug - used as a templating engine
+ - sass - used as a CSS preprocessor
  - validator - used for validating user input.
-
-## How To Contribute
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-Please visit <a href="https://github.com/devv-work/timeato/blob/main/CONTRIBUTING.md">`CONTRIBUTING.md`</a> to read about our guidelines before making a contribution to our project. Thank you!
 
 ## Report a Bug
 
@@ -59,10 +54,3 @@ If you encounter a bug and/or have any suggestions for our team, please visit ou
 
 If you have encountered a bug, please provide as much information as you can to help us replicate the issue on our own end. Depending on the issue, it may be useful to communicate your browser, screen width, and/or anything that relates to your specific encounter.
 
-## Our Team
-- Brandon Schefstad - <a href="https://twitter.com/BrandonSchefs">Twitter</a> - <a href="https://www.linkedin.com/in/brandon-schefstad/">LinkedIn</a>
-- Melissa Escue - <a href="https://twitter.com/mel54924853">Twitter</a> - <a href="https://www.linkedin.com/in/melissaescue/">LinkedIn</a>
-- Zephyr Pfeiffer - <a href="https://twitter.com/zephyrpfeiffer">Twitter</a> - <a href="https://www.linkedin.com/in/zephyrpfeiffer/">LinkedIn</a>
-- Ingmar Soares - <a href="https://twitter.com/krinsea">Twitter</a> - <a href="https://www.linkedin.com/in/ingmar-manuel-soares-medina-175342240">LinkedIn</a>
-- Nick Rooney - <a href="https://twitter.com/NickRooney17">Twitter</a> - <a href="https://www.linkedin.com/in/nicholasrrooney/">LinkedIn</a>
-- Brian Schnee - <a href="https://twitter.com/BrianSchneeDev">Twitter</a> - <a href="https://www.linkedin.com/in/brian-schnee-dev/">LinkedIn</a>
