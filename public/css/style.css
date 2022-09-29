@@ -337,14 +337,14 @@ a.nav__btn:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  top: 2.5rem;
-  left: 14.7rem;
+  top: 3.2rem;
+  left: 17rem;
   background-color: #3b2461;
 }
 .add__options > a {
   color: #ffc14d;
   text-decoration: none;
-  padding-inline: 2.5rem;
+  padding-inline: 1.05rem;
 }
 
 a.logout__btn {
@@ -445,6 +445,7 @@ a.index__button {
   background-color: white;
   padding: 0.5rem;
   text-decoration: none;
+  font-size: 50%;
 }
 
 .hidden {
@@ -501,14 +502,15 @@ a.index__button {
 
 .addStudent__wrapper,
 .addGoals__wrapper {
-  padding: 3rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
 }
 
 .addStudent__form,
 .addGoals__form {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 0.4fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   width: 50%;
   min-width: 30rem;
   text-align: right;
@@ -533,7 +535,7 @@ a.index__button {
   grid-column: 1/span 2;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 0.4fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
 }
 
 .submit__btn,
@@ -631,6 +633,7 @@ a.index__button {
 
 body {
   padding-inline: 2rem;
+  font-size: 150%;
   color: #3b2461;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: #c6d0e5;
