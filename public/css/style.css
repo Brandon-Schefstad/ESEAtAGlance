@@ -131,6 +131,18 @@ input.signup__button {
   margin-block: auto;
 }
 
+.help__videos {
+  padding-inline: 2rem;
+  margin-top: 2rem;
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+}
+
+iframe {
+  min-width: 30%;
+}
+
 .hidden {
   display: none;
 }

@@ -16,6 +16,13 @@ html
                   span CM: #{student.caseManager.userName}  
       else 
         section.student__list
-          p Welcome to ESE-At-A-Glance! This application is for teachers of ESE students and serves as a one-stop shop to see your students' history and accommodations. This message will show until you add a student (using the 'Add') button above. If you have any questions please #[a(href="mailto:bschefstad@gmail.com") email me] or #[a(href="https://github.com/Brandon-Schefstad/ESEAtAGlance/issues") submit an issue on GitHub.] Thank you! 
+        
+          p Welcome to ESE-At-A-Glance! This application is for teachers of ESE students and serves as a one-stop shop to see your students' IEP goal history and accommodations. This message will show until you add a student (using the "Add") button above. You may also use the "Search" button to search for other students. Student number "123" is reserved for testing to display what the information should look like. If you have any questions please #[a(href="mailto:bschefstad@gmail.com") email me] or #[a(href="https://github.com/Brandon-Schefstad/ESEAtAGlance/issues") submit an issue on GitHub.] Thank you! 
+        section.help__videos
+          p If you are unfamiliar with IEP's, FAPE, or IDEA, please watch this short video: 
+          iframe(width="640" height="360" src="https://www.youtube.com/embed/7qkNsR6Cgsk" title="What Are IEPs? IEP, IDEA, and Special Education Services Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen) 
+
+          p For more explanations about IEP goals, please watch: 
+          iframe(width="640" height="360" src="https://www.youtube.com/embed/q4m0rnrP2kA" title="Federally Mandated Elements / IEP: Measurable Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
   include partials/_footer.pug
   //- test
