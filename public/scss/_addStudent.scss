@@ -2,13 +2,14 @@
 
 .addStudent__wrapper,
 .addGoals__wrapper {
-	padding: 3rem;
+	padding: 2rem;
+	padding-bottom: 4rem;
 }
 .addStudent__form,
 .addGoals__form {
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: 0.4fr 1fr;
+	grid-template-columns: 0.8fr 1fr;
 	width: 50%;
 	min-width: 30rem;
 	text-align: right;
@@ -29,7 +30,7 @@
 	grid-column: 1 / span 2;
 	display: grid;
 	gap: 1rem;
-	grid-template-columns: 0.4fr 1fr;
+	grid-template-columns: 0.8fr 1fr;
 }
 .submit__btn,
 .accommodations__btn {

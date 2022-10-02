@@ -67,7 +67,7 @@ input.signup__button {
   padding-inline: 5rem;
   margin-top: 2rem;
   margin-left: 0rem;
-  background-color: #2c1b48;
+  background-color: #3b2461;
 }
 
 .login__listitem > input {
@@ -78,7 +78,7 @@ input.signup__button {
   display: block;
   margin: auto;
   font-size: 1.5rem;
-  background: #2c1b48;
+  background: #3b2461;
   text-decoration: none;
   color: #ffc14d;
   text-align: center;
@@ -147,7 +147,7 @@ input.signup__button {
 .student {
   font-size: 1rem;
   margin: auto;
-  padding-inline: 2rem;
+  padding: 2rem;
   display: grid;
   grid-template-columns: 0.7fr 1fr;
   gap: 1rem;
@@ -156,7 +156,7 @@ input.signup__button {
 
 .student__search {
   font-size: 1rem;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
 }
 
 .input {
@@ -175,7 +175,7 @@ input.signup__button {
 
 .search__btn {
   background-color: #ffc14d;
-  color: #2c1b48;
+  color: #3b2461;
   border-radius: 1rem;
   padding-inline: 1rem;
 }
@@ -186,7 +186,8 @@ input.signup__button {
   gap: 1rem;
   text-align: left;
   grid-template-columns: 1fr 1fr;
-  padding: 2rem;
+  padding-inline: 2rem;
+  padding-block: 0.5rem;
   background-color: #e4edff;
   color: black;
   border-radius: 1rem;
@@ -237,8 +238,8 @@ input.signup__button {
 }
 
 .goal__attained {
-  background-color: #0893a0;
-  color: #2c1b48;
+  background-color: #4d8bff;
+  color: #3b2461;
   opacity: 100%;
   border: 2px solid white;
 }
@@ -251,10 +252,6 @@ input.signup__button {
   border: 2px solid black;
 }
 
-.attained {
-  border: 3px solid rgb(26, 201, 26);
-}
-
 .carousel__container {
   display: flex;
   gap: 0.75rem;
@@ -265,24 +262,21 @@ input.signup__button {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-column: 1/span 2;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  background-color: #e4edff;
+  gap: 0.25rem;
+  background-color: white;
   padding: 1rem;
-  border-radius: 1rem;
 }
 
 .accommodation__container {
-  border: 2px solid #2c1b48;
+  border: 2px solid #ffc14d;
   display: flex;
   flex-direction: column;
   color: white;
-  background-color: #2c1b48;
+  background-color: #3b2461;
   display: flex;
   justify-content: center;
   text-align: center;
   padding: 0.5rem;
-  border-radius: 1rem;
 }
 
 .hidden {
@@ -300,7 +294,7 @@ input.signup__button {
 
 .nav__list {
   margin: auto;
-  background-color: #ffc14d;
+  background-color: #3b2461;
 }
 
 .logout__nav {
@@ -317,8 +311,8 @@ input.signup__button {
 }
 
 a.nav__btn {
-  color: #2c1b48;
   text-decoration: none;
+  color: #ffc14d;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -327,7 +321,6 @@ a.nav__btn {
 }
 a.nav__btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  outline: 2px solid rgba(0, 0, 0, 0.2);
 }
 
 .nav__listitem {
@@ -344,26 +337,26 @@ a.nav__btn:hover {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  top: 2.5rem;
-  left: 0rem;
-  background-color: #ffc14d;
+  top: 3.2rem;
+  left: 17rem;
+  background-color: #3b2461;
 }
 .add__options > a {
-  color: #2c1b48;
+  color: #ffc14d;
   text-decoration: none;
-  padding-inline: 2.4rem;
+  padding-inline: 1.05rem;
 }
 
 a.logout__btn {
-  background-color: #2c1b48;
-  color: #ffc14d;
+  background-color: #ffc14d;
+  color: #3b2461;
   font-weight: 600;
   letter-spacing: 0.1ch;
   margin: auto;
   height: 80%;
 }
 a.logout__btn:hover {
-  color: #2c1b48;
+  color: #ffc14d;
 }
 
 .accommodation__form {
@@ -447,10 +440,12 @@ a.index__button {
 }
 
 .attribution {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
-  padding-left: 2rem;
-  padding-bottom: 2rem;
+  background-color: white;
+  padding: 0.5rem;
+  text-decoration: none;
+  font-size: 50%;
 }
 
 .hidden {
@@ -483,11 +478,13 @@ a.index__button {
   background-color: #ffc14d;
   padding: 1rem;
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .student__link {
   text-decoration: none;
-  color: #2c1b48;
+  color: #3b2461;
 }
 
 .hidden {
@@ -505,14 +502,15 @@ a.index__button {
 
 .addStudent__wrapper,
 .addGoals__wrapper {
-  padding: 3rem;
+  padding: 2rem;
+  padding-bottom: 4rem;
 }
 
 .addStudent__form,
 .addGoals__form {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 0.4fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
   width: 50%;
   min-width: 30rem;
   text-align: right;
@@ -537,7 +535,7 @@ a.index__button {
   grid-column: 1/span 2;
   display: grid;
   gap: 1rem;
-  grid-template-columns: 0.4fr 1fr;
+  grid-template-columns: 0.8fr 1fr;
 }
 
 .submit__btn,
@@ -545,13 +543,13 @@ a.index__button {
   padding-inline: 1rem;
   text-decoration: none;
   color: #ffc14d;
-  background-color: #2c1b48;
+  background-color: #3b2461;
   border: 2px solid #e4edff;
 }
 .submit__btn:hover,
 .accommodations__btn:hover {
   background-color: #ffc14d;
-  color: #2c1b48;
+  color: #3b2461;
 }
 
 .accommodations__btn {
@@ -587,7 +585,7 @@ a.index__button {
 }
 
 .HOVER:hover text {
-  color: #2c1b48 !important;
+  color: #3b2461 !important;
 }
 
 .HOVER span {
@@ -608,7 +606,7 @@ a.index__button {
 }
 
 .HOVER.FLASH:hover text {
-  color: #2c1b48;
+  color: #3b2461;
 }
 
 .HOVER.FLASH span {
@@ -635,17 +633,13 @@ a.index__button {
 
 body {
   padding-inline: 2rem;
-  color: #2c1b48;
+  font-size: 150%;
+  color: #3b2461;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   background-color: #c6d0e5;
   padding: 0px;
   max-width: 1920px;
   margin: auto;
-}
-
-.green {
-  color: green;
-  text-decoration: underline;
 }
 
 .dropout {

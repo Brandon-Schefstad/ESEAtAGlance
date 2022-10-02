@@ -29,8 +29,10 @@ a.index__button {
 	gap: 2rem;
 }
 .attribution {
-	position: absolute;
+	position: fixed;
 	bottom: 0px;
-	padding-left: 2rem;
-	padding-bottom: 2rem;
+	background-color: white;
+	padding: 0.5rem;
+	text-decoration: none;
+	font-size: 50%;
 }

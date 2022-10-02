@@ -1,7 +1,7 @@
 @import 'config.scss';
 .nav__list {
 	margin: auto;
-	background-color: $dark-orange;
+	background-color: $dark-blue;
 }
 .logout__nav {
 	display: flex;
@@ -15,12 +15,11 @@
 	margin: auto;
 }
 a.nav__btn {
-	color: $dark-blue;
 	text-decoration: none;
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.2);
-		outline: 2px solid rgba(0, 0, 0, 0.2);
 	}
+	color: $dark-orange;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -36,28 +35,27 @@ a.nav__btn {
 .add__options {
 	position: absolute;
 	text-align: center;
-
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	top: 2.5rem;
-	left: 0rem;
-	background-color: $dark-orange;
+	top: 3.2rem;
+	left: 17rem;
+	background-color: $dark-blue;
 	& > a {
-		color: $dark-blue;
+		color: $dark-orange;
 		text-decoration: none;
-		padding-inline: 2.4rem;
+		padding-inline: 1.05rem;
 	}
 }
 
 a.logout__btn {
-	background-color: $dark-blue;
-	color: $dark-orange;
+	background-color: $dark-orange;
+	color: $dark-blue;
 	font-weight: 600;
 	letter-spacing: 0.1ch;
 	margin: auto;
 	height: 80%;
 	&:hover {
-		color: $dark-blue;
+		color: $dark-orange;
 	}
 }
