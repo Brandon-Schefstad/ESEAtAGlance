@@ -9,9 +9,7 @@
 - [Introduction](#introduction)
 - [Project Installation](#project-installation)
 - [Project Dependencies](#project-dependencies)
-- [How to Contribute](#how-to-contribute)
 - [Report a Bug](#report-a-bug)
-- [Our Team](#our-team)
 
 ## Introduction
 ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall. As a previous ESE teacher, making this information available to general education teachers was my largest hurdle, so this app seeks to solve that problem! 
