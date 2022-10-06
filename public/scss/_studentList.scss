@@ -5,20 +5,38 @@
 }
 .student__list__cards {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 2rem;
 	padding-inline: 2rem;
 }
 .student__card {
 	border-radius: 2rem;
-	background-color: $dark-orange;
-	padding: 1rem;
+	border: 3px solid $dark-orange;
+	padding: 2rem;
+	gap: 1rem;
 	text-decoration: none;
 	display: flex;
 	flex-direction: column;
-	// gap: 0.25rem;
+	height: 280px;
+	position: relative;
 }
 .student__link {
 	text-decoration: none;
 	color: $dark-blue;
+	height: 100%;
+}
+
+.delete__button {
+	position: absolute;
+	display: block;
+	width: 40px;
+	right: 20px;
+	top: 15px;
+	cursor: pointer;
+	font-size: 1.5rem;
+	z-index: 2;
+	background-color: red;
+	border-radius: 2rem;
+	text-align: center;
+	color: white;
 }

@@ -8,12 +8,13 @@ html
         section.student__list
           section.student__list__cards
             for student in studentList
-              a(href="/student/searchStudent?ID="+student.ID class="student__link") 
-                div.student__card
-                  span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
-                  span ID: #{student.ID} 
-                  span Excep: #{student.primaryExceptionality}
-                  span CM: #{student.caseManager.userName}  
+                  div.student__card
+                    div(class='delete__button' id=student.ID) X
+                    a(href="/student/searchStudent?ID="+student.ID class="student__link") 
+                      span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                    span ID: #{student.ID} 
+                    span Excep: #{student.primaryExceptionality}
+                    span CM: #{student.caseManager.userName}  
       else 
         section.student__list
         

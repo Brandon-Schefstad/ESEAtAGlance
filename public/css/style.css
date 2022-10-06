@@ -480,23 +480,42 @@ a.index__button {
 
 .student__list__cards {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   padding-inline: 2rem;
 }
 
 .student__card {
   border-radius: 2rem;
-  background-color: #ffc14d;
-  padding: 1rem;
+  border: 3px solid #ffc14d;
+  padding: 2rem;
+  gap: 1rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  height: 280px;
+  position: relative;
 }
 
 .student__link {
   text-decoration: none;
   color: #3b2461;
+  height: 100%;
+}
+
+.delete__button {
+  position: absolute;
+  display: block;
+  width: 40px;
+  right: 20px;
+  top: 15px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 2;
+  background-color: red;
+  border-radius: 2rem;
+  text-align: center;
+  color: white;
 }
 
 .hidden {

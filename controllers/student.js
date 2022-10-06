@@ -1,6 +1,7 @@
 const Student = require('../models/Student');
 const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
+const dashboard = require('./dashboard.js');
 
 module.exports = {
 	addNewStudent: (req, res) => {
@@ -157,5 +158,18 @@ module.exports = {
 			$push: { accommodations: accommodationPushArray },
 		});
 		res.render('addAccommodations');
+	},
+	deleteStudent: async (req, res) => {
+		try {
+			console.log(req.body.ID);
+			console.log(req.user.id);
+			const student = await Student.deleteOne({
+				ID: req.body.ID,
+			});
+			console.log(student);
+			res.redirect('/dashboard');
+		} catch (error) {
+			res.redirect('/dashboard');
+		}
 	},
 };
