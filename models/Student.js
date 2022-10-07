@@ -40,6 +40,10 @@ const StudentSchema = new mongoose.Schema({
 			ref: 'Accommodations',
 		},
 	],
+	IEPDueDate: {
+		type: Date,
+		required: true,
+	},
 });
 
 module.exports = mongoose.model('Student', StudentSchema);
