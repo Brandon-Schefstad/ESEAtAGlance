@@ -1,24 +1,62 @@
 @import 'config.scss';
 .student__list {
-	padding-inline: 2rem;
 	margin: auto;
 }
 .student__list__cards {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 	gap: 2rem;
 	padding-inline: 2rem;
 }
 .student__card {
 	border-radius: 2rem;
-	background-color: $dark-orange;
-	padding: 1rem;
+	border: 5px solid $dark-orange;
+	gap: 1rem;
+	padding: 1.5rem;
 	text-decoration: none;
 	display: flex;
 	flex-direction: column;
-	// gap: 0.25rem;
+	// height: 280px;
+	position: relative;
 }
 .student__link {
 	text-decoration: none;
-	color: $dark-blue;
+	color: black;
+	text-align: center;
+}
+
+.delete__button {
+	position: absolute;
+	display: block;
+	padding: 0.5rem;
+	right: 20px;
+	top: 15px;
+	cursor: pointer;
+	font-size: 1.5rem;
+	z-index: 2;
+	background-color: red;
+	border-radius: 2rem;
+	text-align: center;
+	color: white;
+}
+.card__info {
+	display: grid;
+	grid-template-columns: 0.5fr 1fr;
+}
+.case__manager {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+.case__manager__title {
+	border-bottom: 1px solid black;
+}
+.case__manager__title__header {
+	grid-column: 1 / span 2;
+	justify-self: left;
+}
+.case__manager__title {
+	display: grid;
+	grid-template-columns: 0.2fr 0.5fr;
+	text-align: center;
 }
