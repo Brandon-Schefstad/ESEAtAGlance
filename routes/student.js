@@ -14,7 +14,6 @@ router.get(
 router.get('/addNewStudent', ensureAuth, studentController.addNewStudent);
 router.post('/addNewStudent', ensureAuth, studentController.postNewStudent);
 router.get('/addGoals', ensureAuth, studentController.addGoalsPage);
-router.delete('/deleteStudent', ensureAuth, studentController.deleteStudent);
 router.post('/addGoals', ensureAuth, studentController.addGoals);
 router.get(
 	'/addAccommodations',
