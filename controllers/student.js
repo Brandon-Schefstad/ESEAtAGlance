@@ -30,7 +30,6 @@ module.exports = {
 			let returnHistory = history.filter((subArr) => {
 				return subArr.length > 0;
 			});
-			console.log(student);
 			let presentation = student.accommodations.filter((accomm) => {
 				return accomm.category === 'presentation';
 			});
@@ -43,7 +42,6 @@ module.exports = {
 			let scheduling = student.accommodations.filter((accomm) => {
 				return accomm.category === 'scheduling';
 			});
-			console.log();
 			const resObject = {
 				name: student.firstName + ' ' + student.lastName,
 				ID: student.ID,
@@ -55,10 +53,10 @@ module.exports = {
 				response: response,
 				setting: setting,
 				scheduling: scheduling,
-				IEP: student.IEPDueDate.toDateString()
-					.split(' ')
-					.splice(1, 4)
-					.join(' '),
+				// IEP: IEPDueDate.toDateString()
+				// 	.split(' ')
+				// 	.splice(1, 4)
+				// 	.join(' '),
 			};
 			// console.log(resObject);
 			res.render('searchStudent', { data: resObject });
@@ -85,6 +83,7 @@ module.exports = {
 				caseManager: req.user._id,
 				history: [],
 				accommodations: [],
+
 				IEPDueDate: req.body.IEP,
 			});
 			console.log('Student has been added');

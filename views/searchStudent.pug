@@ -16,7 +16,8 @@ html
             h1 Grade: #{data.grade} 
             h1 Case Manager: #{data.caseManager}
             h1 Primary Exceptionality: #{data.primary}
-            h1 Next IEP: #{data.IEP}
+          //- if data.IEP
+          //-   h1 Next IEP: #{data.IEP}
           if data.presentation.length + data.response.length + data.setting.length + data.scheduling.length >0 
             h1.searchStudent__title Accommodations:
             if data.presentation.length>0
