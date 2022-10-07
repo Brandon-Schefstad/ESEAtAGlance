@@ -1,0 +1,122 @@
+@use 'login.scss';
+@use 'dashboard.scss';
+@use 'search-student.scss';
+@use 'nav.scss';
+@use '_accommodations.scss';
+@use '_index.scss';
+@use '_studentList.scss';
+@use '_addStudent.scss';
+@use '_ripple.scss';
+.hidden {
+  display: none;
+}
+
+.bold {
+  font-weight: 700;
+  text-align: left;
+}
+
+.large {
+  font-size: 200%;
+}
+
+body.vsc-initialized {
+  padding-inline: 2rem;
+  font-size: 150%;
+  color: #3b2461;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #c6d0e5;
+  padding: 0px;
+  max-width: 1920px;
+  margin: auto;
+}
+
+.dropout {
+  animation: var(--animation-fade-out) forwards, var(--animation-slide-out-down);
+  animation-timing-function: var(--ease-squish-3);
+  animation-duration: 1s;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.not {
+  text-decoration: underline;
+}
+
+/* ##### CSS RESET ##### */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/*# sourceMappingURL=main.css.map */

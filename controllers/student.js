@@ -1,6 +1,7 @@
 const Student = require('../models/Student');
 const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
+const dashboard = require('./dashboard.js');
 
 module.exports = {
 	addNewStudent: (req, res) => {
@@ -123,39 +124,56 @@ module.exports = {
 		res.render('addAccommodations');
 	},
 	postAccommodations: async (req, res) => {
-		// Identify a student
-		let student = await Student.findOne({
-			ID: req.body.ID,
-		});
-		console.log(req.body);
-		console.log(student);
-		// Make array of Accommodation names, sans ID
-		let accommodationArray = Object.keys(req.body).filter((element) => {
-			return element !== 'ID';
-		});
-		// Array to push to DB
-		let accommodationPushArray = [];
-		for (let i = 0; i < accommodationArray.length; i++) {
-			let accommodation = await Accommodations.findOne({
-				name: accommodationArray[i],
+		try {
+			// Identify a student
+			let student = await Student.findOne({
+				ID: req.body.ID,
 			});
-
-			if (!accommodation) {
-				const returnAccomm = await Accommodations.create({
-					student: student._id,
+			console.log(req.body);
+			console.log(student);
+			// Make array of Accommodation names, sans ID
+			let accommodationArray = Object.keys(req.body).filter((element) => {
+				return element !== 'ID';
+			});
+			// Array to push to DB
+			let accommodationPushArray = [];
+			for (let i = 0; i < accommodationArray.length; i++) {
+				let accommodation = await Accommodations.findOne({
 					name: accommodationArray[i],
-					dateAdded: Date.now(),
 				});
-				accommodationPushArray.push(returnAccomm);
-			} else if (!student.accommodations.includes(accommodation._id)) {
-				accommodationPushArray.push(accommodation._id);
-			}
-		}
-		console.log(accommodationPushArray);
 
-		await student.updateOne({
-			$push: { accommodations: accommodationPushArray },
-		});
-		res.render('addAccommodations');
+				if (!accommodation) {
+					const returnAccomm = await Accommodations.create({
+						student: student._id,
+						name: accommodationArray[i],
+						dateAdded: Date.now(),
+					});
+					accommodationPushArray.push(returnAccomm);
+				} else if (
+					!student.accommodations.includes(accommodation._id)
+				) {
+					accommodationPushArray.push(accommodation._id);
+				}
+			}
+			console.log(accommodationPushArray);
+			await student.updateOne({
+				$push: { accommodations: accommodationPushArray },
+			});
+			res.render('addAccommodations');
+		} catch (error) {
+			console.error(error);
+		}
+	},
+	deleteStudent: async (req, res) => {
+		try {
+			console.log(req.body.ID);
+			console.log(req.user.id);
+			const student = await Student.deleteOne({
+				ID: req.body.ID,
+			});
+			res.redirect('/dashboard');
+		} catch (error) {
+			res.redirect('/dashboard');
+		}
 	},
 };
