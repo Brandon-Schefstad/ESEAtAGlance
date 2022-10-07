@@ -162,7 +162,7 @@ iframe {
   padding: 2rem;
   display: grid;
   grid-template-columns: 0.7fr 1fr;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-bottom: 2rem;
 }
 
@@ -194,6 +194,10 @@ iframe {
   padding-inline: 1rem;
 }
 
+.accommodations__title {
+  grid-column: 1/span 2;
+}
+
 .student__info {
   display: grid;
   gap: 1rem;
@@ -215,6 +219,7 @@ iframe {
 
 .searchStudent__title {
   font-size: 2rem;
+  margin-bottom: 0rem;
 }
 
 .grade__info {
@@ -281,6 +286,7 @@ iframe {
   gap: 0.25rem;
   background-color: white;
   padding: 1rem;
+  margin-inline: 2rem;
 }
 
 .accommodation__container {
@@ -406,6 +412,7 @@ a.logout__btn:hover {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   min-width: 60rem;
+  padding-inline: 2rem;
 }
 
 .presentation__subsection {
@@ -506,7 +513,7 @@ a.index__button {
 .student__link {
   text-decoration: none;
   color: black;
-  text-align: center;
+  text-align: left;
 }
 
 .delete__button {

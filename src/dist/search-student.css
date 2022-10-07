@@ -49,6 +49,10 @@
   padding-inline: 1rem;
 }
 
+.accommodations__title {
+  grid-column: 1 / span 2;
+}
+
 .student__info {
   display: grid;
   gap: 1rem;

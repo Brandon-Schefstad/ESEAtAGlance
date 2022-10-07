@@ -16,12 +16,33 @@ html
             h1 Grade: #{data.grade} 
             h1 Case Manager: #{data.caseManager}
             h1 Primary Exceptionality: #{data.primary}
-          if data.accommodations.length>0 
+          if data.presentation.length + data.response.length + data.setting.length + data.scheduling.length >0 
             h1.searchStudent__title Accommodations:
-            section.accommodations 
-              for entry in data.accommodations
-                div.accommodation__container 
-                  span= entry.name
+            h1.accommodations__title Presentation
+            if data.presentation.length>0
+              section.accommodations
+                for entry in data.presentation
+                  div.accommodation__container 
+                    span= entry.name
+            if data.response.length>0
+              h1.accommodations__title Response
+              section.accommodations
+                for entry in data.response
+                  div.accommodation__container 
+                    span= entry.name
+            if data.setting.length>0
+              h1.accommodations__title Setting
+              section.accommodations
+                for entry in data.setting
+                  div.accommodation__container 
+                    span= entry.name
+            if data.scheduling.length>0
+              h1.accommodations__title Scheduling
+              section.accommodations      
+                for entry in data.scheduling
+                    div.accommodation__container 
+                      span= entry.name
+                 
       if data
         h1.searchStudent__title Goal History:
         for grade in data.history 
