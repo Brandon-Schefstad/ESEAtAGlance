@@ -43,7 +43,6 @@
 	padding-block: 0.5rem;
 	background-color: $white;
 	color: black;
-	border-radius: 1rem;
 	& > h1 {
 		font-size: 1.5rem;
 	}
@@ -113,12 +112,11 @@
 }
 .accommodations {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	grid-column: 1 / span 2;
-	gap: 0.25rem;
-	background-color: white;
-	padding: 1rem;
-	margin-inline: 2rem;
+	// gap: 0.25rem;
+	padding: 0.5rem;
+	margin-inline: 3em;
 }
 .accommodation__container {
 	border: 2px solid $dark-orange;
@@ -131,4 +129,9 @@
 	justify-content: center;
 	text-align: center;
 	padding: 0.5rem;
+}
+.accommodation__background {
+	padding: 0.25rem;
+	background-color: white;
+	height: 100%;
 }
