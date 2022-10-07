@@ -20,7 +20,7 @@
   font-size: 200%;
 }
 
-body {
+body.vsc-initialized {
   padding-inline: 2rem;
   font-size: 150%;
   color: #3b2461;

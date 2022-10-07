@@ -20,8 +20,8 @@ deleteBtns.forEach((button) => {
 });
 
 async function deleteItem(e) {
-	console.log(e.target.id);
-	const ID = e.target.id;
+	console.log(e.target);
+	const ID = e.target.parentElement.id;
 	try {
 		fetch('/student/deleteStudent', {
 			method: 'delete',

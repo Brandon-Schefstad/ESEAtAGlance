@@ -171,7 +171,6 @@ module.exports = {
 			const student = await Student.deleteOne({
 				ID: req.body.ID,
 			});
-			console.log(student);
 			res.redirect('/dashboard');
 		} catch (error) {
 			res.redirect('/dashboard');
