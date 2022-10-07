@@ -1,21 +1,25 @@
-html 
-  include partials/_head.pug
-  body
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-neutral
     include partials/_nav.pug
-    section.addStudent__wrapper
-      h1.addStudent__title Add New Student
-      form(action="/student/addNewStudent" method="POST" class="addStudent__form")
-        p First Name:
-        input(type="text" name="firstName" placeholder="")
-        p Last Name:
-        input(type="text" name="lastName" placeholder="")
-        p ID Number:
-        input(type="number" name="idNumber" placeholder="")
-        p Grade:
-        input(type="number" name="grade" placeholder="")
-        p Primary Exceptionality:
-        input(type="text" name="primary" placeholder="")
-        p IEP Due Date:
-        input(type="date" name="IEP" placeholder="")
-        input(type="submit" value="Submit" class="submit__btn") 
-      include partials/_footer.pug
+    section.m-12
+      h1.text-5xl.mb-12.text-primary Add New Student
+      form.mx-16.grid.gap-8.grid-cols-2.bg-base-100.p-8(action="/student/addNewStudent" method="POST" class="")
+        p.text-2xl First Name:
+        input( class="text-primary px-2" type="text" name="firstName" placeholder="")
+        p.text-2xl Last Name:
+        input(class="text-primary px-2" type="text" name="lastName" placeholder="")
+        p.text-2xl ID Number:
+        input(class="text-primary px-2" type="number" name="idNumber" placeholder="")
+        p.text-2xl Grade:
+        input(class="text-primary px-2" type="number" name="grade" placeholder="")
+        p.text-2xl Primary Exceptionality:
+        input(class="text-primary px-2" type="text" name="primary" placeholder="")
+        p.text-2xl IEP Due Date:
+        input(class="text-primary px-2" type="date" name="IEP" placeholder="")
+        input.mt-12(type="submit" value="Submit" class="btn btn-warning") 
+include partials/_footer.pug

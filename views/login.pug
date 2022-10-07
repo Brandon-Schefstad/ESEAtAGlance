@@ -1,4 +1,4 @@
-html 
+html(data-theme=" ")
   include partials/_head.pug
   body
     div.login__container
@@ -14,6 +14,6 @@ html
                 p Password:
                 input(type="password" name="password" placeholder="")
               li.login__listitem
-              input.navbutton.login__button(type="submit" value='Login')
+              input(class="btn w-64 rounded-full" type="submit" value='Login')
     include partials/_footer.pug
       a.signup.navbutton(href='/signup') signup here today!

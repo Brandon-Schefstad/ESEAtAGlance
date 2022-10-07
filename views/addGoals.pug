@@ -1,10 +1,14 @@
-html 
-  include partials/_head.pug
-  body
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-neutral
     include partials/_nav.pug
-    section.addGoals__wrapper
-      h1.addGoals__title History
-      form(action="/student/addGoals" method="POST" class="addGoals__form")
+    section.m-12
+      h1.text-5xl.mb-12.text-primary Add Goals
+      form.mx-16.grid.gap-8.grid-cols-2.bg-base-100.p-8(action="/student/addGoals" method="POST" class="addGoals__form")
         p ID Number:
         if ID 
           input(type="text" name="ID" value=ID)
@@ -40,7 +44,7 @@ html
           input(type="checkbox" name="succeed" placeholder="" class="checkbox")
         p Notes:
         textarea(name="notes", cols="30", rows="5") 
-        input(type="submit", value="Submit Goal" class="goal__submit submit__btn")
+        input(type="submit", value="Submit Goal" class="btn btn-primary")
       a(href="/student/addAccommodations" class="accommodations__btn") Add Accommodations 
         i(class="fa-sharp fa-solid fa-arrow-right")
   include partials/_footer.pug

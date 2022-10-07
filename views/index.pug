@@ -1,12 +1,11 @@
-html 
+html(data-theme=" ")
   include partials/_head.pug
   body
-    
     section.index__intro  
       img(src="assets/hero.jpg", alt="", class="hero")
       section.index__buttons
         h1.index__title Welcome to ESE-at-a-glance!
-        a.signup.navbutton.index__button(href='/login') Login
-        a.signup.navbutton.index__button(href='/signup') SignUp
+        a(href='/login' class="btn w-64 rounded-full bg-green-500" ) Login
+        a(href='/signup' class="btn w-64 rounded-full btn-primary" ) SignUp
 
-    a(href="https://www.freepik.com/free-vector/schoolboy-standing-books-raising-hand-speaking-pupil-reading-home-task-report-flat-vector-illustration-school-education-knowledge_10173517.htm#query=student%20illustration&position=3&from_view=keyword" class="attribution") Image by pch.vector on Freepik
+      a(href="https://www.freepik.com/free-vector/schoolboy-standing-books-raising-hand-speaking-pupil-reading-home-task-report-flat-vector-illustration-school-education-knowledge_10173517.htm#query=student%20illustration&position=3&from_view=keyword" class="attribution") Image by pch.vector on Freepik

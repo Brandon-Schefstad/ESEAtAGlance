@@ -1,14 +1,18 @@
-
-html 
-  include partials/_head.pug
-  body
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-neutral
     include partials/_nav.pug
-    section.student
+    section.m-12
+      h1.text-5xl.mb-12.text-primary Search A Student
       section.student__search
-        h1.searchStudent__title Search a student 
+        h1.text-primary Search a student 
         form(action="/student/searchStudent" method="GET" class="search__form")
-          input(type="text" name="ID" placeholder="Use '123' for testing" class='input')
-          input(type="submit", value="Search!" class='search__btn')
+          input(type="text" name="ID" placeholder="Use '123' for testing" class='input bg-white text-primary')
+          input(type="submit", value="Search!" class='btn btn-primary')
       if data
           section.student__info
             h1 Full Name: #{data.name}
