@@ -131,18 +131,6 @@ input.signup__button {
   margin-block: auto;
 }
 
-.help__videos {
-  padding-inline: 2rem;
-  margin-top: 2rem;
-  gap: 2rem;
-  display: grid;
-  grid-template-columns: 0.4fr 1fr;
-}
-
-iframe {
-  min-width: 30%;
-}
-
 .hidden {
   display: none;
 }
@@ -177,14 +165,12 @@ iframe {
 
 .searchStudent__title {
   font-size: 2rem;
-  margin-bottom: 1rem;
 }
 
 .search__form {
   justify-items: left;
   gap: 1rem;
   display: flex;
-  margin-left: 1rem;
 }
 
 .search__btn {
@@ -195,6 +181,7 @@ iframe {
 }
 
 .student__info {
+  font-size: 1rem;
   display: grid;
   gap: 1rem;
   text-align: left;
@@ -204,9 +191,6 @@ iframe {
   background-color: #e4edff;
   color: black;
   border-radius: 1rem;
-}
-.student__info > h1 {
-  font-size: 1.5rem;
 }
 
 .grade__header {
@@ -311,8 +295,6 @@ iframe {
 .nav__list {
   margin: auto;
   background-color: #3b2461;
-  width: 100%;
-  outline: 4px solid #ffc14d;
 }
 
 .logout__nav {
@@ -330,7 +312,7 @@ iframe {
 
 a.nav__btn {
   text-decoration: none;
-  color: #ffc14d !important;
+  color: #ffc14d;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -350,7 +332,6 @@ a.nav__btn:hover {
 }
 
 .add__options {
-  z-index: 3;
   position: absolute;
   text-align: center;
   display: flex;
@@ -368,7 +349,7 @@ a.nav__btn:hover {
 
 a.logout__btn {
   background-color: #ffc14d;
-  color: #3b2461 !important;
+  color: #3b2461;
   font-weight: 600;
   letter-spacing: 0.1ch;
   margin: auto;
@@ -456,7 +437,6 @@ a.index__button {
   display: grid;
   margin: auto;
   gap: 2rem;
-  margin-inline: 2rem;
 }
 
 .attribution {
@@ -482,71 +462,29 @@ a.index__button {
 }
 
 .student__list {
+  padding-inline: 2rem;
   margin: auto;
 }
 
 .student__list__cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 2rem;
+  padding-inline: 2rem;
 }
 
 .student__card {
   border-radius: 2rem;
-  border: 5px solid #ffc14d;
-  gap: 1rem;
-  padding: 1.5rem;
+  background-color: #ffc14d;
+  padding: 1rem;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 .student__link {
   text-decoration: none;
-  color: black;
-  text-align: center;
-}
-
-.delete__button {
-  position: absolute;
-  display: block;
-  padding: 0.5rem;
-  right: 20px;
-  top: 15px;
-  cursor: pointer;
-  font-size: 1.5rem;
-  z-index: 2;
-  background-color: red;
-  border-radius: 2rem;
-  text-align: center;
-  color: white;
-}
-
-.card__info {
-  display: grid;
-  grid-template-columns: 0.5fr 1fr;
-}
-
-.case__manager {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.case__manager__title {
-  border-bottom: 1px solid black;
-}
-
-.case__manager__title__header {
-  grid-column: 1/span 2;
-  justify-self: left;
-}
-
-.case__manager__title {
-  display: grid;
-  grid-template-columns: 0.2fr 0.5fr;
-  text-align: center;
+  color: #3b2461;
 }
 
 .hidden {
@@ -693,7 +631,7 @@ a.index__button {
   font-size: 200%;
 }
 
-body.vsc-initialized {
+body {
   padding-inline: 2rem;
   font-size: 150%;
   color: #3b2461;

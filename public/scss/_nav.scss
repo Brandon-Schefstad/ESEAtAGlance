@@ -2,8 +2,6 @@
 .nav__list {
 	margin: auto;
 	background-color: $dark-blue;
-	width: 100%;
-	outline: 4px solid $dark-orange;
 }
 .logout__nav {
 	display: flex;
@@ -21,7 +19,7 @@ a.nav__btn {
 	&:hover {
 		background-color: rgba(255, 255, 255, 0.2);
 	}
-	color: $dark-orange !important;
+	color: $dark-orange;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -35,7 +33,6 @@ a.nav__btn {
 	position: relative;
 }
 .add__options {
-	z-index: 3;
 	position: absolute;
 	text-align: center;
 	display: flex;
@@ -53,7 +50,7 @@ a.nav__btn {
 
 a.logout__btn {
 	background-color: $dark-orange;
-	color: $dark-blue !important;
+	color: $dark-blue;
 	font-weight: 600;
 	letter-spacing: 0.1ch;
 	margin: auto;
