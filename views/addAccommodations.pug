@@ -4,23 +4,23 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-neutral.min-h-screen
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
     section.m-12
       h1.text-5xl.mb-12.text-primary Add Accommodations
-      form.text-neutral.mx-16.grid.gap-8.bg-info.pl-16.py-12.grid-cols-2(action="/student/addAccommodations" method="POST" class="accommodation__form")
-        div
+      form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12.grid-cols-2(action="/student/addAccommodations" method="POST" class="accommodation__form")
+        div.text-accent
           p.text-3xl.mb-8 ID Number
           if ID 
-            input.col-span-2.text-info(type="text" name="ID" value=ID)
+            input.col-span-2(type="text" name="ID" value=ID)
           else
-            input.col-span-2.text-info(type="text" name="ID" placeholder="")
+            input.col-span-2(type="text" name="ID" placeholder="")
         div.col-span-2
           section.grid.container.grid-rows-auto
             section.collapse
               h1.collapse-title.text-6xl.text-secondary Presentation
               input(type="checkbox")
-              section.collapse-content.col-start-1.grid.grid-cols-2
+              section.collapse-content.col-start-1.grid.grid-cols-2.text-secondary
                 section.flex.flex-col.mt-8
                   h1.text-4xl.mb-8.underline  Visual Formats
                   section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
@@ -153,7 +153,7 @@ html
             section.collapse
               h1.collapse-title.text-6xl.text-secondary.col-start-1 Response
               input(type="checkbox")
-              section.collapse-content.col-start-1.grid.grid-cols-2
+              section.collapse-content.col-start-1.grid.grid-cols-2.text-secondary
                 section.flex.flex-col.mt-8.col-start-1
                     h1.text-4xl.mb-8.underline  Alternate Response Modes
                     section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
@@ -246,7 +246,7 @@ html
             section.collapse
               h1.collapse-title.text-6xl.text-secondary.col-start-1 Setting
               input(type="checkbox")
-              section.collapse-content.col-start-1.grid.grid-cols-2
+              section.collapse-content.col-start-1.grid.grid-cols-2.text-secondary
                 section.flex.flex-col.mt-8.col-start-1
                     h1.text-4xl.mb-8.underline  Physical Accessibility
                     section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
@@ -301,7 +301,7 @@ html
             section.collapse
               h1.collapse-title.text-6xl.text-secondary.col-start-1 Scheduling
               input(type="checkbox")
-              section.collapse-content.col-start-1.grid.grid-cols-2
+              section.collapse-content.col-start-1.grid.grid-cols-2.text-secondary
                 section.flex.flex-col.mt-8.col-start-1
                     h1.text-4xl.mb-8.underline  Time Allocation
                     section.grid.grid-cols-8.gap-2.tracking-wider.text-lg

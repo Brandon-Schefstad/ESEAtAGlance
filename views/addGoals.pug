@@ -4,7 +4,7 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-neutral.min-h-screen
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
     section(class).mx-12.my-6.relative
       h1.text-5xl.text-primary.mb-8 Add Goals
@@ -12,16 +12,16 @@ html
         form(method="GET" action='/student/addAccommodations')
           label(for=`${ID}`)
             input(class=`${ID}` value=`${ID}`).hidden
-          input.btn-primary.text-secondary.border-secondary.border-4.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
-      form.m-auto.text-neutral.bg-info.px-16.py-12.relative(action="/student/addGoals" method="POST")
+          input.btn-primary.text-accent.border-secondary.border-4.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
+      form.bg-base-100.m-auto.text-secondary.bg-info.px-16.py-12.relative(action="/student/addGoals" method="POST")
         div.grid.gap-8.grid-cols-5
           p.text-2xl.text-right.col-span-1 ID Number:
           if ID 
-            input.text-primary(class="col-span-4" type="text" name="ID" value=ID)
+            input.text-secondary(class="col-span-4" type="text" name="ID" value=ID)
           else
-            input.text-primary(class="col-span-4" type="text" name="ID" placeholder="")
+            input.text-secondary(class="col-span-4" type="text" name="ID" placeholder="")
           p.text-2xl.text-right.col-span-1 Grade
-          select.text-primary(class="col-span-4" name="goalGrade")
+          select.text-secondary(class="col-span-4" name="goalGrade")
             option(value=0) Kindergarten 
             option(value=1) 1st Grade 
             option(value=2) 2nd Grade 
@@ -37,18 +37,18 @@ html
             option(value=12) 12th Grade 
             option(value=13) Other 
           p.text-2xl.text-right.col-span-1 Domain:
-          select.text-primary(class="col-span-4" name="domain")
+          select.text-secondary(class="col-span-4" name="domain")
             option(value="curriculum") Curriculum and Learning Environment
             option(value="socialEmotional") Social/Emotional
             option(value="independentFunctioning") Independent Functioning
             option(value="healthcare") Healthcare
             option(value="communication") Communication
           p.text-2xl.text-right.col-span-1 Text:
-          textarea.text-primary(class="col-span-4" name="goalText", cols="30", rows="5") 
+          textarea.text-secondary(class="col-span-4" name="goalText", cols="30", rows="5") 
           p.text-2xl.text-right.col-span-1 Attained
-          input.text-primary(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
+          input.text-secondary(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
           p.text-2xl.text-right.col-span-1 Notes:
-          textarea.text-primary( class="col-span-4" name="notes", cols="30", rows="5") 
+          textarea.text-secondary( class="col-span-4" name="notes", cols="30", rows="5") 
         div.flex.justify-end.mt-6.gap-16
           input.btn-secondary.w-64.rounded-full.py-3.self-right(type="submit", value="Submit Goal" class="btn btn-warning")
 

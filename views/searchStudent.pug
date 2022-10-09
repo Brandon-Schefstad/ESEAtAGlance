@@ -4,61 +4,61 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-neutral.min-h-screen(class="max-w-[2500px]").m-auto
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
-    section.m-12.flex.flex-col
+    section.mx-12.my-4.flex.flex-col
       section(class='w-3/4 m-auto justify-items-center grid')
-        h1.text-5xl.text-primary Search A Student
-        form(action="/student/searchStudent" method="GET" class="w-full block")
-          input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full mt-8" class='input bg-white text-primary')
-          input(type="submit", value="Search!" class='mt-4  btn btn-secondary w-60')
+        h1.text-5xl.text-neutral Search A Student
+        form(action="/student/searchStudent" method="GET" class="w-full block text-accent")
+          input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full mt-8" class='input bg-white')
+          input(type="submit", value="Search!" class='mt-4  btn bg-success text-accent  w-60')
       if data
-        section.grid.grid-cols-2.gap-10
-          section.bg-white.border-4.border-primary.text-info.p-8.mx-8.grid.grid-cols-2.text-3xl.gap-6.card.text-center
-            h1.py-4.text-info.text-center.border-l-red-300.border-t-primary.border-2.border-b-primary.border-r-white Full Name: 
-            h1.py-4.border-b-primary.border-2.border-t-primary.border-r-white.border-l-red-300 #{data.name}
-            h1.py-4.text-info.text-center(class='ID') ID Number: 
-            h1.py-4 #{data.ID} 
-            h1.py-4.text-info.text-center.border-l-red-300.border-t-primary.border-2.border-b-primary.border-r-white Grade: 
-            h1.py-4.border-b-primary.border-2.border-t-primary.border-r-white.border-l-red-300 #{data.grade} 
-            h1.py-4.text-info.text-center Case Manager: 
-            h1.py-4 #{data.caseManager}
-            h1.py-4.text-info.text-center.border-l-red-300.border-t-primary.border-2.border-b-primary.border-r-white Primary Exceptionality: 
-            h1.py-4.border-b-primary.border-2.border-t-primary.border-r-white.border-l-red-300 #{data.primary}
-            h1.py-4.text-info.text-center Next IEP: 
-            h1.py-4 #{data.IEP}
-          img(src=data.image class='w-3/4 m-auto')
+        section.grid.grid-cols-2(class='w-full').bg-white.px-16.py-4.mt-4.mb-0.card
+          section.bg-base-100.border-4.border-primary.p-8.grid.grid-cols-2.gap-2.text-2xl.card.text-center(class="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 text-accent")
+            h1.border-r-2.border-r-accent Full Name: 
+            h1 #{data.name}
+            h1.border-r-2.border-r-accent(class='ID') ID Number: 
+            h1 #{data.ID} 
+            h1.border-r-2.border-r-accent Grade: 
+            h1 #{data.grade} 
+            h1.border-r-2.border-r-accent Case Manager: 
+            h1 #{data.caseManager}
+            h1.border-r-2.border-r-accent Primary Exceptionality: 
+            h1 #{data.primary}
+            h1.border-r-2.border-r-accent Next IEP: 
+            h1 #{data.IEP}
+          img(src=data.image class='max-w-3/4 w-96 m-auto')
     if data 
-      section.accommodations.p-8
-        h1.text-5xl.mb-4.text-primary Accommodations:
-        section.px-8.grid.gap-6
+      section.accommodations.px-8.text-neutral.pb-8
+        h1.text-5xl.mb-4.text-neutral Accommodations:
+        section.px-8.grid.gap-2
           if data.presentation.length>0
             h1.text-4xl.text-center.pt-4 Presentation
-            div.accom-container.grid.gap-4.grid-cols-3.bg-white.card.p-6
+            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
               for entry in data.presentation
-                div.border-l-secondary.border-4.rounded-md
-                  span.block.rounded-md.text-center.bg-primary.text-neutral.p-2.text-lg= entry.name
+                div.rounded-md
+                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
           if data.response.length>0
             h1.text-4xl.text-center.pt-4 Response
-            div.accom-container.grid.gap-4.grid-cols-3.bg-white.card.p-6
+            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
               for entry in data.response
-                div.border-l-secondary.border-4.rounded-md
-                  span.block.rounded-md.text-center.bg-primary.text-neutral.p-2.text-lg= entry.name
+                 div.rounded-md
+                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
           if data.setting.length>0
             h1.text-4xl.text-center.pt-4 Setting
-            div.accom-container.grid.grid-cols-3.gap-4.bg-white.card.p-6
+            div.accom-container.grid.grid-cols-3.gap-2.bg-white.card.p-2
               for entry in data.setting
-                div.border-l-secondary.border-4.rounded-md
-                  span.block.rounded-md.text-center.bg-primary.text-neutral.p-2.text-lg= entry.name
+                div.rounded-md
+                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
           if data.scheduling.length>0
             h1.text-4xl.text-center.pt-4 Scheduling
-            div.accom-container.grid.gap-4.grid-cols-3.bg-white.card.p-6
+            div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
               for entry in data.scheduling
-                div.border-l-secondary.border-4.rounded-md
-                  span.block.rounded-md.text-center.bg-primary.text-neutral.p-2.text-lg= entry.name                  
+                div.rounded-md
+                  span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name             
     if data
-      section.p-8
-        h1.text-5xl.mb-4.text-primary Goal History:
+      section.p-8.bg-neutral
+        h1.text-5xl.mb-4.text-secondary Goal History:
         for grade in data.history 
           - var gradeCheck = grade[0].grade
           section
@@ -70,37 +70,37 @@ html
                   when '13': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 Post-School
                   default: h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 #{gradeCheck}th Grade
             section.px-8.flex.relative.gap-12
-              section.grid.grid-flow-col.overflow-x-scroll
+              section.grid.grid-flow-col.overflow-x-scroll.mt-4.card
                 for goal in grade
                   if goal.succeed === true
                     section.font-semibold.card.p-8.bg-secondary.m-2.text-primary.divide-y.divide-primary.flex.justify-between.grow-0(class='w-96')
                       section.text__container
-                          span.bold Domain: 
+                          span.bold.text-lg Domain: 
                           span= goal.domain
                       section.text__container
-                          span.bold Goal: 
+                          span.bold.text-lg Goal: 
                           span= goal.text
                       section.text__container
-                          span.bold Attained: 
+                          span.bold.text-lg Attained: 
                           span= goal.succeed.toString().toUpperCase()
                       section.text__container
                           if goal.notes
-                            span.bold Notes: 
+                            span.bold.text-lg Notes: 
                             span= goal.notes
                   else
-                    section.font-semibold.card.p-8.bg-info.m-2.text-secondary.divide-y.divide-secondary.flex.justify-between.grow-0(class='w-96')
+                    section.font-semibold.card.p-8.bg-base-100.m-2.text-accent.divide-y.divide-secondary.flex.justify-between.grow-0(class='w-96')
                       section.text__container
-                          span.bold Domain: 
+                          span.bold.text-lg Domain: 
                           span= goal.domain
                       section.text__container
-                        span.bold Goal: 
+                        span.bold.text-lg Goal: 
                         span= goal.text
                       section.text__container.my-auto
-                        span.bold Attained: 
+                        span.bold.text-lg Attained: 
                         span= goal.succeed.toString().toUpperCase()
                       section.text__container
                         if goal.notes
-                          span.bold Notes: 
+                          span.bold.text-lg Notes: 
                           span= goal.notes
     include partials/_footer.pug 
 //- action="/student/searchStudent" method="GET"

@@ -1,23 +1,23 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-neutral.min-h-screen.h-full
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.h-full
     include partials/_nav.pug
     section.m-12.text-primary
         h1.text-4xl.text-center.my-8 Welcome to your dashboard!
         if studentList.length > 0
-          section.bg-base-100
+          section.bg-info.card
             section.grid.grid-cols-3.gap-8.p-4.px-8
               for student in studentList
-                div.card.bg-success.relative.p-8.border-secondary
+                div.card.relative.p-8.border-secondary.shadow-lg.bg-base-100
                   div.top-4.right-4.absolute.delete__button.cursor-pointer(id=student.ID) 
-                    i.fa-regular.fa-trash-can.text-secondary
+                    i.fa-regular.fa-trash-can.text-accent
                   a(href="/student/searchStudent?ID="+student.ID class="text-center ") 
-                    span.text-3xl.text-secondary.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                    span.text-3xl.text-accent.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
                   div.divider.mt-0.mb-0(class='before:bg-secondary after:bg-secondary')
-                  table.table-auto.text-xl.text-neutral.mx-24.font-semibold
+                  table.table-auto.text-xl.text-accent.mx-24.font-semibold
                     tbody
                       tr
-                        td.text-center Student ID
+                        td Student ID
                         td= student.ID
                       tr 
                         td Exceptionality
