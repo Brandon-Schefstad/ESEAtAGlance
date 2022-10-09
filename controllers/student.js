@@ -1,4 +1,5 @@
 const Student = require('../models/Student');
+const cloudinary = require('../middleware/cloudinary');
 const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
 const dashboard = require('./dashboard.js');
@@ -24,6 +25,7 @@ module.exports = {
 				})
 				.lean();
 			let history = [[], [], [], [], [], [], [], [], [], [], [], [], []];
+			console.log(student);
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal);
 			});
@@ -53,12 +55,13 @@ module.exports = {
 				response: response,
 				setting: setting,
 				scheduling: scheduling,
-				// IEP: IEPDueDate.toDateString()
-				// 	.split(' ')
-				// 	.splice(1, 4)
-				// 	.join(' '),
+				IEP: student.IEPDueDate.toDateString()
+					.split(' ')
+					.splice(1, 4)
+					.join(' '),
+				image: student.image,
 			};
-			// console.log(resObject);
+			console.log(resObject);
 			res.render('searchStudent', { data: resObject });
 		} catch (error) {
 			res.render('searchStudent');
@@ -73,7 +76,9 @@ module.exports = {
 	// },
 	postNewStudent: async (req, res) => {
 		try {
-			console.log(req.body);
+			console.log(req.query);
+			const result = await cloudinary.uploader.upload(req.file.path);
+			console.log(result);
 			await Student.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
@@ -83,17 +88,24 @@ module.exports = {
 				caseManager: req.user._id,
 				history: [],
 				accommodations: [],
-
 				IEPDueDate: req.body.IEP,
+				cloudinaryID: result.public_id,
+				image: result.secure_url,
 			});
 			console.log('Student has been added');
+			res.cookie('ID', `${req.body.idNumber}`, { httpOnly: true });
 			res.redirect('/student/addGoals');
 		} catch (err) {
 			console.error(err);
 		}
 	},
 	addGoalsPage: (req, res) => {
-		res.render('addGoals');
+		console.log(req.cookies);
+		const ID = req.cookies['ID'];
+		console.log(ID);
+		res.render('addGoals', {
+			ID: ID,
+		});
 	},
 	addGoals: async (req, res) => {
 		try {

@@ -23,15 +23,14 @@ async function deleteItem(e) {
 	console.log(e.target);
 	const ID = e.target.parentElement.id;
 	try {
-		fetch('/student/deleteStudent', {
+		await fetch('/student/deleteStudent', {
 			method: 'delete',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
 				ID: ID,
 			}),
-		}).then(() => {
-			window.location.reload();
 		});
+		window.location.reload();
 	} catch (error) {
 		console.error(error);
 	}

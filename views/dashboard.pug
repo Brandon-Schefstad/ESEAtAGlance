@@ -1,39 +1,38 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-neutral
+  body.bg-neutral.min-h-screen.h-full
     include partials/_nav.pug
     section.m-12.text-primary
-        h1.text-7xl.text-center.my-8 Welcome to your dashboard!
+        h1.text-4xl.text-center.my-8 Welcome to your dashboard!
         if studentList.length > 0
-          section.student__list
+          section.bg-base-100
             section.grid.grid-cols-3.gap-8.p-4.px-8
               for student in studentList
-                div.card.card-bordered.bg-accent.relative.p-8.border-secondary-800
-                  div.top-2.right-2.absolute.delete__button.cursor-pointer(id=student.ID) 
-                    i.fa-regular.fa-trash-can.text-red
+                div.card.bg-success.relative.p-8.border-secondary
+                  div.top-4.right-4.absolute.delete__button.cursor-pointer(id=student.ID) 
+                    i.fa-regular.fa-trash-can.text-secondary
                   a(href="/student/searchStudent?ID="+student.ID class="text-center ") 
-                    span.text-3xl.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                    span.text-3xl.text-secondary.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
                   div.divider.mt-0.mb-0(class='before:bg-secondary after:bg-secondary')
-                  table.table-auto.text-xl.text-black
+                  table.table-auto.text-xl.text-neutral.mx-24.font-semibold
                     tbody
                       tr
-                        td ID: 
+                        td.text-center Student ID
                         td= student.ID
                       tr 
-                        td Exceptionality: 
+                        td Exceptionality
                         td= student.primaryExceptionality
                       tr
-                        td Case Manager: 
+                        td Case Manager
                         td=  student.caseManager.firstName[0]+student.caseManager.lastName
                       tr
-                        td IEP Due Date: 
-                        if student.IEP
-                          td= student.IEP 
+                        td IEP Due Date
+                        if student.IEPDueDate
+                          td= student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' ')
                         else 
                           td IEP
         else 
-          section.student__list
-          
+          section.p
             p Welcome to ESE-At-A-Glance! This application is for teachers of ESE students and serves as a one-stop shop to see your students' IEP goal history and accommodations. This message will show until you add a student (using the "Add") button above. You may also use the "Search" button to search for other students. Student number "123" is already set up to display what the information should look like. If you have any questions please #[a(href="mailto:bschefstad@gmail.com") email me] or #[a(href="https://github.com/Brandon-Schefstad/ESEAtAGlance/issues") submit an issue on GitHub.] Thank you! 
           section.help__videos
             p If you are unfamiliar with IEP's, FAPE, or IDEA, please watch this short video: 

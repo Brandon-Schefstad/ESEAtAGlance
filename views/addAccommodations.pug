@@ -4,321 +4,329 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-neutral
+  body.bg-neutral.min-h-screen
     include partials/_nav.pug
     section.m-12
       h1.text-5xl.mb-12.text-primary Add Accommodations
-      form.mx-16.grid.gap-8.grid-cols-2.bg-base-100.p-8(action="/student/addAccommodations" method="POST" class="accommodation__form")
-        p ID Number
-        if ID 
-          input(type="text" name="ID" value=ID)
-        else
-          input(type="text" name="ID" placeholder="")
-        //- button Load Student Profile
-        //-   a(href="/student/loadAccommodations") 
-        h1.accommodation__cta Select a category:
-        h1 Presentation
-        section.container.hidden
-          section.accommodation__wrapper
-            h1.accommodation__title Visual Formats
-            section.presentation__subsection
-              input(type="checkbox" name="Receptive Sign Language" ) 
-              label(for="Receptive Sign Language") Receptive Sign Language
-              input(type="checkbox" name="Large Print") 
-              label(for="Large Print") Large Print
-              input(type="checkbox" name="Color Contrast") 
-              label(for="Color Contrast") Color Contrast
-              input(type="checkbox" name="Video Recordings") 
-              label(for="Video Recordings") Video Recordings
-              input(type="checkbox" name="Closed Captioning/ASL Videos") 
-              label(for="Closed Captioning/ASL Videos") Closed Captioning/ASL Videos
-          section.accommodation__wrapper
-            h1.accommodation__title Tactile Formats
-            section.presentation__subsection
-              input(type="checkbox" name="Braille") 
-              label(for="Braille") Braille
-              input(type="checkbox" name="Refreshable Braille Display") 
-              label(for="Refreshable Braille Display") Refreshable Braille Display
-              input(type="checkbox" name="Nemeth Braille Code") 
-              label(for="Nemeth Braille Code") Nemeth Braille Code
-              input(type="checkbox" name="Tactile Graphic Images") 
-              label(for="Tactile Graphic Images") Tactile Graphic Images
-              input(type="checkbox" name="Brailled Equipment") 
-              label(for="Brailled Equipment") Brailled Equipment
-              input(type="checkbox" name="Haptic Feedback") 
-              label(for="Haptic Feedback") Haptic Feedback
-              input(type="checkbox" name="Real Objects") 
-              label(for="Real Objects") Real Objects
-          section.accommodation__wrapper
-            h1.accommodation__title Auditory Formats   
-            section.presentation__subsection
-              input(type="checkbox" name="Verbal Presentation") 
-              label(for="Verbal Presentation") Verbal Presentation
-              input(type="checkbox" name="Recorded Books and Texts") 
-              label(for="Recorded Books and Texts") Recorded Books and Texts
-              input(type="checkbox" name="Screen Reader") 
-              label(for="Screen Reader") Screen Reader
-              input(type="checkbox" name="Equipment with Audio Output") 
-              label(for="Equipment with Audio Output") Equipment with Audio Output
-          section.accommodation__wrapper
-            h1.accommodation__title Paper-Based Assessment
-            section.presentation__subsection
-              input(type="checkbox" name="Paper-Based Assessments") 
-              label(for="Paper-Based Assessments") Paper-Based Assessments
-          section.accommodation__wrapper
-            h1.accommodation__title Visual Enhancement
-            section.presentation__subsection
-              input(type="checkbox" name="Magnification Equipment") 
-              label(for="Magnification Equipment") Magnification Equipment
-              input(type="checkbox" name="Reduced Glare or Direct Lighting") 
-              label(for="Reduced Glare or Direct Lighting") Reduced Glare or Direct Lighting
-              input(type="checkbox" name="Minimized Visual Distraction") 
-              label(for="Minimized Visual Distraction") Minimized Visual Distraction
-              input(type="checkbox" name="Colored Transparencies/Filters") 
-              label(for="Colored Transparencies/Filters") Colored Transparencies/Filters
-              input(type="checkbox" name="Reading Guide Card") 
-              label(for="Reading Guide Card") Reading Guide Card
-              input(type="checkbox" name="Positioning Tools") 
-              label(for="Positioning Tools") Positioning Tools
-              input(type="checkbox" name="Securing Materials and Workbooks") 
-              label(for="Securing Materials and Workbooks") Securing Materials and Workbooks
-          section.accommodation__wrapper
-            h1.accommodation__title Visual Enhancement
-            section.presentation__subsection
-              input(type="checkbox" name="Leveled Books") 
-              label(for="Leveled Books") Leveled Books
-              input(type="checkbox" name="Digital Text") 
-              label(for="Digital Text") Digital Text
-              input(type="checkbox" name="Portable Scanning Devices") 
-              label(for="Portable Scanning Devices") Portable Scanning Devices
-              input(type="checkbox" name="Personal Word Lists") 
-              label(for="Personal Word Lists") Personal Word Lists
-              input(type="checkbox" name="Repeated Reading") 
-              label(for="Repeated Reading") Repeated Reading
-          section.accommodation__wrapper
-            h1.accommodation__title Comprehension
-            section.presentation__subsection 
-              input(type="checkbox" name="Preview of Vocabulary or Key Points")
-              label(for="Preview of Vocabulary or Key Points") Preview of Vocabulary or Key Points
-              input(type="checkbox" name="Advance Organizers") 
-              label(for="Advance Organizers") Advance Organizers
-              input(type="checkbox" name="Highlighting or Color Coding") 
-              label(for="Highlighting or Color Coding") Highlighting or Color Coding
-              input(type="checkbox" name="Annotating") 
-              label(for="Annotating") Annotating
-              input(type="checkbox" name="Study Guides") 
-              label(for="Study Guides") Study Guides
-              input(type="checkbox" name="Hands-on Activities, Pictures And Diagrams") 
-              label(for="Hands-on Activities, Pictures And Diagrams") Hands-on Activities, Pictures And Diagrams
-          section.accommodation__wrapper
-            h1.accommodation__title Listening
-            section.presentation__subsection 
-              input(type="checkbox" name="Advance Organizers") 
-              label(for="Advance Organizers") Advance Organizers
-              input(type="checkbox" name="Explicit Cues") 
-              label(for="Explicit Cues") Explicit Cues
-              input(type="checkbox" name="Active Student Involvement") 
-              label(for="Active Student Involvement") Active Student Involvement
-              input(type="checkbox" name="Repetition of Information") 
-              label(for="Repetition of Information") Repetition of Information
-              input(type="checkbox" name="Note-Taking Assistance") 
-              label(for="Note-Taking Assistance") Note-Taking Assistance
-              input(type="checkbox" name="Amplification Systems") 
-              label(for="Amplification Systems") Amplification Systems
-          section.accommodation__wrapper
-            h1.accommodation__title Following Directions
-            section.presentation__subsection 
-              input(type="checkbox" name="Signals or Prompts") 
-              label(for="Signals or Prompts") Signals or Prompts
-              input(type="checkbox" name="Self-Instructions or Self-Questions") 
-              label(for="Self-Instructions or Self-Questions") Self-Instructions or Self-Questions
-              input(type="checkbox" name="Copy of Directions") 
-              label(for="Copy of Directions") Copy of Directions
-              input(type="checkbox" name="Directions Repeated or Clarified") 
-              label(for="Directions Repeated or Clarified") Directions Repeated or Clarified
-              input(type="checkbox" name="Sample Problems and Tasks") 
-              label(for="Sample Problems and Tasks") Sample Problems and Tasks
-              input(type="checkbox" name="Simplified Graphic Directions w/ Pictures") 
-              label(for="Simplified Graphic Directions w/ Pictures") Simplified Graphic Directions w/ Pictures
-              input(type="checkbox" name="Monitoring") 
-              label(for="Monitoring") Monitoring
-              input(type="checkbox" name="Verbal Encouragement") 
-              label(for="Verbal Encouragement") Verbal Encouragement
-              input(type="checkbox" name="Uncluttered and Clearly Organized Materials") 
-              label(for="Uncluttered and Clearly Organized Materials") Uncluttered and Clearly Organized Materials
-              input(type="checkbox" name="Visual Cues") 
-              label(for="Visual Cues") Visual Cues
-        h1.accommodation__sectiontitle Response
-        section.container.hidden
-          section.accommodation__wrapper
-            h1.accommodation__title Alternate Response Modes
-            section.presentation__subsection 
-              input(type="checkbox" name="Scribe") 
-              label(for="Scribe") Scribe
-              input(type="checkbox" name="Word Processor") 
-              label(for="Word Processor") Word Processor
-              input(type="checkbox" name="Word Prediction Software") 
-              label(for="Word Prediction Software") Word Prediction Software
-              input(type="checkbox" name="Brailler") 
-              label(for="Brailler") Brailler
-              input(type="checkbox" name="Portable Note-Taking Devices") 
-              label(for="Portable Note-Taking Devices") Portable Note-Taking Devices
-              input(type="checkbox" name="Voice Recorders") 
-              label(for="Voice Recorders") Voice Recorders
-              input(type="checkbox" name="Voice Recognition Software") 
-              label(for="Voice Recognition Software") Voice Recognition Software
-              input(type="checkbox" name="Expressive Sign Language") 
-              label(for="Expressive Sign Language") Expressive Sign Language
-              input(type="checkbox" name="Cued Speech") 
-              label(for="Cued Speech") Cued Speech
-              input(type="checkbox" name="Augmentative and Alternative Communication") 
-              label(for="Augmentative and Alternative Communication") Augmentative and Alternative Communication
-          section.accommodation__wrapper
-            h1.accommodation__title Supports for Handwriting
-            section.presentation__subsection 
-              input(type="checkbox" name="Modified Writing Utensils") 
-              label(for="Modified Writing Utensils") Modified Writing Utensils
-              input(type="checkbox" name="Pencil/Pen Grips") 
-              label(for="Pencil/Pen Grips") Pencil/Pen Grips
-              input(type="checkbox" name="Finger Spacers")       
-              label(for="Finger Spacers") Finger Spacers
-              input(type="checkbox" name="Handwriting Guides") 
-              label(for="Handwriting Guides") Handwriting Guides
-              input(type="checkbox" name="Alphabet Strips") 
-              label(for="Alphabet Strips") Alphabet Strips
-              input(type="checkbox" name="Specialized Writing Paper") 
-              label(for="Specialized Writing Paper") Specialized Writing Paper
-              input(type="checkbox" name="Visual Writing Cues") 
-              label(for="Visual Writing Cues") Visual Writing Cues
-              input(type="checkbox" name="Paper Stabilizers") 
-              label(for="Paper Stabilizers") Paper Stabilizers
-              input(type="checkbox" name="Slant Boards") 
-              label(for="Slant Boards") Slant Boards
-              input(type="checkbox" name="Physical Supports") 
-              label(for="Physical Supports") Physical Supports
-              input(type="checkbox" name="Periodic Checks By Teacher") 
-              label(for="Periodic Checks By Teacher") Periodic Checks By Teacher
-              input(type="checkbox" name="Respond Directly on Worksheet") 
-              label(for="Respond Directly on Worksheet") Respond Directly on Worksheet
-          section.accommodation__wrapper
-            h1.accommodation__title Supports for Written Expression
-            section.presentation__subsection 
-              input(type="checkbox" name="Dictionaries and Thesauruses") 
-              label(for="Dictionaries and Thesauruses") Dictionaries and Thesauruses
-              input(type="checkbox" name="Strategies, Templates, Checklists, and Grammar Rules") 
-              label(for="Strategies, Templates, Checklists, and Grammar Rules") Strategies, Templates, Checklists, and Grammar Rules
-              input(type="checkbox" name="Individualized Spelling List") 
-              label(for="Individualized Spelling List") Individualized Spelling List
-              input(type="checkbox" name="Spelling and Grammar check") 
-              label(for="Spelling and Grammar check") Spelling and Grammar check
-              input(type="checkbox" name="Graphic Organizers and Outlining") 
-              label(for="Graphic Organizers and Outlining") Graphic Organizers and Outlining
-          section.accommodation__wrapper
-            h1.accommodation__title Supports for Oral Expression
-            section.presentation__subsection 
-              input(type="checkbox" name="Increased Wait Time") 
-              label(for="Increased Wait Time") Increased Wait Time
-              input(type="checkbox" name="Use of Visual Images") 
-              label(for="Use of Visual Images") Use of Visual Images
-          section.accommodation__wrapper
-            h1.accommodation__title Supports for Mathematics
-            section.presentation__subsection 
-              input(type="checkbox" name="Calculation Devices") 
-              label(for="Calculation Devices") Calculation Devices
-              input(type="checkbox" name="Tactile Tools and Materials") 
-              label(for="Tactile Tools and Materials") Tactile Tools and Materials
-              input(type="checkbox" name="Chart of Math Facts") 
-              label(for="Chart of Math Facts") Chart of Math Facts
-              input(type="checkbox" name="Concrete Materials and Manipulatives") 
-              label(for="Concrete Materials and Manipulatives") Concrete Materials and Manipulatives
-              input(type="checkbox" name="Visual Representations") 
-              label(for="Visual Representations") Visual Representations
-              input(type="checkbox" name="Specialized Mathematical Image Descriptions") 
-              label(for="Specialized Mathematical Image Descriptions") Specialized Mathematical Image Descriptions
-              input(type="checkbox" name="Planning Guides") 
-              label(for="Planning Guides") Planning Guides
-              input(type="checkbox" name="Special Paper") 
-              label(for="Special Paper") Special Paper
-        h1.accommodation__sectiontitle Setting
-        section.container.hidden
-          section.accommodation__wrapper
-            h1.accommodation__title Physical Accessibility
-            section.presentation__subsection 
-              input(type="checkbox" name="Physical Access") 
-              label(for="Physical Access") Physical Access
-              input(type="checkbox" name="Accessible Workstations") 
-              label(for="Accessible Workstations") Accessible Workstations
-              input(type="checkbox" name="Preferential Seating") 
-              label(for="Preferential Seating") Preferential Seating
-              input(type="checkbox" name="Special Lighting") 
-              label(for="Special Lighting") Special Lighting
-              input(type="checkbox" name="Acoustical Treatments") 
-              label(for="Acoustical Treatments") Acoustical Treatments
-              input(type="checkbox" name="Assignments and Assessments Administered by a familiar person") 
-              label(for="Assignments and Assessments Administered by a familiar person") Assignments and Assessments Administered by a familiar person
-          section.accommodation__wrapper
-            h1.accommodation__title Behavior and Attention
-            section.presentation__subsection 
-              input(type="checkbox" name="Class Rules and Expectations") 
-              label(for="Class Rules and Expectations") Class Rules and Expectations
-              input(type="checkbox" name="Regular Procedures and Predictable Routines") 
-              label(for="Regular Procedures and Predictable Routines") Regular Procedures and Predictable Routines
-              input(type="checkbox" name="Alternative Activities") 
-              label(for="Alternative Activities") Alternative Activities
-              input(type="checkbox" name="Reduced Sources of Distractions") 
-              label(for="Reduced Sources of Distractions") Reduced Sources of Distractions
-              input(type="checkbox" name="Preferential Seating") 
-              label(for="Preferential Seating") Preferential Seating
-              input(type="checkbox" name="Noise buffers") 
-              label(for="Noise buffers") Noise buffers
-              input(type="checkbox" name="Small Group") 
-              label(for="Small Group") Small Group
-              input(type="checkbox" name="Individual Settings") 
-              label(for="Individual Settings") Individual Settings
-              input(type="checkbox" name="Increased/Decreased Opportunity for Movement") 
-              label(for="Increased/Decreased Opportunity for Movement") Increased/Decreased Opportunity for Movement
-          section.accommodation__wrapper
-            h1.accommodation__title Behavior and Attention
-            section.presentation__subsection
-              input(type="checkbox" name="Compartmentalized Container.hiddens") 
-              label(for="Compartmentalized Containers") Compartmentalized Containers
-              input(type="checkbox" name="Diagrams") 
-              label(for="Diagrams") Diagrams
-              input(type="checkbox" name="Checklists") 
-              label(for="Checklists") Checklists
-              input(type="checkbox" name="Color-Coded Binders") 
-              label(for="Color-Coded Binders") Color-Coded Binders
-              input(type="checkbox" name="Limited Materials") 
-              label(for="Limited Materials") Limited Materials
-              input(type="checkbox" name="Access To Study Materials") 
-              label(for="Access To Study Materials") Access To Study Materials
-        h1.accommodation__sectiontitle Scheduling
-        section.container.hidden
-        section.accommodation__wrapper
-            h1.accommodation__title Time Allocation
-            section.presentation__subsection
-              input(type="checkbox" name="Extended time") 
-              label(for="Extended time") Extended time
-              input(type="checkbox" name="Breaks") 
-              label(for="Breaks") Breaks
-              input(type="checkbox" name="Schedule Adjustments") 
-              label(for="Schedule Adjustments") Schedule Adjustments
-        section.accommodation__wrapper
-            h1.accommodation__title Time Management
-            section.presentation__subsection
-              input(type="checkbox" name="Predictable Routines") 
-              label(for="Predictable Routines") Predictable Routines
-              input(type="checkbox" name="Separating Tasks Into Parts") 
-              label(for="Separating Tasks Into Parts") Separating Tasks Into Parts
-              input(type="checkbox" name="Timelines") 
-              label(for="Timelines") Timelines
-              input(type="checkbox" name="Checklists of Tasks") 
-              label(for="Checklists of Tasks") Checklists of Tasks
-              input(type="checkbox" name="Assignment Planners") 
-              label(for="Assignment Planners") Assignment Planners
-              input(type="checkbox" name="Visual Schedules") 
-              label(for="Visual Schedules") Visual Schedules
-              input(type="checkbox" name="Electronic Devices") 
-              label(for="Electronic Devices") Electronic Devices
-        input(type="submit", value="Submit Accommodations" class="btn btn-primary") 
+      form.text-neutral.mx-16.grid.gap-8.bg-info.pl-16.py-12.grid-cols-2(action="/student/addAccommodations" method="POST" class="accommodation__form")
+        div
+          p.text-3xl.mb-8 ID Number
+          if ID 
+            input.col-span-2.text-info(type="text" name="ID" value=ID)
+          else
+            input.col-span-2.text-info(type="text" name="ID" placeholder="")
+        div.col-span-2
+          section.grid.container.grid-rows-auto
+            section.collapse
+              h1.collapse-title.text-6xl.text-secondary Presentation
+              input(type="checkbox")
+              section.collapse-content.col-start-1.grid.grid-cols-2
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Visual Formats
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Receptive Sign Language") Receptive Sign Language
+                    input.col-start-6(type="checkbox" name="Receptive Sign Language" ) 
+                    label.col-span-5.col-start-1(for="Large Print") Large Print
+                    input.col-start-6(type="checkbox" name="Large Print") 
+                    label.col-span-5.col-start-1(for="Color Contrast") Color Contrast
+                    input.col-start-6(type="checkbox" name="Color Contrast") 
+                    label.col-span-5.col-start-1(for="Video Recordings") Video Recordings
+                    input.col-start-6(type="checkbox" name="Video Recordings") 
+                    label.col-span-5.col-start-1(for="Closed Captioning/ASL Videos") Closed Captioning/ASL Videos
+                    input.col-start-6(type="checkbox" name="Closed Captioning/ASL Videos") 
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Tactile Formats
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Braille") Braille
+                    input.col-start-6(type="checkbox" name="Braille") 
+                    label.col-span-5.col-start-1(for="Refreshable Braille Display") Refreshable Braille Display
+                    input.col-start-6(type="checkbox" name="Refreshable Braille Display") 
+                    label.col-span-5.col-start-1(for="Nemeth Braille Code") Nemeth Braille Code
+                    input.col-start-6(type="checkbox" name="Nemeth Braille Code") 
+                    label.col-span-5.col-start-1(for="Tactile Graphic Images") Tactile Graphic Images
+                    input.col-start-6(type="checkbox" name="Tactile Graphic Images") 
+                    label.col-span-5.col-start-1(for="Brailled Equipment") Brailled Equipment
+                    input.col-start-6(type="checkbox" name="Brailled Equipment") 
+                    label.col-span-5.col-start-1(for="Haptic Feedback") Haptic Feedback
+                    input.col-start-6(type="checkbox" name="Haptic Feedback") 
+                    label.col-span-5.col-start-1(for="Real Objects") Real Objects
+                    input.col-start-6(type="checkbox" name="Real Objects") 
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Auditory Formats 
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Verbal Presentation") Verbal Presentation
+                    input.col-start-6.col-span-1(type="checkbox" name="Verbal Presentation") 
+                    label.col-span-5.col-start-1(for="Recorded Books and Texts") Recorded Books and Texts
+                    input.col-start-6.col-span-1(type="checkbox" name="Recorded Books and Texts") 
+                    label.col-span-5.col-start-1(for="Screen Reader") Screen Reader
+                    input.col-start-6.col-span-1(type="checkbox" name="Screen Reader") 
+                    label.col-span-5.col-start-1(for="Equipment with Audio Output") Equipment with Audio Output
+                    input.col-start-6.col-span-1(type="checkbox" name="Equipment with Audio Output") 
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Paper-Based
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Paper-Based Assessments") Paper-Based Assessments
+                    input.col-start-6(type="checkbox" name="Paper-Based Assessments") 
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Visual Formats
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Magnification Equipment") Magnification Equipment
+                    input.col-start-6(type="checkbox" name="Magnification Equipment") 
+                    label.col-span-5.col-start-1(for="Reduced Glare or Direct Lighting") Reduced Glare or Direct Lighting
+                    input.col-start-6(type="checkbox" name="Reduced Glare or Direct Lighting") 
+                    label.col-span-5.col-start-1(for="Minimized Visual Distraction") Minimized Visual Distraction
+                    input.col-start-6(type="checkbox" name="Minimized Visual Distraction") 
+                    label.col-span-5.col-start-1(for="Colored Transparencies/Filters") Colored Transparencies/Filters
+                    input.col-start-6(type="checkbox" name="Colored Transparencies/Filters") 
+                    label.col-span-5.col-start-1(for="Reading Guide Card") Reading Guide Card
+                    input.col-start-6(type="checkbox" name="Reading Guide Card") 
+                    label.col-span-5.col-start-1(for="Positioning Tools") Positioning Tools
+                    input.col-start-6(type="checkbox" name="Positioning Tools") 
+                    label.col-span-5.col-start-1(for="Securing Materials and Workbooks") Securing Materials and Workbooks
+                    input.col-start-6(type="checkbox" name="Securing Materials and Workbooks") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Reading
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Leveled Books") Leveled Books
+                      input.col-start-6(type="checkbox" name="Leveled Books") 
+                      label.col-span-5.col-start-1(for="Digital Text") Digital Text
+                      input.col-start-6(type="checkbox" name="Digital Text") 
+                      label.col-span-5.col-start-1(for="Portable Scanning Devices") Portable Scanning Devices
+                      input.col-start-6(type="checkbox" name="Portable Scanning Devices") 
+                      label.col-span-5.col-start-1(for="Personal Word Lists") Personal Word Lists
+                      input.col-start-6(type="checkbox" name="Personal Word Lists") 
+                      label.col-span-5.col-start-1(for="Repeated Reading") Repeated Reading
+                      input.col-start-6(type="checkbox" name="Repeated Reading") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Comprehension
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Preview of Vocabulary or Key Points") Preview of Vocabulary or Key Points
+                      input.col-start-6(type="checkbox" name="Preview of Vocabulary or Key Points")
+                      label.col-span-5.col-start-1(for="Advance Organizers") Advance Organizers
+                      input.col-start-6(type="checkbox" name="Advance Organizers") 
+                      label.col-span-5.col-start-1(for="Highlighting or Color Coding") Highlighting or Color Coding
+                      input.col-start-6(type="checkbox" name="Highlighting or Color Coding") 
+                      label.col-span-5.col-start-1(for="Annotating") Annotating
+                      input.col-start-6(type="checkbox" name="Annotating") 
+                      label.col-span-5.col-start-1(for="Study Guides") Study Guides
+                      input.col-start-6(type="checkbox" name="Study Guides") 
+                      label.col-span-5.col-start-1(for="Hands-on Activities, Pictures And Diagrams") Hands-on Activities, Pictures And Diagrams
+                      input.col-start-6(type="checkbox" name="Hands-on Activities, Pictures And Diagrams") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Listening
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Advance Organizers") Advance Organizers
+                      input.col-start-6(type="checkbox" name="Advance Organizers") 
+                      label.col-span-5.col-start-1(for="Explicit Cues") Explicit Cues
+                      input.col-start-6(type="checkbox" name="Explicit Cues") 
+                      label.col-span-5.col-start-1(for="Active Student Involvement") Active Student Involvement
+                      input.col-start-6(type="checkbox" name="Active Student Involvement") 
+                      label.col-span-5.col-start-1(for="Repetition of Information") Repetition of Information
+                      input.col-start-6(type="checkbox" name="Repetition of Information") 
+                      label.col-span-5.col-start-1(for="Note-Taking Assistance") Note-Taking Assistance
+                      input.col-start-6(type="checkbox" name="Note-Taking Assistance") 
+                      label.col-span-5.col-start-1(for="Amplification Systems") Amplification Systems
+                      input.col-start-6(type="checkbox" name="Amplification Systems") 
+                section.flex.flex-col.mt-8
+                  h1.text-4xl.mb-8.underline  Following Directions
+                  section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                    label.col-span-5.col-start-1(for="Signals or Prompts") Signals or Prompts
+                    input.col-start-6(type="checkbox" name="Signals or Prompts") 
+                    label.col-span-5.col-start-1(for="Self-Instructions or Self-Questions") Self-Instructions or Self-Questions
+                    input.col-start-6(type="checkbox" name="Self-Instructions or Self-Questions") 
+                    label.col-span-5.col-start-1(for="Copy of Directions") Copy of Directions
+                    input.col-start-6(type="checkbox" name="Copy of Directions") 
+                    label.col-span-5.col-start-1(for="Directions Repeated or Clarified") Directions Repeated or Clarified
+                    input.col-start-6(type="checkbox" name="Directions Repeated or Clarified") 
+                    label.col-span-5.col-start-1(for="Sample Problems and Tasks") Sample Problems and Tasks
+                    input.col-start-6(type="checkbox" name="Sample Problems and Tasks") 
+                    label.col-span-5.col-start-1(for="Simplified Graphic Directions w/ Pictures") Simplified Graphic Directions w/ Pictures
+                    input.col-start-6(type="checkbox" name="Simplified Graphic Directions w/ Pictures") 
+                    label.col-span-5.col-start-1(for="Monitoring") Monitoring
+                    input.col-start-6(type="checkbox" name="Monitoring") 
+                    label.col-span-5.col-start-1(for="Verbal Encouragement") Verbal Encouragement
+                    input.col-start-6(type="checkbox" name="Verbal Encouragement") 
+                    label.col-span-5.col-start-1(for="Uncluttered and Clearly Organized Materials") Uncluttered and Clearly Organized Materials
+                    input.col-start-6(type="checkbox" name="Uncluttered and Clearly Organized Materials") 
+                    label.col-span-5.col-start-1(for="Visual Cues") Visual Cues
+                    input.col-start-6(type="checkbox" name="Visual Cues") 
+            section.collapse
+              h1.collapse-title.text-6xl.text-secondary.col-start-1 Response
+              input(type="checkbox")
+              section.collapse-content.col-start-1.grid.grid-cols-2
+                section.flex.flex-col.mt-8.col-start-1
+                    h1.text-4xl.mb-8.underline  Alternate Response Modes
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Scribe") Scribe
+                      input.col-start-6(type="checkbox" name="Scribe") 
+                      label.col-span-5.col-start-1(for="Word Processor") Word Processor
+                      input.col-start-6(type="checkbox" name="Word Processor") 
+                      label.col-span-5.col-start-1(for="Word Prediction Software") Word Prediction Software
+                      input.col-start-6(type="checkbox" name="Word Prediction Software") 
+                      label.col-span-5.col-start-1(for="Brailler") Brailler
+                      input.col-start-6(type="checkbox" name="Brailler") 
+                      label.col-span-5.col-start-1(for="Portable Note-Taking Devices") Portable Note-Taking Devices
+                      input.col-start-6(type="checkbox" name="Portable Note-Taking Devices") 
+                      label.col-span-5.col-start-1(for="Voice Recorders") Voice Recorders
+                      input.col-start-6(type="checkbox" name="Voice Recorders") 
+                      label.col-span-5.col-start-1(for="Voice Recognition Software") Voice Recognition Software
+                      input.col-start-6(type="checkbox" name="Voice Recognition Software") 
+                      label.col-span-5.col-start-1(for="Expressive Sign Language") Expressive Sign Language
+                      input.col-start-6(type="checkbox" name="Expressive Sign Language") 
+                      label.col-span-5.col-start-1(for="Cued Speech") Cued Speech
+                      input.col-start-6(type="checkbox" name="Cued Speech") 
+                      label.col-span-5.col-start-1(for="Augmentative and Alternative Communication") Augmentative and Alternative Communication
+                      input.col-start-6(type="checkbox" name="Augmentative and Alternative Communication") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Supports for Handwriting
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Modified Writing Utensils") Modified Writing Utensils
+                      input.col-start-6(type="checkbox" name="Modified Writing Utensils") 
+                      label.col-span-5.col-start-1(for="Pencil/Pen Grips") Pencil/Pen Grips
+                      input.col-start-6(type="checkbox" name="Pencil/Pen Grips") 
+                      label.col-span-5.col-start-1(for="Finger Spacers") Finger Spacers
+                      input.col-start-6(type="checkbox" name="Finger Spacers")       
+                      label.col-span-5.col-start-1(for="Handwriting Guides") Handwriting Guides
+                      input.col-start-6(type="checkbox" name="Handwriting Guides") 
+                      label.col-span-5.col-start-1(for="Alphabet Strips") Alphabet Strips
+                      input.col-start-6(type="checkbox" name="Alphabet Strips") 
+                      label.col-span-5.col-start-1(for="Specialized Writing Paper") Specialized Writing Paper
+                      input.col-start-6(type="checkbox" name="Specialized Writing Paper") 
+                      label.col-span-5.col-start-1(for="Visual Writing Cues") Visual Writing Cues
+                      input.col-start-6(type="checkbox" name="Visual Writing Cues") 
+                      label.col-span-5.col-start-1(for="Paper Stabilizers") Paper Stabilizers
+                      input.col-start-6(type="checkbox" name="Paper Stabilizers") 
+                      label.col-span-5.col-start-1(for="Slant Boards") Slant Boards
+                      input.col-start-6(type="checkbox" name="Slant Boards") 
+                      label.col-span-5.col-start-1(for="Physical Supports") Physical Supports
+                      input.col-start-6(type="checkbox" name="Physical Supports") 
+                      label.col-span-5.col-start-1(for="Periodic Checks By Teacher") Periodic Checks By Teacher
+                      input.col-start-6(type="checkbox" name="Periodic Checks By Teacher") 
+                      label.col-span-5.col-start-1(for="Respond Directly on Worksheet") Respond Directly on Worksheet
+                      input.col-start-6(type="checkbox" name="Respond Directly on Worksheet") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Support for Written Expression
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Dictionaries and Thesauruses") Dictionaries and Thesauruses
+                      input.col-start-6(type="checkbox" name="Dictionaries and Thesauruses") 
+                      label.col-span-5.col-start-1(for="Strategies, Templates, Checklists, and Grammar Rules") Strategies, Templates, and Checklists
+                      input.col-start-6(type="checkbox" name="Strategies, Templates, Checklists, and Grammar Rules") 
+                      label.col-span-5.col-start-1(for="Individualized Spelling List") Individualized Spelling List
+                      input.col-start-6(type="checkbox" name="Individualized Spelling List") 
+                      label.col-span-5.col-start-1(for="Spelling and Grammar check") Spelling and Grammar check
+                      input.col-start-6(type="checkbox" name="Spelling and Grammar check") 
+                      label.col-span-5.col-start-1(for="Graphic Organizers and Outlining") Graphic Organizers and Outlining
+                      input.col-start-6(type="checkbox" name="Graphic Organizers and Outlining") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Supports for Oral Expression
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Increased Wait Time") Increased Wait Time
+                      input.col-start-6(type="checkbox" name="Increased Wait Time") 
+                      label.col-span-5.col-start-1(for="Use of Visual Images") Use of Visual Images
+                      input.col-start-6(type="checkbox" name="Use of Visual Images") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Supports for Mathematics
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Calculation Devices") Calculation Devices
+                      input.col-start-6(type="checkbox" name="Calculation Devices") 
+                      label.col-span-5.col-start-1(for="Tactile Tools and Materials") Tactile Tools and Materials
+                      input.col-start-6(type="checkbox" name="Tactile Tools and Materials") 
+                      label.col-span-5.col-start-1(for="Chart of Math Facts") Chart of Math Facts
+                      input.col-start-6(type="checkbox" name="Chart of Math Facts") 
+                      label.col-span-5.col-start-1(for="Concrete Materials and Manipulatives") Concrete Materials and Manipulatives
+                      input.col-start-6(type="checkbox" name="Concrete Materials and Manipulatives") 
+                      label.col-span-5.col-start-1(for="Visual Representations") Visual Representations
+                      input.col-start-6(type="checkbox" name="Visual Representations") 
+                      label.col-span-5.col-start-1(for="Specialized Mathematical Image Descriptions") Specialized Mathematical Image Descriptions
+                      input.col-start-6(type="checkbox" name="Specialized Mathematical Image Descriptions") 
+                      label.col-span-5.col-start-1(for="Planning Guides") Planning Guides
+                      input.col-start-6(type="checkbox" name="Planning Guides") 
+                      label.col-span-5.col-start-1(for="Special Paper") Special Paper
+                      input.col-start-6(type="checkbox" name="Special Paper") 
+            section.collapse
+              h1.collapse-title.text-6xl.text-secondary.col-start-1 Setting
+              input(type="checkbox")
+              section.collapse-content.col-start-1.grid.grid-cols-2
+                section.flex.flex-col.mt-8.col-start-1
+                    h1.text-4xl.mb-8.underline  Physical Accessibility
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Physical Access") Physical Access
+                      input.col-start-6(type="checkbox" name="Physical Access") 
+                      label.col-span-5.col-start-1(for="Accessible Workstations") Accessible Workstations
+                      input.col-start-6(type="checkbox" name="Accessible Workstations") 
+                      label.col-span-5.col-start-1(for="Preferential Seating") Preferential Seating
+                      input.col-start-6(type="checkbox" name="Preferential Seating") 
+                      label.col-span-5.col-start-1(for="Special Lighting") Special Lighting
+                      input.col-start-6(type="checkbox" name="Special Lighting") 
+                      label.col-span-5.col-start-1(for="Acoustical Treatments") Acoustical Treatments
+                      input.col-start-6(type="checkbox" name="Acoustical Treatments") 
+                      label.col-span-5.col-start-1(for="Assignments and Assessments Administered by a familiar person") Assignments Administered by a familiar person
+                      input(type="checkbox" name="Assignments and Assessments Administered by a familiar person") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Behavior and Attention
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Class Rules and Expectations") Class Rules and Expectations
+                      input.col-start-6(type="checkbox" name="Class Rules and Expectations") 
+                      label.col-span-5.col-start-1(for="Regular Procedures and Predictable Routines") Regular Procedures and Predictable Routines
+                      input.col-start-6(type="checkbox" name="Regular Procedures and Predictable Routines") 
+                      label.col-span-5.col-start-1(for="Alternative Activities") Alternative Activities
+                      input.col-start-6(type="checkbox" name="Alternative Activities") 
+                      label.col-span-5.col-start-1(for="Reduced Sources of Distractions") Reduced Sources of Distractions
+                      input.col-start-6(type="checkbox" name="Reduced Sources of Distractions") 
+                      label.col-span-5.col-start-1(for="Preferential Seating") Preferential Seating
+                      input.col-start-6(type="checkbox" name="Preferential Seating") 
+                      label.col-span-5.col-start-1(for="Noise buffers") Noise buffers
+                      input.col-start-6(type="checkbox" name="Noise buffers") 
+                      label.col-span-5.col-start-1(for="Small Group") Small Group
+                      input.col-start-6(type="checkbox" name="Small Group") 
+                      label.col-span-5.col-start-1(for="Individual Settings") Individual Settings
+                      input.col-start-6(type="checkbox" name="Individual Settings") 
+                      label.col-span-5.col-start-1(for="Increased/Decreased Opportunity for Movement") Increased/Decreased Opportunity for Movement
+                      input.col-start-6(type="checkbox" name="Increased/Decreased Opportunity for Movement") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Organization
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Compartmentalized Containers") Compartmentalized Containers
+                      input.col-start-6(type="checkbox" name="Compartmentalized Containers") 
+                      label.col-span-5.col-start-1(for="Diagrams") Diagrams
+                      input.col-start-6(type="checkbox" name="Diagrams") 
+                      label.col-span-5.col-start-1(for="Checklists") Checklists
+                      input.col-start-6(type="checkbox" name="Checklists") 
+                      label.col-span-5.col-start-1(for="Color-Coded Binders") Color-Coded Binders
+                      input.col-start-6(type="checkbox" name="Color-Coded Binders") 
+                      label.col-span-5.col-start-1(for="Limited Materials") Limited Materials
+                      input.col-start-6(type="checkbox" name="Limited Materials") 
+                      label.col-span-5.col-start-1(for="Access To Study Materials") Access To Study Materials
+                      input.col-start-6(type="checkbox" name="Access To Study Materials") 
+            section.collapse
+              h1.collapse-title.text-6xl.text-secondary.col-start-1 Scheduling
+              input(type="checkbox")
+              section.collapse-content.col-start-1.grid.grid-cols-2
+                section.flex.flex-col.mt-8.col-start-1
+                    h1.text-4xl.mb-8.underline  Time Allocation
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Extended time") Extended time
+                      input.col-start-6(type="checkbox" name="Extended time") 
+                      label.col-span-5.col-start-1(for="Breaks") Breaks
+                      input.col-start-6(type="checkbox" name="Breaks") 
+                      label.col-span-5.col-start-1(for="Schedule Adjustments") Schedule Adjustments
+                      input.col-start-6(type="checkbox" name="Schedule Adjustments") 
+                section.flex.flex-col.mt-8
+                    h1.text-4xl.mb-8.underline  Time Management
+                    section.grid.grid-cols-8.gap-2.tracking-wider.text-lg
+                      label.col-span-5.col-start-1(for="Predictable Routines") Predictable Routines
+                      input.col-start-6(type="checkbox" name="Predictable Routines") 
+                      label.col-span-5.col-start-1(for="Separating Tasks Into Parts") Separating Tasks Into Parts
+                      input.col-start-6(type="checkbox" name="Separating Tasks Into Parts") 
+                      label.col-span-5.col-start-1(for="Timelines") Timelines
+                      input.col-start-6(type="checkbox" name="Timelines") 
+                      label.col-span-5.col-start-1(for="Checklists of Tasks") Checklists of Tasks
+                      input.col-start-6(type="checkbox" name="Checklists of Tasks") 
+                      label.col-span-5.col-start-1(for="Assignment Planners") Assignment Planners
+                      input.col-start-6(type="checkbox" name="Assignment Planners") 
+                      label.col-span-5.col-start-1(for="Visual Schedules") Visual Schedules
+                      input.col-start-6(type="checkbox" name="Visual Schedules") 
+                      label.col-span-5.col-start-1(for="Electronic Devices") Electronic Devices
+                      input.col-start-6(type="checkbox" name="Electronic Devices") 
+        input.col-span-2(type="submit", value="Submit Accommodations" class="btn btn-secondary w-1/2 m-auto") 
   include partials/_footer.pug
