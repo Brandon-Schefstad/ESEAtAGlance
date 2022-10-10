@@ -56,19 +56,19 @@ module.exports = {
 			let domain;
 			switch (req.body.domain) {
 				case 'curriculum':
-					domain = 'Curriculum and Learning Environment';
+					domain = 'curriculum';
 					break;
 				case 'socialEmotional':
-					domain = 'Social/Emotional';
+					domain = 'socialEmotional';
 					break;
 				case 'independentFunctioning':
-					domain = 'Independent Functioning';
+					domain = 'independentFunctioning';
 					break;
 				case 'healthcare':
-					domain = 'Health Care';
+					domain = 'healthcare';
 					break;
 				case 'communication':
-					domain = 'Communication';
+					domain = 'communication';
 					break;
 			}
 			const goal = await Goal.create({
