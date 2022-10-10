@@ -12,6 +12,8 @@ module.exports = {
 					'base-100': '#F3E9C1', //Tan
 					info: '#F2F7F6',
 					success: '#DC7945', // red
+					warning: '#FBBD23', //
+					error: '#D4D4D4',
 					warning: '#FBBD23',
 					error: '#D4D4D4',
 				},

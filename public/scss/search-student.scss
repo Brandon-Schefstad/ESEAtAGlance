@@ -1,0 +1,133 @@
+@import 'config.scss';
+.student {
+	font-size: 1rem;
+	margin: auto;
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: 0.7fr 1fr;
+	gap: 0.5rem;
+	margin-bottom: 2rem;
+}
+.student__search {
+	font-size: 1rem;
+	padding-top: 0.5rem;
+}
+.input {
+	width: 80%;
+}
+.searchStudent__title {
+	font-size: 2rem;
+}
+.search__form {
+	justify-items: left;
+	gap: 1rem;
+	display: flex;
+}
+.search__btn {
+	background-color: $dark-orange;
+	color: $dark-blue;
+	border-radius: 1rem;
+	padding-inline: 1rem;
+}
+.accommodations__title {
+	grid-column: 1 / span 2;
+}
+.student__info {
+	font-size: 1rem;
+	display: grid;
+	gap: 1rem;
+	text-align: left;
+	grid-template-columns: 1fr 1fr;
+	padding-inline: 2rem;
+	padding-block: 0.5rem;
+	background-color: $white;
+	color: black;
+}
+.grade__header {
+	color: black;
+}
+.searchStudent__title {
+	font-size: 2rem;
+	margin-bottom: 0rem;
+}
+.grade__info {
+	// height: 350px;
+	border-radius: 1rem;
+	display: flex;
+	gap: 4rem;
+	position: relative;
+	overflow-x: scroll;
+	margin-bottom: 2rem;
+}
+.grade__info__container {
+	grid-column: 1 / span 2;
+	background-color: $white;
+	border-radius: 1rem;
+	padding-inline: 2rem;
+	padding-top: 1rem;
+	margin-bottom: 1rem;
+	width: 100%;
+}
+.goal__info {
+	font-size: 80%;
+	display: grid;
+	gap: 1rem;
+	width: 400px;
+	grid-template-rows: 0.3fr 1fr 0.3fr 0.5fr;
+	text-align: left;
+	border: 2px solid black;
+	padding-inline: 1rem;
+	padding-block: 1rem;
+	margin-bottom: 1rem;
+	border-radius: 1rem;
+	box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.4);
+	background-color: $dark-orange;
+	opacity: 90%;
+}
+.goal__attained {
+	background-color: $light-blue;
+	color: $dark-blue;
+	opacity: 100%;
+	border: 2px solid white;
+}
+.text__container {
+	background-color: $light-grey;
+	color: black;
+	padding: 0.5rem;
+	border-radius: 1rem;
+	border: 2px solid black;
+}
+// .attained {
+// 	border: 3px solid rgb(26, 201, 26);
+// }
+.carousel__container {
+	// width: 150%;
+	display: flex;
+	gap: 0.75rem;
+	border-radius: 1rem;
+}
+.accommodations {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column: 1 / span 2;
+	// gap: 0.25rem;
+	padding: 0.5rem;
+	margin-inline: 3em;
+}
+.accommodation__container {
+	border: 2px solid $dark-orange;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	background-color: $dark-blue;
+	// font-weight: 700;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	padding: 0.5rem;
+}
+.accommodation__background {
+	padding: 0.25rem;
+	background-color: white;
+	height: 100%;
+}

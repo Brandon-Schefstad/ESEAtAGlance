@@ -13,7 +13,6 @@ module.exports = {
 
 	searchStudent: async (req, res) => {
 		try {
-			console.log(req.query.ID);
 			const resObject = await populateStudentResObject(req.query.ID);
 			res.cookie('ID', `${req.query.ID}`, { httpOnly: true });
 			res.render('searchStudent', { data: resObject });
@@ -37,7 +36,6 @@ module.exports = {
 				cloudinaryID: result.public_id,
 				image: result.secure_url,
 			});
-			console.log('Student has been added');
 			if (req.body.idNumber) {
 				res.cookie('ID', `${req.body.idNumber}`, { httpOnly: true });
 			}
@@ -47,9 +45,7 @@ module.exports = {
 		}
 	},
 	addGoalsPage: (req, res) => {
-		console.log(req.cookies);
 		const ID = req.cookies['ID'];
-		console.log(ID);
 		res.render('addGoals', {
 			ID: ID,
 		});
@@ -96,7 +92,11 @@ module.exports = {
 		});
 	},
 	addAccommodations: async (req, res) => {
-		res.redirect('/student/addAccommodations/' + req.cookies.ID);
+		if (req.cookies.ID) {
+			res.redirect('/student/addAccommodations/' + req.cookies.ID);
+		} else {
+			res.render('addAccommodations');
+		}
 	},
 	addAccommodationsLoaded: async (req, res) => {
 		const student = await Student.find({
@@ -118,7 +118,6 @@ module.exports = {
 		});
 	},
 	loadAccommodations: async (req, res) => {
-		console.log(req.body);
 		res.render('addAccommodations');
 	},
 	postAccommodations: async (req, res) => {
@@ -155,8 +154,6 @@ module.exports = {
 	},
 	deleteStudent: async (req, res) => {
 		try {
-			console.log(req.body.ID);
-			console.log(req.user.id);
 			const student = await Student.deleteOne({
 				ID: req.body.ID,
 			});
@@ -168,7 +165,6 @@ module.exports = {
 	getEditPage: async (req, res) => {
 		try {
 			const resObject = await populateStudentResObject(req.params.id);
-			console.log(resObject._id);
 			res.render('editStudent', {
 				data: resObject,
 			});
@@ -191,7 +187,6 @@ module.exports = {
 			const caseManager = await Teacher.findOne({
 				username: req.body.caseManager,
 			});
-			console.log(req.body);
 			await Student.updateMany(
 				{ ID: req.body.ID },
 				{
@@ -230,7 +225,6 @@ module.exports = {
 						text: [req.body.text][i],
 						succeed: [req.body.attained][i] === 'on' ? true : false,
 					});
-					console.log(goalObj);
 					await Student.updateOne(
 						{ ID: req.body.ID },
 						{
@@ -245,7 +239,6 @@ module.exports = {
 						text: req.body.text[i],
 						succeed: req.body.attained[i] === 'on' ? true : false,
 					});
-					console.log(goalObj);
 					await Student.updateOne(
 						{ ID: req.body.ID },
 						{
@@ -262,11 +255,7 @@ module.exports = {
 };
 
 async function populateStudentResObject(ID) {
-	console.log(`ID:${ID}`);
 	try {
-		// console.log(presentation);
-		// console.log(Object.values(presentation));
-		// console.log(Object.values(presentation).split(' ').join(','));
 		let student = await Student.findOne({
 			ID: ID,
 		})

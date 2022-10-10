@@ -18,10 +18,4 @@ module.exports = {
 			res.redirect('/');
 		}
 	},
-	reloadDashboard: async (req, res) => {
-		try {
-		} catch (error) {
-			console.error(error);
-		}
-	},
 };

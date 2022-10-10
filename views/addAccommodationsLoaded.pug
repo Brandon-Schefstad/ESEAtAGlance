@@ -8,7 +8,6 @@ html
     include partials/_nav.pug
     section.m-12
     - const studentAccomsList = data.student[0].accommodations.map((accomm)=>accomm.name)
-    -console.log(studentAccomsList)
     h1.text-5xl.mb-12.text-primary Add Accommodations
     form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12(action="/student/addAccommodations" method="POST" class="accommodation__form")
       div.text-accent.grid

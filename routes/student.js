@@ -20,7 +20,6 @@ router.post(
 	studentController.postNewStudent
 );
 router.get('/addGoals', ensureAuth, studentController.addGoalsPage);
-router.delete('/deleteStudent', ensureAuth, studentController.deleteStudent);
 router.post('/addGoals', ensureAuth, studentController.addGoals);
 router.get(
 	'/addAccommodations',
