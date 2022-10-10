@@ -2175,6 +2175,10 @@ body[dir="rtl"] .checkbox:checked,
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-r-2 {
   border-right-width: 2px;
 }
@@ -2202,6 +2206,26 @@ body[dir="rtl"] .checkbox:checked,
 .border-success {
   --tw-border-opacity: 1;
   border-color: hsl(var(--su) / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+
+.border-accent {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--a) / var(--tw-border-opacity));
+}
+
+.border-warning {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--wa) / var(--tw-border-opacity));
+}
+
+.border-base-100 {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b1) / var(--tw-border-opacity));
 }
 
 .border-x-primary {
@@ -2346,6 +2370,11 @@ body[dir="rtl"] .checkbox:checked,
 .px-10 {
   padding-left: 2.5rem;
   padding-right: 2.5rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .pl-16 {

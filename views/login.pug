@@ -1,17 +1,17 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
+  body.bg-primary.min-h-screen(class="max-w-[2200px]").m-auto
     section.flex  
       img(class="h-screen" src="assets/login__image.png", alt="", srcset="")
-      div.card.bg-primary.p-12.m-auto
-        h1.text-secondary.text-4xl.text-center.mb-12 Login
+      div.card.bg-secondary.p-12.m-auto
+        h1.text-primary.text-4xl.text-center.mb-12 Login
         form.grid.gap-4.grid-cols-auto.text-neutral(action="/login" method="POST" class="signup__form")
           p.text-xl Email:
-          input.text-primary(type="email" name="email" placeholder="")
+          input.text-accent.px-1(type="email" name="email" placeholder="")
           p.text-xl Password
-          input.text-primary(type="password" name="password" placeholder="")
-          btn.btn-secondary.rounded-full.px-8.col-span-2.mt-8(class='w-1/2 justify-self-center')
-            input.text-primary.w-full(type="submit" value='Login')
+          input.text-accent.px-1(type="password" name="password" placeholder="")
+          button.bg-base-100.rounded-full.px-8.col-span-2.mt-8.border-2.text-accent.font-semibold(class='w-1/2 justify-self-center')
+            input.text-secondary.w-full.py-2(type="submit" value='Login')
 
    
     include partials/_footer.pug
