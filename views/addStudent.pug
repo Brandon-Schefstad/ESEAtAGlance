@@ -1,21 +1,28 @@
-html 
-  include partials/_head.pug
-  body
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.h-screen.text-accent
     include partials/_nav.pug
-    section.addStudent__wrapper
-      h1.addStudent__title Add New Student
-      form(action="/student/addNewStudent" method="POST" class="addStudent__form")
-        p First Name:
-        input(type="text" name="firstName" placeholder="")
-        p Last Name:
-        input(type="text" name="lastName" placeholder="")
-        p ID Number:
-        input(type="number" name="idNumber" placeholder="")
-        p Grade:
-        input(type="number" name="grade" placeholder="")
-        p Primary Exceptionality:
-        input(type="text" name="primary" placeholder="")
-        p IEP Due Date:
-        input(type="date" name="IEP" placeholder="")
-        input(type="submit" value="Submit" class="submit__btn") 
-      include partials/_footer.pug
+    section.m-12
+      h1.text-5xl.mb-12.text-neutral Add New Student
+      form.bg-base-100.text-accent.m-auto.grid.gap-8.grid-cols-2.bg-info.px-16.py-12(action="/student/addNewStudent" method="POST" enctype="multipart/form-data" class="w-3/4 ")
+        p.text-2xl First Name:
+        input( class="px-2" type="text" name="firstName" placeholder="")
+        p.text-2xl Last Name:
+        input(class="px-2" type="text" name="lastName" placeholder="")
+        p.text-2xl ID Number:
+        input(class="px-2" type="number" name="idNumber" placeholder="")
+        p.text-2xl Grade:
+        input(class="px-2" type="number" name="grade" placeholder="")
+        p.text-2xl Primary Exceptionality:
+        input(class="px-2" type="text" name="primary" placeholder="")
+        p.text-2xl IEP Due Date:
+        input(class="px-2" type="date" name="IEP" placeholder="")
+        p.text-2xl Image
+        label(for="imageUpload" class="form-label")
+          input(class="px-2" type="file" class="form-control" id="imageUpload" name="file")
+        input.mt-12.col-span-2(type="submit" value="Submit" class="btn btn-accent text-neutral") 
+include partials/_footer.pug

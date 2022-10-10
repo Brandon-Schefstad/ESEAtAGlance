@@ -1,20 +1,20 @@
-html 
+html(data-theme=" ")
   include partials/_head.pug
-body
-  div.signup
-    section.signup__form
-       h1= "Register"
-       form(action="/signup" method="POST" class="signup__form")
-         p Email:
-         input(type="email" name="email" placeholder="")
-         p First Name:
-         input(type="text" name="firstName" placeholder="")
-         p Last Name:
-         input(type="text" name="lastName" placeholder="")
-         p Password:
-         input(type="password" name="password" placeholder="")
-         p Confirm Password:
-         input(type="password" name="confirmPassword" placeholder="")
-         input.navbutton.signup__button(type="submit" value='Register')
-    img(class="signup__img" src="assets/signup__hero.webp", alt="", srcset="")
-    include partials/_footer.pug
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
+    section.flex.justify-content-end.justify-end 
+      div.card.bg-primary.p-12.m-auto
+        h1.text-secondary.text-4xl.text-center.mb-12 Register
+        form.grid.gap-4.grid-cols-auto.text-accent(action="/signup" method="POST" class="")
+          p.text-xl Email:
+          input.text-accent.pl-1.bg-base-100(type="email" name="email" placeholder="")
+          p.text-xl First Name:
+          input.text-accent.pl-1.bg-base-100(type="text" name="firstName" placeholder="")
+          p.text-xl Last Name:
+          input.text-accent.pl-1.bg-base-100(type="text" name="lastName" placeholder="")
+          p.text-xl Password:
+          input.text-accent.pl-1.bg-base-100(type="password" name="password" placeholder="")
+          p.text-xl Confirm Password:
+          input.text-accent.pl-1.bg-base-100(type="password" name="confirmPassword" placeholder="")
+          button.btn.bg-secondary.rounded-full.px-8.col-span-2.mt-8.py-2(class='w-1/2 justify-self-center')
+            input.text-primary.w-full(type="submit" value='Register')
+      img(class="h-screen align-right" src="assets/signup__hero.png", alt="", srcset="")
