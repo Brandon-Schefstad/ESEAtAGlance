@@ -27,11 +27,17 @@ router.get(
 	ensureAuth,
 	studentController.addAccommodations
 );
+router.get(
+	'/addAccommodations/:id',
+	ensureAuth,
+	studentController.addAccommodationsLoaded
+);
 router.post(
 	'/addAccommodations',
 	ensureAuth,
 	studentController.postAccommodations
 );
 router.get('/editStudent/:id', ensureAuth, studentController.getEditPage);
+router.post('/editStudent/:id', ensureAuth, studentController.editStudent);
 
 module.exports = router;

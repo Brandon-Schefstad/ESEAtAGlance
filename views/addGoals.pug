@@ -9,7 +9,7 @@ html
     section(class).mx-12.my-6.relative
       h1.text-5xl.text-primary.mb-8 Add Goals
       div.flex.justify-end.absolute.right-0.top-0.z-10
-        form(method="GET" action='/student/addAccommodations')
+        form(method="GET" action='/student/addAccommodations/'+ID)
           label(for=`${ID}`)
             input(class=`${ID}` value=`${ID}`).hidden
           input.btn-primary.text-accent.border-secondary.border-4.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")

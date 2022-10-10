@@ -14,10 +14,5 @@ const AccommodationSchema = new mongoose.Schema({
 		type: Date,
 		default: Date.now(),
 	},
-	category: {
-		type: String,
-		required: true,
-		default: 'other',
-	},
 });
 module.exports = mongoose.model('Accommodations', AccommodationSchema);

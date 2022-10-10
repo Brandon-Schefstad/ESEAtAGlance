@@ -35,34 +35,34 @@ html
       section.accommodations.px-8.text-neutral.pb-8
         h1.text-5xl.mb-4.text-neutral Accommodations:
         section.px-8.grid.gap-2
-          if data.presentation
-            if data.presentation.length>0
+          if data.presentationList
+            if data.presentationList.length>0
               h1.text-4xl.text-center.pt-4 Presentation
               div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-                for entry in data.presentation
+                for entry in data.presentationList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.response
-            if data.response.length>0
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+          if data.responseList
+            if data.responseList.length>0
               h1.text-4xl.text-center.pt-4 Response
               div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-                for entry in data.response
+                for entry in data.responseList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.setting
-            if data.setting.length>0
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+          if data.settingList
+            if data.settingList.length>0
               h1.text-4xl.text-center.pt-4 Setting
               div.accom-container.grid.grid-cols-3.gap-2.bg-white.card.p-2
-                for entry in data.setting
+                for entry in data.settingList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name
-          if data.scheduling
-            if data.scheduling.length>0
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+          if data.schedulingList
+            if data.schedulingList.length>0
               h1.text-4xl.text-center.pt-4 Scheduling
               div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
-                for entry in data.scheduling
+                for entry in data.schedulingList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry.name             
+                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry             
     if data
       section.p-8.bg-neutral
         h1.text-5xl.mb-4.text-secondary Goal History:

@@ -6,12 +6,87 @@ html
     link(rel="icon", href="/assets/favicon.png")
   body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
-    form(method='POST' action='/editStudent/'+data.id).bg-base-100.text-accent.grid.grid-cols-8.gap-8
-    - const keys = Object.keys(data)
-        for key in keys 
-          span.text-neutral= key + data[key]
-          br
-        for prop in data 
-          label= prop
-          input
-        div
+    form(method='POST' action='/student/editStudent/'+data.ID).bg-base-100.text-accent
+      - const keys = Object.keys(data)
+        section.p-8.grid.gap-8.grid-cols-8
+          for key in keys 
+            if key == 'history'
+                h1.col-span-2.text-xl= key.toUpperCase()
+                section.grid.grid-cols-3.gap-8.col-span-6.col-start-3
+                  for history in data[key]
+                      each goal in Object.values(history)
+                        section.bg-neutral.p-4
+                          label Grade:
+                          select.text-accent(name="goalGrade")
+                            option(value=goal.grade)= goal.grade
+                            option(value=0) Kindergarten 
+                            option(value=1) 1st Grade 
+                            option(value=2) 2nd Grade 
+                            option(value=3) 3rd Grade 
+                            option(value=4) 4th Grade 
+                            option(value=5) 5th Grade 
+                            option(value=6) 6th Grade 
+                            option(value=7) 7th Grade 
+                            option(value=8) 8th Grade 
+                            option(value=9) 9th Grade 
+                            option(value=10) 10th Grade 
+                            option(value=11) 11th Grade 
+                            option(value=12) 12th Grade 
+                            option(value=13) Other 
+                          section.grid.grid-cols-2.gap-2.p-4
+                            label Goal ID 
+                            input( readonly class="col-span-4" value= goal._id)
+                            label Domain:
+                            select(class="col-span-4" name="domain" select=goal.domain)
+                              option(value="curriculum") Curriculum and Learning Environment
+                              option(value="socialEmotional") Social/Emotional
+                              option(value="independentFunctioning") Independent Functioning
+                              option(value="healthcare") Healthcare
+                              option(value="communication") Communication
+                            label Text
+                            textarea(class="col-span-4" name="text")= goal.text
+                            label Attained
+                            if value=goal.succeed
+                              input(name="attained" type='checkbox' disabled checked)
+                              input(name='attained' id='attained' hidden value='on')
+                            else
+                              input(name="attained" type='checkbox' disabled )
+                              input(name='attained' id='attained' hidden value='off')
+         
+            if key === 'presentationList'
+              h1.col-span-1.text-xl= key.toUpperCase()
+              a(href='/student/addAccommodations/'+ data.ID)
+                span.block.bg-white.rounded.text-center.border-4.border-success Toggle Accoms
+              section.col-span-6.grid.grid-cols-2.gap-4
+                for accomm in data[key]
+                  div.grid.grid-cols-2.gap-4
+                    label= accomm
+                    input(type="checkbox" name= accomm checked disabled)
+            if key === 'responseList'
+              h1.col-span-2.text-xl= key.toUpperCase()
+              section.col-span-6.grid.grid-cols-2.gap-4
+                for accomm in data[key]
+                  div.grid.grid-cols-2.gap-4
+                    label= accomm
+                    input(type="checkbox" name= accomm checked disabled)
+            if key === 'settingList'
+              h1.col-span-2.text-xl= key.toUpperCase()
+              section.col-span-6.grid.grid-cols-2.gap-4
+                for accomm in data[key]
+                  div.grid.grid-cols-2.gap-4
+                    label= accomm
+                    input(type="checkbox" name= accomm checked disabled)
+            if key === 'schedulingList'
+              h1.col-span-2.text-xl= key.toUpperCase()
+              section.col-span-6.grid.grid-cols-2.gap-4
+                for accomm in data[key]
+                  div.grid.grid-cols-2.gap-4
+                    label= accomm
+                    input(type="checkbox" name= accomm checked disabled)
+            else if key==='_id' || key==='image'
+              input.col-span-6.px-2(name= key hidden value=data[key])
+            else if key != 'presentationList' && key != 'responseList' && key !='settingList' && key !='schedulingList' && key!='history'
+                h1.col-span-2.text-xl= key.toUpperCase()
+                input.col-span-6.px-2(name= key value=data[key])
+        
+      input(type='submit' value='Confirm Changes')
