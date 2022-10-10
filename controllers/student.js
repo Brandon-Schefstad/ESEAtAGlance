@@ -357,6 +357,7 @@ async function populateStudentResObject(ID) {
 
 const presentation = {
 	'Visual Formats': [
+		'Sign Language Interpreter',
 		'Receptive Sign Language',
 		'Large Print',
 		'Color Contrast',
@@ -380,7 +381,7 @@ const presentation = {
 		'Equipment with Audio Output',
 	],
 	'Paper-Based Assessment': ['Paper-Based Assessments'],
-	'Visual Formats': [
+	'Visual Enhancement': [
 		'Magnification Equipment',
 		'Reduced Glare or Direct Lighting',
 		'Minimized Visual Distraction',

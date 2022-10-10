@@ -1919,6 +1919,11 @@ body[dir="rtl"] .checkbox:checked,
   margin-right: 2rem;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -2377,6 +2382,11 @@ body[dir="rtl"] .checkbox:checked,
   padding-right: 0.25rem;
 }
 
+.px-12 {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .pl-16 {
   padding-left: 4rem;
 }
@@ -2391,6 +2401,10 @@ body[dir="rtl"] .checkbox:checked,
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
 }
 
 .text-left {

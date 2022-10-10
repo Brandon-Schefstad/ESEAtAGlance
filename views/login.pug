@@ -1,6 +1,6 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-primary.min-h-screen(class="max-w-[2200px]").m-auto
+  body.bg-base-100.min-h-screen(class="max-w-[2200px]").m-auto
     section.flex  
       img(class="h-screen" src="assets/login__image.png", alt="", srcset="")
       div.card.bg-secondary.p-12.m-auto
@@ -10,7 +10,7 @@ html(data-theme=" ")
           input.text-accent.px-1(type="email" name="email" placeholder="")
           p.text-xl Password
           input.text-accent.px-1(type="password" name="password" placeholder="")
-          button.bg-base-100.rounded-full.px-8.col-span-2.mt-8.border-2.text-accent.font-semibold(class='w-1/2 justify-self-center')
+          button.btn.bg-primary.rounded-full.px-8.col-span-2.mt-8.border-2.text-accent.font-semibold(class='w-1/2 justify-self-center')
             input.text-secondary.w-full.py-2(type="submit" value='Login')
 
    
