@@ -17,11 +17,11 @@ html
         div.grid.gap-8.grid-cols-5
           p.text-2xl.text-right.col-span-1 ID Number:
           if ID 
-            input.text-secondary(class="col-span-4" type="text" name="ID" value=ID)
+            input.text-accent(class="col-span-4" type="text" name="ID" value=ID)
           else
-            input.text-secondary(class="col-span-4" type="text" name="ID" placeholder="")
+            input.text-accent(class="col-span-4" type="text" name="ID" placeholder="")
           p.text-2xl.text-right.col-span-1 Grade
-          select.text-secondary(class="col-span-4" name="goalGrade")
+          select.text-accent(class="col-span-4" name="goalGrade")
             option(value=0) Kindergarten 
             option(value=1) 1st Grade 
             option(value=2) 2nd Grade 
@@ -37,18 +37,18 @@ html
             option(value=12) 12th Grade 
             option(value=13) Other 
           p.text-2xl.text-right.col-span-1 Domain:
-          select.text-secondary(class="col-span-4" name="domain")
+          select.text-accent(class="col-span-4" name="domain")
             option(value="curriculum") Curriculum and Learning Environment
             option(value="socialEmotional") Social/Emotional
             option(value="independentFunctioning") Independent Functioning
             option(value="healthcare") Healthcare
             option(value="communication") Communication
           p.text-2xl.text-right.col-span-1 Text:
-          textarea.text-secondary(class="col-span-4" name="goalText", cols="30", rows="5") 
+          textarea.text-accent(class="col-span-4" name="goalText", cols="30", rows="5") 
           p.text-2xl.text-right.col-span-1 Attained
-          input.text-secondary(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
+          input.text-accent(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
           p.text-2xl.text-right.col-span-1 Notes:
-          textarea.text-secondary( class="col-span-4" name="notes", cols="30", rows="5") 
+          textarea.text-accent( class="col-span-4" name="notes", cols="30", rows="5") 
         div.flex.justify-end.mt-6.gap-16
           input.btn-secondary.w-64.rounded-full.py-3.self-right(type="submit", value="Submit Goal" class="btn btn-warning")
 

@@ -15,6 +15,7 @@ html
                 section.grid.grid-cols-3.gap-8.col-span-6.col-start-3
                   for history in data[key]
                       each goal in Object.values(history)
+                        
                         section.bg-neutral.p-4
                           label Grade:
                           select.text-accent(name="goalGrade")
@@ -37,12 +38,38 @@ html
                             label Goal ID 
                             input( readonly class="col-span-4" value= goal._id)
                             label Domain:
-                            select(class="col-span-4" name="domain" select=goal.domain)
-                              option(value="curriculum") Curriculum and Learning Environment
-                              option(value="socialEmotional") Social/Emotional
-                              option(value="independentFunctioning") Independent Functioning
-                              option(value="healthcare") Healthcare
-                              option(value="communication") Communication
+                            -console.log(goal.domain)
+                            select(class="col-span-4" name="domain")
+                              if goal.domain==='curriculum'
+                                option(value="curriculum" selected) Curriculum and Learning Environment
+                                option(value="socialEmotional") Social/Emotional
+                                option(value="independentFunctioning") Independent Functioning
+                                option(value="healthcare") Healthcare
+                                option(value="communication") Communication
+                              if goal.domain==='socialEmotional'
+                                option(value="curriculum") Curriculum and Learning Environment
+                                option(value="socialEmotional" selected) Social/Emotional
+                                option(value="independentFunctioning") Independent Functioning
+                                option(value="healthcare") Healthcare
+                                option(value="communication") Communication
+                              if goal.domain==='independentFunctioning'
+                                option(value="curriculum") Curriculum and Learning Environment
+                                option(value="socialEmotional") Social/Emotional
+                                option(value="independentFunctioning" selected) Independent Functioning
+                                option(value="healthcare") Healthcare
+                                option(value="communication") Communication
+                              if goal.domain==='healthcare'
+                                option(value="curriculum") Curriculum and Learning Environment
+                                option(value="socialEmotional") Social/Emotional
+                                option(value="independentFunctioning") Independent Functioning
+                                option(value="healthcare" selected) Healthcare
+                                option(value="communication") Communication
+                              if goal.domain==='communication'
+                                option(value="curriculum") Curriculum and Learning Environment
+                                option(value="socialEmotional") Social/Emotional
+                                option(value="independentFunctioning") Independent Functioning
+                                option(value="healthcare") Healthcare
+                                option(value="communication" selected) Communication
                             label Text
                             textarea(class="col-span-4" name="text")= goal.text
                             label Attained

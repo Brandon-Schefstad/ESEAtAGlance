@@ -63,13 +63,13 @@ module.exports = {
 					domain = 'Curriculum and Learning Environment';
 					break;
 				case 'socialEmotional':
-					domain = 'Social / Emotional';
+					domain = 'Social/Emotional';
 					break;
 				case 'independentFunctioning':
 					domain = 'Independent Functioning';
 					break;
 				case 'healthcare':
-					domain = 'HealthCare';
+					domain = 'Health Care';
 					break;
 				case 'communication':
 					domain = 'Communication';
