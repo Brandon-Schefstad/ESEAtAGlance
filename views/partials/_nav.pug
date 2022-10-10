@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 nav.nav
   ul.nav__list
     //- li.logo 
@@ -10,7 +11,16 @@ nav.nav
         a(class='nav__btn', href='/student/addNewStudent') Student
         a(class='nav__btn', href='/student/addGoals') Goal
         a(class='nav__btn', href='/student/addAccommodations') Accommodation
+=======
+>>>>>>> 082d576f977af1ab38c20091b2cf1a0150ebf1d3
 
-      a(class='nav__btn', href='/student/searchStudent') Search
-      div.logout__nav
-        a(class='nav__btn logout__btn', href='/logout') Log Out
+nav.navbar.bg-base-100.font-bold.text-accent.border-4.border-b-secondary.border-x-primary.border-t-primary
+  div.navbar-start.px-8.gap-10
+    a(class='', href='/dashboard') Dashboard     
+    a(class='', href='/student/addNewStudent') New Student
+    a(class='', href='/student/addGoals') New Goal
+    a(class='', href='/student/addAccommodations') New Accommodation
+
+    a(class='', href='/student/searchStudent') Search
+  div.navbar-end
+      a(class='px-16 ', href='/logout') Log Out

@@ -1,48 +1,59 @@
-html 
-  include partials/_head.pug
-  body
+html
+  head
+    title ESE-At-A-Glance
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
-    section.addGoals__wrapper
-      h1.addGoals__title History
-      form(action="/student/addGoals" method="POST" class="addGoals__form")
-        p ID Number:
-        if ID 
-          input(type="text" name="ID" value=ID)
-        else
-          input(type="text" name="ID" placeholder="")
-        p What grade is this goal for?
-        select(name="goalGrade")
-          option(value=0) Kindergarten 
-          option(value=1) 1st Grade 
-          option(value=2) 2nd Grade 
-          option(value=3) 3rd Grade 
-          option(value=4) 4th Grade 
-          option(value=5) 5th Grade 
-          option(value=6) 6th Grade 
-          option(value=7) 7th Grade 
-          option(value=8) 8th Grade 
-          option(value=9) 9th Grade 
-          option(value=10) 10th Grade 
-          option(value=11) 11th Grade 
-          option(value=12) 12th Grade 
-          option(value=13) Other 
-        p Domain:
-        select(name="domain")
-          option(value="curriculum") Curriculum and Learning Environment
-          option(value="socialEmotional") Social/Emotional
-          option(value="independentFunctioning") Independent Functioning
-          option(value="healthcare") Healthcare
-          option(value="communication") Communication
-        p Text:
-        textarea(name="goalText", cols="30", rows="5") 
-        section.attained__wrapper
-          p Attained
-          input(type="checkbox" name="succeed" placeholder="" class="checkbox")
-        p Notes:
-        textarea(name="notes", cols="30", rows="5") 
-        input(type="submit", value="Submit Goal" class="goal__submit submit__btn")
-      a(href="/student/addAccommodations" class="accommodations__btn") Add Accommodations 
-        i(class="fa-sharp fa-solid fa-arrow-right")
+    section(class).mx-12.my-6.relative
+      h1.text-5xl.text-primary.mb-8 Add Goals
+      div.flex.justify-end.absolute.right-0.top-0.z-10
+        form(method="GET" action='/student/addAccommodations/'+ID)
+          label(for=`${ID}`)
+            input(class=`${ID}` value=`${ID}`).hidden
+          input.btn-primary.text-accent.border-secondary.border-4.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
+      form.bg-base-100.m-auto.text-secondary.bg-info.px-16.py-12.relative(action="/student/addGoals" method="POST")
+        div.grid.gap-8.grid-cols-5
+          p.text-2xl.text-right.col-span-1 ID Number:
+          if ID 
+            input.text-accent(class="col-span-4" type="text" name="ID" value=ID)
+          else
+            input.text-accent(class="col-span-4" type="text" name="ID" placeholder="")
+          p.text-2xl.text-right.col-span-1 Grade
+          select.text-accent(class="col-span-4" name="goalGrade")
+            option(value=0) Kindergarten 
+            option(value=1) 1st Grade 
+            option(value=2) 2nd Grade 
+            option(value=3) 3rd Grade 
+            option(value=4) 4th Grade 
+            option(value=5) 5th Grade 
+            option(value=6) 6th Grade 
+            option(value=7) 7th Grade 
+            option(value=8) 8th Grade 
+            option(value=9) 9th Grade 
+            option(value=10) 10th Grade 
+            option(value=11) 11th Grade 
+            option(value=12) 12th Grade 
+            option(value=13) Other 
+          p.text-2xl.text-right.col-span-1 Domain:
+          select.text-accent(class="col-span-4" name="domain")
+            option(value="curriculum") Curriculum and Learning Environment
+            option(value="socialEmotional") Social/Emotional
+            option(value="independentFunctioning") Independent Functioning
+            option(value="healthcare") Healthcare
+            option(value="communication") Communication
+          p.text-2xl.text-right.col-span-1 Text:
+          textarea.text-accent(class="col-span-4" name="goalText", cols="30", rows="5") 
+          p.text-2xl.text-right.col-span-1 Attained
+          input.text-accent(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
+          p.text-2xl.text-right.col-span-1 Notes:
+          textarea.text-accent( class="col-span-4" name="notes", cols="30", rows="5") 
+        div.flex.justify-end.mt-6.gap-16
+          input.btn-secondary.w-64.rounded-full.py-3.self-right(type="submit", value="Submit Goal" class="btn btn-warning")
+
+            
+      
   include partials/_footer.pug
 
 script(src="../js/main.js") 

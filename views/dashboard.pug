@@ -1,7 +1,8 @@
-html 
+html(data-theme=" ")
   include partials/_head.pug
-  body
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.h-full
     include partials/_nav.pug
+<<<<<<< HEAD
     section.dashboard__wrapper
       h1 Welcome to your dashboard:
       if studentList.length > 0
@@ -17,5 +18,46 @@ html
       else 
         section.student__list
           h1 Seems you don't have any students yet!
+=======
+    section.m-12.text-primary
+        h1.text-4xl.text-center.my-8 Welcome to your dashboard!
+        if studentList.length > 0
+          section.bg-info.card
+            section.grid.grid-cols-3.gap-8.p-4.px-8
+              for student in studentList
+                div.card.relative.p-8.border-secondary.shadow-lg.bg-base-100
+                  div.top-4.right-4.absolute.delete__button.cursor-pointer(id=student.ID) 
+                    i.fa-regular.fa-trash-can.text-accent
+                  a(href="/student/searchStudent?ID="+student.ID class="text-center ") 
+                    span.text-3xl.text-accent.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                  div.divider.mt-0.mb-0(class='before:bg-secondary after:bg-secondary')
+                  table.table-auto.text-xl.text-accent.mx-24.font-semibold
+                    tbody
+                      tr
+                        td Student ID
+                        td= student.ID
+                      tr 
+                        td Exceptionality
+                        td= student.primaryExceptionality
+                      tr
+                        td Case Manager
+                        td=  student.caseManager.firstName[0]+student.caseManager.lastName
+                      tr
+                        td IEP Due Date
+                        if student.IEPDueDate
+                          td= student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' ')
+                        else 
+                          td IEP
+        else 
+          section.p-8.text-xl
+            p Welcome to ESE-At-A-Glance! This application is for teachers of ESE students and serves as a one-stop shop to see your students' IEP goal history and accommodations. This message will show until you add a student (using the "Add") button above. You may also use the "Search" button to search for other students. Student number "123" is already set up to display what the information should look like. If you have any questions please #[a(href="mailto:bschefstad@gmail.com") email me] or #[a.underline(href="https://github.com/Brandon-Schefstad/ESEAtAGlance/issues") submit an issue on GitHub.] Thank you! 
+          section.grid.grid-cols-2.px-12
+            section
+              p If you are unfamiliar with IEP's, FAPE, or IDEA, please watch this short video: 
+              iframe(width="640" height="360" src="https://www.youtube.com/embed/7qkNsR6Cgsk" title="What Are IEPs? IEP, IDEA, and Special Education Services Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen) 
+            section
+              p For more explanations about IEP goals, please watch: 
+              iframe(width="640" height="360" src="https://www.youtube.com/embed/q4m0rnrP2kA" title="Federally Mandated Elements / IEP: Measurable Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+>>>>>>> 082d576f977af1ab38c20091b2cf1a0150ebf1d3
   include partials/_footer.pug
   //- test

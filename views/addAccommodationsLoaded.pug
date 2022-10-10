@@ -1,0 +1,36 @@
+html
+  head
+    title Loading In Accomms
+    link(rel="stylesheet", href="../../css/output.css")
+    script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
+    link(rel="icon", href="/assets/favicon.png")
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
+    include partials/_nav.pug
+    section.m-12
+    - const studentAccomsList = data.student[0].accommodations.map((accomm)=>accomm.name)
+    -console.log(studentAccomsList)
+    h1.text-5xl.mb-12.text-primary Add Accommodations
+    form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12(action="/student/addAccommodations" method="POST" class="accommodation__form")
+      div.text-accent.grid
+        p.text-3xl.mb-8 ID Number 
+        input(type="text" name="ID" value=data.student[0].ID)
+      for list in data.accommodations
+        section.collapse
+          h1.collapse-title.text-4xl.text-secondary= JSON.stringify(Object.keys(list)[0]).split('"').join('').toUpperCase()
+          input(type="checkbox")
+          section.collapse-content.grid.grid-cols-2.text-secondary
+            for category in list 
+              for subheading in Object.keys(category)
+                div.flex.flex-col
+                  h1.text-4xl.underline.mb-2= subheading
+                  for accomm in category[subheading]
+                    div.grid.grid-cols-2.px-10.mb-2 
+                      if studentAccomsList.includes(accomm)
+                        label(for= accomm)= accomm
+                        input(type="checkbox" checked name= accomm ) 
+                      else
+                        label(for= accomm)= accomm
+                        input(type="checkbox" name= accomm )
+                                  
+      input(type="submit", value="Submit Accommodations" class="btn btn-secondary w-1/2 m-auto") 
+  include partials/_footer.pug
