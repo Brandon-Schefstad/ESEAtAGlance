@@ -17,13 +17,11 @@
 }
 .searchStudent__title {
 	font-size: 2rem;
-	margin-bottom: 1rem;
 }
 .search__form {
 	justify-items: left;
 	gap: 1rem;
 	display: flex;
-	margin-left: 1rem;
 }
 .search__btn {
 	background-color: $dark-orange;
@@ -35,6 +33,7 @@
 	grid-column: 1 / span 2;
 }
 .student__info {
+	font-size: 1rem;
 	display: grid;
 	gap: 1rem;
 	text-align: left;
@@ -43,9 +42,6 @@
 	padding-block: 0.5rem;
 	background-color: $white;
 	color: black;
-	& > h1 {
-		font-size: 1.5rem;
-	}
 }
 .grade__header {
 	color: black;

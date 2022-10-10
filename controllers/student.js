@@ -1,7 +1,6 @@
 const Student = require('../models/Student');
 const Accommodations = require('../models/Accommodations.js');
 const Goal = require('../models/Goals.js');
-const dashboard = require('./dashboard.js');
 
 module.exports = {
 	addNewStudent: (req, res) => {

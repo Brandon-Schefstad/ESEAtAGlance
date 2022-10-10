@@ -3,36 +3,19 @@ html
   body
     include partials/_nav.pug
     section.dashboard__wrapper
-      h1 Welcome to your dashboard!
+      h1 Welcome to your dashboard:
       if studentList.length > 0
         section.student__list
           section.student__list__cards
             for student in studentList
-                  div.student__card.card
-                    div(class='delete__button' id=student.ID) 
-                      i.fa-regular.fa-trash-can
-                    a(href="/student/searchStudent?ID="+student.ID class="student__link") 
-                      span.card-title=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
-                    div.card__info
-                      span.card-text ID: #{student.ID}
-                      span.card-text Exceptionality: #{student.primaryExceptionality}
-                    div.case__manager 
-                      span.case__manager__title 
-                        span.case__manager__title__header Case Manager:
-                        span= student.caseManager.firstName
-                        span= student.caseManager.lastName
-                      div.case__manager__name
-                        span.case__manager__email= student.caseManager.userName
-
+              a(href="/student/searchStudent?ID="+student.ID class="student__link") 
+                div.student__card
+                  span=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
+                  span ID: #{student.ID} 
+                  span Excep: #{student.primaryExceptionality}
+                  span CM: #{student.caseManager.userName}  
       else 
         section.student__list
-        
-          p Welcome to ESE-At-A-Glance! This application is for teachers of ESE students and serves as a one-stop shop to see your students' IEP goal history and accommodations. This message will show until you add a student (using the "Add") button above. You may also use the "Search" button to search for other students. Student number "123" is already set up to display what the information should look like. If you have any questions please #[a(href="mailto:bschefstad@gmail.com") email me] or #[a(href="https://github.com/Brandon-Schefstad/ESEAtAGlance/issues") submit an issue on GitHub.] Thank you! 
-        section.help__videos
-          p If you are unfamiliar with IEP's, FAPE, or IDEA, please watch this short video: 
-          iframe(width="640" height="360" src="https://www.youtube.com/embed/7qkNsR6Cgsk" title="What Are IEPs? IEP, IDEA, and Special Education Services Explained" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen) 
-
-          p For more explanations about IEP goals, please watch: 
-          iframe(width="640" height="360" src="https://www.youtube.com/embed/q4m0rnrP2kA" title="Federally Mandated Elements / IEP: Measurable Goals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen)
+          h1 Seems you don't have any students yet!
   include partials/_footer.pug
   //- test

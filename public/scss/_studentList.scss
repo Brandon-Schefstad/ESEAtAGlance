@@ -1,23 +1,23 @@
 @import 'config.scss';
 .student__list {
+	padding-inline: 2rem;
 	margin: auto;
 }
 .student__list__cards {
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	gap: 2rem;
+	padding-inline: 2rem;
 	padding-inline: 2rem;
 }
 .student__card {
 	border-radius: 2rem;
-	border: 5px solid $dark-orange;
-	gap: 1rem;
-	padding: 1.5rem;
+	background-color: $dark-orange;
+	padding: 1rem;
 	text-decoration: none;
 	display: flex;
 	flex-direction: column;
-	// height: 280px;
-	position: relative;
+	// gap: 0.25rem;
 }
 .student__link {
 	text-decoration: none;
