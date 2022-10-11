@@ -1978,6 +1978,14 @@ body[dir="rtl"] .checkbox:checked,
   height: 100%;
 }
 
+.h-1\/2 {
+  height: 50%;
+}
+
+.h-3\/4 {
+  height: 75%;
+}
+
 .min-h-screen {
   min-height: 100vh;
 }
@@ -2008,6 +2016,34 @@ body[dir="rtl"] .checkbox:checked,
 
 .w-96 {
   width: 24rem;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.min-w-full {
+  min-width: 100%;
+}
+
+.min-w-\[750px\] {
+  min-width: 750px;
+}
+
+.min-w-\[550px\] {
+  min-width: 550px;
+}
+
+.min-w-\[500px\] {
+  min-width: 500px;
+}
+
+.min-w-\[220px\] {
+  min-width: 220px;
+}
+
+.min-w-\[2200px\] {
+  min-width: 2200px;
 }
 
 .max-w-\[2200px\] {
@@ -2048,6 +2084,10 @@ body[dir="rtl"] .checkbox:checked,
 
 .flex-col {
   flex-direction: column;
+}
+
+.content-between {
+  align-content: space-between;
 }
 
 .justify-end {
@@ -2431,4 +2471,10 @@ body[dir="rtl"] .checkbox:checked,
   content: var(--tw-content);
   --tw-bg-opacity: 1;
   background-color: hsl(var(--s) / var(--tw-bg-opacity));
+}
+
+@media (min-width: 1024px) {
+  .lg\:max-w-\[2200px\] {
+    max-width: 2200px;
+  }
 }

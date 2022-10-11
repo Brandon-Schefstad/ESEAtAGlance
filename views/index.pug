@@ -1,8 +1,8 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
-    section.flex  
-      img(src="assets/hero.jpg", alt="", class="h-screen")
+  body.bg-secondary(class="lg:max-w-[2200px] ").m-auto
+    section.flex.flex-col.content-between 
+      img(src="assets/hero.jpg", alt="", class="h-3/4 md:h-50% my-auto")
       section.card.flex.flex-col.m-auto.p-16.bg-primary
         h1.text-secondary.text-4xl.text-center Welcome to ESE-at-a-Glance!
         div.mx-20.mt-8.flex.flex-col.gap-10.m-auto
