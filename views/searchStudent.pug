@@ -96,9 +96,19 @@ html
                             span= goal.notes
                   else
                     section.font-semibold.card.p-8.bg-base-100.m-2.text-accent.divide-y.divide-secondary.flex.justify-between.grow-0(class='w-96')
-                      section.text__container
-                          span.bold.text-lg Domain: 
-                          span= goal.domain
+                      -console.log(goal.domain)
+                        section.text__container
+                            span.bold.text-lg Domain: 
+                            if goal.domain === "curriculum"
+                              span Curriculum and Learning Environment
+                            if goal.domain === "socialEmotional"
+                              span Social/Emotional
+                            if goal.domain === "independentFunctioning"
+                              span Independent Functioning
+                            if goal.domain === "healthcare"
+                              span Health Care
+                            if goal.domain === "communication"
+                              span Communication
                       section.text__container
                         span.bold.text-lg Goal: 
                         span= goal.text

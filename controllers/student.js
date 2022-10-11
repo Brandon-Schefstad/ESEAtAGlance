@@ -45,10 +45,14 @@ module.exports = {
 		}
 	},
 	addGoalsPage: (req, res) => {
-		const ID = req.cookies['ID'];
-		res.render('addGoals', {
-			ID: ID,
-		});
+		if (req.cookies.ID) {
+			const ID = req.cookies['ID'];
+			res.render('addGoals', {
+				ID: ID,
+			});
+		} else {
+			res.render('addGoals');
+		}
 	},
 	addGoals: async (req, res) => {
 		try {
@@ -56,19 +60,19 @@ module.exports = {
 			let domain;
 			switch (req.body.domain) {
 				case 'curriculum':
-					domain = 'Curriculum and Learning Environment';
+					domain = 'curriculum';
 					break;
 				case 'socialEmotional':
-					domain = 'Social/Emotional';
+					domain = 'socialEmotional';
 					break;
 				case 'independentFunctioning':
-					domain = 'Independent Functioning';
+					domain = 'independentFunctioning';
 					break;
 				case 'healthcare':
-					domain = 'Health Care';
+					domain = 'healthcare';
 					break;
 				case 'communication':
-					domain = 'Communication';
+					domain = 'communication';
 					break;
 			}
 			const goal = await Goal.create({
@@ -92,30 +96,37 @@ module.exports = {
 		});
 	},
 	addAccommodations: async (req, res) => {
-		if (req.cookies.ID) {
-			res.redirect('/student/addAccommodations/' + req.cookies.ID);
-		} else {
-			res.render('addAccommodations');
+		try {
+			if (req.cookies.ID != 'undefined') {
+				res.redirect('/student/addAccommodations/' + req.cookies.ID);
+			} else {
+				res.render('addAccommodations');
+			}
+		} catch (err) {
+			console.error(err);
 		}
 	},
 	addAccommodationsLoaded: async (req, res) => {
-		const student = await Student.find({
-			ID: req.params.id,
-		}).populate({
-			path: 'accommodations',
-		});
-
-		res.render('addAccommodationsLoaded.pug', {
-			data: {
-				student: student,
-				accommodations: [
-					{ presentation: presentation },
-					{ response: response },
-					{ scheduling: scheduling },
-					{ setting: setting },
-				],
-			},
-		});
+		if (req.cookies.ID) {
+			const student = await Student.find({
+				ID: req.params.id,
+			}).populate({
+				path: 'accommodations',
+			});
+			res.render('addAccommodationsLoaded.pug', {
+				data: {
+					student: student,
+					accommodations: [
+						{ presentation: presentation },
+						{ response: response },
+						{ scheduling: scheduling },
+						{ setting: setting },
+					],
+				},
+			});
+		} else {
+			res.render('addAccommodations');
+		}
 	},
 	loadAccommodations: async (req, res) => {
 		res.render('addAccommodations');

@@ -37,6 +37,7 @@ html
                           section.grid.grid-cols-2.gap-2.p-4
                             label Goal ID 
                             input( readonly class="col-span-4" value= goal._id)
+                            -console.log(goal.domain)
                             label Domain:
                             select(class="col-span-4" name="domain")
                               if goal.domain==='curriculum'
@@ -45,25 +46,32 @@ html
                                 option(value="independentFunctioning") Independent Functioning
                                 option(value="healthcare") Healthcare
                                 option(value="communication") Communication
-                              if goal.domain==='socialEmotional'
+                              else if goal.domain==='socialEmotional'
                                 option(value="curriculum") Curriculum and Learning Environment
                                 option(value="socialEmotional" selected) Social/Emotional
                                 option(value="independentFunctioning") Independent Functioning
                                 option(value="healthcare") Healthcare
                                 option(value="communication") Communication
-                              if goal.domain==='independentFunctioning'
+                              else if goal.domain==='independentFunctioning'
                                 option(value="curriculum") Curriculum and Learning Environment
                                 option(value="socialEmotional") Social/Emotional
                                 option(value="independentFunctioning" selected) Independent Functioning
                                 option(value="healthcare") Healthcare
                                 option(value="communication") Communication
-                              if goal.domain==='healthcare'
+                              else if goal.domain==='healthcare'
                                 option(value="curriculum") Curriculum and Learning Environment
                                 option(value="socialEmotional") Social/Emotional
                                 option(value="independentFunctioning") Independent Functioning
                                 option(value="healthcare" selected) Healthcare
                                 option(value="communication") Communication
-                              if goal.domain==='communication'
+                              else if goal.domain==='communication'
+                                option(value="curriculum") Curriculum and Learning Environment
+                                option(value="socialEmotional") Social/Emotional
+                                option(value="independentFunctioning") Independent Functioning
+                                option(value="healthcare") Healthcare
+                                option(value="communication" selected) Communication
+                              else 
+                                option(value="null" selected) Error
                                 option(value="curriculum") Curriculum and Learning Environment
                                 option(value="socialEmotional") Social/Emotional
                                 option(value="independentFunctioning") Independent Functioning
