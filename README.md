@@ -12,7 +12,9 @@
 - [Report a Bug](#report-a-bug)
 
 ## Introduction
-ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall. As a previous ESE teacher, making this information available to general education teachers was my largest hurdle, so this app seeks to solve that problem! 
+ESE-At-A-Glance is a central hub for submitting, reviewing, and viewing ESE student data. This full stack app allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal is to make this information more easily accessible for educators, therefore increasing support for ESE students overall. As a previous ESE teacher, making this information available to general education teachers was my largest hurdle and required many hours of individualized work so this app seeks to solve that problem! 
+
+Student data is enterable into the database and retrievable using the search features. The cards on the teacher's dashboard (which load in after the first student is submitted) link to that student's profile page. 
 
 <div align="center">
     <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/f8b6004a4930c10c742c1a060f99665dada72a41/public/assets/preview-login.png">
@@ -44,12 +46,11 @@ ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as c
  - passport - used for user authentication.
  - passport-local - passport strategy used.
  - pug - used as a templating engine
- - sass - used as a CSS preprocessor
+ - tailwind - used to add inline styling 
  - validator - used for validating user input.
 
 ## Report a Bug
 
-If you encounter a bug and/or have any suggestions for our team, please visit our [issues page](https://github.com/devv-work/timeato/issues) and create a new issue. If you wish to implement a feature on your own, please visit our <a href="https://github.com/devv-work/timeato/blob/main/CONTRIBUTING.md">Contributing Guidelines</a> and follow our requirements.
 
-If you have encountered a bug, please provide as much information as you can to help us replicate the issue on our own end. Depending on the issue, it may be useful to communicate your browser, screen width, and/or anything that relates to your specific encounter.
+If you have encountered a bug, please provide as much information as you can to help us replicate the issue on our own end. Depending on the issue, it may be useful to communicate your browser, screen width, and/or anything that relates to your specific encounter. Send your error to [my email address](mailto:bschefstad@gmail.com). Thank you! 
 
