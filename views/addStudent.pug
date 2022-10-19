@@ -4,24 +4,24 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.h-screen.text-accent
+  body.bg-secondary(class="max-w-[2200px] ").m-auto.text-accent.h-screen
     include partials/_nav.pug
-    section.m-12
-      h1.text-5xl.mb-12.text-neutral Add New Student
-      form.bg-base-100.text-accent.m-auto.grid.gap-8.grid-cols-2.bg-info.px-16.py-12(action="/student/addNewStudent" method="POST" enctype="multipart/form-data" class="w-3/4 ")
-        p.text-2xl First Name:
+    section.mt-6
+      h1.text-3xl.mb-12.text-neutral.text-center Add New Student
+      form(action="/student/addNewStudent" method="POST" enctype="multipart/form-data" class=" bg-base-100 text-accent mx8 w-full grid gap-2 grid-cols-2 bg-info px-4 py-4 text-sm md:w-auto md:px-4 md:gap-6 lg:gap-10 md:w-5/6 md:m-auto lg:w-3/4 lg:m-auto lg:text-lg lg:p-6 xl:w-1/2 xl:text-xl xl:p-12 xl:m-auto")
+        p First Name:
         input( class="px-2" type="text" name="firstName" placeholder="")
-        p.text-2xl Last Name:
+        p Last Name:
         input(class="px-2" type="text" name="lastName" placeholder="")
-        p.text-2xl ID Number:
+        p ID Number:
         input(class="px-2" type="number" name="idNumber" placeholder="")
-        p.text-2xl Grade:
+        p Grade:
         input(class="px-2" type="number" name="grade" placeholder="")
-        p.text-2xl Primary Exceptionality:
+        p Primary Exceptionality:
         input(class="px-2" type="text" name="primary" placeholder="")
-        p.text-2xl IEP Due Date:
+        p IEP Due Date:
         input(class="px-2" type="date" name="IEP" placeholder="")
-        p.text-2xl Image
+        p Image
         label(for="imageUpload" class="form-label")
           input(class="px-2" type="file" class="form-control" id="imageUpload" name="file")
         input.mt-12.col-span-2(type="submit" value="Submit" class="btn btn-accent text-neutral") 

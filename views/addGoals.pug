@@ -4,23 +4,23 @@ html
     link(rel="stylesheet", href="../../css/output.css")
     script(src="https://kit.fontawesome.com/a0bcd08329.js" crossorigin="anonymous")
     link(rel="icon", href="/assets/favicon.png")
-  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
+  body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.relative
     include partials/_nav.pug
-    section(class).mx-12.my-6.relative
-      h1.text-5xl.text-primary.mb-8 Add Goals
-      div.flex.justify-end.absolute.right-0.top-0.z-10
+    section(class).my-6
+      h1.text-5xl.text-primary.text-center.mb-8 Add Goals
+      div.flex.justify-end.absolute.bottom-16.right-12.z-10
         form(method="GET" action='/student/addAccommodations/'+ID)
           label(for=`${ID}`)
             input(class=`${ID}` value=`${ID}`).hidden
-          input.btn-primary.text-accent.border-secondary.border-4.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
-      form.bg-base-100.m-auto.text-secondary.bg-info.px-16.py-12.relative(action="/student/addGoals" method="POST")
-        div.grid.gap-8.grid-cols-5
-          p.text-2xl.text-right.col-span-1 ID Number:
+          input.btn-primary.text-accent.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
+      form.bg-base-100.m-0.py-8.px-2(class="md:px-4 md:gap-6 lg:gap-10 md:w-5/6 md:m-auto lg:w-3/4 lg:m-auto lg:text-lg lg:p-6 xl:w-1/2 xl:text-xl xl:p-12 xl:m-auto" action="/student/addGoals" method="POST")
+        div.grid.gap-4.grid-cols-5
+          p.text-sm.text-center.col-span-1 ID Number:
           if ID 
             input.text-accent(class="col-span-4" type="text" name="ID" value=ID)
           else
             input.text-accent(class="col-span-4" type="text" name="ID" placeholder="")
-          p.text-2xl.text-right.col-span-1 Grade
+          p.text-sm.text-center.col-span-1 Grade
           select.text-accent(class="col-span-4" name="goalGrade")
             option(value=0) Kindergarten 
             option(value=1) 1st Grade 
@@ -36,21 +36,21 @@ html
             option(value=11) 11th Grade 
             option(value=12) 12th Grade 
             option(value=13) Other 
-          p.text-2xl.text-right.col-span-1 Domain:
+          p.text-sm.text-center.col-span-1 Domain:
           select.text-accent(class="col-span-4" name="domain")
             option(value="curriculum") Curriculum and Learning Environment
             option(value="socialEmotional") Social/Emotional
             option(value="independentFunctioning") Independent Functioning
             option(value="healthcare") Healthcare
             option(value="communication") Communication
-          p.text-2xl.text-right.col-span-1 Text:
+          p.text-sm.text-center.col-span-1 Text:
           textarea.text-accent(class="col-span-4" name="goalText", cols="30", rows="5") 
-          p.text-2xl.text-right.col-span-1 Attained
+          p.text-sm.text-center.col-span-1 Attained
           input.text-accent(class="col-span-4" type="checkbox" name="succeed" placeholder="" class="bg-primary text-left w-5")
-          p.text-2xl.text-right.col-span-1 Notes:
+          p.text-sm.text-center.col-span-1 Notes:
           textarea.text-accent( class="col-span-4" name="notes", cols="30", rows="5") 
         div.flex.justify-end.mt-6.gap-16
-          input.btn-secondary.w-64.rounded-full.py-3.self-right(type="submit", value="Submit Goal" class="btn btn-warning")
+          input.m-auto.btn-secondary.w-64.rounded-full.py-3.self-right(type="submit", value="Submit Goal" class="btn btn-warning")
 
             
       

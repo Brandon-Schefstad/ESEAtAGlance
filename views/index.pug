@@ -1,12 +1,12 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-secondary(class="lg:max-w-[2200px] ").m-auto
-    section.flex.flex-col.content-between 
-      img(src="assets/hero.jpg", alt="", class="h-3/4 md:h-50% my-auto")
-      section.card.flex.flex-col.m-auto.p-16.bg-primary
-        h1.text-secondary.text-4xl.text-center Welcome to ESE-at-a-Glance!
-        div.mx-20.mt-8.flex.flex-col.gap-10.m-auto
+  body.bg-secondary(class="lg:max-w-[2200px] flex").m-auto
+    section.flex.flex-col.content-between.gap-8.m-8.mt-4(class="2xl:flex-row-reverse my-auto 2xl:mt-0")
+      section.card.flex.flex-col.m-auto.p-4.py-8.bg-primary(class='md:p-8 md:py-12 lg:p-16')
+        h1.text-secondary.text-2xl.text-center(class='md:text-3xl lg:text-4xl')  Welcome to ESE-at-a-Glance!
+        div.mx-4.mt-8.flex.flex-col.gap-10.m-auto(class='md:mx-10 lg:mx-20')
           a(href='/login' class="btn rounded-full bg-base-100" ) Login
           a(href='/signup' class="btn rounded-full  btn-secondary" ) SignUp
+      img(class="w-full sm:full m-auto my-auto xl:w-3/4" src="assets/hero.jpg", alt="", class="")
 
-      a(href="https://www.freepik.com/free-vector/schoolboy-standing-books-raising-hand-speaking-pupil-reading-home-task-report-flat-vector-illustration-school-education-knowledge_10173517.htm#query=student%20illustration&position=3&from_view=keyword" class="absolute text-primary px-8 bottom-0") Image by pch.vector on Freepik
+      a(href="https://www.freepik.com/free-vector/schoolboy-standing-books-raising-hand-speaking-pupil-reading-home-task-report-flat-vector-illustration-school-education-knowledge_10173517.htm#query=student%20illustration&position=3&from_view=keyword" class="fixed text-primary px-8 bottom-0") Image by pch.vector on Freepik

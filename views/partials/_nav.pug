@@ -1,11 +1,15 @@
 
-nav.navbar.bg-base-100.font-bold.text-accent.border-4.border-b-secondary.border-x-primary.border-t-primary
-  div.navbar-start.px-8.gap-10
-    a(class='', href='/dashboard') Dashboard     
-    a(class='', href='/student/addNewStudent') New Student
-    a(class='', href='/student/addGoals') New Goal
-    a(class='', href='/student/addAccommodations') New Accommodation
-
-    a(class='', href='/student/searchStudent') Search
-  div.navbar-end
-      a(class='px-16 ', href='/logout') Log Out
+nav.navbar.bg-base-100.font-bold.text-accent.text-sm.px-2(class='xl:text-lg md:px-4 lg:px-8 xl:px-12')
+  div.flex.justify-between.m-auto.text-center.justify-evenly.w-full(class=' xl:gap-4 2xl:gap-6 ')
+    div.p-2(class='xl:min-w-[100px]') 
+      a(class= href='/dashboard') Dashboard     
+    div.p-2(class='xl:min-w-[100px]')   
+      a(class='', href='/student/addNewStudent') New Student
+    div.p-2(class='xl:min-w-[100px]') 
+      a(class='', href='/student/addGoals') New Goal
+    div.p-2(class='xl:min-w-[100px]') 
+      a(class='', href='/student/addAccommodations') New Accomm
+    div.p-2(class='xl:min-w-[100px]') 
+      a(class='', href='/student/searchStudent') Search
+  div.navbar-end.flex
+    a(class='px-16 fixed bottom-0 z-1 left-0 m-4 bg-base-100 rounded py-2 xl:static xl:py-0 xl:navbar-end  xl:text-right xl:w-auto' , href='/logout') Log Out
