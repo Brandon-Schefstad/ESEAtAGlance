@@ -1,20 +1,20 @@
 html(data-theme=" ")
   include partials/_head.pug
   body.bg-secondary(class="lg:max-w-[2200px] h-full flex").m-auto
-    section.flex.flex-col.py-4.my-4(class=" xl:pl-8 sm:gap-8 xl:py-0 my-0 xl:flex-row my-auto w-full h-screen") 
-      div.card.bg-primary.p-4.m-auto(class='p-4 mx-4 sm:m-auto md:p-8 lg:p-12 sm:min-h-[500px] max-w-[500px]')
+    section.flex.flex-col.py-4.my-4(class=" xl:pl-8 sm:gap-2 xl:py-0 my-0 xl:flex-row my-auto w-full h-screen") 
+      div.card.bg-primary.p-4.m-auto(class='p-4 mx-4 text-lg md:p-8 sm:min-h-[450px] md:min-h-[550px]')
         h1.text-secondary.text-4xl.text-center.mb-12 Register
-        form.grid.gap-2.grid-cols-auto.text-accent(action="/signup" method="POST" class="md:gap-4 lg:gap-8 ")
-          p.text-sm(class='md:text-md lg:text-lg') Email:
+        form.grid.gap-2.grid-cols-auto.text-accent(action="/signup" method="POST" class="  ")
+          p.text-lg(class='md:text-lg ') Email:
           input.text-accent.pl-1.bg-base-100(type="email" name="email" placeholder="")
-          p.text-sm(class='md:text-md lg:text-lg') First Name:
+          p.text-lg(class='md:text-lg ') First Name:
           input.text-accent.pl-1.bg-base-100(type="text" name="firstName" placeholder="")
-          p.text-sm(class='md:text-md lg:text-lg') Last Name:
+          p.text-lg(class='md:text-lg ') Last Name:
           input.text-accent.pl-1.bg-base-100(type="text" name="lastName" placeholder="")
-          p.text-sm(class='md:text-md lg:text-lg') Password:
+          p.text-lg(class='md:text-lg ') Password:
           input.text-accent.pl-1.bg-base-100(type="password" name="password" placeholder="")
-          p.text-sm(class='md:text-md lg:text-lg') Confirm:
+          p.text-lg(class='md:text-lg ') Confirm:
           input.text-accent.pl-1.bg-base-100(type="password" name="confirmPassword" placeholder="")
           button.btn.bg-secondary.rounded-full.px-8.col-span-2.mt-8.py-2(class='w-1/2 mb-4 justify-self-center')
             input.text-primary.w-full(type="submit" value='Register')
-      img(class="w-full  m-auto 2xl:m-0 3xl:m-auto xl:w-3/4"  src="assets/signup__hero.png", alt="", srcset="")
+      img(class="w-3/4  m-auto 2xl:m-0 3xl:m-auto xl:w-3/4"  src="assets/signup__hero.png", alt="", srcset="")
