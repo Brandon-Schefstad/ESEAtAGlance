@@ -2047,6 +2047,26 @@ body[dir="rtl"] .checkbox:checked,
   min-height: fit-content;
 }
 
+.min-h-\[700px\] {
+  min-height: 700px;
+}
+
+.min-h-\[800px\] {
+  min-height: 800px;
+}
+
+.min-h-\[6500px\] {
+  min-height: 6500px;
+}
+
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+
+.min-h-\[600px\] {
+  min-height: 600px;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -2265,6 +2285,11 @@ body[dir="rtl"] .checkbox:checked,
 .border-primary {
   --tw-border-opacity: 1;
   border-color: hsl(var(--p) / var(--tw-border-opacity));
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-r-accent {
