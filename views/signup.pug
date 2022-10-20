@@ -1,19 +1,19 @@
 html(data-theme=" ")
   include partials/_head.pug
   body.bg-secondary(class="lg:max-w-[2200px] h-full flex").m-auto
-    section.flex.flex-col.py-4.my-4(class=" xl:pl-8 sm:gap-2 xl:py-0 my-0 xl:flex-row my-auto w-full h-screen") 
-      div.card.bg-primary.p-4.m-auto(class='p-4 mx-4 text-lg md:p-8')
+    section.flex.flex-col.py-4.my-4(class=" xl:pl-8 sm:gap-2 xl:py-0 my-0  my-auto w-full h-screen") 
+      div.card.bg-primary.p-4.m-auto(class='p-4 mx-12 md:text-2xl lg:text-3xl xl:text-4xl md:p-8')
         h1.text-secondary.text-4xl.text-center.mb-12 Register
-        form.grid.gap-2.grid-cols-auto.text-accent(action="/signup" method="POST" class="  ")
-          p.text-lg(class='md:text-lg ') Email:
+        form.grid.gap-6.grid-cols-auto.text-accent(action="/signup" method="POST" class="  ")
+          p(class='md ') Email:
           input.text-accent.pl-1.bg-base-100(type="email" name="email" placeholder="")
-          p.text-lg(class='md:text-lg ') First Name:
+          p(class='md ') First Name:
           input.text-accent.pl-1.bg-base-100(type="text" name="firstName" placeholder="")
-          p.text-lg(class='md:text-lg ') Last Name:
+          p(class='md ') Last Name:
           input.text-accent.pl-1.bg-base-100(type="text" name="lastName" placeholder="")
-          p.text-lg(class='md:text-lg ') Password:
+          p(class='md ') Password:
           input.text-accent.pl-1.bg-base-100(type="password" name="password" placeholder="")
-          p.text-lg(class='md:text-lg ') Confirm:
+          p(class='md ') Confirm:
           input.text-accent.pl-1.bg-base-100(type="password" name="confirmPassword" placeholder="")
           button.btn.bg-secondary.rounded-full.px-8.col-span-2.mt-8.py-2(class='w-1/2 mb-4 justify-self-center')
             input.text-primary.w-full(type="submit" value='Register')
