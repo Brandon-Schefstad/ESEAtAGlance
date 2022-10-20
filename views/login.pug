@@ -1,16 +1,16 @@
 html(data-theme=" ")
   include partials/_head.pug
-  body.bg-base-100.min-h-screen(class="max-w-[2200px]").m-auto
-    section.flex  
-      img(class="h-screen" src="assets/login__image.png", alt="", srcset="")
-      div.card.bg-secondary.p-12.m-auto
+  body.bg-base-100.min-h-screen.m-auto(class="max-w-[2200px] lg:flex")
+    section.flex.flex-col-reverse.px-8.gap-8.p-4(class=" 2xl:py-0 lg:flex-row lg:justify-between xl:m-0") 
+      img(class="w-full  xs: m-auto sm:m-auto md:m-auto 2xl:m-0 " src="assets/login__image.png", alt="", srcset="")
+      div.card.bg-secondary.p-4.m-auto(class='md:w-3/4 sm:p-12 max-w-[500px]')
         h1.text-primary.text-4xl.text-center.mb-12 Login
-        form.grid.gap-4.grid-cols-auto.text-neutral(action="/login" method="POST" class="signup__form")
-          p.text-xl Email:
-          input.text-accent.px-1(type="email" name="email" placeholder="")
-          p.text-xl Password
-          input.text-accent.px-1(type="password" name="password" placeholder="")
-          button.btn.bg-primary.rounded-full.px-8.col-span-2.mt-8.border-2.text-accent.font-semibold(class='w-1/2 justify-self-center')
+        form.grid.gap-2.grid-cols-auto.text-neutral.justify-items-center(action="/login" method="POST" class="signup__form")
+          p.text-s(class='md:text-xl lg:text-2xl') Email:
+          input.text-accent.px-1(type="email" class='w-full md:w-3/4 lg:w-full' name="email" placeholder="")
+          p.text-s(class='md:text-xl lg:text-2xl')  Password
+          input.text-accent.px-1(type="password" class='w-full md:w-3/4 lg:w-full' name="password" placeholder="")
+          button.btn.bg-primary.rounded-full.col-span-2.mt-8.border-2.text-accent.font-semibold(class='w-1/2 justify-self-center')
             input.text-secondary.w-full.py-2(type="submit" value='Login')
 
    

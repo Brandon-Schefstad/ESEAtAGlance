@@ -8,14 +8,14 @@ html
     include partials/_nav.pug
     section.m-12
       h1.text-5xl.mb-12.text-primary Add Accommodations
-      form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12.grid-cols-2(action="/student/addAccommodations" method="POST" class="accommodation__form")
+      form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12.grid-cols-2(action="/student/addAccommodations/" method="GET" class="accommodation__form")
         div.text-accent
           p.text-3xl.mb-8 ID Number
           if ID 
             input.col-span-2(type="text" name="ID" value=ID)
           else
             input.col-span-2(type="text" name="ID" placeholder="")
-        div.col-span-2
+        //- div.col-span-2
           section.grid.container.grid-rows-auto
             section.collapse
               h1.collapse-title.text-6xl.text-secondary Presentation
@@ -328,5 +328,5 @@ html
                       input.col-start-6(type="checkbox" name="Visual Schedules") 
                       label.col-span-5.col-start-1(for="Electronic Devices") Electronic Devices
                       input.col-start-6(type="checkbox" name="Electronic Devices") 
-        input.col-span-2(type="submit", value="Submit Accommodations" class="btn btn-secondary w-1/2 m-auto") 
+        input.col-span-2(type="submit", value="Populate" class="btn btn-secondary w-1/2 m-auto") 
   include partials/_footer.pug

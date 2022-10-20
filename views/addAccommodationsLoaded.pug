@@ -8,8 +8,8 @@ html
     include partials/_nav.pug
     section.m-12
     - const studentAccomsList = data.student[0].accommodations.map((accomm)=>accomm.name)
-    h1.text-5xl.mb-12.text-primary Add Accommodations
-    form.text-neutral.bg-base-100.mx-16.grid.gap-8.bg-info.pl-16.py-12(action="/student/addAccommodations" method="POST" class="accommodation__form")
+    h1.text-2xl.mb-12.text-center.text-primary(class='md:text-3xl lg:text-4xl xl:text-5xl') Add Accommodations
+    form.z-10.relative.text-neutral.bg-base-100.grid.gap-8.bg-info.px-4.py-4(class="md:px-4 md:gap-6 lg:gap-10 md:w-5/6 md:m-auto lg:w-3/4 lg:m-auto lg:text-lg lg:p-6 xl:w-1/2 xl:text-xl xl:p-12 xl:m-auto" action="/student/addAccommodations" method="POST" class="accommodation__form")
       div.text-accent.grid
         p.text-3xl.mb-8 ID Number 
         input(type="text" name="ID" value=data.student[0].ID)
@@ -17,19 +17,19 @@ html
         section.collapse
           h1.collapse-title.text-4xl.text-secondary= JSON.stringify(Object.keys(list)[0]).split('"').join('').toUpperCase()
           input(type="checkbox")
-          section.collapse-content.grid.grid-cols-2.text-secondary
+          section.collapse-content.grid.text-secondary
             for category in list 
               for subheading in Object.keys(category)
                 div.flex.flex-col
-                  h1.text-4xl.underline.mb-2= subheading
+                  h1.text-xl.underline.mt-4= subheading
                   for accomm in category[subheading]
-                    div.grid.grid-cols-2.px-10.mb-2 
+                    div.grid.grid-cols-4.mb-2(class="lg:grid-cols-3 sm:px-8 md:px-12 lg:px-16")
                       if studentAccomsList.includes(accomm)
-                        label(for= accomm)= accomm
+                        label.text-xs.col-span-3(for= accomm class=" sm:text-sm md:text-lg lg:col-span-2 lg:text-lg")= accomm
                         input(type="checkbox" checked name= accomm ) 
                       else
-                        label(for= accomm)= accomm
+                        label.text-xs.col-span-3(for= accomm class="sm:text-sm md:text-lg lg:col-span-2 lg:text-lg")= accomm
                         input(type="checkbox" name= accomm )
                                   
-      input(type="submit", value="Submit Accommodations" class="btn btn-secondary w-1/2 m-auto") 
+      input(type="submit", value="Submit" class="btn btn-secondary text-md w-1/2 m-auto") 
   include partials/_footer.pug

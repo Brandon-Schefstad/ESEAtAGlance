@@ -6,84 +6,93 @@ html
     link(rel="icon", href="/assets/favicon.png")
   body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
-    section.mx-12.my-4.flex.flex-col
+    section.mx-2.my-4.flex.flex-col
       section(class='w-3/4 m-auto justify-items-center grid')
-        h1.text-5xl.text-neutral Search A Student
-        form(action="/student/searchStudent" method="GET" class="w-full block text-accent")
-          input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full mt-8" class='input bg-white')
-          input(type="submit", value="Search!" class='mt-4  btn bg-success text-accent  w-60')
+        h1.text-2xl.text-neutral(class='md:3xl lg:4xl xl:5xl') Search A Student
+        form(action="/student/searchStudent" method="GET" class="w-full flex flex-col block text-accent")
+          input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full lg:w-3/4 xl:w-1/2 mx-auto mt-8" class='input bg-white')
+          input(type="submit", value="Search!" class='mt-4  mx-auto btn bg-success text-primary  w-60')
       if data
-        section.grid.grid-cols-2(class='w-full').bg-white.px-16.py-4.mt-4.mb-0.card.relative
-          section.bg-base-100.border-4.border-primary.p-8.grid.grid-cols-2.gap-2.text-2xl.card.text-center(class="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 text-accent")
-            h1.border-r-2.border-r-accent Full Name: 
-            h1 #{data.name}
-            h1.border-r-2.border-r-accent(class='ID') ID Number: 
-            h1 #{data.ID} 
-            h1.border-r-2.border-r-accent Grade: 
-            h1 #{data.grade} 
-            h1.border-r-2.border-r-accent Case Manager: 
-            h1 #{data.caseManager}
-            h1.border-r-2.border-r-accent Primary Exceptionality: 
-            h1 #{data.primary}
-            h1.border-r-2.border-r-accent Next IEP: 
-            h1 #{data.IEP}
-          img(src=data.image class='max-w-3/4 w-96 m-auto')
+        section.grid(class='w-full lg:grid-cols-2 md:px-4 lg:px-8 xl:px-12').bg-white.px-2.py-4.mt-4.mb-0.card.relative
+          section.bg-base-100.border-4.border-primary.p-8.grid.grid-cols-6.gap-2.text-md.card.text-center(class="bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 border border-gray-200 text-accent md:text-lg lg:text-xl xl:text-2xl")
+            h1.border-r-2.border-r-accent.col-span-2 Full Name: 
+            h1.col-span-4 #{data.name}
+            h1.col-span-2.border-r-2.border-r-accent(class='ID') ID Number: 
+            h1.col-span-4 #{data.ID} 
+            h1.col-span-2.border-r-2.border-r-accent Grade: 
+            h1.col-span-4 #{data.grade} 
+            h1.col-span-2.border-r-2.border-r-accent Case Manager: 
+            h1.col-span-4 #{data.caseManager}
+            h1.col-span-2.border-r-2.border-r-accent Primary: 
+            h1.col-span-4 #{data.primary}
+            h1.col-span-2.border-r-2.border-r-accent Next IEP: 
+            h1.col-span-4 #{data.IEP}
+          img(src=data.image class='max-w-3/4 w-96 mt-4 mx-auto')
           form.absolute.top-4.right-4(action='/student/editStudent/'+ data.ID + '?_method=GET' method='POST')
             button(type='submit')
               i.fa-regular.fa-pen-to-square
     if data 
-      section.accommodations.px-8.text-neutral.pb-8
-        h1.text-5xl.mb-4.text-neutral Accommodations:
+      section.accommodations.px-2.text-neutral.pb-8(class="md:px-4 lg:px-8 xl:px-12")
+        h1.text-2xl.text-neutral.text-center(class='md:3xl lg:4xl xl:5xl') Accommodations:
         section.px-8.grid.gap-2
           if data.presentationList
             if data.presentationList.length>0
-              h1.text-4xl.text-center.pt-4 Presentation
-              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+              h1.text-xl.text-center.pt-4(class="md:2xl lg:3xl xl:4xl") Presentation
+              div.accom-container.grid.gap-2.bg-white.card.p-2(class='md:grid-cols-2 lg:grid-cols-3')
                 for entry in data.presentationList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+                    span.block.rounded-md.text-center.bg-success.text-primary.p-2.text-lg= entry
           if data.responseList
             if data.responseList.length>0
-              h1.text-4xl.text-center.pt-4 Response
-              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+              h1.text-xl.text-center.pt-4(class="md:2xl lg:3xl xl:4xl") Response
+              div.accom-container.grid.gap-2.bg-white.card.p-2(class='md:grid-cols-2 lg:grid-cols-3')
                 for entry in data.responseList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+                    span.block.rounded-md.text-center.bg-success.text-primary.p-2.text-lg= entry
           if data.settingList
             if data.settingList.length>0
-              h1.text-4xl.text-center.pt-4 Setting
-              div.accom-container.grid.grid-cols-3.gap-2.bg-white.card.p-2
+              h1.text-xl.text-center.pt-4(class="md:2xl lg:3xl xl:4xl") Setting
+              div.accom-container.grid.gap-2.bg-white.card.p-2(class='md:grid-cols-2 lg:grid-cols-3')
                 for entry in data.settingList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry
+                    span.block.rounded-md.text-center.bg-success.text-primary.p-2.text-lg= entry
           if data.schedulingList
             if data.schedulingList.length>0
-              h1.text-4xl.text-center.pt-4 Scheduling
-              div.accom-container.grid.gap-2.grid-cols-3.bg-white.card.p-2
+              h1.text-xl.text-center.pt-4(class="md:2xl lg:3xl xl:4xl") Scheduling
+              div.accom-container.grid.gap-2.bg-white.card.p-2(class='md:grid-cols-2 lg:grid-cols-3')
                 for entry in data.schedulingList
                   div.rounded-md
-                    span.block.rounded-md.text-center.bg-success.text-neutral.p-2.text-lg= entry             
+                    span.block.rounded-md.text-center.bg-success.text-primary.p-2.text-lg= entry             
     if data
-      section.p-8.bg-neutral
-        h1.text-5xl.mb-4.text-secondary Goal History:
+      section.p-2.bg-neutral
+        h1.text-2xl.text-neutral.text-secondary(class='md:3xl lg:4xl xl:5xl')  Goal History:
         for grade in data.history 
           - var gradeCheck = grade[0].grade
           section
             case gradeCheck
-                  when '0': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6.mx-2 Kindergarten
-                  when '1': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 1st Grade 
-                  when '2': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 2nd Grade 
-                  when '3': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 3rd Grade 
-                  when '13': h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 Post-School
-                  default: h1.bg-white.block.text-3xl.pl-4.py-2.mt-6 #{gradeCheck}th Grade
-            section.px-8.flex.relative.gap-12
-              section.grid.grid-flow-col.overflow-x-scroll.mt-4.card
+                  when '0': h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6.mx-2 Kindergarten
+                  when '1': h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6 1st Grade 
+                  when '2': h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6 2nd Grade 
+                  when '3': h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6 3rd Grade 
+                  when '13': h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6 Post-School
+                  default: h1.bg-white.block.text-lg(class='md:text-xl lg:text-2xl xl:text-3xl').pl-4.py-2.mt-6 #{gradeCheck}th Grade
+            section.px-2.flex.relative.gap-12
+              section.grid.mt-4.card(class='md:grid-flow-col md:overflow-x-scroll')
                 for goal in grade
                   if goal.succeed === true
-                    section.font-semibold.card.p-8.bg-secondary.m-2.text-primary.divide-y.divide-primary.flex.justify-between.grow-0(class='w-96')
-                      section.text__container
+                    section.font-semibold.card.p-4.bg-secondary.m-2.text-primary.divide-y.divide-primary.flex.justify-between(class='lg:p-6 xl:p-8 md:w-96')
+                      section.text__container.grow-0
                           span.bold.text-lg Domain: 
-                          span= goal.domain
+                            if goal.domain === "curriculum"
+                              span Curriculum and Learning Environment
+                            if goal.domain === "socialEmotional"
+                              span Social/Emotional
+                            if goal.domain === "independentFunctioning"
+                              span Independent Functioning
+                            if goal.domain === "healthcare"
+                              span Health Care
+                            if goal.domain === "communication"
+                              span Communication
                       section.text__container
                           span.bold.text-lg Goal: 
                           span= goal.text
@@ -95,7 +104,7 @@ html
                             span.bold.text-lg Notes: 
                             span= goal.notes
                   else
-                    section.font-semibold.card.p-8.bg-base-100.m-2.text-accent.divide-y.divide-secondary.flex.justify-between.grow-0(class='w-96')
+                    section.font-semibold.card.p-4.bg-base-100.m-2.text-accent.divide-y.divide-secondary.flex.justify-between.grow-0(class='lg:p-6 xl:p-8 md:w-96')
                       -console.log(goal.domain)
                         section.text__container
                             span.bold.text-lg Domain: 

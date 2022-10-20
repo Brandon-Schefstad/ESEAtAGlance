@@ -96,17 +96,20 @@ module.exports = {
 		});
 	},
 	addAccommodations: async (req, res) => {
+		console.log('not loaded');
+		console.log(req.query);
 		try {
 			if (req.cookies.ID != 'undefined') {
 				res.redirect('/student/addAccommodations/' + req.cookies.ID);
 			} else {
-				res.render('addAccommodations');
+				res.redirect('/student/addAccommodations/' + req.query.ID);
 			}
 		} catch (err) {
 			console.error(err);
 		}
 	},
 	addAccommodationsLoaded: async (req, res) => {
+		console.log('loaded');
 		if (req.cookies.ID) {
 			const student = await Student.find({
 				ID: req.params.id,
