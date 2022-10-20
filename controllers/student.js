@@ -101,8 +101,10 @@ module.exports = {
 		try {
 			if (req.cookies.ID != 'undefined') {
 				res.redirect('/student/addAccommodations/' + req.cookies.ID);
-			} else {
+			} else if (Object.keys(req.query).length > 0) {
 				res.redirect('/student/addAccommodations/' + req.query.ID);
+			} else {
+				res.render('addAccommodations');
 			}
 		} catch (err) {
 			console.error(err);
