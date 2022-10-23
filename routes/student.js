@@ -38,5 +38,5 @@ router.post(
 );
 router.get('/editStudent/:id', ensureAuth, studentController.getEditPage);
 router.post('/editStudent/:id', ensureAuth, studentController.editStudent);
-
+router.delete('/deleteStudent', ensureAuth, studentController.deleteStudent);
 module.exports = router;
