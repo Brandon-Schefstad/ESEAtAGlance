@@ -9,7 +9,7 @@ html
     section.m-12
     - const studentAccomsList = data.student[0].accommodations.map((accomm)=>accomm.name)
     h1.text-2xl.mb-12.text-center.text-primary(class='md:text-3xl lg:text-4xl xl:text-5xl') Add Accommodations
-    form.z-10.relative.text-neutral.bg-base-100.grid.gap-8.bg-info.px-4.py-4(class="md:px-4 md:gap-6 lg:gap-10 md:w-5/6 md:m-auto lg:w-3/4 lg:m-auto lg:text-lg lg:p-6 xl:text-xl xl:p-12 xl:m-auto" action="/student/addAccommodations" method="POST" class="accommodation__form")
+    form.z-10.relative.text-neutral.bg-base-100.grid.gap-8.bg-base-100.px-4.py-4(class="md:px-4 md:gap-6 lg:gap-10 md:w-5/6 md:m-auto lg:w-3/4 lg:m-auto lg:text-lg lg:p-6 xl:text-xl xl:p-12 xl:m-auto" action="/student/addAccommodations" method="POST" class="accommodation__form")
       div.text-accent.grid
         p.text-3xl.mb-8 ID Number 
         input(type="text" name="ID" value=data.student[0].ID)

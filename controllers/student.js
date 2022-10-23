@@ -118,17 +118,22 @@ module.exports = {
 			}).populate({
 				path: 'accommodations',
 			});
-			res.render('addAccommodationsLoaded.pug', {
-				data: {
-					student: student,
-					accommodations: [
-						{ presentation: presentation },
-						{ response: response },
-						{ scheduling: scheduling },
-						{ setting: setting },
-					],
-				},
-			});
+			console.log(student);
+			if (student.length != 0) {
+				res.render('addAccommodationsLoaded.pug', {
+					data: {
+						student: student,
+						accommodations: [
+							{ presentation: presentation },
+							{ response: response },
+							{ scheduling: scheduling },
+							{ setting: setting },
+						],
+					},
+				});
+			} else {
+				res.render('addAccommodations');
+			}
 		} else {
 			res.render('addAccommodations');
 		}
