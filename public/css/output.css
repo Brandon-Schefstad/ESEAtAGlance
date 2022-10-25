@@ -2213,14 +2213,14 @@ body[dir="rtl"] .checkbox:checked,
   background-color: hsl(var(--b1) / var(--tw-bg-opacity));
 }
 
-.bg-info {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--in) / var(--tw-bg-opacity));
-}
-
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--p) / var(--tw-bg-opacity));
+}
+
+.bg-info {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--in) / var(--tw-bg-opacity));
 }
 
 .bg-neutral {
@@ -2363,6 +2363,10 @@ body[dir="rtl"] .checkbox:checked,
   padding-left: 0.25rem;
 }
 
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2401,14 +2405,14 @@ body[dir="rtl"] .checkbox:checked,
   line-height: 2rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .font-semibold {
@@ -2481,6 +2485,10 @@ body[dir="rtl"] .checkbox:checked,
     margin: auto;
   }
 
+  .sm\:w-3\/4 {
+    width: 75%;
+  }
+
   .sm\:gap-2 {
     gap: 0.5rem;
   }
@@ -2492,6 +2500,11 @@ body[dir="rtl"] .checkbox:checked,
   .sm\:px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -2604,6 +2617,16 @@ body[dir="rtl"] .checkbox:checked,
     margin-right: 5rem;
   }
 
+  .lg\:mx-8 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .lg\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -2618,6 +2641,10 @@ body[dir="rtl"] .checkbox:checked,
 
   .lg\:w-full {
     width: 100%;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
   .lg\:max-w-\[2200px\] {
@@ -2648,6 +2675,10 @@ body[dir="rtl"] .checkbox:checked,
     gap: 6rem;
   }
 
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+
   .lg\:p-6 {
     padding: 1.5rem;
   }
@@ -2659,6 +2690,11 @@ body[dir="rtl"] .checkbox:checked,
   .lg\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 
   .lg\:px-8 {
@@ -2705,6 +2741,21 @@ body[dir="rtl"] .checkbox:checked,
     margin: 0px;
   }
 
+  .xl\:mx-14 {
+    margin-left: 3.5rem;
+    margin-right: 3.5rem;
+  }
+
+  .xl\:mx-24 {
+    margin-left: 6rem;
+    margin-right: 6rem;
+  }
+
+  .xl\:mx-48 {
+    margin-left: 12rem;
+    margin-right: 12rem;
+  }
+
   .xl\:h-\[750px\] {
     height: 750px;
   }
@@ -2745,6 +2796,11 @@ body[dir="rtl"] .checkbox:checked,
   .xl\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .xl\:px-14 {
+    padding-left: 3.5rem;
+    padding-right: 3.5rem;
   }
 
   .xl\:pl-8 {
