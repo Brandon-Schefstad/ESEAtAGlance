@@ -14,6 +14,8 @@ module.exports = {
 					success: '#DC7945', // red
 					warning: '#FBBD23', //
 					error: '#D4D4D4',
+					warning: '#FBBD23',
+					error: '#D4D4D4',
 				},
 			},
 		],

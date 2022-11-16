@@ -5,7 +5,9 @@
 </div>
 
 # [Live Site](https://ese-at-a-glance.herokuapp.com/)
+
 #### README.md Sections:
+
 - [Introduction](#introduction)
 - [Project Installation](#project-installation)
 - [Project Dependencies](#project-dependencies)
@@ -17,22 +19,21 @@ ESE-At-A-Glance is a central hub for submitting, reviewing, and viewing ESE stud
 Student data is enterable into the database and retrievable using the search features. The cards on the teacher's dashboard (which load in after the first student is submitted) link to that student's profile page. 
 
 <div align="center">
-    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/f8b6004a4930c10c742c1a060f99665dada72a41/public/assets/preview-login.png">
-    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/f8b6004a4930c10c742c1a060f99665dada72a41/public/assets/preview.png">
+    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/bf6cf4ba3b46ea83822af581acbaff5ef3ea2ac0/public/assets/preview.gif">
 </div>
 
 ### Project Installation
+
 1. Fork this repository
 2. Navigate to a local directory where you would like the project to be cloned to
 3. Clone the repository to your local environment (`git clone <link here>`)
 4. Install all of our dependencies (`npm install` or `npm i`)
 5. Create a `.env` file and add the following variables:
-    - DB_STRING = `mongodb connection URI`.
-    - SECRET_SESSION = `string secret to pass into express-session instance`.
-    - PORT = `Port you would like localhost to grab onto`
+   - DB_STRING = `mongodb connection URI`.
+   - SECRET_SESSION = `string secret to pass into express-session instance`.
+   - PORT = `Port you would like localhost to grab onto`
 
 ### Project Dependencies
-
  - bcrypt - used to encrypt user password information.
  - connect-mongo - used for creating connection to mongodb database.
  - dotenv - used to process environment variables
@@ -50,7 +51,4 @@ Student data is enterable into the database and retrievable using the search fea
  - validator - used for validating user input.
 
 ## Report a Bug
-
-
 If you have encountered a bug, please provide as much information as you can to help us replicate the issue on our own end. Depending on the issue, it may be useful to communicate your browser, screen width, and/or anything that relates to your specific encounter. Send your error to [my email address](mailto:bschefstad@gmail.com). Thank you! 
-
