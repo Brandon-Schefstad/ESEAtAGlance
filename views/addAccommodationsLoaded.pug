@@ -21,7 +21,7 @@ html
             for category in list 
               for subheading in Object.keys(category)
                 div.flex.flex-col
-                  h1.text-2xl.underline.mt-4= subheading
+                  h1.text-2xl.underline.mt-4(class='font-bold')= subheading
                   for accomm in category[subheading]
                     div.grid.grid-cols-4.mb-2(class="lg:grid-cols-3 xl:grid-cols-4 md:text-lg lg:text-xl xl:text-2xl sm:px-2 md:px-2 lg:px-6")
                       if studentAccomsList.includes(accomm)

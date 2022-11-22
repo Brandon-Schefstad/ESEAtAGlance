@@ -7,13 +7,13 @@ html
   body.bg-secondary.min-h-screen(class="max-w-[2200px]").m-auto.relative.pb-20
     include partials/_nav.pug
     section(class).my-6
-      h1.text-5xl.text-primary.text-center.mb-8 Add Goals
-      div.flex.justify-center.absolute.bottom-2.z-10.left-0.right-0(class='m-auto')
-        form(method="GET" action='/student/addAccommodations/'+ID)
-          label(for=`${ID}`)
-            input(class=`${ID}` value=`${ID}`).hidden
-          input.btn-primary.text-accent.btn.w-64.rounded-full.py-3( type="submit" value="Add Accommodations")
-      form.bg-base-100.m-0.py-8.px-2(class="md:px-4 md:gap-6 lg:gap-10 md:m-auto  lg:m-auto text-lg md:text-xl lg:text-2xl lg:p-6 w-3/4  xl:p-12 xl:m-auto" action="/student/addGoals" method="POST")
+      section.grid.grid-cols-4.mx-auto(class='w-1/2')
+        h1.text-5xl.text-primary.text-center.mb-8.col-span-4.col-start-1 Add Goals
+      form(method="GET" action='/student/addAccommodations/'+ID).mx-auto.w-48(class='lg:w-64')
+        label(for=`${ID}`)
+          input(class=`${ID}` value=`${ID}`).hidden
+        input.btn-primary.text-accent.btn.rounded-full.py-3.w-48( type="submit" class='lg:w-64' value="Add Accommodations →")
+      form.bg-base-100.py-8.px-2.m-auto(class="md:px-4 md: md:gap-6 lg:gap-10  lg:m-auto text-lg md:text-xl lg:text-2xl lg:p-6 w-3/4  xl:p-12 xl:m-auto" action="/student/addGoals" method="POST")
         div.grid.gap-4.grid-cols-5
           p.text-center.col-span-1 ID Number:
           if ID 
