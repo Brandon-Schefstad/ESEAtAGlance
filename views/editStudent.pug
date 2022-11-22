@@ -17,7 +17,7 @@ html
                       each goal in Object.values(history)
                         section.bg-base-100.p-4
                           label Grade:
-                          select.text-accent(name="goalGrade")
+                          select.text-accent.text-center(name="goalGrade")
                             option(value=goal.grade)= goal.grade
                             option(value=0) Kindergarten 
                             option(value=1) 1st Grade 
