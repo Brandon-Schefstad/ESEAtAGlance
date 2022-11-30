@@ -20,7 +20,11 @@ require('dotenv').config({ path: './config/.env' });
 // Passport config
 require('./config/passport')(passport);
 
-connectDB();
+connectDB().then(
+	app.listen(process.env.PORT || 2121, () => {
+		console.log('Server is running, you better catch it!');
+	})
+);
 
 app.set('view engine', 'pug');
 app.use(express.static('public'));
