@@ -19,12 +19,15 @@ require('dotenv').config({ path: './config/.env' });
 
 // Passport config
 require('./config/passport')(passport);
+async function connect() {
+	connectDB().then(
+		app.listen(process.env.PORT || 2121, () => {
+			console.log('Server is running, you better catch it!');
+		})
+	);
+}
 
-connectDB().then(
-	app.listen(process.env.PORT || 2121, () => {
-		console.log('Server is running, you better catch it!');
-	})
-);
+connect();
 
 app.set('view engine', 'pug');
 app.use(express.static('public'));
@@ -55,7 +58,3 @@ app.use('/', mainRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/student', studentRoutes);
 // app.use('/teacher', teacherRoutes);
-
-app.listen(process.env.PORT || 2121, () => {
-	console.log('Server is running, you better catch it!');
-});
