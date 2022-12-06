@@ -11,8 +11,10 @@ const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const dashboardRoutes = require('./routes/dashboard.js');
 const studentRoutes = require('./routes/student.js');
-
-const teacherRoutes = require('./routes/teacher.js');
+const searchStudentRoutes = require('./routes/searchStudent.js');
+const editStudentRoutes = require('./routes/editStudent.js');
+const accommodationsRoutes = require('./routes/accommodations.js');
+const goalsRoutes = require('./routes/addGoals.js');
 const cookieParser = require('cookie-parser');
 
 require('dotenv').config({ path: './config/.env' });
@@ -57,4 +59,7 @@ app.use(flash());
 app.use('/', mainRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/student', studentRoutes);
-// app.use('/teacher', teacherRoutes);
+app.use('/student/searchStudent', searchStudentRoutes);
+app.use('/student/editStudent', editStudentRoutes);
+app.use('/student/addAccommodations', accommodationsRoutes);
+app.use('/student/addGoals', goalsRoutes);
