@@ -10,11 +10,8 @@ const logger = require('morgan');
 const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const dashboardRoutes = require('./routes/dashboard.js');
-const studentRoutes = require('./routes/student.js');
-const searchStudentRoutes = require('./routes/student/searchStudent.js');
-const editStudentRoutes = require('./routes/student/editStudent.js');
-const accommodationsRoutes = require('./routes/student/accommodations.js');
-const goalsRoutes = require('./routes/student/addGoals.js');
+const studentRoutes = require('./routes/mainstudent.js');
+
 const cookieParser = require('cookie-parser');
 
 require('dotenv').config({ path: './config/.env' });
@@ -59,7 +56,3 @@ app.use(flash());
 app.use('/', mainRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/student', studentRoutes);
-// app.use('/student/searchStudent', searchStudentRoutes);
-app.use('/student/editStudent', editStudentRoutes);
-app.use('/student/addAccommodations', accommodationsRoutes);
-app.use('/student/addGoals', goalsRoutes);

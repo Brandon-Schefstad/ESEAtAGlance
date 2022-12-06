@@ -1,26 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const studentController = require('../controllers/student');
-const { ensureAuth } = require('../middleware/auth');
+const accommodationsController = require('../../controllers/student/accommodations.js');
+const { ensureAuth } = require('../../middleware/auth');
 
 router.get(
 	'/addAccommodations',
 	ensureAuth,
-	studentController.addAccommodations
+	accommodationsController.addAccommodations
 );
 router.get(
 	'/addAccommodations/:id',
 	ensureAuth,
-	studentController.addAccommodationsLoaded
+	accommodationsController.addAccommodationsLoaded
 );
 router.post(
 	'/addAccommodations',
 	ensureAuth,
-	studentController.postAccommodations
+	accommodationsController.postAccommodations
 );
 
 router.get(
 	'/loadAccommodations',
 	ensureAuth,
-	studentController.loadAccommodations
+	accommodationsController.loadAccommodations
 );
+module.exports = router;
