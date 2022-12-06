@@ -4,17 +4,13 @@ const studentController = require('../controllers/student');
 const { ensureAuth } = require('../middleware/auth');
 
 router.get(
-	'/addAccommodations',
+	'/addNewStudent',
 	ensureAuth,
-	studentController.addAccommodations
-);
-router.get(
-	'/addAccommodations/:id',
-	ensureAuth,
-	studentController.addAccommodationsLoaded
+	studentController.getAddNewStudentPage
 );
 router.post(
-	'/addAccommodations',
+	'/addNewStudent',
 	ensureAuth,
-	studentController.postAccommodations
+	upload.single('file'),
+	studentController.postNewStudent
 );

@@ -2,20 +2,25 @@ const express = require('express');
 const router = express.Router();
 const studentController = require('../controllers/student');
 const { ensureAuth } = require('../middleware/auth');
-const upload = require('../middleware/multer');
 
-router.get('/addNewStudent', ensureAuth, studentController.addNewStudent);
-router.post(
-	'/addNewStudent',
+router.get(
+	'/addAccommodations',
 	ensureAuth,
-	upload.single('file'),
-	studentController.postNewStudent
+	studentController.addAccommodations
 );
+router.get(
+	'/addAccommodations/:id',
+	ensureAuth,
+	studentController.addAccommodationsLoaded
+);
+router.post(
+	'/addAccommodations',
+	ensureAuth,
+	studentController.postAccommodations
+);
+
 router.get(
 	'/loadAccommodations',
 	ensureAuth,
 	studentController.loadAccommodations
 );
-
-router.delete('/deleteStudent', ensureAuth, studentController.deleteStudent);
-module.exports = router;
