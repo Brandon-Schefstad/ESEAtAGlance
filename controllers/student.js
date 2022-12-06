@@ -96,8 +96,6 @@ module.exports = {
 		});
 	},
 	addAccommodations: async (req, res) => {
-		console.log('not loaded');
-		console.log(req.query);
 		try {
 			if (req.cookies.ID != 'undefined') {
 				res.redirect('/student/addAccommodations/' + req.cookies.ID);
@@ -111,14 +109,12 @@ module.exports = {
 		}
 	},
 	addAccommodationsLoaded: async (req, res) => {
-		console.log('loaded');
 		if (req.cookies.ID) {
 			const student = await Student.find({
 				ID: req.params.id,
 			}).populate({
 				path: 'accommodations',
 			});
-			console.log(student);
 			if (student.length != 0) {
 				res.render('addAccommodationsLoaded.pug', {
 					data: {
@@ -174,7 +170,6 @@ module.exports = {
 		}
 	},
 	deleteStudent: async (req, res) => {
-		console.log('deleting');
 		try {
 			const student = await Student.deleteOne({
 				ID: req.body.ID,
@@ -354,10 +349,7 @@ async function populateStudentResObject(ID) {
 				.map((accomm) => {
 					return accomm.name;
 				}),
-			IEP: student.IEPDueDate.toDateString()
-				.split(' ')
-				.splice(1, 4)
-				.join(' '),
+			IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
 			image: student.image,
 		};
 		return resObject;

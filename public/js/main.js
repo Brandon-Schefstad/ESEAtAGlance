@@ -20,7 +20,6 @@ deleteBtns.forEach((button) => {
 });
 
 async function deleteItem(e) {
-	console.log(e.target);
 	const ID = e.target.parentElement.id;
 	try {
 		await fetch('/student/deleteStudent', {
@@ -35,13 +34,3 @@ async function deleteItem(e) {
 		console.error(error);
 	}
 }
-
-// let accommodationDivs = document.querySelectorAll(
-// 	'.accommodation__sectiontitle'
-// );
-// accommodationDivs.forEach((div) => {
-// 	div.addEventListener('click', () => {
-// 		console.log(div);
-// 		div.nextSibling.classList.toggle('hidden');
-// 	});
-// });
