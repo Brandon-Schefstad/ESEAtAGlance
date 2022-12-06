@@ -4,6 +4,7 @@ const addNewStudentRoutes = require('./student/addNewStudent.js');
 const searchStudentRoutes = require('./student/searchStudent.js');
 const editStudentRoutes = require('./student/editStudent.js');
 const accommodationsRoutes = require('./student/accommodations.js');
+const deleteStudentRoutes = require('./student/deleteStudent');
 const goalsRoutes = require('./student/addGoals.js');
 /**Accommodations */
 router.get('/addAccommodations', accommodationsRoutes);
@@ -23,5 +24,10 @@ router.post('/addNewStudent', addNewStudentRoutes);
 router.get('/searchStudent', searchStudentRoutes);
 router.get('/searchStudent/:id', searchStudentRoutes);
 
-router.get('/editNewStudent', editStudentRoutes);
+/**Edit Student */
+router.get('/editStudent/:id', editStudentRoutes);
+router.post('/editStudent/:id', editStudentRoutes);
+
+/**Delete Student */
+router.delete('/deleteStudent', deleteStudentRoutes);
 module.exports = router;
