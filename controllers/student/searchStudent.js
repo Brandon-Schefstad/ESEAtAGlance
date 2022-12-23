@@ -1,17 +1,16 @@
-const populateStudentResObject = require('../utils/populateStudentResObject');
-const cloudinary = require('../../middleware/cloudinary');
-const dashboard = require('../dashboard.js');
-const { ObjectId } = require('mongodb');
-const Student = require('../../models/Student');
+const populateStudentObject = require('../utils/populateStudentObject');
 
 module.exports = {
   searchStudent: async (req, res) => {
     try {
-      const resObject = await populateStudentResObject(req.query.ID);
+      const studentObject = await populateStudentObject(req.query.ID);
+      if (!studentObject) {
+        res.render('searchStudent', { error: 'No Student Found!' });
+      }
       res.cookie('ID', `${req.query.ID}`, { httpOnly: true });
-      res.render('searchStudent', { data: resObject });
+      res.render('searchStudent', { data: studentObject });
     } catch (error) {
-      res.render('searchStudent');
+      console.error(error);
     }
   },
 };

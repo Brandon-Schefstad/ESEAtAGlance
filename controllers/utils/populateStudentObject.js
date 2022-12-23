@@ -5,9 +5,9 @@ const {
   response,
   setting,
   scheduling,
-} = require('../utils/accommodations');
+} = require('./accommodations');
 
-module.exports = async function populateStudentResObject(ID) {
+module.exports = async function populateStudentObject(ID) {
   try {
     let student = await Student.findOne({
       ID: ID,
@@ -33,7 +33,7 @@ module.exports = async function populateStudentResObject(ID) {
       return subArr.length > 0;
     });
 
-    const resObject = {
+    const studentObject = {
       _id: student._id,
       name: student.firstName + ' ' + student.lastName,
       ID: student.ID,
@@ -64,7 +64,7 @@ module.exports = async function populateStudentResObject(ID) {
       IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
       image: student.image,
     };
-    return resObject;
+    return studentObject;
   } catch (error) {
     console.error(error);
   }
