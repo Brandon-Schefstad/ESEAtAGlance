@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const StudentSchema = require('./Student.js').schema;
 
 const AccommodationSchema = new mongoose.Schema({
 	student: {

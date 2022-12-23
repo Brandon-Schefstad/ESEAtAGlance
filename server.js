@@ -10,21 +10,20 @@ const logger = require('morgan');
 const connectDB = require('./config/database');
 const mainRoutes = require('./routes/main');
 const dashboardRoutes = require('./routes/dashboard.js');
-const studentRoutes = require('./routes/student.js');
+const studentRoutes = require('./routes/mainstudent.js');
 
-const teacherRoutes = require('./routes/teacher.js');
 const cookieParser = require('cookie-parser');
 
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config({ path: '.env' });
 
 // Passport config
 require('./config/passport')(passport);
 async function connect() {
-	connectDB().then(
-		app.listen(process.env.PORT || 2121, () => {
-			console.log('Server is running, you better catch it!');
-		})
-	);
+  connectDB().then(
+    app.listen(process.env.PORT || 2121, () => {
+      console.log(`http://localhost:${process.env.PORT}`);
+    })
+  );
 }
 
 connect();
@@ -38,14 +37,14 @@ app.use(cookieParser());
 
 // Sessions
 app.use(
-	session({
-		secret: process.env.SESSION_SECRET,
-		resave: false,
-		saveUninitialized: false,
-		store: MongoStore.create({
-			client: mongoose.connection.getClient(),
-		}),
-	})
+  session({
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+    }),
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
 );
 
 // Passport middleware
@@ -57,4 +56,3 @@ app.use(flash());
 app.use('/', mainRoutes);
 app.use('/dashboard', dashboardRoutes);
 app.use('/student', studentRoutes);
-// app.use('/teacher', teacherRoutes);

@@ -2,7 +2,6 @@ const Student = require('../models/Student');
 module.exports = {
 	getDashboard: async (req, res) => {
 		const user = req.user;
-		const mongoID = user._id.toString().split('"').join('');
 		try {
 			const studentList = await Student.find({
 				caseManager: req.user._id,
