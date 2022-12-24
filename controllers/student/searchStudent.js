@@ -7,12 +7,12 @@ module.exports = {
 	},
 	searchStudent: async (req, res) => {
 		try {
-			const studentObject = await populateStudentObject(req.query.ID)
-			if (!studentObject) {
+			const studentSearchObject = await populateStudentObject(req.query.ID)
+			if (!studentSearchObject) {
 				res.render('searchStudent', { error: 'No Student Found!' })
 			}
 			res.cookie('ID', `${req.query.ID}`, { httpOnly: true })
-			res.render('searchStudent', { data: studentObject })
+			res.render('searchStudent', { data: studentSearchObject })
 		} catch (error) {
 			console.error(error)
 		}

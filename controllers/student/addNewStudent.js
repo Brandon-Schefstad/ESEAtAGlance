@@ -1,18 +1,18 @@
-const Student = require('../../models/Student');
-const cloudinary = require('../../middleware/cloudinary');
+const Student = require('../../models/Student')
+const cloudinary = require('../../middleware/cloudinary')
 
 module.exports = {
 	getAddNewStudentPage: async (req, res) => {
-		res.render('addStudent');
+		res.render('addStudent')
 	},
 	/**Adds a new student with cloudinary hosting the profile photo */
 	postNewStudent: async (req, res) => {
 		try {
-			const result = await cloudinary.uploader.upload(req.file.path);
+			const result = await cloudinary.uploader.upload(req.file.path)
 			await Student.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
-				ID: req.body.idNumber,
+				ID: req.body.ID,
 				grade: req.body.grade,
 				primaryExceptionality: req.body.primary,
 				caseManager: req.user._id,
@@ -21,13 +21,13 @@ module.exports = {
 				IEPDueDate: req.body.IEP,
 				cloudinaryID: result.public_id,
 				image: result.secure_url,
-			});
-			if (req.body.idNumber) {
-				res.cookie('ID', `${req.body.idNumber}`, { httpOnly: true });
+			})
+			if (req.body.ID) {
+				res.cookie('ID', `${req.body.ID}`, { httpOnly: true })
 			}
-			res.redirect('/student/addGoals');
+			res.redirect('/student/addGoals')
 		} catch (err) {
-			console.error(err);
+			console.error(err)
 		}
 	},
-};
+}

@@ -5,16 +5,15 @@ const populateStudentObject = require('../utils/populateStudentObject')
 module.exports = {
 	getEditPage: async (req, res) => {
 		try {
-			const resObject = await populateStudentObject(req.params.id)
+			const editStudentObject = await populateStudentObject(req.params.id)
 			res.render('editStudent', {
-				data: resObject,
+				data: editStudentObject,
 			})
 		} catch (error) {
 			console.error(error)
 		}
 	},
 	editStudent: async (req, res) => {
-		console.log(req.body)
 		try {
 			const student = await Student.find({
 				_id: req.body._id,
@@ -42,50 +41,29 @@ module.exports = {
 					$unset: { history: 1 },
 				}
 			)
-
-			const domainCheck =
+			const domainList =
 				typeof req.body.domain === 'string'
 					? [req.body.domain]
 					: req.body.domain
-
-			for (let i = 0; i < domainCheck.length; i++) {
-				if (
-					req.body.attained === 'on' &&
-					typeof req.body.attained === 'object'
-				) {
-					req.body.attained = req.body.attained.splice(i + 1)
-				}
-				if (domainCheck.length === 1) {
-					const goalObj = await Goal.create({
-						student: req.body._id,
-						grade: [req.body.goalGrade][i],
-						domain: [req.body.domain][i],
-						text: [req.body.text][i],
-						succeed: [req.body.attained][i] === 'on' ? true : false,
-					})
-					await Student.updateOne(
-						{ ID: req.body.ID },
-						{
-							$push: { history: goalObj },
-						}
-					)
-				} else {
-					const goalObj = await Goal.create({
-						student: req.body._id,
-						grade: req.body.goalGrade[i],
-						domain: req.body.domain[i],
-						text: req.body.text[i],
-						succeed: req.body.attained[i] === 'on' ? true : false,
-					})
-					await Student.updateOne(
-						{ ID: req.body.ID },
-						{
-							$push: { history: goalObj },
-						}
-					)
-				}
+			for (let i = 0; i < domainList.length; i++) {
+				const goalObj = await Goal.create({
+					student: req.body._id,
+					grade: req.body.goalGrade[i],
+					domain: req.body.domain[i],
+					text:
+						typeof req.body.text === 'string'
+							? req.body.text
+							: req.body.text[i],
+					succeed: req.body.attained[i] === 'on' ? true : false,
+				})
+				await Student.updateOne(
+					{ ID: req.body.ID },
+					{
+						$push: { history: goalObj },
+					}
+				)
 			}
-			res.redirect('/student/editStudent/' + req.body.ID)
+			res.redirect('/student/searchStudentPage/?ID=' + req.body.ID)
 		} catch (error) {
 			console.error(error)
 		}
