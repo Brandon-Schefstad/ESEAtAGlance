@@ -7,10 +7,7 @@ const {
 } = require('../utils/accommodations')
 
 module.exports = {
-	getAccommodationsPage: async (req, res) => {
-		res.render('addAccommodations')
-	},
-	addAccommodations: async (req, res) => {
+	seeStudentAccommodations: async (req, res) => {
 		try {
 			if (req.cookies.ID || req.query.ID) {
 				const student = await Student.findOne({
