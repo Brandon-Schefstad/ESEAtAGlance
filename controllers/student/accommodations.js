@@ -1,5 +1,4 @@
 const Student = require('../../models/Student')
-const Accommodations = require('../../models/Accommodations')
 const {
 	presentation,
 	response,
@@ -45,27 +44,17 @@ module.exports = {
 			let student = await Student.findOne({
 				ID: req.body.ID,
 			}).populate('accommodations')
-
-			let accommodationArray = Object.keys(req.body).filter((element) => {
-				return element !== 'ID'
-			})
-			const checkArr = student.accommodations.map((accomm) => {
-				return accomm.name
-			})
+			let accommodationArray = Object.entries(req.body)
+				.slice(1)
+				.map((entry) => {
+					return entry[0]
+				})
 			await student.updateOne({
 				$unset: { accommodations: 1 },
 			})
-			for (let i = 0; i < accommodationArray.length; i++) {
-				const accomm = await Accommodations.create({
-					student: student._id,
-					name: accommodationArray[i],
-					date: Date.now(),
-				})
-				await student.updateOne({
-					$push: { accommodations: accomm },
-				})
-			}
-
+			await student.updateOne({
+				$push: { accommodations: accommodationArray },
+			})
 			res.redirect('/student/addAccommodations/?ID=' + req.body.ID)
 		} catch (error) {
 			console.error(error)
