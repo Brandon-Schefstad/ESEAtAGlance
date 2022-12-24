@@ -15,15 +15,10 @@ module.exports = {
 	},
 	editStudent: async (req, res) => {
 		try {
-			const student = await Student.find({
-				_id: req.body._id,
-			}).populate({
-				path: 'accommodations',
-			})
 			const caseManager = await Teacher.findOne({
 				userName: req.body.caseManager,
 			})
-			await Student.updateMany(
+			await Student.updateOne(
 				{ ID: req.body.ID },
 				{
 					$set: {
@@ -35,7 +30,7 @@ module.exports = {
 					},
 				}
 			)
-			await Student.updateMany(
+			await Student.updateOne(
 				{ ID: req.body.ID },
 				{
 					$unset: { history: 1 },
@@ -45,6 +40,8 @@ module.exports = {
 				typeof req.body.domain === 'string'
 					? [req.body.domain]
 					: req.body.domain
+			console.log(domainList)
+			let history = []
 			for (let i = 0; i < domainList.length; i++) {
 				const goalObj = await Goal.create({
 					student: req.body._id,
@@ -56,13 +53,14 @@ module.exports = {
 							: req.body.text[i],
 					succeed: req.body.attained[i] === 'on' ? true : false,
 				})
-				await Student.updateOne(
-					{ ID: req.body.ID },
-					{
-						$push: { history: goalObj },
-					}
-				)
+				history.push(goalObj)
 			}
+			await Student.updateOne(
+				{ ID: req.body.ID },
+				{
+					$push: { history: history },
+				}
+			)
 			res.redirect('/student/searchStudentPage/?ID=' + req.body.ID)
 		} catch (error) {
 			console.error(error)
