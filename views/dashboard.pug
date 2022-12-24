@@ -11,7 +11,7 @@ html(data-theme=" ")
                 div.card.relative.p-6.border-secondary.shadow-lg.bg-base-100
                   div.top-4.right-4.absolute.delete__button.cursor-pointer(id=student.ID) 
                     i.fa-regular.fa-trash-can.text-accent
-                  a(href="/student/searchStudent?ID="+student.ID class="text-center ") 
+                  a(href="/student/searchStudentPage?ID="+student.ID class="text-center ") 
                     span.text-3xl.text-accent.card-title.justify-center=student.firstName.toUpperCase() + ' ' + student.lastName.toUpperCase()
                   div.divider.mt-0.mb-0(class='before:bg-secondary after:bg-secondary')
                   table.table-auto.text-center.text-md.text-accent

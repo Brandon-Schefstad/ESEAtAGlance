@@ -1,12 +1,17 @@
-const express = require('express');
-const router = express.Router();
-const searchStudentController = require('../../controllers/student/searchStudent');
-const { ensureAuth } = require('../../middleware/auth');
+const express = require('express')
+const router = express.Router()
+const searchStudentController = require('../../controllers/student/searchStudent')
+const { ensureAuth } = require('../../middleware/auth')
 
-router.get('/searchStudent', ensureAuth, searchStudentController.searchStudent);
-router.post(
-	'/searchStudent',
+router.get(
+	'/searchStudentIndex',
+	ensureAuth,
+	searchStudentController.searchStudentIndex
+)
+router.get(
+	'/searchStudentPage',
 	ensureAuth,
 	searchStudentController.searchStudent
-);
-module.exports = router;
+)
+router.post('/searchStudent', ensureAuth, searchStudentController.searchStudent)
+module.exports = router
