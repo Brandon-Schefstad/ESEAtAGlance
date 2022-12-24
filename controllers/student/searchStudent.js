@@ -2,6 +2,7 @@ const populateStudentObject = require('../utils/populateStudentObject')
 
 module.exports = {
 	searchStudentIndex: async (req, res) => {
+		res.clearCookie('ID')
 		res.render('searchStudent')
 	},
 	searchStudent: async (req, res) => {

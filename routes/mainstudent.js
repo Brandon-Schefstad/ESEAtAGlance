@@ -10,7 +10,7 @@ const goalsRoutes = require('./student/addGoals.js')
 router.get('/addAccommodations', accommodationsRoutes)
 router.get('/addAccommodations/:id', accommodationsRoutes)
 router.post('/addAccommodations', accommodationsRoutes)
-router.get('/loadAccommodations', accommodationsRoutes)
+router.get('/getAccommodationsPage', accommodationsRoutes)
 
 /**Goals*/
 router.get('/addGoals', goalsRoutes)
