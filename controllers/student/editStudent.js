@@ -14,6 +14,7 @@ module.exports = {
 		}
 	},
 	editStudent: async (req, res) => {
+		console.log(req.body)
 		try {
 			const student = await Student.find({
 				_id: req.body._id,
@@ -35,12 +36,13 @@ module.exports = {
 					},
 				}
 			)
-			await Student.updateOne(
+			await Student.updateMany(
 				{ ID: req.body.ID },
 				{
 					$unset: { history: 1 },
 				}
 			)
+
 			const domainCheck =
 				typeof req.body.domain === 'string'
 					? [req.body.domain]

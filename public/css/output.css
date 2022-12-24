@@ -551,6 +551,40 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .avatar.placeholder > div {
   display: flex;
   align-items: center;
@@ -1801,6 +1835,10 @@ body[dir="rtl"] .checkbox:checked,
   grid-column-start: 1;
 }
 
+.col-start-6 {
+  grid-column-start: 6;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -2378,6 +2416,10 @@ body[dir="rtl"] .checkbox:checked,
 
 .font-semibold {
   font-weight: 600;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
 }
 
 .text-primary {
