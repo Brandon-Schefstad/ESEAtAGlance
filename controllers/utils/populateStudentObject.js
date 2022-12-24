@@ -18,10 +18,6 @@ module.exports = async function populateStudentObject(ID) {
 			.populate({
 				path: 'caseManager',
 			})
-			.populate({
-				path: 'accommodations',
-				match: 'text',
-			})
 			.lean()
 		let history = [[], [], [], [], [], [], [], [], [], [], [], [], []]
 		if (student.history) {
@@ -42,22 +38,12 @@ module.exports = async function populateStudentObject(ID) {
 			history: returnHistory,
 			presentationList: returnAccommodationNames(
 				student.accommodations,
-				'presentation',
 				presentation
 			),
-			responseList: returnAccommodationNames(
-				student.accommodations,
-				'response',
-				response
-			),
-			settingList: returnAccommodationNames(
-				student.accommodations,
-				'setting',
-				setting
-			),
+			responseList: returnAccommodationNames(student.accommodations, response),
+			settingList: returnAccommodationNames(student.accommodations, setting),
 			schedulingList: returnAccommodationNames(
 				student.accommodations,
-				'scheduling',
 				scheduling
 			),
 			IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
