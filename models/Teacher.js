@@ -1,6 +1,5 @@
-const bcrypt = require('bcrypt');
-const mongoose = require('mongoose');
-const StudentSchema = require('./Student').schema;
+const bcrypt = require('bcrypt')
+const mongoose = require('mongoose')
 
 const TeacherSchema = new mongoose.Schema({
 	firstName: {
@@ -28,27 +27,27 @@ const TeacherSchema = new mongoose.Schema({
 	studentArray: {
 		type: Array,
 	},
-});
+})
 
 // Password hash middleware.
 TeacherSchema.pre('save', function save(next) {
-	const user = this;
+	const user = this
 	if (!user.isModified('password')) {
-		return next();
+		return next()
 	}
 	bcrypt.genSalt(10, (err, salt) => {
 		if (err) {
-			return next(err);
+			return next(err)
 		}
 		bcrypt.hash(user.password, salt, (err, hash) => {
 			if (err) {
-				return next(err);
+				return next(err)
 			}
-			user.password = hash;
-			next();
-		});
-	});
-});
+			user.password = hash
+			next()
+		})
+	})
+})
 
 // Helper method for validating user's password.
 TeacherSchema.methods.comparePassword = function comparePassword(
@@ -56,8 +55,8 @@ TeacherSchema.methods.comparePassword = function comparePassword(
 	cb
 ) {
 	bcrypt.compare(candidatePassword, this.password, (err, isMatch) => {
-		cb(err, isMatch);
-	});
-};
+		cb(err, isMatch)
+	})
+}
 
-module.exports = mongoose.model('Teacher', TeacherSchema);
+module.exports = mongoose.model('Teacher', TeacherSchema)

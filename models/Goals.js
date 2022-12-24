@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const StudentSchema = require('./Student.js').schema;
+const mongoose = require('mongoose')
 
 const GoalSchema = new mongoose.Schema({
 	student: {
@@ -15,5 +14,5 @@ const GoalSchema = new mongoose.Schema({
 	},
 	succeed: { type: Boolean },
 	notes: { type: String },
-});
-module.exports = mongoose.model('Goals', GoalSchema);
+})
+module.exports = mongoose.model('Goals', GoalSchema)
