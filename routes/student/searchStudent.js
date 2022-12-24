@@ -13,5 +13,5 @@ router.get(
 	ensureAuth,
 	searchStudentController.searchStudent
 )
-router.post('/searchStudent', ensureAuth, searchStudentController.searchStudent)
+
 module.exports = router
