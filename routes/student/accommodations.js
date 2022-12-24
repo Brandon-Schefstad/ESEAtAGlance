@@ -6,12 +6,7 @@ const { ensureAuth } = require('../../middleware/auth')
 router.get(
 	'/addAccommodations',
 	ensureAuth,
-	accommodationsController.addAccommodations
-)
-router.get(
-	'/getAccommodationsPage',
-	ensureAuth,
-	accommodationsController.addAccommodations
+	accommodationsController.seeStudentAccommodations
 )
 router.post(
 	'/addAccommodations',
