@@ -13,41 +13,30 @@ module.exports = {
 	},
 	addAccommodations: async (req, res) => {
 		try {
-			if (req.cookies.ID) {
-				res.redirect('/student/addAccommodations/' + req.cookies.ID)
-			} else if (Object.keys(req.query).length > 0) {
-				res.redirect('/student/addAccommodations/' + req.query.ID)
+			if (req.cookies.ID || req.query.ID) {
+				const student = await Student.findOne({
+					ID: req.cookies.ID || req.query.ID,
+				}).populate({
+					path: 'accommodations',
+				})
+				if (student) {
+					res.render('addAccommodations.pug', {
+						data: {
+							student: student,
+							accommodations: [
+								{ presentation: presentation },
+								{ response: response },
+								{ scheduling: scheduling },
+								{ setting: setting },
+							],
+						},
+					})
+				}
 			} else {
 				res.render('addAccommodations')
 			}
 		} catch (err) {
 			console.error(err)
-		}
-	},
-	addAccommodationsLoaded: async (req, res) => {
-		if (req.cookies.ID) {
-			const student = await Student.find({
-				ID: req.params.id,
-			}).populate({
-				path: 'accommodations',
-			})
-			if (student.length != 0) {
-				res.render('addAccommodationsLoaded.pug', {
-					data: {
-						student: student,
-						accommodations: [
-							{ presentation: presentation },
-							{ response: response },
-							{ scheduling: scheduling },
-							{ setting: setting },
-						],
-					},
-				})
-			} else {
-				res.render('addAccommodations')
-			}
-		} else {
-			res.render('addAccommodations')
 		}
 	},
 
@@ -77,7 +66,7 @@ module.exports = {
 				})
 			}
 
-			res.redirect('/student/addAccommodations/' + req.body.ID)
+			res.redirect('/student/addAccommodations/?ID=' + req.body.ID)
 		} catch (error) {
 			console.error(error)
 		}

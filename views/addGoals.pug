@@ -9,7 +9,7 @@ html
     section(class).my-6
       section.grid.grid-cols-4.mx-auto(class='w-1/2')
         h1.text-5xl.text-primary.text-center.mb-8.col-span-4.col-start-1 Add Goals
-      form(method="GET" action='/student/addAccommodations/'+ID).mx-auto.w-48(class='lg:w-64')
+      form(method="GET" action='/student/addAccommodations/?ID='+ID).mx-auto.w-48(class='lg:w-64')
         label(for=`${ID}`)
           input(class=`${ID}` value=`${ID}`).hidden
         input.btn-primary.text-accent.btn.rounded-full.py-3.w-48( type="submit" class='lg:w-64' value="Add Accommodations →")

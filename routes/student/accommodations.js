@@ -9,9 +9,9 @@ router.get(
 	accommodationsController.addAccommodations
 )
 router.get(
-	'/addAccommodations/:id',
+	'/getAccommodationsPage',
 	ensureAuth,
-	accommodationsController.addAccommodationsLoaded
+	accommodationsController.addAccommodations
 )
 router.post(
 	'/addAccommodations',
@@ -19,9 +19,4 @@ router.post(
 	accommodationsController.postAccommodations
 )
 
-router.get(
-	'/getAccommodationsPage',
-	ensureAuth,
-	accommodationsController.getAccommodationsPage
-)
 module.exports = router
