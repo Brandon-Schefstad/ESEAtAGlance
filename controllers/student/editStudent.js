@@ -16,7 +16,7 @@ module.exports = {
 	editStudent: async (req, res) => {
 		try {
 			const caseManager = await Teacher.findOne({
-				userName: req.body.caseManager,
+				email: req.body.caseManager,
 			})
 			await Student.updateOne(
 				{ ID: req.body.ID },

@@ -1,5 +1,5 @@
 const Student = require('../../models/Student')
-const returnAccommodationNames = require('./returnAccommodationNames')
+const separateAccommodationsIntoGroups = require('./separateAccommodationsIntoGroups')
 const {
 	presentation,
 	response,
@@ -33,16 +33,22 @@ module.exports = async function populateStudentObject(ID) {
 			name: student.firstName + ' ' + student.lastName,
 			ID: student.ID,
 			grade: student.grade,
-			caseManager: student.caseManager.userName,
+			caseManager: student.caseManager.email,
 			primary: student.primaryExceptionality,
 			history: returnHistory,
-			presentationList: returnAccommodationNames(
+			presentationList: separateAccommodationsIntoGroups(
 				student.accommodations,
 				presentation
 			),
-			responseList: returnAccommodationNames(student.accommodations, response),
-			settingList: returnAccommodationNames(student.accommodations, setting),
-			schedulingList: returnAccommodationNames(
+			responseList: separateAccommodationsIntoGroups(
+				student.accommodations,
+				response
+			),
+			settingList: separateAccommodationsIntoGroups(
+				student.accommodations,
+				setting
+			),
+			schedulingList: separateAccommodationsIntoGroups(
 				student.accommodations,
 				scheduling
 			),
