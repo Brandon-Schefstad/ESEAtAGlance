@@ -9,7 +9,7 @@ html
     section.mx-2.my-4.flex.flex-col
       section(class='w-3/4 m-auto justify-items-center grid')
         h1.text-2xl.text-neutral(class='md:3xl lg:4xl xl:5xl') Search A Student
-        form(action="/student/searchStudent" method="GET" class="w-full flex flex-col block text-accent")
+        form(action="/student/searchStudentPage" method="GET" class="w-full flex flex-col  text-accent")
           input(type="text" name="ID" placeholder="Use '123' for testing" class="w-full lg:w-3/4 xl:w-1/2 mx-auto mt-8" class='input bg-white')
           input(type="submit", value="Search!" class='mt-4  mx-auto btn bg-success text-primary  w-60')
       if error 
