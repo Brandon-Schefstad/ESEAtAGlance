@@ -40,7 +40,7 @@ module.exports = {
 		try {
 			let student = await Student.findOne({
 				ID: req.body.ID,
-			}).populate('accommodations')
+			})
 			let accommodationArray = Object.entries(req.body)
 				.slice(1)
 				.map((entry) => {
