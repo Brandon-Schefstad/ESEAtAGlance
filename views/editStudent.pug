@@ -6,7 +6,7 @@ html
     link(rel="icon", href="/assets/favicon.png")
   body.bg-neutral.min-h-screen(class="max-w-[2200px]").m-auto
     include partials/_nav.pug
-    form(method='POST' action='/student/editStudent/'+data.ID).bg-error.text-accent.pb-8
+    form(method='PUT' action='/student/editStudent/'+data.ID).bg-error.text-accent.pb-8
       - const keys = Object.keys(data)
         section.pl-4.pb-16.pt-8.pr-0.grid.gap-2.grid-cols-8
           for key in keys 
