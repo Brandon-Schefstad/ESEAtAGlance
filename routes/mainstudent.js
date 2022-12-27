@@ -26,7 +26,7 @@ router.get('/searchStudentPage', searchStudentRoutes)
 
 /**Edit Student */
 router.get('/editStudent/:id', editStudentRoutes)
-router.put('/editStudent/:id', editStudentRoutes)
+router.post('/editStudent/:id', editStudentRoutes)
 
 /**Delete Student */
 router.delete('/deleteStudent', deleteStudentRoutes)

@@ -37,6 +37,8 @@ module.exports = {
 	},
 
 	postAccommodations: async (req, res) => {
+		console.log('hi')
+		console.log(req.params)
 		try {
 			let student = await Student.findOne({
 				ID: req.body.ID,

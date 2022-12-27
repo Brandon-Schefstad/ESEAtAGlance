@@ -19,7 +19,9 @@ module.exports = async function populateStudentObject(ID) {
 				path: 'caseManager',
 			})
 			.lean()
+
 		let history = [[], [], [], [], [], [], [], [], [], [], [], [], []]
+		//TODO:  Array -> Map
 		if (student.history) {
 			student.history.forEach((goal) => {
 				history[parseInt(goal.grade)].push(goal)
@@ -28,6 +30,7 @@ module.exports = async function populateStudentObject(ID) {
 		let returnHistory = history.filter((subArr) => {
 			return subArr.length > 0
 		})
+
 		const studentObject = {
 			_id: student._id,
 			name: student.firstName + ' ' + student.lastName,
@@ -55,11 +58,11 @@ module.exports = async function populateStudentObject(ID) {
 			IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
 			image: student.image,
 		}
-		if (studentObject) {
-			return studentObject
+		if (!studentObject) {
+			const errorObject = { error: 'No student was found' }
+			return errorObject
 		}
-		const errorObject = { error: 'No student was found' }
-		return errorObject
+		return studentObject
 	} catch (error) {
 		console.error(error)
 	}
