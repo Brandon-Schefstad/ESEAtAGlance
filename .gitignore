@@ -1,3 +1,4 @@
-node_modules
+/client/node_modules
 .vscode/*
-.env
+/server/config/.env
+/server/node_modules
