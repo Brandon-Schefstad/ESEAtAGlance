@@ -1,15 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "lib": ["DOM", "es2016"],
+    "target": "es6",
+    "lib": [
+      "DOM",
+      "es2016"
+    ],
     "module": "ESNext",
     "moduleResolution": "node",
+    // Gives TS a starting point for transpiling
+    "rootDir": "src",
+    "baseUrl": ".",
     "resolveJsonModule": true,
     // Compiled one-file-at-at-time (esbuild) so error on any incompatible patterns
     "isolatedModules": true,
     "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "noEmit": true,
     // Not validating .d.ts files (e.g. node_modules) saves significant compile time
     "skipLibCheck": true,
     // Don't pull in any 'environment' types by default, except the ones listed here
@@ -23,7 +27,13 @@
     // allow js files to be imported in project
     "allowJs": true,
     // ensures switch statement includes break or return
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

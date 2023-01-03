@@ -13,6 +13,7 @@ exports.getLogin = (req, res) => {
 }
 
 exports.postLogin = (req, res, next) => {
+	console.log('loggin in!')
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
