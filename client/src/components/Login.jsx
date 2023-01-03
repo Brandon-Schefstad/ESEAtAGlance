@@ -2,28 +2,26 @@ import axios from 'axios'
 import { useState } from 'react'
 
 const Login = () => {
-	const [data, setData] = useState(null)
-	const [email, setEmail] = useState(null)
+	const [emailToSend, setEmailToSend] = useState(null)
 	const [password, setPassword] = useState(null)
 	async function Login(e) {
 		e.preventDefault()
 		const response = await axios.post('/api/login', {
-			email: email,
+			email: emailToSend,
 			password: password,
 		})
-		setData(response)
+		const { _id, email, firstName } = await response.data
+		localStorage.setItem('_id', _id || null)
+		localStorage.setItem('email', email || null)
+		localStorage.setItem('firstName', firstName || null)
 	}
-	// useEffect(() => {
-	// 	getFetch()
-	// }, [])
 	return (
 		<>
-			{data ? data.status : 'None'}
 			<form onSubmit={(e) => Login(e)} method="POST">
 				<label htmlFor="email"></label>{' '}
 				<input
 					type="text"
-					onChange={(e) => setEmail(e.target.value)}
+					onChange={(e) => setEmailToSend(e.target.value)}
 					name="email"
 					id=""
 				/>
