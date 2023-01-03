@@ -7,13 +7,12 @@ exports.getLogin = (req, res) => {
 	if (req.user) {
 		return res.redirect('/dashboard')
 	}
-	res.render('login', {
-		title: 'Login',
-	})
+	res.redirect('/')
 }
 
 exports.postLogin = (req, res, next) => {
 	console.log('loggin in!')
+	console.log(req.body)
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -22,7 +21,7 @@ exports.postLogin = (req, res, next) => {
 
 	if (validationErrors.length) {
 		req.flash('errors', validationErrors)
-		return res.redirect('login')
+		return res.redirect('/')
 	}
 	req.body.email = validator.normalizeEmail(req.body.email, {
 		gmail_remove_dots: false,
@@ -34,7 +33,7 @@ exports.postLogin = (req, res, next) => {
 		}
 		if (!user) {
 			req.flash('errors', info)
-			return res.redirect('/login')
+			return res.redirect('/')
 		}
 
 		req.logIn(user, (err) => {
@@ -42,7 +41,7 @@ exports.postLogin = (req, res, next) => {
 				return next(err)
 			}
 			req.flash('success', { msg: 'Success! You are logged in.' })
-			res.redirect(req.session.returnTo || '/dashboard')
+			res.json({ _id: user._id })
 		})
 	})(req, res, next)
 }
@@ -64,7 +63,6 @@ exports.getSignup = (req, res) => {
 }
 
 exports.postSignup = (req, res, next) => {
-	console.log('login')
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
