@@ -12,7 +12,6 @@ const Login = () => {
 			password: password,
 		})
 		setData(response)
-		console.log(data)
 	}
 	// useEffect(() => {
 	// 	getFetch()
