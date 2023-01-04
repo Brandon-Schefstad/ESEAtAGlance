@@ -8,8 +8,7 @@ module.exports = {
 			}).populate({
 				path: 'caseManager',
 			})
-			res.render('dashboard', {
-				email: req.user.email,
+			res.json({
 				studentList: studentList,
 			})
 		} catch (error) {

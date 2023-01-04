@@ -17,7 +17,6 @@ router.get('/addGoals', goalsRoutes)
 router.post('/addGoals', goalsRoutes)
 
 /**New Student */
-router.get('/addNewStudent', addNewStudentRoutes)
 router.post('/addNewStudent', addNewStudentRoutes)
 
 /**Search Student */
