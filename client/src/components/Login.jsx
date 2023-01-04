@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate } from 'react-router-dom'
 
 const Login = () => {
@@ -7,6 +7,11 @@ const Login = () => {
 	const [password, setPassword] = useState(null)
 	const [warning, setWarning] = useState(null)
 	const [auth, setAuth] = useState(null)
+
+	useEffect(() => {
+		let user = localStorage.getItem('user')
+		setAuth(localStorage.getItem('auth') === JSON.parse(user)._id)
+	}, [])
 
 	async function Login(e) {
 		e.preventDefault()
