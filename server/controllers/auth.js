@@ -43,7 +43,7 @@ exports.postLogin = (req, res, next) => {
 
 			const { _id, firstName, email } = await user
 			req.flash('success', { msg: 'Success! You are logged in.' })
-			res.send({ _id, firstName, email })
+			res.send({ user: { _id, firstName, email } })
 		})
 	})(req, res, next)
 }
