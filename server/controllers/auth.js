@@ -11,8 +11,6 @@ exports.getLogin = (req, res) => {
 }
 
 exports.postLogin = (req, res, next) => {
-	console.log('loggin in!')
-	console.log(req.body)
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -28,6 +26,8 @@ exports.postLogin = (req, res, next) => {
 	})
 
 	passport.authenticate('local', (err, user, info) => {
+		console.log('loggin in!')
+		console.log(req.body)
 		if (err) {
 			return next(err)
 		}
@@ -36,12 +36,14 @@ exports.postLogin = (req, res, next) => {
 			return res.redirect('/')
 		}
 
-		req.logIn(user, (err) => {
+		req.logIn(user, async (err) => {
 			if (err) {
 				return next(err)
 			}
+
+			const { _id, firstName, email } = await user
 			req.flash('success', { msg: 'Success! You are logged in.' })
-			res.json({ _id: user._id })
+			res.send({ user: { _id, firstName, email } })
 		})
 	})(req, res, next)
 }
