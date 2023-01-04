@@ -5,22 +5,19 @@ import AddNewGoals from './AddNewGoals'
 import Navbar from './Navbar'
 const AddNewStudent = () => {
 	const [nextPage, setNextPage] = useState(false)
+	const [success, setSuccess] = useState(false)
 	const [student_id, setStudent_id] = useState(null)
-	const [studentToSend, setStudentToSend] = useState({
-		firstName: '',
-		lastName: '',
-		ID: 0,
-		Grade: 0,
-		primary: '',
-		IEP: Date.now(),
-	})
+	const [studentToSend, setStudentToSend] = useState({})
 	async function postNewStudent(e) {
 		e.preventDefault()
 		const response = await axios.post(
 			'/api/student/addNewStudent',
 			studentToSend
 		)
-		setStudent_id(response.data.ID)
+		if (response.status === 200) {
+			setStudent_id(response.data.ID)
+			setSuccess(true)
+		}
 	}
 	function setStateOnChange(e) {
 		setStudentToSend(
@@ -30,7 +27,7 @@ const AddNewStudent = () => {
 	}
 	return nextPage ? (
 		<Navigate to="/addNewGoals" />
-	) : student_id != null ? (
+	) : success ? (
 		<AddNewGoals student_id={student_id} />
 	) : (
 		<>
