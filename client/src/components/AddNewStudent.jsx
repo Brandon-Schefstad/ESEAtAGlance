@@ -1,10 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import AddNewGoals from './AddNewGoals'
 import Navbar from './Navbar'
 const AddNewStudent = () => {
-	const navigate = useNavigate()
 	const [nextPage, setNextPage] = useState(false)
 	const [student_id, setStudent_id] = useState(null)
 	const [studentToSend, setStudentToSend] = useState({
@@ -15,17 +14,15 @@ const AddNewStudent = () => {
 		primary: '',
 		IEP: Date.now(),
 	})
-	// const [studentProfileImage, setStudentProfileImage] = useState(null)
 	async function postNewStudent(e) {
 		e.preventDefault()
 		const response = await axios.post(
 			'/api/student/addNewStudent',
 			studentToSend
 		)
-		console.log(response.data)
 		setStudent_id(response.data.ID)
 	}
-	function setStateOnChange(e, name) {
+	function setStateOnChange(e) {
 		setStudentToSend(
 			studentToSend,
 			...(studentToSend[e.target.name] = e.target.value)
@@ -38,7 +35,6 @@ const AddNewStudent = () => {
 	) : (
 		<>
 			<Navbar />
-			{/* <FileUploder /> */}
 			<form onSubmit={postNewStudent}>
 				<input
 					type="text"
