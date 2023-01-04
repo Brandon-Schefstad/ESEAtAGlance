@@ -2,14 +2,13 @@ const Student = require('../../models/Student')
 const cloudinary = require('../../middleware/cloudinary')
 
 module.exports = {
-	getAddNewStudentPage: async (req, res) => {
-		res.render('addStudent')
-	},
 	/**Adds a new student with cloudinary hosting the profile photo */
 	postNewStudent: async (req, res) => {
+		console.log('Adding new student')
 		try {
-			const result = await cloudinary.uploader.upload(req.file.path)
-			await Student.create({
+			// const result = await cloudinary.uploader.upload(req.body.profileImg)
+			// console.log(result)
+			const student = await Student.create({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				ID: req.body.ID,
@@ -19,13 +18,11 @@ module.exports = {
 				history: [],
 				accommodations: [],
 				IEPDueDate: req.body.IEP,
-				cloudinaryID: result.public_id,
-				image: result.secure_url,
+				// cloudinaryID: result.public_id,
+				// image: result.secure_url,
 			})
-			if (req.body.ID) {
-				res.cookie('ID', `${req.body.ID}`, { httpOnly: true })
-			}
-			res.redirect('/student/addGoals')
+
+			res.send(student)
 		} catch (err) {
 			console.error(err)
 		}
