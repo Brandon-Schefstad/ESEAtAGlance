@@ -9,7 +9,7 @@ router.get(
 	accommodationsController.seeStudentAccommodations
 )
 router.post(
-	'/addAccommodations',
+	'/addNewAccommodations',
 	ensureAuth,
 	accommodationsController.postAccommodations
 )
