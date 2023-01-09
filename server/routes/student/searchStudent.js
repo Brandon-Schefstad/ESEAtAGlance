@@ -4,12 +4,7 @@ const searchStudentController = require('../../controllers/student/searchStudent
 const { ensureAuth } = require('../../middleware/auth')
 
 router.get(
-	'/searchStudentIndex',
-	ensureAuth,
-	searchStudentController.searchStudentIndex
-)
-router.get(
-	'/searchStudentPage',
+	'/searchStudent/:id',
 	ensureAuth,
 	searchStudentController.searchStudent
 )

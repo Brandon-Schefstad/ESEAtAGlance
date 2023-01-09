@@ -17,8 +17,7 @@ router.post('/addNewGoal', goalsRoutes)
 router.post('/addNewStudent', addNewStudentRoutes)
 
 /**Search Student */
-router.get('/searchStudentIndex', searchStudentRoutes)
-router.get('/searchStudentPage', searchStudentRoutes)
+router.get('/searchStudent/:id', searchStudentRoutes)
 
 /**Edit Student */
 router.get('/editStudent/:id', editStudentRoutes)

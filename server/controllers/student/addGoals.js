@@ -24,8 +24,5 @@ module.exports = {
 		} catch (error) {
 			console.error(error)
 		}
-		// res.render('addGoals.pug', {
-		// 	ID: req.body.ID,
-		// })
 	},
 }
