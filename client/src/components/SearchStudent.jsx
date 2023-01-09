@@ -7,7 +7,7 @@ const AddNewStudent = () => {
 	async function searchStudent(e) {
 		e.preventDefault()
 		const { data, status } = axios.get(
-			`/student/searchStudent/${studentIdToSend}`
+			`/api/student/searchStudent/${studentIdToSend}`
 		)
 		console.log(status)
 		console.log(data)
