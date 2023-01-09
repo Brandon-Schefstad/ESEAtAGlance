@@ -5,10 +5,11 @@ import AccommsSection from './AccommsSection'
 import Navbar from './Navbar'
 import accommodations from './utils/accommodations'
 
-const AddNewStudent = () => {
+const AddNewAccommodations = ({ student_id }) => {
 	const { presentation, response, scheduling, setting } = accommodations
 
 	const [studentFinished, setStudentFinished] = useState(false)
+	const [studentId, setStudentId] = useState(0)
 
 	let accommodationsToSend = []
 	function handleChange(name) {
@@ -17,16 +18,41 @@ const AddNewStudent = () => {
 	}
 	async function postNewAccommodations(e) {
 		e.preventDefault()
-		const response = await axios.post('/api/student/addNewAccommodations', {
-			accommodationsToSend,
-		})
-		console.log(response.data)
+		const { data, status } = await axios.post(
+			'/api/student/addNewAccommodations',
+			{
+				ID: studentId,
+				accommodationsToSend,
+			}
+		)
+		if (status === 200) {
+			accommodationsToSend = []
+			setStudentFinished(true)
+		}
 	}
 	return studentFinished ? (
 		<Navigate to="/Dashboard" />
 	) : (
 		<>
 			<Navbar />
+			<h1>
+				{student_id ? (
+					student_id
+				) : (
+					<form>
+						<label htmlFor="studentNumber">
+							{' '}
+							Enter student number:
+							<input
+								type="number"
+								name="ID"
+								id="studentNumber"
+								onChange={(e) => setStudentId(e.target.value)}
+							/>
+						</label>
+					</form>
+				)}
+			</h1>
 			<form onSubmit={postNewAccommodations}>
 				<AccommsSection
 					name={'Presentation'}
@@ -56,4 +82,4 @@ const AddNewStudent = () => {
 	)
 }
 
-export default AddNewStudent
+export default AddNewAccommodations
