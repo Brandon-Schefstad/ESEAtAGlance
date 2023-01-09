@@ -13,8 +13,7 @@ router.post('/addAccommodations', accommodationsRoutes)
 router.get('/getAccommodationsPage', accommodationsRoutes)
 
 /**Goals*/
-router.get('/addGoals', goalsRoutes)
-router.post('/addGoals', goalsRoutes)
+router.post('/addNewGoal', goalsRoutes)
 
 /**New Student */
 router.post('/addNewStudent', addNewStudentRoutes)
