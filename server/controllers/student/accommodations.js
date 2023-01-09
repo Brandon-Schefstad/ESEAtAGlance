@@ -37,24 +37,20 @@ module.exports = {
 	},
 
 	postAccommodations: async (req, res) => {
-		console.log('hi')
-		console.log(req.params)
 		try {
 			let student = await Student.findOne({
 				ID: req.body.ID,
 			})
-			let accommodationArray = Object.entries(req.body)
-				.slice(1)
-				.map((entry) => {
-					return entry[0]
-				})
+			if (!student) {
+				res.sendStatus(404)
+			}
 			await student.updateOne({
 				$unset: { accommodations: 1 },
 			})
 			await student.updateOne({
-				$push: { accommodations: accommodationArray },
+				$push: { accommodations: req.body.accommodationsToSend },
 			})
-			res.redirect('/student/addAccommodations/?ID=' + req.body.ID)
+			res.json(student)
 		} catch (error) {
 			console.error(error)
 		}
