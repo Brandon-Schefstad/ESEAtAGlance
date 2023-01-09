@@ -4,10 +4,15 @@ import { Navigate } from 'react-router-dom'
 import AddNewAccommodations from './AddNewAccommodations'
 import Navbar from './Navbar'
 const AddNewGoals = ({ student_id }) => {
-	const [studentFinished, setStudentFinished] = useState(false)
-	const [goalToSend, setGoalToSend] = useState({
+	const defaultGoalText = {
 		goalGrade: '0',
-	})
+		domain: 'Curriculum and Learning Environment',
+		goalText: 'None',
+		succeed: 'off',
+		goalNotes: 'None',
+	}
+	const [studentFinished, setStudentFinished] = useState(false)
+	const [goalToSend, setGoalToSend] = useState(defaultGoalText)
 	const [success, setSuccess] = useState(false)
 
 	const grades = [
@@ -26,19 +31,20 @@ const AddNewGoals = ({ student_id }) => {
 		'12th Grade',
 	]
 	const domains = [
-		{ title: 'Curriculum and Learning Environment', value: 'curriculum' },
-		{ title: 'Social/Emotional', value: 'social' },
-		{ title: 'Independent Functioning', value: 'independent' },
-		{ title: 'Healthcare', value: 'healthcare' },
-		{ title: 'Communication', value: 'communication' },
+		'Curriculum and Learning Environment',
+		'Social/Emotional',
+		'Independent Functioning',
+		'Healthcare',
+		'Communication',
 	]
 	async function postNewGoal(e) {
 		e.preventDefault()
 		const response = await axios.post('/api/student/addNewGoal', {
 			goalToSend,
 		})
+		console.log(response.data)
 		if (response.status === 200) {
-			setSuccess(true)
+			setGoalToSend(defaultGoalText)
 		}
 	}
 	function setStateOnChange(e, name) {
@@ -62,7 +68,7 @@ const AddNewGoals = ({ student_id }) => {
 							Enter student number:
 							<input
 								type="number"
-								name="studentNumber"
+								name="ID"
 								id="studentNumber"
 								onChange={(e) => setStateOnChange(e, 'ID')}
 							/>
@@ -92,8 +98,8 @@ const AddNewGoals = ({ student_id }) => {
 						id="domain"
 						onChange={(e) => setStateOnChange(e, 'domain')}>
 						{domains.map((domain, index) => (
-							<option key={index} value={domain.value}>
-								{domain.title}
+							<option key={index} value={domain}>
+								{domain}
 							</option>
 						))}
 					</select>
@@ -113,7 +119,7 @@ const AddNewGoals = ({ student_id }) => {
 					cols={30}
 					rows={5}
 					onChange={(e) => setStateOnChange(e, 'notes')}
-					name="notes"
+					name="goalNotes"
 				/>
 				<input type="submit" value="Go" />
 			</form>
