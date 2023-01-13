@@ -5,7 +5,7 @@ const PrivateRoutes = () => {
 	let auth = localStorage.getItem('auth') === JSON.parse(user)._id
 
 	console.log(auth ? 'logged in' : 'not a user')
-	return auth ? <Outlet /> : <Navigate to="/login" />
+	return auth ? <Outlet /> : <Navigate to="/" />
 }
 
 export default PrivateRoutes

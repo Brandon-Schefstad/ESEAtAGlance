@@ -11,6 +11,7 @@ exports.getLogin = (req, res) => {
 }
 
 exports.postLogin = (req, res, next) => {
+	console.log(req.body)
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -59,9 +60,6 @@ exports.getSignup = (req, res) => {
 	if (req.user) {
 		return res.redirect('/dashboard')
 	}
-	res.render('signup', {
-		title: 'Create Account',
-	})
 }
 
 exports.postSignup = (req, res, next) => {
@@ -98,20 +96,22 @@ exports.postSignup = (req, res, next) => {
 				return next(err)
 			}
 			if (existingUser) {
+				const { _id, firstName, email } = user
 				req.flash('errors', {
 					msg: 'Account with that email address or username already exists.',
 				})
-				return res.redirect('../signup')
+				return res.send({ user: { _id, firstName, email } })
 			}
 			user.save((err) => {
 				if (err) {
 					return next(err)
 				}
 				req.logIn(user, (err) => {
+					const { _id, firstName, email } = user
 					if (err) {
 						return next(err)
 					}
-					res.redirect('/dashboard')
+					res.send({ user: { _id, firstName, email } })
 				})
 			})
 		}

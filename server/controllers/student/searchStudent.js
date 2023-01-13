@@ -2,13 +2,14 @@ const populateStudentObject = require('../utils/populateStudentObject')
 
 module.exports = {
 	searchStudent: async (req, res) => {
+		console.log(req.params)
 		try {
-			const studentSearchObject = await populateStudentObject(req.query.ID)
+			const studentSearchObject = await populateStudentObject(req.params.id)
 			if (!studentSearchObject) {
 				res.render('searchStudent', { error: 'No Student Found!' })
 			}
-			res.cookie('ID', `${req.query.ID}`, { httpOnly: true })
-			res.render('searchStudent', { data: studentSearchObject })
+			console.log(studentSearchObject)
+			res.json(studentSearchObject)
 		} catch (error) {
 			console.error(error)
 		}

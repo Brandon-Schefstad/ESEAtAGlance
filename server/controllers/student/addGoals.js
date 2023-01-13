@@ -3,7 +3,7 @@ const Goal = require('../../models/Goals.js')
 
 module.exports = {
 	addGoals: async (req, res) => {
-		const { goalGrade, domain, goalText, goalNotes, attained } =
+		const { goalGrade, domain, goalText, goalNotes, attained, ID } =
 			req.body.goalToSend
 		try {
 			const goal = await Goal.create({
@@ -14,13 +14,14 @@ module.exports = {
 				notes: goalNotes,
 			})
 
-			const student = Student.find({
-				ID: req.body.ID,
+			const student = Student.findOne({
+				ID: ID,
 			})
 			await student.updateOne({
 				$push: { history: goal },
 			})
-			res.sendStatus(200)
+
+			res.json({ ID: ID })
 		} catch (error) {
 			console.error(error)
 		}
