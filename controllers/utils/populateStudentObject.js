@@ -30,6 +30,8 @@ module.exports = async function populateStudentObject(ID) {
 		let returnHistory = history.filter((subArr) => {
 			return subArr.length > 0
 		})
+		console.log(history)
+		console.log(returnHistory)
 
 		const studentObject = {
 			_id: student._id,
@@ -38,7 +40,7 @@ module.exports = async function populateStudentObject(ID) {
 			grade: student.grade,
 			caseManager: student.caseManager.email,
 			primary: student.primaryExceptionality,
-			history: returnHistory,
+			history: history,
 			presentationList: separateAccommodationsIntoGroups(
 				student.accommodations,
 				presentation

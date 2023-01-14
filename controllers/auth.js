@@ -7,12 +7,11 @@ exports.getLogin = (req, res) => {
 	if (req.user) {
 		return res.redirect('/dashboard')
 	}
-	res.render('login', {
-		title: 'Login',
-	})
+	res.redirect('/')
 }
 
 exports.postLogin = (req, res, next) => {
+	console.log(req.body)
 	const validationErrors = []
 	if (!validator.isEmail(req.body.email))
 		validationErrors.push({ msg: 'Please enter a valid email address.' })
@@ -21,27 +20,31 @@ exports.postLogin = (req, res, next) => {
 
 	if (validationErrors.length) {
 		req.flash('errors', validationErrors)
-		return res.redirect('login')
+		return res.redirect('/')
 	}
 	req.body.email = validator.normalizeEmail(req.body.email, {
 		gmail_remove_dots: false,
 	})
 
 	passport.authenticate('local', (err, user, info) => {
+		console.log('loggin in!')
+		console.log(req.body)
 		if (err) {
 			return next(err)
 		}
 		if (!user) {
 			req.flash('errors', info)
-			return res.redirect('/login')
+			return res.redirect('/')
 		}
 
-		req.logIn(user, (err) => {
+		req.logIn(user, async (err) => {
 			if (err) {
 				return next(err)
 			}
+
+			const { _id, firstName, email } = await user
 			req.flash('success', { msg: 'Success! You are logged in.' })
-			res.redirect(req.session.returnTo || '/dashboard')
+			res.send({ user: { _id, firstName, email } })
 		})
 	})(req, res, next)
 }
@@ -57,9 +60,6 @@ exports.getSignup = (req, res) => {
 	if (req.user) {
 		return res.redirect('/dashboard')
 	}
-	res.render('signup', {
-		title: 'Create Account',
-	})
 }
 
 exports.postSignup = (req, res, next) => {
@@ -96,20 +96,22 @@ exports.postSignup = (req, res, next) => {
 				return next(err)
 			}
 			if (existingUser) {
+				const { _id, firstName, email } = user
 				req.flash('errors', {
 					msg: 'Account with that email address or username already exists.',
 				})
-				return res.redirect('../signup')
+				return res.send({ user: { _id, firstName, email } })
 			}
 			user.save((err) => {
 				if (err) {
 					return next(err)
 				}
 				req.logIn(user, (err) => {
+					const { _id, firstName, email } = user
 					if (err) {
 						return next(err)
 					}
-					res.redirect('/dashboard')
+					res.send({ user: { _id, firstName, email } })
 				})
 			})
 		}

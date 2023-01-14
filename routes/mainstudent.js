@@ -7,22 +7,17 @@ const accommodationsRoutes = require('./student/accommodations.js')
 const deleteStudentRoutes = require('./student/deleteStudent')
 const goalsRoutes = require('./student/addGoals.js')
 /**Accommodations */
-router.get('/addAccommodations', accommodationsRoutes)
 router.get('/addAccommodations/:id', accommodationsRoutes)
-router.post('/addAccommodations', accommodationsRoutes)
-router.get('/getAccommodationsPage', accommodationsRoutes)
+router.post('/addNewAccommodations', accommodationsRoutes)
 
 /**Goals*/
-router.get('/addGoals', goalsRoutes)
-router.post('/addGoals', goalsRoutes)
+router.post('/addNewGoal', goalsRoutes)
 
 /**New Student */
-router.get('/addNewStudent', addNewStudentRoutes)
 router.post('/addNewStudent', addNewStudentRoutes)
 
 /**Search Student */
-router.get('/searchStudentIndex', searchStudentRoutes)
-router.get('/searchStudentPage', searchStudentRoutes)
+router.get('/searchStudent/:id', searchStudentRoutes)
 
 /**Edit Student */
 router.get('/editStudent/:id', editStudentRoutes)

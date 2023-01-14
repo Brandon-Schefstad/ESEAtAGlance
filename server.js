@@ -10,8 +10,8 @@ const logger = require('morgan')
 const connectDB = require('./config/database')
 const cookieParser = require('cookie-parser')
 require('dotenv').config({ path: './config/.env' })
+const bodyParser = require('body-parser')
 
-/**Routes */
 const mainRoutes = require('./routes/main')
 const dashboardRoutes = require('./routes/dashboard.js')
 const studentRoutes = require('./routes/mainstudent.js')
@@ -50,11 +50,20 @@ app.set('view engine', 'pug')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use(bodyParser.json())
+app.use(
+	bodyParser.urlencoded({
+		extended: false,
+	})
+)
 app.use(logger('dev'))
 app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(flash())
-
-app.use('/', mainRoutes)
-app.use('/dashboard', dashboardRoutes)
-app.use('/student', studentRoutes)
+//
+app.use('/api/student', studentRoutes)
+app.use('/api/dashboard', dashboardRoutes)
+app.use('/api', mainRoutes)
+app.use('/', (req, res) => {
+	res.json({ hello: 'World' })
+})
