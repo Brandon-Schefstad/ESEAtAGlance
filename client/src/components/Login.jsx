@@ -12,7 +12,9 @@ const Login = () => {
 
   useEffect(() => {
     let user = localStorage.getItem("user");
-    setAuth(localStorage.getItem("auth") === JSON.parse(user)._id);
+    if (user) {
+      setAuth(localStorage.getItem("auth") === JSON.parse(user)._id);
+    }
   }, []);
   function formatAuthorizeInfo(e, name) {
     setAuthorizeInfo(authorizeInfo, ...(authorizeInfo[name] = e.target.value));
