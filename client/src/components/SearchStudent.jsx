@@ -8,7 +8,7 @@ const AddNewStudent = () => {
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`
+      `/api/student/searchStudent/${studentIdToSend}`
     );
     if (status === 200) {
       setStudent(data);

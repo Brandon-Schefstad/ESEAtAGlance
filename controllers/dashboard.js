@@ -5,7 +5,7 @@ module.exports = {
 		const user = req.user
 		console.log(user)
 		try {
-			const studentList = await Student.findMany({
+			const studentList = await Student.find({
 				caseManager: req.user._id,
 			}).populate({
 				path: 'caseManager',
