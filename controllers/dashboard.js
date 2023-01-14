@@ -14,7 +14,7 @@ module.exports = {
 			})
 		} catch (error) {
 			console.error(error)
-			res.redirect('/')
+			// res.redirect('/')
 		}
 	},
 }

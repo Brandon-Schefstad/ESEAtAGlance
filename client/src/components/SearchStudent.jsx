@@ -1,12 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import AccommodationList from "./AccommodationList";
-import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
-  const [loaded, setLoaded] = useState(false);
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
@@ -14,7 +12,6 @@ const AddNewStudent = () => {
     );
     if (status === 200) {
       setStudent(data);
-      setLoaded(true);
     }
   }
   function makeHeading(index) {
@@ -32,7 +29,7 @@ const AddNewStudent = () => {
         return `${index}th Grade`;
     }
   }
-  return loaded ? (
+  return (
     <>
       <Navbar />
       <section className="flex w-full gap-16 bg-green-900 py-4 px-8  xl:text-3xl">
@@ -101,24 +98,23 @@ const AddNewStudent = () => {
             </section>
           </section>
           <h2 className="my-4 text-4xl">Goal History</h2>
-          {
-            <span>
-              {student.history.map((grade, index) => {
-                return grade.length > 0 ? (
-                  <>
-                    <h3 class="my-2 text-2xl">{makeHeading(index)}</h3>
-                    <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                      {grade.map((goal) => {
-                        return <GoalDisplay goal={goal} />;
-                      })}
-                    </section>
-                  </>
-                ) : (
-                  <></>
-                );
-              })}
-            </span>
-          }
+
+          {/* <span>
+            {student.history.map((grade, index) => {
+              return grade.length > 0 ? (
+                <>
+                  <h3 class="my-2 text-2xl">{makeHeading(index)}</h3>
+                  <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                    {grade.map((goal) => {
+                      return <GoalDisplay goal={goal} />;
+                    })}
+                  </section>
+                </>
+              ) : (
+                <></>
+              );
+            })}
+          </span> */}
         </>
       ) : (
         <></>
