@@ -10,7 +10,7 @@ const AddNewGoals = ({ student_id }) => {
     succeed: "off",
     goalNotes: "None",
   };
-  // const [studentFinished, setStudentFinished] = useState(false);
+  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
 

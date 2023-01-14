@@ -21,10 +21,13 @@ const AddNewAccommodations = ({ student_id }) => {
   }
   async function postNewAccommodations(e) {
     e.preventDefault();
-    const { status } = await axios.post("/api/student/addNewAccommodations", {
-      ID: studentId,
-      accommodationsToSend,
-    });
+    const { data, status } = await axios.post(
+      "/api/student/addNewAccommodations",
+      {
+        ID: studentId,
+        accommodationsToSend,
+      }
+    );
     if (status === 200) {
       accommodationsToSend = [];
       setStudentFinished(true);
