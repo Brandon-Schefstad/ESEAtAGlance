@@ -38,25 +38,26 @@ const Login = () => {
   }
 
   const formStyles =
-    "bg-green-800 border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 text-xl";
+    "bg-green-800 border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 text-xl xl:mt-4 xl:mx-4";
   const activeStyle =
-    "text-amber-400 text-2xl underline underline-offset-4 font-bold";
-  const inactiveStyle = "text-amber-50 text-2xl";
+    "text-amber-400 text-2xl font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8";
+  const inactiveStyle =
+    "text-amber-50 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8";
   {
     return auth ? (
       <Navigate to="/dashboard" props={setAuth} />
     ) : (
-      <section className="">
-        <h1 className="mb-4 pt-16 text-[2.75rem] font-extrabold text-green-900">
+      <section className="xl:grid xl:grid-cols-2 ">
+        <h1 className="mb-4 pt-16 text-[2.75rem] font-extrabold text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
           ESE-At-A-Glance
         </h1>
-        <span className="mb-4 block text-lg text-black">
+        <span className="mb-4 block text-lg text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
           Student tracking for the busy teacher!
         </span>
         {warning ? warning : ""}
-        <section className="relative z-10 bg-green-900 px-4 pt-8 pb-8">
+        <section className="relative z-10 bg-green-900 px-4 pt-8 pb-8 xl:top-0 xl:row-start-3 xl:m-auto xl:grid xl:w-3/4 xl:-translate-y-20 xl:px-0 xl:pt-0">
           <form
-            className=" mx-4 grid grid-cols-2 gap-8 text-center"
+            className="  grid grid-cols-2 gap-8 text-center   xl:gap-0"
             onSubmit={(e) => authorize(e)}
             method="POST"
           >
@@ -138,14 +139,14 @@ const Login = () => {
             )}
 
             <input
-              className="col-span-2 m-auto bg-yellow-500 px-8 py-[0.25rem] text-2xl font-bold text-green-800"
+              className="col-span-2 m-auto bg-yellow-500 px-8 py-[0.25rem] text-2xl font-bold text-green-800 xl:mt-8"
               type="submit"
               value="Go"
             />
           </form>
         </section>
         <img
-          className="absolute bottom-12 left-0 z-0"
+          className="absolute bottom-12 left-0 z-0 xl:relative xl:row-start-3 xl:m-auto"
           src={bgimage}
           alt=""
           srcset=""

@@ -44,7 +44,7 @@ const Dashboard = () => {
                       key={student._id}
                     >
                       <section className={rowStyles}>
-                        <span className="text-left">ID: </span>
+                        <span className="text-left">ID Number: </span>
                         <span className="">{student.ID}</span>
                       </section>
                       <section className={rowStyles}>

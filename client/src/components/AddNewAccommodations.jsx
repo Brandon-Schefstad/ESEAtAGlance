@@ -44,6 +44,9 @@ const AddNewAccommodations = ({ student_id }) => {
         onSubmit={postNewAccommodations}
         className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8 text-amber-100  xl:mx-auto xl:w-5/6 xl:grid-cols-6 xl:p-12 "
       >
+        <h1 className="col-span-2 mb-2 text-2xl font-semibold xl:text-3xl">
+          New Accommodations
+        </h1>
         <label
           className=" m-auto text-xl xl:col-span-6 xl:text-3xl"
           htmlFor="studentNumber"
@@ -58,7 +61,6 @@ const AddNewAccommodations = ({ student_id }) => {
             className=" ml-8 mt-2 text-green-800"
           />
         </label>
-
         <AccommsSection
           name={"Presentation"}
           data={presentation}

@@ -44,6 +44,8 @@ const AddNewGoals = ({ student_id }) => {
     console.log(response);
     if (response.status === 200) {
       setID(response.data.ID);
+      setGoalToSend(defaultGoalText);
+      window.location.reload();
     }
   }
   function setStateOnChange(e, name) {
@@ -63,7 +65,7 @@ const AddNewGoals = ({ student_id }) => {
 
       <form
         onSubmit={postNewGoal}
-        className="  mt-8 grid grid-cols-2 gap-2 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-2/3 xl:p-12"
+        className="  mt-8 grid grid-cols-2 gap-2 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-5/6 xl:p-12"
       >
         <h1 className="col-span-2 mb-2 text-2xl font-semibold xl:text-3xl">
           New Goal

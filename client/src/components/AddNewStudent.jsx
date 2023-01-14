@@ -37,7 +37,7 @@ const AddNewStudent = () => {
     <>
       <Navbar />
       <form
-        className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-2/3 xl:p-12 "
+        className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-5/6 xl:p-12 "
         onSubmit={postNewStudent}
       >
         <h1 className="col-span-2 text-2xl font-semibold xl:text-3xl">
