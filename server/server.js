@@ -12,7 +12,6 @@ const cookieParser = require('cookie-parser')
 require('dotenv').config({ path: './config/.env' })
 const bodyParser = require('body-parser')
 
-/**Routes */
 const mainRoutes = require('./routes/main')
 const dashboardRoutes = require('./routes/dashboard.js')
 const studentRoutes = require('./routes/mainstudent.js')
