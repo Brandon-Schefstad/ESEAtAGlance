@@ -65,9 +65,9 @@ app.use(methodOverride('_method'))
 app.use(flash())
 //
 app.use(cors(options))
-app.use('/api/student', studentRoutes)
-app.use('/api/dashboard', dashboardRoutes)
-app.use('/api', mainRoutes)
+app.use('/api/student', cors(options), studentRoutes)
+app.use('/api/dashboard', cors(options), dashboardRoutes)
+app.use('/api', cors(options), mainRoutes)
 app.use('/', (req, res) => {
 	res.json({ hello: 'World' })
 })
