@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
+  const [loaded, setLoaded] = useState(false);
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
@@ -13,6 +14,7 @@ const AddNewStudent = () => {
     );
     if (status === 200) {
       setStudent(data);
+      setLoaded(true);
     }
   }
   function makeHeading(index) {
@@ -30,7 +32,7 @@ const AddNewStudent = () => {
         return `${index}th Grade`;
     }
   }
-  return (
+  return loaded ? (
     <>
       <Navbar />
       <section className="flex w-full gap-16 bg-green-900 py-4 px-8  xl:text-3xl">
