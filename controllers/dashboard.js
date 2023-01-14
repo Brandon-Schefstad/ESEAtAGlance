@@ -3,6 +3,7 @@ module.exports = {
 	getDashboard: async (req, res) => {
 		console.log('getting dashboard')
 		const user = req.user
+		console.log(user)
 		try {
 			const studentList = await Student.findMany({
 				caseManager: req.user._id,
@@ -15,7 +16,6 @@ module.exports = {
 			})
 		} catch (error) {
 			console.error(error)
-			// res.redirect('/')
 		}
 	},
 }
