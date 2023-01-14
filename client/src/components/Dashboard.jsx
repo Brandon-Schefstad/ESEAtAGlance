@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [students, setStudents] = useState();
   async function getDashboard() {
     const response = await axios.get(
-      "https://fine-puce-bullfrog-sari.cyclic.app/dashboard",
+      "https://fine-puce-bullfrog-sari.cyclic.app/api/dashboard",
       {
         user: localStorage.getItem("auth"),
       }
