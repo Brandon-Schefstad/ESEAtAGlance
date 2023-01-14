@@ -7,13 +7,16 @@ const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [students, setStudents] = useState();
   async function getDashboard() {
+    console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      "https://ese-at-a-glance-api.cyclic.app/api/dashboard",
+      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
       {
-        user: localStorage.getItem("auth"),
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
       }
     );
-    const { studentList } = response.data;
+    const { studentList } = await response.data;
     setStudents(studentList);
   }
   useEffect(() => {

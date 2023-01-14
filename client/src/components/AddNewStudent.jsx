@@ -12,8 +12,14 @@ const AddNewStudent = () => {
   async function postNewStudent(e) {
     e.preventDefault();
     const response = await axios.post(
-      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
-      studentToSend
+      "http://localhost:5501/api/student/addNewStudent",
+
+      { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
+      {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
+      }
     );
     if (response.status === 200) {
       setStudent_id(response.data.ID);

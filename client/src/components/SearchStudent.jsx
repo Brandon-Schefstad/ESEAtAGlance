@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import AccommodationList from "./AccommodationList";
-import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
@@ -9,7 +8,12 @@ const AddNewStudent = () => {
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`
+      `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
+      {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
+      }
     );
     if (status === 200) {
       setStudent(data);
@@ -100,8 +104,9 @@ const AddNewStudent = () => {
           </section>
           <h2 className="my-4 text-4xl">Goal History</h2>
 
+
           <span>
-            {student.history.map((grade, index) => {
+         {student.history.map((grade, index) => {
               return grade.length > 0 ? (
                 <>
                   <h3 class="my-2 text-2xl">{makeHeading(index)}</h3>
@@ -115,7 +120,9 @@ const AddNewStudent = () => {
                 <></>
               );
             })}
+
           </span>
+
         </>
       ) : (
         <></>
