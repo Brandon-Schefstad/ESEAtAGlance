@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import AccommodationList from "./AccommodationList";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
-const AddNewStudent = () => {
+const SearchStudent = () => {
   const [student, setStudent] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
   async function searchStudent(e) {
@@ -129,4 +129,4 @@ const AddNewStudent = () => {
   );
 };
 
-export default AddNewStudent;
+export default SearchStudent;
