@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import AddNewGoals from "./AddNewGoals";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
-  const [nextPage, setNextPage] = useState(false);
+  // const [nextPage, setNextPage] = useState(false);
   const [success, setSuccess] = useState(false);
   const [student_id, setStudent_id] = useState(null);
   const [studentToSend, setStudentToSend] = useState({});
