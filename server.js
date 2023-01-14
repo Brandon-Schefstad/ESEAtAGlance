@@ -30,7 +30,6 @@ app.use(
 const options = {
 	origin: true,
 	optionSuccessStatus: 200,
-	"Access-Control-Allow-Origin": *
 }
 /**Passport */
 require('./config/passport')(passport)
