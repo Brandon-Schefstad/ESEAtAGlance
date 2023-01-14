@@ -13,7 +13,7 @@ const Dashboard = () => {
         user: localStorage.getItem("auth"),
       }
     );
-    const { studentList } = response.data;
+    const { studentList } = await response.data;
     setStudents(studentList);
   }
   useEffect(() => {
