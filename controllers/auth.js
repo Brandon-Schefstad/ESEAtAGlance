@@ -7,7 +7,7 @@ exports.getLogin = (req, res) => {
 	if (req.user) {
 		return res.redirect('/dashboard')
 	}
-	res.redirect('/')
+	// res.redirect('/')
 }
 
 exports.postLogin = (req, res, next) => {
@@ -20,7 +20,7 @@ exports.postLogin = (req, res, next) => {
 
 	if (validationErrors.length) {
 		req.flash('errors', validationErrors)
-		return res.redirect('/')
+		// return res.redirect('/')
 	}
 	req.body.email = validator.normalizeEmail(req.body.email, {
 		gmail_remove_dots: false,
@@ -34,7 +34,7 @@ exports.postLogin = (req, res, next) => {
 		}
 		if (!user) {
 			req.flash('errors', info)
-			return res.redirect('/')
+			// return res.redirect('/')
 		}
 
 		req.logIn(user, async (err) => {
@@ -52,7 +52,7 @@ exports.postLogin = (req, res, next) => {
 exports.logout = (req, res) => {
 	req.session.destroy((err) => {
 		req.user = null
-		res.redirect('/')
+		// res.redirect('/')
 	})
 }
 

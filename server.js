@@ -65,6 +65,6 @@ app.use(cors())
 app.use('/api/student', studentRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 app.use('/api', mainRoutes)
-app.use('/', (req, res) => {
-	res.json({ hello: 'World' })
-})
+// app.use('/', (req, res) => {
+// 	res.json({ hello: 'World' })
+// })

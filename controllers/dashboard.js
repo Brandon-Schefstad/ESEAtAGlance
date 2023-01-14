@@ -1,6 +1,7 @@
 const Student = require('../models/Student')
 module.exports = {
 	getDashboard: async (req, res) => {
+		console.log('getting dashboard')
 		const user = req.user
 		try {
 			const studentList = await Student.findMany({
