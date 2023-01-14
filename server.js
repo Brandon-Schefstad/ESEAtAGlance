@@ -60,7 +60,7 @@ app.use(logger('dev'))
 app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(flash())
-//
+
 app.use(cors())
 app.use('/api/student', studentRoutes)
 app.use('/api/dashboard', dashboardRoutes)
