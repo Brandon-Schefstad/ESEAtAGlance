@@ -1,0 +1,25 @@
+{
+  "name": "eseataglance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "prettier": "^2.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brandon-Schefstad/ESEAtAGlance.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brandon-Schefstad/ESEAtAGlance/issues"
+  },
+  "homepage": "https://github.com/Brandon-Schefstad/ESEAtAGlance#readme"
+}
