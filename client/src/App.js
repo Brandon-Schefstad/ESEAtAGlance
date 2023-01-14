@@ -21,6 +21,10 @@ const router = createBrowserRouter(
         <Route element={<PrivateRoutes />}>
           <Route path={"/dashboard"} element={<Dashboard />}></Route>
           <Route path={"/addNewStudent"} element={<AddNewStudent />}></Route>
+          {/* <Route
+            path={"/addNewGoals/:id"}
+            element={<AddNewGoals student_id={req.params.id} />}
+          ></Route> */}
           <Route path={"/addNewGoals"} element={<AddNewGoals />}></Route>
           <Route
             path={"/addNewAccommodations"}

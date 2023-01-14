@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Navigate } from "react-router-dom";
 import Navbar from "./Navbar";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
@@ -48,11 +49,10 @@ const AddNewGoals = ({ student_id }) => {
         },
       }
     );
-    console.log(response);
     if (response.status === 200) {
       setID(response.data.ID);
       setGoalToSend(defaultGoalText);
-      window.location.reload();
+      <Navigate to={"/addNewGoals"} />;
     }
   }
   function setStateOnChange(e, name) {
