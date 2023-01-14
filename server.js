@@ -28,8 +28,9 @@ app.use(
 	})
 )
 const options = {
-	origin: 'https://ese-at-a-glance-xej4.vercel.app/',
+	origin: true,
 	optionSuccessStatus: 200,
+	"Access-Control-Allow-Origin": *
 }
 /**Passport */
 require('./config/passport')(passport)
@@ -65,9 +66,9 @@ app.use(methodOverride('_method'))
 app.use(flash())
 //
 app.use(cors(options))
-app.use('/api/student', cors(options), studentRoutes)
-app.use('/api/dashboard', cors(options), dashboardRoutes)
-app.use('/api', cors(options), mainRoutes)
+app.use('/api/student', studentRoutes)
+app.use('/api/dashboard', dashboardRoutes)
+app.use('/api', mainRoutes)
 app.use('/', (req, res) => {
 	res.json({ hello: 'World' })
 })
