@@ -12,7 +12,7 @@ const AddNewStudent = () => {
   async function postNewStudent(e) {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:5501/api/student/addNewStudent",
+      "https://fine-puce-bullfrog-sari.cyclic.app/api/student/addNewStudent",
 
       { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
       {

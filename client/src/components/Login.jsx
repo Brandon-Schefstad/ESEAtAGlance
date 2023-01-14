@@ -25,12 +25,12 @@ const Login = () => {
     let response;
     if (login) {
       response = await axios.post(
-        "http://localhost:5501/api/login",
+        "https://fine-puce-bullfrog-sari.cyclic.app/api/login",
         authorizeInfo
       );
     } else {
       response = await axios.post(
-        "http://localhost:5501/api/signup",
+        "https://fine-puce-bullfrog-sari.cyclic.app/api/signup",
         authorizeInfo
       );
     }
