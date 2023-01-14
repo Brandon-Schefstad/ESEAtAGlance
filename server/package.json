@@ -4,7 +4,7 @@
 	"description": "ESE-At-A-Glance allows teachers to keep track of previous IEP goals as well as current accommodations for their students. The end-goal being to make this information more easily accessible for educators, therefore increasing support for ESE students overall.",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js",
+		"start": "nodemon server.js",
 		"dev": "nodemon server.js",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"sass": "sass --watch public/scss/main.scss:public/css/style.css",
