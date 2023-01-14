@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
 import Navbar from "./Navbar";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
@@ -10,7 +9,7 @@ const AddNewGoals = ({ student_id }) => {
     succeed: "off",
     goalNotes: "None",
   };
-  const [studentFinished, setStudentFinished] = useState(false);
+
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
 
@@ -63,9 +62,7 @@ const AddNewGoals = ({ student_id }) => {
   const inputStyles =
     "ml-2 bg-green-700  border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 xl:text-xl";
   const titleStyles = "block col-span-2 text-xl font-semibold ";
-  return studentFinished ? (
-    <Navigate to="/addNewAccommodations" />
-  ) : ID ? (
+  return ID ? (
     <AddNewGoals student_id={ID} />
   ) : (
     <>
