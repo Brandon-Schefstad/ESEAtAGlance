@@ -39,9 +39,14 @@ const AddNewGoals = ({ student_id }) => {
   async function postNewGoal(e) {
     e.preventDefault();
     const response = await axios.post(
-      "https://fine-puce-bullfrog-sari.cyclic.app/api/student/addNewGoal",
+      "http://localhost:5501/api/student/addNewGoal",
       {
         goalToSend,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
       }
     );
     console.log(response);

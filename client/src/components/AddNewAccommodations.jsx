@@ -22,10 +22,15 @@ const AddNewAccommodations = ({ student_id }) => {
   async function postNewAccommodations(e) {
     e.preventDefault();
     const { data, status } = await axios.post(
-      "https://fine-puce-bullfrog-sari.cyclic.app/api/student/addNewAccommodations",
+      "http://localhost:5501/api/student/addNewAccommodations",
       {
         ID: studentId,
         accommodationsToSend,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
       }
     );
     if (status === 200) {

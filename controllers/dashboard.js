@@ -2,11 +2,11 @@ const Student = require('../models/Student')
 module.exports = {
 	getDashboard: async (req, res) => {
 		console.log('getting dashboard')
-		const user = req.user
-		console.log(user)
+		console.log(req.params.id)
+		const _id = req.params.id
 		try {
 			const studentList = await Student.find({
-				caseManager: req.user._id,
+				caseManager: _id,
 			}).populate({
 				path: 'caseManager',
 			})

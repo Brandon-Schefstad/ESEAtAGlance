@@ -25,23 +25,25 @@ const Login = () => {
     let response;
     if (login) {
       response = await axios.post(
-        "https://fine-puce-bullfrog-sari.cyclic.app/api/login",
+        "http://localhost:5501/api/login",
         authorizeInfo
       );
     } else {
       response = await axios.post(
-        "https://fine-puce-bullfrog-sari.cyclic.app/api/signup",
+        "http://localhost:5501/api/signup",
         authorizeInfo
       );
     }
-    const { user } = await response.data;
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("auth", user._id);
+    const { token, user } = await response.data;
+    console.log(token);
+
+    if (token) {
+      localStorage.setItem("auth", token);
+      localStorage.setItem("_id", user._id);
       setAuth(true);
     } else {
-      localStorage.setItem("user", "none");
       localStorage.setItem("auth", false);
+      localStorage.setItem("_id", 0);
     }
   }
 
