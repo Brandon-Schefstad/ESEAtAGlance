@@ -104,8 +104,9 @@ const AddNewStudent = () => {
           </section>
           <h2 className="my-4 text-4xl">Goal History</h2>
 
-          {/* <span>
-            {student.history.map((grade, index) => {
+
+          <span>
+         {student.history.map((grade, index) => {
               return grade.length > 0 ? (
                 <>
                   <h3 class="my-2 text-2xl">{makeHeading(index)}</h3>
@@ -119,7 +120,9 @@ const AddNewStudent = () => {
                 <></>
               );
             })}
-          </span> */}
+
+          </span>
+
         </>
       ) : (
         <></>
