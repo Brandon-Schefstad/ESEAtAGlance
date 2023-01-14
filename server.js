@@ -11,7 +11,7 @@ const connectDB = require('./config/database')
 const cookieParser = require('cookie-parser')
 require('dotenv').config({ path: './config/.env' })
 const bodyParser = require('body-parser')
-
+const cors = require('cors')
 const mainRoutes = require('./routes/main')
 const dashboardRoutes = require('./routes/dashboard.js')
 const studentRoutes = require('./routes/mainstudent.js')
@@ -27,7 +27,10 @@ app.use(
 		saveUninitialized: false,
 	})
 )
-
+const options = {
+	origin: 'https://ese-at-a-glance-xej4.vercel.app/',
+	optionSuccessStatus: 200,
+}
 /**Passport */
 require('./config/passport')(passport)
 async function connect() {
@@ -61,6 +64,7 @@ app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(flash())
 //
+app.use(cors(options))
 app.use('/api/student', studentRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 app.use('/api', mainRoutes)
