@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import AccommodationList from "./AccommodationList";
+import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
