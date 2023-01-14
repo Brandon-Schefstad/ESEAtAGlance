@@ -24,9 +24,15 @@ const Login = () => {
     e.preventDefault();
     let response;
     if (login) {
-      response = await axios.post("/api/login", authorizeInfo);
+      response = await axios.post(
+        "https://fine-puce-bullfrog-sari.cyclic.app/api/login",
+        authorizeInfo
+      );
     } else {
-      response = await axios.post("/api/signup", authorizeInfo);
+      response = await axios.post(
+        "https://fine-puce-bullfrog-sari.cyclic.app/api/signup",
+        authorizeInfo
+      );
     }
     const { user } = await response.data;
     if (user) {

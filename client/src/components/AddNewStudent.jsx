@@ -12,7 +12,7 @@ const AddNewStudent = () => {
   async function postNewStudent(e) {
     e.preventDefault();
     const response = await axios.post(
-      "/api/student/addNewStudent",
+      "https://fine-puce-bullfrog-sari.cyclic.app/api/student/addNewStudent",
       studentToSend
     );
     if (response.status === 200) {

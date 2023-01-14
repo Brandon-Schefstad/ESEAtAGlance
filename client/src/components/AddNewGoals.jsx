@@ -38,9 +38,12 @@ const AddNewGoals = ({ student_id }) => {
   ];
   async function postNewGoal(e) {
     e.preventDefault();
-    const response = await axios.post("/api/student/addNewGoal", {
-      goalToSend,
-    });
+    const response = await axios.post(
+      "https://fine-puce-bullfrog-sari.cyclic.app/api/student/addNewGoal",
+      {
+        goalToSend,
+      }
+    );
     console.log(response);
     if (response.status === 200) {
       setID(response.data.ID);
