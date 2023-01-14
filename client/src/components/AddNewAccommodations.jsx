@@ -22,7 +22,7 @@ const AddNewAccommodations = ({ student_id }) => {
   async function postNewAccommodations(e) {
     e.preventDefault();
     const { data, status } = await axios.post(
-      "/api/student/addNewAccommodations",
+      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewAccommodations",
       {
         ID: studentId,
         accommodationsToSend,
