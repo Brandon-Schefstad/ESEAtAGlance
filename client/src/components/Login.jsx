@@ -25,12 +25,12 @@ const Login = () => {
     let response;
     if (login) {
       response = await axios.post(
-        "https://fine-puce-bullfrog-sari.cyclic.app/api/login",
+        "http://localhost:5501/api/login",
         authorizeInfo
       );
     } else {
       response = await axios.post(
-        "https://fine-puce-bullfrog-sari.cyclic.app/api/signup",
+        "http://localhost:5501/api/signup",
         authorizeInfo
       );
     }
@@ -48,7 +48,7 @@ const Login = () => {
   }
 
   const formStyles =
-    "bg-green-800 border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 text-xl xl:mt-4 xl:mx-4";
+    "bg-green-800 border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 text-xl xl:mt-6 xl:mx-8";
   const activeStyle =
     "text-amber-400 text-2xl font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8";
   const inactiveStyle =
@@ -58,7 +58,7 @@ const Login = () => {
       <Navigate to="/dashboard" props={setAuth} />
     ) : (
       <section className="xl:grid xl:grid-cols-2 ">
-        <h1 className="mb-4 pt-16 text-[2.75rem] font-extrabold text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
+        <h1 className="mainTitle mb-4 pt-16 text-[2.75rem] font-extrabold text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
           ESE-At-A-Glance
         </h1>
         <span className="mb-4 block text-lg text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">

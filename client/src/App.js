@@ -42,7 +42,7 @@ function App() {
   useEffect(() => {
     document.body.classList.add(
       "bg-amber-50",
-      "min-h-screen",
+
       "px-6",
       "max-w-[1800px]",
       "m-auto"
