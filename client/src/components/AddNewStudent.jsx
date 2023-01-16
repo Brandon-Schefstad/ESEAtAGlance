@@ -30,6 +30,7 @@ const AddNewStudent = () => {
       });
     console.log(response);
     setLoading(false);
+
     if (response.status === 200) {
       setStudent_id(response.data.ID);
       setSuccess(true);
@@ -47,11 +48,12 @@ const AddNewStudent = () => {
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return success ? (
     <Navigate to="/addNewGoals" />
-  ) : student_id ? (
+  ) : success ? (
     <AddNewGoals student_id={student_id} />
   ) : (
     <>
       <Navbar />
+
       <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
         Student Information
       </h1>
