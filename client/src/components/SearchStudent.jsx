@@ -4,7 +4,7 @@ import AccommodationList from "./AccommodationList";
 import ButtonWithLoader from "./ButtonWithLoader";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
-const SearchStudent = () => {
+const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
@@ -49,9 +49,10 @@ const SearchStudent = () => {
       <Navbar />
       <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:text-3xl">
         <form>
+
           <label
             htmlFor="studentId"
-            className=""
+            className="text-amber-100"
             onChange={(e) => setStudentIdToSend(e.target.value)}
           >
             Enter Student Id:{" "}
@@ -72,7 +73,7 @@ const SearchStudent = () => {
           <section className="mt-8  bg-green-900 pt-8 shadow-lg shadow-amber-900 xl:mx-auto xl:w-3/4 xl:pt-12 xl:text-xl">
             <section className="bg-amber-100 px-2 pt-4 text-black xl:pt-0 xl:pb-8">
               <section className="grid xl:grid-cols-2 ">
-                <section className="text-md flex flex-col gap-2  xl:mt-[0rem] xl:h-full xl:gap-6 xl:border-r-2  xl:border-dashed xl:border-rose-500/50">
+                <section className="text-md flex flex-col gap-2  xl:mt-[0rem] xl:h-full xl:gap-6 xl:border-r-2 xl:border-t-2 xl:border-dashed xl:border-rose-500/50">
                   <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:mt-6 xl:px-12 xl:text-xl">
                     <h1 class="">Name: </h1>
                     <h1 class="my-auto">{student.name}</h1>
@@ -146,4 +147,4 @@ const SearchStudent = () => {
   );
 };
 
-export default SearchStudent;
+export default AddNewStudent;

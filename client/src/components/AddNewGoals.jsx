@@ -1,5 +1,3 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -13,12 +11,13 @@ const AddNewGoals = ({ student_id }) => {
     succeed: "off",
     goalNotes: "None",
   };
-
+  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
   const [nextPage, setNextPage] = useState(false);
   const [stopAnimation, setStopAnimation] = useState(false);
   const [loading, setLoading] = useState(false);
+
 
   const grades = [
     "Kindergarten",
@@ -46,6 +45,7 @@ const AddNewGoals = ({ student_id }) => {
     console.log(goalToSend);
     setLoading(true);
     e.preventDefault();
+
     const response = await axios
       .post(
         "http://localhost:5501/api/student/addNewGoal",
@@ -81,13 +81,14 @@ const AddNewGoals = ({ student_id }) => {
     console.log(goalToSend);
     setGoalToSend(goalToSend, ...(goalToSend[e.target.name] = e.target.value));
   }
-
   const inputStyles =
     " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl mb-4";
   const titleStyles =
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return nextPage ? (
     <Navigate to="/addNewAccommodations" />
+  ) : ID ? (
+    <AddNewGoals student_id={ID} />
   ) : (
     <>
       <Navbar />
@@ -148,6 +149,7 @@ const AddNewGoals = ({ student_id }) => {
           name="goalText"
           className={inputStyles + " form-input col-span-2 w-full px-4"}
         />
+
         <label
           className={
             titleStyles + " col-span-1 grid grid-cols-2 xl:grid-cols-1"
@@ -167,14 +169,15 @@ const AddNewGoals = ({ student_id }) => {
           className={titleStyles + " form-input xl:col-span-1  "}
           htmlFor="goalNotes"
         >
+
           Additional Notes:
         </label>
-
         <textarea
           cols={30}
           rows={1}
           onChange={(e) => setStateOnChange(e, "notes")}
           name="goalNotes"
+
           className={inputStyles + "xl:col-span-1"}
         />
         <section className="col-span-2 mt-6 grid grid-cols-2 justify-evenly xl:col-start-2 xl:row-span-3 xl:row-start-[10]">
@@ -197,6 +200,7 @@ const AddNewGoals = ({ student_id }) => {
             />
           </button>
         </section>
+
       </form>
     </>
   );
