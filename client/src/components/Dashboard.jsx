@@ -9,9 +9,7 @@ const Dashboard = () => {
   async function getDashboard() {
     console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
-        "_id"
-      )}`,
+      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
