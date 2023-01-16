@@ -22,7 +22,7 @@ const AddNewAccommodations = ({ student_id }) => {
   async function postNewAccommodations(e) {
     e.preventDefault();
     const { data, status } = await axios.post(
-      "http://localhost:5501/api/student/addNewAccommodations",
+      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewAccommodations",
       {
         ID: studentId,
         accommodationsToSend,
@@ -49,7 +49,7 @@ const AddNewAccommodations = ({ student_id }) => {
         onSubmit={postNewAccommodations}
         className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pt-2 text-green-900  shadow-md shadow-amber-900  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 "
       >
-        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:col-span-6 xl:mb-8 xl:py-4 xl:text-center xl:text-3xl">
+        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:col-span-6 xl:mb-8 xl:py-4 xl:text-center xl:text-4xl">
           New Accommodations
         </h1>
         <label

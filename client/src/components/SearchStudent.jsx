@@ -9,7 +9,7 @@ const SearchStudent = () => {
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
-      `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
+      `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
@@ -38,11 +38,11 @@ const SearchStudent = () => {
   return (
     <>
       <Navbar />
-      <section className="flex w-full gap-16 bg-green-900 py-4 px-8  xl:text-3xl">
+      <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:text-3xl">
         <form onSubmit={searchStudent}>
           <label
             htmlFor="studentId"
-            className="text-amber-100"
+            className=""
             onChange={(e) => setStudentIdToSend(e.target.value)}
           >
             Enter Student Id:{" "}

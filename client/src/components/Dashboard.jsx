@@ -9,7 +9,9 @@ const Dashboard = () => {
   async function getDashboard() {
     console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
+      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
+        "_id"
+      )}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
@@ -46,17 +48,17 @@ const Dashboard = () => {
       <>
         <Navbar setAuth={setAuth} auth={auth} />
         <section className="   pt-4 ">
-          <div className="my-4 font-[Martel] text-5xl font-extrabold text-green-900">
-            Dashboard
+          <div className="my-4 mx-8 font-[Martel] text-5xl font-extrabold text-green-900">
+            Your Students
           </div>
 
-          <section className="grid gap-8 px-4 py-4 text-black sm:px-24 md:grid-cols-2 md:px-12 lg:grid-cols-2 xl:grid-cols-3">
+          <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
             {students ? (
               students.map((student) => {
                 return (
                   <div>
-                    <section className=" grid grid-cols-3 gap-4 rounded-lg bg-green-900 pb-4 pt-8">
-                      <section className="col-span-3 grid grid-cols-2 bg-amber-100 p-2">
+                    <section className=" rounded-lg bg-green-900 py-8">
+                      <section className=" grid grid-cols-2 bg-rose-50 p-4 xl:gap-8">
                         <img
                           src={
                             student.image
@@ -64,16 +66,31 @@ const Dashboard = () => {
                               : "https://www.theyearinpictures.co.uk/images//image-placeholder.png"
                           }
                           alt=""
-                          className="m-auto h-36"
+                          className=" m-auto h-36"
                         />
                         <section className=" my-auto flex flex-col">
-                          <span>
-                            {student.firstName} {student.lastName}
-                          </span>
-                          <span>{makeHeading(student.grade)}</span>
-                          <span>{student.caseManager.email}</span>
-                          <span>{student.primaryExceptionality}</span>
-                          <span>{student.IEPDueDate.split("T")[0]}</span>
+                          <section className="mb-2 text-xl">
+                            <span className="block">
+                              {student.firstName} {student.lastName}
+                            </span>
+                            <span>ID: {student.ID}</span>
+                            <span className="mb-2 block">
+                              {makeHeading(student.grade)}
+                            </span>
+                          </section>
+
+                          <section className="text-sm">
+                            <span className="block">
+                              {student.caseManager.firstName + " "}
+                              {student.caseManager.lastName}
+                            </span>
+                            <span className="block">
+                              Primary: {student.primaryExceptionality}
+                            </span>
+                            <span className="block">
+                              IEP Due: {student.IEPDueDate.split("T")[0]}
+                            </span>
+                          </section>
                         </section>
                       </section>
                     </section>
