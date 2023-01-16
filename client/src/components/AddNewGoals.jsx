@@ -1,3 +1,5 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -17,7 +19,6 @@ const AddNewGoals = ({ student_id }) => {
   const [nextPage, setNextPage] = useState(false);
   const [stopAnimation, setStopAnimation] = useState(false);
   const [loading, setLoading] = useState(false);
-
 
   const grades = [
     "Kindergarten",
@@ -169,7 +170,6 @@ const AddNewGoals = ({ student_id }) => {
           className={titleStyles + " form-input xl:col-span-1  "}
           htmlFor="goalNotes"
         >
-
           Additional Notes:
         </label>
         <textarea
@@ -177,7 +177,6 @@ const AddNewGoals = ({ student_id }) => {
           rows={1}
           onChange={(e) => setStateOnChange(e, "notes")}
           name="goalNotes"
-
           className={inputStyles + "xl:col-span-1"}
         />
         <section className="col-span-2 mt-6 grid grid-cols-2 justify-evenly xl:col-start-2 xl:row-span-3 xl:row-start-[10]">
@@ -200,7 +199,6 @@ const AddNewGoals = ({ student_id }) => {
             />
           </button>
         </section>
-
       </form>
     </>
   );
