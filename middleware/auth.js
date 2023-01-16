@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken')
 module.exports = {
+<<<<<<< HEAD
 	ensureAuth: async (req, res, next) => {
 		const bearer = req.headers.authorization
 		console.log(bearer)
@@ -29,6 +29,13 @@ module.exports = {
 			res.status(401)
 			res.send('JWT Invalid')
 			return
+=======
+	ensureAuth: function (req, res, next) {
+		if (req.isAuthenticated()) {
+			return next()
+		} else {
+			res.redirect('/')
+>>>>>>> 1e7cca56fa495c0ac69cb6f0c8e2bf580f873b3b
 		}
 	},
 }
