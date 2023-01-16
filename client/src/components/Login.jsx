@@ -35,10 +35,12 @@ const Login = () => {
         authorizeInfo
       );
     }
-    const { user } = await response.data;
-    if (user) {
-      localStorage.setItem("user", JSON.stringify(user));
-      localStorage.setItem("auth", user._id);
+    const { token, user } = await response.data;
+    console.log(token);
+    //
+    if (token) {
+      localStorage.setItem("auth", token);
+      localStorage.setItem("_id", user._id);
       setAuth(true);
     } else {
       localStorage.setItem("user", "none");
