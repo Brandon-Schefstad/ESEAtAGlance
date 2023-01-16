@@ -13,6 +13,7 @@ const AddNewStudent = () => {
   async function postNewStudent(e) {
     e.preventDefault();
     setLoading(true);
+    console.log(studentToSend);
     const response = await axios
       .post(
         "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",

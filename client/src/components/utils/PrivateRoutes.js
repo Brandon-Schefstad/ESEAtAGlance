@@ -4,7 +4,6 @@ const PrivateRoutes = () => {
   let user = localStorage.getItem("user");
   let auth = localStorage.getItem("auth") === JSON.parse(user)._id;
 
-  console.log(auth);
   if (auth === "false") {
     return <Navigate to="/" />;
   } else {
