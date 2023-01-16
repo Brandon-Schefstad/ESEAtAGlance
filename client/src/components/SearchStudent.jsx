@@ -9,7 +9,7 @@ const SearchStudent = () => {
   async function searchStudent(e) {
     e.preventDefault();
     const { data, status } = await axios.get(
-      `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
+      `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
