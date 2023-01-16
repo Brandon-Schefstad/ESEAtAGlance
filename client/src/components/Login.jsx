@@ -25,12 +25,12 @@ const Login = () => {
     let response;
     if (login) {
       response = await axios.post(
-        "https://ese-at-a-glance-api.cyclic.app /api/login",
+        "https://ese-at-a-glance-api.cyclic.app/api/login",
         authorizeInfo
       );
     } else {
       response = await axios.post(
-        "https://ese-at-a-glance-api.cyclic.app /api/signup",
+        "https://ese-at-a-glance-api.cyclic.app/api/signup",
         authorizeInfo
       );
     }
