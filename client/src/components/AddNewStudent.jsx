@@ -11,12 +11,11 @@ const AddNewStudent = () => {
   const [loading, setLoading] = useState(false);
 
   async function postNewStudent(e) {
-
     e.preventDefault();
     setLoading(true);
     const response = await axios
       .post(
-        "http://localhost:5501/api/student/addNewStudent",
+        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
 
         { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
         {
@@ -44,12 +43,10 @@ const AddNewStudent = () => {
     );
   }
   const inputStyles =
-
     " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl";
   const titleStyles =
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return success ? (
-
     <Navigate to="/addNewGoals" />
   ) : success ? (
     <AddNewGoals student_id={student_id} />
@@ -61,7 +58,6 @@ const AddNewStudent = () => {
         Student Information
       </h1>
       <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12">
-
         <section className=" col-span-2">
           <span className={titleStyles}>First Name:</span>
           <input

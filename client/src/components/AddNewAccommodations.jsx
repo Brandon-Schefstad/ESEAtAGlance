@@ -26,7 +26,7 @@ const AddNewAccommodations = ({ student_id }) => {
     e.preventDefault();
     const { data, status } = await axios
       .post(
-        "http://localhost:5501/api/student/addNewAccommodations",
+        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewAccommodations",
         {
           ID: studentId,
           accommodationsToSend,
@@ -110,7 +110,6 @@ const AddNewAccommodations = ({ student_id }) => {
           }
           name={"Submit"}
           loading={loading}
-
         />
       </form>
     </>

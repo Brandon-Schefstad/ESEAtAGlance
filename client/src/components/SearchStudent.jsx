@@ -13,7 +13,7 @@ const AddNewStudent = () => {
     e.preventDefault();
     const { data, status } = await axios
       .get(
-        `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
+        `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
         {
           headers: {
             authorization: localStorage.getItem("auth"),
@@ -49,7 +49,6 @@ const AddNewStudent = () => {
       <Navbar />
       <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:text-3xl">
         <form>
-
           <label
             htmlFor="studentId"
             className="text-amber-100"

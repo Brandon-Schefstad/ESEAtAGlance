@@ -8,8 +8,9 @@ const Dashboard = () => {
   const [students, setStudents] = useState();
   async function getDashboard() {
     const response = await axios.get(
-
-      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
+      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
+        "_id"
+      )}`,
 
       {
         user: localStorage.getItem("auth"),
