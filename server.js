@@ -66,5 +66,5 @@ app.use('/api/student', studentRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 app.use('/api', mainRoutes)
 app.use('/', (req, res) => {
-	res.json({ hello: 'World' })
+	res.json({ hello: 'World!' })
 })
