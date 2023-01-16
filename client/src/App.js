@@ -10,8 +10,8 @@ import AddNewGoals from "./components/AddNewGoals";
 import AddNewStudent from "./components/AddNewStudent";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import PrivateRoutes from "./components/PrivateRoutes";
 import SearchStudent from "./components/SearchStudent";
+import PrivateRoutes from "./components/utils/PrivateRoutes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,10 +21,6 @@ const router = createBrowserRouter(
         <Route element={<PrivateRoutes />}>
           <Route path={"/dashboard"} element={<Dashboard />}></Route>
           <Route path={"/addNewStudent"} element={<AddNewStudent />}></Route>
-          {/* <Route
-            path={"/addNewGoals/:id"}
-            element={<AddNewGoals student_id={req.params.id} />}
-          ></Route> */}
           <Route path={"/addNewGoals"} element={<AddNewGoals />}></Route>
           <Route
             path={"/addNewAccommodations"}
@@ -32,7 +28,6 @@ const router = createBrowserRouter(
           ></Route>
           <Route path={"/searchStudent"} element={<SearchStudent />}></Route>
         </Route>
-        {/* <Route element={<Login />} path="/login" /> */}
       </>
     </>
   )

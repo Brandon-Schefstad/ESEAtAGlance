@@ -42,7 +42,7 @@ const AddNewGoals = ({ student_id }) => {
   async function postNewGoal(e) {
     e.preventDefault();
     const response = await axios.post(
-      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
+      "http://localhost:5501/api/student/addNewGoal",
       {
         goalToSend,
       },
