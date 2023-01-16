@@ -91,7 +91,7 @@ const AddNewGoals = ({ student_id }) => {
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-right font-[Martel] text-2xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
+      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-right font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
         New Goal
       </h1>
       <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12">

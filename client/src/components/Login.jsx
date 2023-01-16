@@ -53,7 +53,7 @@ const Login = () => {
   const activeStyle =
     "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8";
   const inactiveStyle =
-    "text-gray text-gray-800  py-2 text-2xl border-b-2 border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8";
+    "text-gray text-gray-600 rounded-lg py-2 text-2xl border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8";
   {
     return auth ? (
       <Navigate to="/dashboard" props={setAuth} />

@@ -2,6 +2,7 @@ import axios from "axios";
 import { React, useState } from "react";
 import { Navigate } from "react-router-dom";
 import AccommsSection from "./AccommsSection";
+import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import accommodations from "./utils/accommodations";
 
@@ -10,6 +11,7 @@ const AddNewAccommodations = ({ student_id }) => {
 
   const [studentFinished, setStudentFinished] = useState(false);
   const [studentId, setStudentId] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   let accommodationsToSend = [];
   function handleChange(name) {
@@ -20,19 +22,26 @@ const AddNewAccommodations = ({ student_id }) => {
     console.log(accommodationsToSend);
   }
   async function postNewAccommodations(e) {
+    setLoading(true);
     e.preventDefault();
-    const { data, status } = await axios.post(
-      "http://localhost:5501/api/student/addNewAccommodations",
-      {
-        ID: studentId,
-        accommodationsToSend,
-      },
-      {
-        headers: {
-          authorization: localStorage.getItem("auth"),
+    const { data, status } = await axios
+      .post(
+        "http://localhost:5501/api/student/addNewAccommodations",
+        {
+          ID: studentId,
+          accommodationsToSend,
         },
-      }
-    );
+        {
+          headers: {
+            authorization: localStorage.getItem("auth"),
+          },
+        }
+      )
+      .catch(() => {
+        setLoading(false);
+        alert("Malformed Data");
+      });
+    setLoading(false);
     if (status === 200) {
       accommodationsToSend = [];
       setStudentFinished(true);
@@ -52,7 +61,7 @@ const AddNewAccommodations = ({ student_id }) => {
       </h1>
       <form
         onSubmit={postNewAccommodations}
-        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pt-2 text-green-900  shadow-md shadow-amber-900  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 "
+        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pb-4 pt-2 text-green-900  shadow-lg  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 "
       >
         <label
           className=" col-span-2 mt-8 ml-8 text-xl xl:col-span-6 xl:text-3xl"
@@ -92,10 +101,13 @@ const AddNewAccommodations = ({ student_id }) => {
           handleChange={handleChange}
           active={accommodationsToSend}
         />
-        <input
-          className="col-span-2 m-auto mt-4 bg-amber-400 py-4 px-8 font-extrabold text-green-800 xl:col-span-6 xl:w-1/4 xl:text-2xl"
-          type="submit"
-          value="Submit"
+        <ButtonWithLoader
+          handleClick={(e) => postNewAccommodations(e)}
+          className={
+            "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800"
+          }
+          name={"Submit"}
+          loading={loading}
         />
       </form>
     </>
