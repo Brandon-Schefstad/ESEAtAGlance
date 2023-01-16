@@ -5,7 +5,7 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
   // const [selected, setSelected] = useState([]);
   const [expand, setExpand] = useState(false);
   const titleStyles =
-    "block col-span-2 text-xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-semibold  py-2 px-4 text-green-900 mx-[-1.5rem] xl:col-span-6 xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative font-[Martel] xl:my-8 ";
+    "block col-span-2 text-xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-semibold  py-2 px-8  text-green-900  xl:col-span-6 xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative font-[Martel] xl:my-8 tracking-wider";
   return (
     <>
       <h1 onClick={() => setExpand(!expand)} className={titleStyles}>
