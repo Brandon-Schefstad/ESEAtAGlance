@@ -5,7 +5,7 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
   // const [selected, setSelected] = useState([]);
   const [expand, setExpand] = useState(false);
   const titleStyles =
-    "block col-span-2 text-xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-semibold  py-2 px-4 text-green-900 mx-[-1.5rem] xl:col-span-6 xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative font-[Martel] xl:my-8 ";
+    "block col-span-2 text-xl  text-center mt-2 border-x-2 border-green-900 border-dashed font-semibold bg-amber-100 py-2 px-4 text-green-900 mx-[-1.5rem] xl:col-span-6 xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative ";
   return (
     <>
       <h1 onClick={() => setExpand(!expand)} className={titleStyles}>
@@ -26,17 +26,17 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
         Object.keys(data).map((title, index) => {
           return (
             <section
-              className="col-span-2 flex flex-col gap-1  border-x-[0.15rem] border-dashed border-rose-500/50  text-green-900  xl:gap-0 xl:px-6 "
+              className="col-span-2 flex flex-col gap-1 xl:gap-0 "
               key={index}
             >
-              <h3 className="  mb-2 mt-1 bg-green-800 py-1 text-center text-2xl text-amber-50 xl:mb-2 xl:font-semibold ">
+              <h3 className="  mb-2 mt-1 text-2xl text-amber-200 xl:mb-2 xl:font-semibold">
                 {title}
               </h3>
               {data[title].map((option, index) => {
                 return (
                   <div
                     key={index}
-                    className="col-span-2 flex justify-between border-dashed  border-rose-500/50 py-1 pr-6 pl-2  xl:pr-16"
+                    className="col-span-2 flex justify-between border-b-[0.1rem] border-dashed border-green-100/25 py-1 pr-6 pl-2 font-light xl:border-[0.1rem] xl:pr-16"
                   >
                     <label className="text-left xl:text-lg" htmlFor={option}>
                       {option}
