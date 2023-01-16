@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import AddNewGoals from "./AddNewGoals";
+import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [nextPage, setNextPage] = useState(false);
@@ -10,7 +11,6 @@ const AddNewStudent = () => {
   const [studentToSend, setStudentToSend] = useState({});
 
   async function postNewStudent(e) {
-    e.preventDefault();
     const response = await axios.post(
       "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
       studentToSend
@@ -37,10 +37,10 @@ const AddNewStudent = () => {
     <>
       <Navbar />
       <form
-        className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-5/6 xl:p-12 "
+        className=" m-8 grid grid-cols-2 gap-6   bg-amber-200/30  pt-2 text-slate-800 shadow-md shadow-amber-900 xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12"
         onSubmit={postNewStudent}
       >
-        <h1 className="col-span-2 text-2xl font-semibold xl:text-3xl">
+        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:py-4 xl:text-center xl:text-4xl">
           Student Information
         </h1>
         <section className=" col-span-2">
@@ -107,10 +107,12 @@ const AddNewStudent = () => {
 					name="image"
 					encType="multipart/form-data"
 				/> */}
-        <input
-          className="m-auto mt-4 bg-amber-400 py-4 px-8 font-extrabold text-green-800 xl:w-1/2 xl:text-2xl"
-          type="submit"
-          value="Submit"
+
+        <ButtonWithLoader
+          onClick={() => alert("hello")}
+          handleClick={postNewStudent}
+          className={"m-auto w-1/2 rounded-lg py-2"}
+          name={"Submit"}
         />
       </form>
     </>

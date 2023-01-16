@@ -10,8 +10,8 @@ import AddNewGoals from "./components/AddNewGoals";
 import AddNewStudent from "./components/AddNewStudent";
 import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
-import PrivateRoutes from "./components/PrivateRoutes";
 import SearchStudent from "./components/SearchStudent";
+import PrivateRoutes from "./components/utils/PrivateRoutes";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +28,6 @@ const router = createBrowserRouter(
           ></Route>
           <Route path={"/searchStudent"} element={<SearchStudent />}></Route>
         </Route>
-        {/* <Route element={<Login />} path="/login" /> */}
       </>
     </>
   )
