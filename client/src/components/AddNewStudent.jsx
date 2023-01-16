@@ -15,7 +15,7 @@ const AddNewStudent = () => {
     setLoading(true);
     const response = await axios
       .post(
-        "http://localhost:5501/api/student/addNewStudent",
+        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
 
         { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
         {
