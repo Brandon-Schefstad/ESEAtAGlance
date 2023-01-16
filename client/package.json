@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://ese-at-a-glance-api.cyclic.app",
+  "proxy": "https://ese-at-a-glance-api.cyclic.app ",
   "eslintConfig": {
     "extends": [
       "react-app",
