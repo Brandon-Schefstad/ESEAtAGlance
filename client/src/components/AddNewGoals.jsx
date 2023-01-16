@@ -43,7 +43,7 @@ const AddNewGoals = ({ student_id }) => {
     "Communication",
   ];
   async function postNewGoal(e) {
-    console.log(goalToSend);
+    // console.log(goalToSend);
     setLoading(true);
     e.preventDefault();
 

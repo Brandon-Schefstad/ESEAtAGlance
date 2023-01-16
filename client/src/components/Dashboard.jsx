@@ -11,7 +11,6 @@ const Dashboard = () => {
       `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
         "_id"
       )}`,
-
       {
         user: localStorage.getItem("auth"),
       }
