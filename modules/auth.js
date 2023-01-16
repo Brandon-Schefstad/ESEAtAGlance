@@ -8,6 +8,7 @@ module.exports = {
 		)
 		return token
 	},
+	// Pushing
 
 	comparePasswords: (password, hash) => {
 		return bcrypt.compare(password, hash)
