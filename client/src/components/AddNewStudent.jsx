@@ -5,16 +5,33 @@ import AddNewGoals from "./AddNewGoals";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
-  const [nextPage, setNextPage] = useState(false);
   const [success, setSuccess] = useState(false);
   const [student_id, setStudent_id] = useState(null);
   const [studentToSend, setStudentToSend] = useState({});
+  const [loading, setLoading] = useState(false);
 
   async function postNewStudent(e) {
-    const response = await axios.post(
-      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
-      studentToSend
-    );
+
+    e.preventDefault();
+    setLoading(true);
+    const response = await axios
+      .post(
+        "http://localhost:5501/api/student/addNewStudent",
+
+        { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
+        {
+          headers: {
+            authorization: localStorage.getItem("auth"),
+          },
+        }
+      )
+      .catch(() => {
+        setLoading(false);
+        alert("Malformed Data");
+      });
+    console.log(response);
+    setLoading(false);
+
     if (response.status === 200) {
       setStudent_id(response.data.ID);
       setSuccess(true);
@@ -27,22 +44,24 @@ const AddNewStudent = () => {
     );
   }
   const inputStyles =
-    "ml-2 bg-green-700  border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 xl:text-xl";
-  const titleStyles = "block col-span-2 text-xl mb-2 font-semibold ";
-  return nextPage ? (
+
+    " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl";
+  const titleStyles =
+    "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
+  return success ? (
+
     <Navigate to="/addNewGoals" />
   ) : success ? (
     <AddNewGoals student_id={student_id} />
   ) : (
     <>
       <Navbar />
-      <form
-        className=" m-8 grid grid-cols-2 gap-6   bg-amber-200/30  pt-2 text-slate-800 shadow-md shadow-amber-900 xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12"
-        onSubmit={postNewStudent}
-      >
-        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:py-4 xl:text-center xl:text-4xl">
-          Student Information
-        </h1>
+
+      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
+        Student Information
+      </h1>
+      <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12">
+
         <section className=" col-span-2">
           <span className={titleStyles}>First Name:</span>
           <input
@@ -107,12 +126,13 @@ const AddNewStudent = () => {
 					name="image"
 					encType="multipart/form-data"
 				/> */}
-
         <ButtonWithLoader
-          onClick={() => alert("hello")}
-          handleClick={postNewStudent}
-          className={"m-auto w-1/2 rounded-lg py-2"}
+          handleClick={(e) => postNewStudent(e)}
+          className={
+            "m-auto mt-6 rounded-lg bg-green-200 py-2 text-green-800 xl:w-64 xl:text-2xl"
+          }
           name={"Submit"}
+          loading={loading}
         />
       </form>
     </>

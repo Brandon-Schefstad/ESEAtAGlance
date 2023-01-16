@@ -1,18 +1,20 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 // or
-import React, { useState } from "react";
+import React from "react";
 
-const ButtonWithLoader = ({ name, width, className, handleClick }) => {
-  const [loading, setLoading] = useState(false);
+const ButtonWithLoader = ({ name, width, className, handleClick, loading }) => {
   return loading ? (
-    <LoadingButton loading={true} />
+    <section
+      className={`mt-8 bg-amber-200 px-8 py-2 font-bold text-amber-700 ${className}`}
+    >
+      <LoadingButton loading={true} />
+    </section>
   ) : (
     <button
-      onClick={() => {
-        setLoading(true);
-        handleClick();
+      onClick={(e) => {
+        handleClick(e);
       }}
-      className={`bg-amber-200 px-8 font-bold text-amber-700 ${className}`}
+      className={` px-8 py-2 font-bold ${className} rounded-lg text-xl`}
     >
       {name}
     </button>

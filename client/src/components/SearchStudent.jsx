@@ -1,16 +1,30 @@
 import axios from "axios";
 import React, { useState } from "react";
 import AccommodationList from "./AccommodationList";
+import ButtonWithLoader from "./ButtonWithLoader";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
 const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
   async function searchStudent(e) {
+    setLoading(true);
     e.preventDefault();
-    const { data, status } = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`
-    );
+    const { data, status } = await axios
+      .get(
+        `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
+        {
+          headers: {
+            authorization: localStorage.getItem("auth"),
+          },
+        }
+      )
+      .catch(() => {
+        setLoading(false);
+        alert("Malformed Data");
+      });
+    setLoading(false);
     if (status === 200) {
       setStudent(data);
     }
@@ -33,8 +47,9 @@ const AddNewStudent = () => {
   return (
     <>
       <Navbar />
-      <section className="flex w-full gap-16 bg-green-900 py-4 px-8  xl:text-3xl">
-        <form onSubmit={searchStudent}>
+      <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:text-3xl">
+        <form>
+
           <label
             htmlFor="studentId"
             className="text-amber-100"
@@ -43,6 +58,14 @@ const AddNewStudent = () => {
             Enter Student Id:{" "}
             <input type="number" className="pl-2 text-black" />
           </label>
+          <ButtonWithLoader
+            handleClick={(e) => searchStudent(e)}
+            className={
+              "m-auto mt-4 rounded-lg bg-green-200 py-2 text-green-800"
+            }
+            name={"Search"}
+            loading={loading}
+          />
         </form>
       </section>
       {student ? (
