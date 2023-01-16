@@ -26,6 +26,11 @@ const AddNewAccommodations = ({ student_id }) => {
       {
         ID: studentId,
         accommodationsToSend,
+      },
+      {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
       }
     );
     if (status === 200) {
@@ -42,9 +47,9 @@ const AddNewAccommodations = ({ student_id }) => {
 
       <form
         onSubmit={postNewAccommodations}
-        className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8 text-amber-100  xl:mx-auto xl:w-5/6 xl:grid-cols-6 xl:p-12 "
+        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pt-2 text-green-900  shadow-md shadow-amber-900  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 "
       >
-        <h1 className="col-span-2 mb-2 text-2xl font-semibold xl:text-3xl">
+        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:col-span-6 xl:mb-8 xl:py-4 xl:text-center xl:text-4xl">
           New Accommodations
         </h1>
         <label
@@ -58,7 +63,7 @@ const AddNewAccommodations = ({ student_id }) => {
             name="ID"
             id="studentNumber"
             onChange={(e) => setStudentId(e.target.value)}
-            className=" ml-8 mt-2 text-green-800"
+            className=" ml-8 mt-2 text-green-900"
           />
         </label>
         <AccommsSection
@@ -86,9 +91,9 @@ const AddNewAccommodations = ({ student_id }) => {
           active={accommodationsToSend}
         />
         <input
-          className="col-span-2 m-auto mt-4 bg-amber-400 py-4 px-8 font-extrabold text-green-800 xl:col-span-6 xl:w-1/3 xl:text-2xl"
+          className="col-span-2 m-auto mt-4 bg-amber-400 py-4 px-8 font-extrabold text-green-800 xl:col-span-6 xl:w-1/4 xl:text-2xl"
           type="submit"
-          value="Submit Accommodations"
+          value="Submit"
         />
       </form>
     </>

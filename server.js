@@ -27,10 +27,7 @@ app.use(
 		saveUninitialized: false,
 	})
 )
-const options = {
-	origin: true,
-	optionSuccessStatus: 200,
-}
+
 /**Passport */
 require('./config/passport')(passport)
 async function connect() {
@@ -64,7 +61,7 @@ app.use(cookieParser())
 app.use(methodOverride('_method'))
 app.use(flash())
 
-app.use(cors(options))
+app.use(cors())
 app.use('/api/student', studentRoutes)
 app.use('/api/dashboard', dashboardRoutes)
 app.use('/api', mainRoutes)

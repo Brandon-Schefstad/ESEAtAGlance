@@ -21,6 +21,10 @@ const router = createBrowserRouter(
         <Route element={<PrivateRoutes />}>
           <Route path={"/dashboard"} element={<Dashboard />}></Route>
           <Route path={"/addNewStudent"} element={<AddNewStudent />}></Route>
+          {/* <Route
+            path={"/addNewGoals/:id"}
+            element={<AddNewGoals student_id={req.params.id} />}
+          ></Route> */}
           <Route path={"/addNewGoals"} element={<AddNewGoals />}></Route>
           <Route
             path={"/addNewAccommodations"}
@@ -36,13 +40,7 @@ const router = createBrowserRouter(
 
 function App() {
   useEffect(() => {
-    document.body.classList.add(
-      "bg-amber-50",
-      "min-h-screen",
-      "px-6",
-      "max-w-[1800px]",
-      "m-auto"
-    );
+    document.body.classList.add("max-w-[2000px]", "bg-amber-50", "m-auto");
   }, []);
   return <RouterProvider router={router} />;
 }

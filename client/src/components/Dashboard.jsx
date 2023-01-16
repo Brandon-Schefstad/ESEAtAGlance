@@ -7,14 +7,34 @@ const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [students, setStudents] = useState();
   async function getDashboard() {
+    console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      "https://ese-at-a-glance-api.cyclic.app/api/dashboard",
+      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
+        "_id"
+      )}`,
       {
-        user: localStorage.getItem("auth"),
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
       }
     );
-    const { studentList } = response.data;
+    const { studentList } = await response.data;
     setStudents(studentList);
+  }
+  function makeHeading(index) {
+    switch (index) {
+      case 0:
+        return "Kindergarten";
+      case 1:
+        return "1st Grade";
+      case 2:
+        return "2nd Grade";
+      case 3:
+        return "3rd Grade";
+
+      default:
+        return `${index}th Grade`;
+    }
   }
   useEffect(() => {
     getDashboard();
@@ -26,46 +46,52 @@ const Dashboard = () => {
       <Navigate to="/" />
     ) : (
       <>
-        <Navbar />
-        <section className=" min-h-screen  pt-4 ">
-          <div className="my-4 text-5xl font-extrabold text-green-900">
-            Dashboard
+        <Navbar setAuth={setAuth} auth={auth} />
+        <section className="   pt-4 ">
+          <div className="my-4 mx-8 font-[Martel] text-5xl font-extrabold text-green-900">
+            Your Students
           </div>
 
-          <section className="grid gap-8 px-4 py-4 text-black sm:px-24 md:grid-cols-2 md:px-12 lg:grid-cols-3 xl:grid-cols-4">
+          <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
             {students ? (
               students.map((student) => {
                 return (
                   <div>
-                    <section className="name-wrapper relative z-0 rounded-t-lg bg-green-900 py-2 px-8 text-left text-2xl font-extrabold tracking-wider text-white  ">
-                      <span className="text-center">
-                        {student.firstName + " " + student.lastName}
-                      </span>
-                    </section>
-                    <section
-                      className="  mt-[-0.25rem] grid rounded-lg border-x-2 border-b-2 border-amber-400 bg-amber-200 pb-8 text-xl "
-                      key={student._id}
-                    >
-                      <section className={rowStyles}>
-                        <span className="text-left">ID Number: </span>
-                        <span className="">{student.ID}</span>
-                      </section>
-                      <section className={rowStyles}>
-                        <span className="text-left">Grade: </span>
-                        <span className="">{student.grade}</span>
-                      </section>
-                      <section className={rowStyles}>
-                        <span className="text-left">Primary: </span>
-                        <span className="">
-                          {student.primaryExceptionality}
-                        </span>
-                      </section>
-                      <section className={rowStyles}>
-                        <span className="text-left">IEP Due:</span>
+                    <section className=" rounded-lg bg-green-900 py-8">
+                      <section className=" grid grid-cols-2 bg-rose-50 p-4 xl:gap-8">
+                        <img
+                          src={
+                            student.image
+                              ? student.image
+                              : "https://www.theyearinpictures.co.uk/images//image-placeholder.png"
+                          }
+                          alt=""
+                          className=" m-auto h-36"
+                        />
+                        <section className=" my-auto flex flex-col">
+                          <section className="mb-2 text-xl">
+                            <span className="block">
+                              {student.firstName} {student.lastName}
+                            </span>
+                            <span>ID: {student.ID}</span>
+                            <span className="mb-2 block">
+                              {makeHeading(student.grade)}
+                            </span>
+                          </section>
 
-                        <span className="">
-                          {student.IEPDueDate.split("T")[0].toString()}
-                        </span>
+                          <section className="text-sm">
+                            <span className="block">
+                              {student.caseManager.firstName + " "}
+                              {student.caseManager.lastName}
+                            </span>
+                            <span className="block">
+                              Primary: {student.primaryExceptionality}
+                            </span>
+                            <span className="block">
+                              IEP Due: {student.IEPDueDate.split("T")[0]}
+                            </span>
+                          </section>
+                        </section>
                       </section>
                     </section>
                   </div>
@@ -76,7 +102,7 @@ const Dashboard = () => {
             )}
           </section>
         </section>
-        <Footer setAuth={setAuth} auth={auth} />
+        <Footer />
       </>
     );
   }
