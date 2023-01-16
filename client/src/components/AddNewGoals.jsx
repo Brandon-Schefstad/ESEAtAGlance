@@ -10,7 +10,7 @@ const AddNewGoals = ({ student_id }) => {
     succeed: "off",
     goalNotes: "None",
   };
-
+  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
 
@@ -39,20 +39,16 @@ const AddNewGoals = ({ student_id }) => {
   async function postNewGoal(e) {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:5501/api/student/addNewGoal",
+      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
       {
         goalToSend,
-      },
-      {
-        headers: {
-          authorization: localStorage.getItem("auth"),
-        },
       }
     );
+    console.log(response);
     if (response.status === 200) {
       setID(response.data.ID);
       setGoalToSend(defaultGoalText);
-      <Navigate to={"/addNewGoals"} />;
+      window.location.reload();
     }
   }
   function setStateOnChange(e, name) {
@@ -60,9 +56,11 @@ const AddNewGoals = ({ student_id }) => {
     setGoalToSend(goalToSend, ...(goalToSend[e.target.name] = e.target.value));
   }
   const inputStyles =
-    "ml-2 bg-gray-50 border-2 border-rose-500/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-green-900 xl:text-xl ";
-  const titleStyles = "block col-span-2 text-xl font-semibold xl:text-2xl ";
-  return ID ? (
+    "ml-2 bg-green-700  border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 xl:text-xl";
+  const titleStyles = "block col-span-2 text-xl font-semibold ";
+  return studentFinished ? (
+    <Navigate to="/addNewAccommodations" />
+  ) : ID ? (
     <AddNewGoals student_id={ID} />
   ) : (
     <>
@@ -70,9 +68,9 @@ const AddNewGoals = ({ student_id }) => {
 
       <form
         onSubmit={postNewGoal}
-        className=" m-8 grid grid-cols-2 grid-rows-[13] gap-4  bg-amber-200/30  pt-2 text-green-900  shadow-md shadow-amber-900 xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-8 "
+        className="  mt-8 grid grid-cols-2 gap-2 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-5/6 xl:p-12"
       >
-        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:py-4 xl:text-center xl:text-3xl">
+        <h1 className="col-span-2 mb-2 text-2xl font-semibold xl:text-3xl">
           New Goal
         </h1>
         <label className={titleStyles} htmlFor="studentNumber">
@@ -128,40 +126,30 @@ const AddNewGoals = ({ student_id }) => {
           name="goalText"
           className={inputStyles}
         />
-        <label
-          className={titleStyles + " col-span-1 grid grid-cols-2"}
-          htmlFor="attained"
-        >
+        <label className={titleStyles + " col-span-1"} htmlFor="attained">
           Attained?
-          <input
-            type="checkbox"
-            onChange={(e) => setStateOnChange(e, "attained")}
-            name="attained"
-            className=" my-1 bg-green-800 text-green-800 accent-amber-300"
-          />
         </label>
-
-        <label
-          className={titleStyles + " xl:col-span-1 xl:row-start-[11]"}
-          htmlFor="goalNotes"
-        >
+        <input
+          type="checkbox"
+          onChange={(e) => setStateOnChange(e, "attained")}
+          name="attained"
+          className=" my-1 bg-green-800 text-green-800 accent-amber-300"
+        />
+        <label className={titleStyles} htmlFor="goalNotes">
           Additional Notes:
         </label>
-
         <textarea
           cols={30}
           rows={1}
           onChange={(e) => setStateOnChange(e, "notes")}
           name="goalNotes"
-          className={inputStyles + "xl:col-span-1 xl:row-start-[12]"}
+          className={inputStyles}
         />
-        <section className="flex items-center justify-center xl:col-start-2 xl:row-span-3 xl:row-start-[10]">
-          <input
-            className=" grid bg-amber-400 p-4 font-extrabold text-green-800 xl:w-1/2 xl:text-2xl"
-            type="submit"
-            value="Submit"
-          />
-        </section>
+        <input
+          className="col-span-2 m-auto mt-4 bg-amber-400 py-4 px-8 font-extrabold text-green-800 xl:w-1/3 xl:text-2xl"
+          type="submit"
+          value="Submit"
+        />
       </form>
     </>
   );

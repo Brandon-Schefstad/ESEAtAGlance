@@ -12,14 +12,8 @@ const AddNewStudent = () => {
   async function postNewStudent(e) {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:5501/api/student/addNewStudent",
-
-      { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
-      {
-        headers: {
-          authorization: localStorage.getItem("auth"),
-        },
-      }
+      "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
+      studentToSend
     );
     if (response.status === 200) {
       setStudent_id(response.data.ID);
@@ -33,9 +27,8 @@ const AddNewStudent = () => {
     );
   }
   const inputStyles =
-    "ml-2 bg-gray-50 border-2 border-rose-500/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-green-900 xl:text-xl";
-  const titleStyles =
-    "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
+    "ml-2 bg-green-700  border-b-2 border-amber-200 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl text-amber-100 xl:text-xl";
+  const titleStyles = "block col-span-2 text-xl mb-2 font-semibold ";
   return nextPage ? (
     <Navigate to="/addNewGoals" />
   ) : success ? (
@@ -44,10 +37,10 @@ const AddNewStudent = () => {
     <>
       <Navbar />
       <form
-        className=" m-8 grid grid-cols-2 gap-6   bg-amber-200/30  pt-2 text-green-900 shadow-md shadow-amber-900 xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12"
+        className=" mt-8 grid grid-cols-2 gap-4 bg-green-800 p-6 pt-8  text-amber-100 xl:mx-auto xl:w-5/6 xl:p-12 "
         onSubmit={postNewStudent}
       >
-        <h1 className="col-span-2 mx-[-3rem] mt-[-.5rem] bg-green-800 font-[Martel] text-2xl font-semibold text-amber-100 xl:py-4 xl:text-center xl:text-3xl">
+        <h1 className="col-span-2 text-2xl font-semibold xl:text-3xl">
           Student Information
         </h1>
         <section className=" col-span-2">
