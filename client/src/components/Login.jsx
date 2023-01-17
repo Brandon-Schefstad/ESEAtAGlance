@@ -36,9 +36,6 @@ const Login = () => {
       );
     }
     const { token, user } = await response.data;
-    alert(token);
-    console.log(token);
-    //
     if (token) {
       localStorage.setItem("auth", token);
       localStorage.setItem("_id", user._id);
