@@ -25,10 +25,16 @@ const Navbar = () => {
         >
           <li>Dashboard</li>
         </Link>
-        <Link to={"/addNewStudent"}>
+        <Link
+          className={active === "addNewStudent" ? activeClass : inactiveClass}
+          to={"/addNewStudent"}
+        >
           <li>Student</li>
         </Link>
-        <Link to={"/addNewGoals"}>
+        <Link
+          className={active === "addNewGoals" ? activeClass : inactiveClass}
+          to={"/addNewGoals"}
+        >
           <li>Goal</li>
         </Link>
         <Link
