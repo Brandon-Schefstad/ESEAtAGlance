@@ -42,6 +42,7 @@ const AddNewAccommodations = ({ student_id }) => {
         alert("Malformed Data");
       });
     setLoading(false);
+
     if (status === 200) {
       accommodationsToSend = [];
       setStudentFinished(true);
@@ -101,6 +102,7 @@ const AddNewAccommodations = ({ student_id }) => {
           handleChange={handleChange}
           active={accommodationsToSend}
         />
+
         <ButtonWithLoader
           handleClick={(e) => postNewAccommodations(e)}
           className={

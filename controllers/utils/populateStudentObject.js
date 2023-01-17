@@ -30,8 +30,6 @@ module.exports = async function populateStudentObject(ID) {
 		let returnHistory = history.filter((subArr) => {
 			return subArr.length > 0
 		})
-		console.log(history)
-		console.log(returnHistory)
 
 		const studentObject = {
 			_id: student._id,

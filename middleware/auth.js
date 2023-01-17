@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 module.exports = {
 	ensureAuth: async (req, res, next) => {
 		const bearer = req.headers.authorization
-		console.log(bearer)
+
 		if (!bearer) {
 			res.status(401)
 			res.send('No Credentials')
@@ -20,8 +20,8 @@ module.exports = {
 		try {
 			const payload = jwt.verify(token, process.env.JWT_SECRET)
 			req.user = payload
+			//
 
-			console.log(payload)
 			next()
 			return
 		} catch (e) {

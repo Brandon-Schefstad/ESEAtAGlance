@@ -13,7 +13,7 @@ const AddNewGoals = ({ student_id }) => {
     succeed: "off",
     goalNotes: "None",
   };
-
+  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
   const [nextPage, setNextPage] = useState(false);
@@ -46,6 +46,7 @@ const AddNewGoals = ({ student_id }) => {
     // console.log(goalToSend);
     setLoading(true);
     e.preventDefault();
+
     const response = await axios
       .post(
         "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
@@ -81,13 +82,14 @@ const AddNewGoals = ({ student_id }) => {
     console.log(goalToSend);
     setGoalToSend(goalToSend, ...(goalToSend[e.target.name] = e.target.value));
   }
-
   const inputStyles =
     " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl mb-4";
   const titleStyles =
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return nextPage ? (
     <Navigate to="/addNewAccommodations" />
+  ) : ID ? (
+    <AddNewGoals student_id={ID} />
   ) : (
     <>
       <Navbar />
@@ -148,6 +150,7 @@ const AddNewGoals = ({ student_id }) => {
           name="goalText"
           className={inputStyles + " form-input col-span-2 w-full px-4"}
         />
+
         <label
           className={
             titleStyles +
@@ -170,7 +173,6 @@ const AddNewGoals = ({ student_id }) => {
         >
           Additional Notes:
         </label>
-
         <textarea
           cols={30}
           rows={1}

@@ -36,20 +36,19 @@ const Login = () => {
       );
     }
     const { token, user } = await response.data;
-    console.log(token);
-
     if (token) {
       localStorage.setItem("auth", token);
       localStorage.setItem("_id", user._id);
       setAuth(true);
     } else {
+      localStorage.setItem("user", "none");
       localStorage.setItem("auth", false);
-      localStorage.setItem("_id", 0);
     }
   }
 
   const inputStyles =
     " border-b-2 border-green-800 border-solid text-green-900 col-span-2 pl-2 py-2 placeholder:text-green-900  placeholder:text-xl  text-xl xl:mt-6 xl:mx-8 ";
+
   const activeStyle =
     "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid";
   const inactiveStyle =

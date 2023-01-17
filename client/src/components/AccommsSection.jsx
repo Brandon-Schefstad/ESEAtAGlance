@@ -27,7 +27,8 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
         Object.keys(data).map((title, index) => {
           return (
             <section
-              className="col-span-2 mx-4 flex flex-col gap-1 text-green-900  xl:col-span-1  xl:gap-0 xl:px-6 "
+  className="col-span-2 mx-4 flex flex-col gap-1 text-green-900  xl:col-span-1  xl:gap-0 xl:px-6 "
+
               key={index}
             >
               <h3 className="  mt-1 py-1 text-left text-xl font-semibold text-green-800 underline underline-offset-2 xl:mb-2 xl:font-semibold ">
@@ -37,7 +38,7 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
                 return (
                   <div
                     key={index}
-                    className="col-span-2 flex justify-between border-dashed  border-rose-500/50 py-1 pr-6 pl-2  xl:pr-16"
+                    className="col-span-2 flex justify-between border-b-[0.1rem] border-dashed border-green-100/25 py-1 pr-6 pl-2 font-light xl:border-[0.1rem] xl:pr-16"
                   >
                     <label
                       className="text-left text-sm xl:text-lg"
