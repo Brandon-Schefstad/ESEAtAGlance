@@ -5,7 +5,7 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
   // const [selected, setSelected] = useState([]);
   const [expand, setExpand] = useState(false);
   const titleStyles =
-    "block col-span-2 text-2xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-extrabold  py-2 px-8  text-green-900  xl:col-span-6 xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative  xl:my-8 tracking-wider";
+    "block col-span-2 text-2xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-extrabold  py-2 px-8  text-green-900   xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative  xl:my-8 tracking-wider xl:col-span-3";
   return (
     <>
       <h1 onClick={() => setExpand(!expand)} className={titleStyles}>
@@ -22,12 +22,13 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
           />
         )}
       </h1>
+
       {expand ? (
         Object.keys(data).map((title, index) => {
           return (
             <section
+  className="col-span-2 mx-4 flex flex-col gap-1 text-green-900  xl:col-span-1  xl:gap-0 xl:px-6 "
 
-              className="col-span-2 mx-4 flex flex-col gap-1 text-green-900  xl:gap-0 xl:px-6 "
               key={index}
             >
               <h3 className="  mt-1 py-1 text-left text-xl font-semibold text-green-800 underline underline-offset-2 xl:mb-2 xl:font-semibold ">

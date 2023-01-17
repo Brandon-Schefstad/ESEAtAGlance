@@ -57,15 +57,15 @@ const AddNewAccommodations = ({ student_id }) => {
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2  font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
+      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2  font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl ">
         New Accommodations
       </h1>
       <form
         onSubmit={postNewAccommodations}
-        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pb-4 pt-2 text-green-900  shadow-lg  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 "
+        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pb-4 pt-2 text-green-900 shadow-lg xl:mx-auto  xl:w-5/6 xl:grid-cols-3 xl:px-12 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"
       >
         <label
-          className=" col-span-2 mt-8 ml-8 text-xl xl:col-span-6 xl:text-3xl"
+          className="  mt-8 ml-8 text-xl xl:col-span-2 xl:col-span-3  xl:mx-auto xl:block xl:w-1/2 xl:text-3xl"
           htmlFor="studentNumber"
         >
           {" "}
@@ -75,7 +75,7 @@ const AddNewAccommodations = ({ student_id }) => {
             name="ID"
             id="studentNumber"
             onChange={(e) => setStudentId(e.target.value)}
-            className="  mt-2 text-green-900"
+            className="  mt-2 pr-2 text-green-900 xl:ml-8"
           />
         </label>
         <AccommsSection
@@ -106,7 +106,7 @@ const AddNewAccommodations = ({ student_id }) => {
         <ButtonWithLoader
           handleClick={(e) => postNewAccommodations(e)}
           className={
-            "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800"
+            "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:col-span-3 xl:py-4 xl:text-3xl"
           }
           name={"Submit"}
           loading={loading}
