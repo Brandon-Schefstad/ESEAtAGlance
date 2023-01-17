@@ -54,11 +54,17 @@ const Dashboard = () => {
 
           <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
             {students ? (
-              students.map((student) => {
+              students.map((student, index) => {
                 return (
                   <div>
-                    <section className=" rounded-lg bg-green-900 py-8">
-                      <section className=" grid grid-cols-2 bg-rose-50 p-4 xl:gap-8">
+                    <section
+                      className={
+                        index % 2 === 0
+                          ? " rounded-lg bg-green-900 py-8  "
+                          : " rounded-lg bg-rose-900 py-8  "
+                      }
+                    >
+                      <section className=" grid grid-cols-2 bg-white p-4 xl:gap-8">
                         <img
                           src={
                             student.image
