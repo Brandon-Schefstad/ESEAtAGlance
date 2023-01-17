@@ -94,7 +94,7 @@ const AddNewGoals = ({ student_id }) => {
       <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-right font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
         New Goal
       </h1>
-      <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12">
+      <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <label className={titleStyles} htmlFor="studentNumber">
           Student number:
         </label>
@@ -150,7 +150,8 @@ const AddNewGoals = ({ student_id }) => {
         />
         <label
           className={
-            titleStyles + " col-span-1 grid grid-cols-2 xl:grid-cols-1"
+            titleStyles +
+            " col-span-1 grid grid-cols-2 xl:col-start-1 xl:grid-cols-2"
           }
           htmlFor="attained"
         >
@@ -159,12 +160,12 @@ const AddNewGoals = ({ student_id }) => {
             type="checkbox"
             onChange={(e) => setStateOnChange(e, "attained")}
             name="attained"
-            className=" my-1 ml-8 bg-green-800 text-green-800 accent-amber-300"
+            className=" my-1 ml-8 bg-green-800 text-green-800 accent-amber-300 xl:h-8"
           />
         </label>
 
         <label
-          className={titleStyles + " form-input xl:col-span-1  "}
+          className={titleStyles + " form-input xl:col-span-3  "}
           htmlFor="goalNotes"
         >
           Additional Notes:
@@ -177,10 +178,12 @@ const AddNewGoals = ({ student_id }) => {
           name="goalNotes"
           className={inputStyles + "xl:col-span-1"}
         />
-        <section className="col-span-2 mt-6 grid grid-cols-2 justify-evenly xl:col-start-2 xl:row-span-3 xl:row-start-[10]">
+        <section className="col-span-2 mt-6 grid grid-cols-2 justify-evenly xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
           <ButtonWithLoader
             handleClick={(e) => postNewGoal(e)}
-            className={"m-auto rounded-lg bg-green-200 py-2 text-green-800"}
+            className={
+              "m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:py-4 xl:text-3xl"
+            }
             name={"Submit"}
             loading={loading}
           />
@@ -191,7 +194,7 @@ const AddNewGoals = ({ student_id }) => {
             {" "}
             Accommodations
             <FontAwesomeIcon
-              className=" "
+              className="ml-2 xl:ml-4"
               icon={faArrowRight}
               stopAnimation={stopAnimation}
             />

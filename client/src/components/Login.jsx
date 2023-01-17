@@ -51,9 +51,9 @@ const Login = () => {
   const inputStyles =
     " border-b-2 border-green-800 border-solid text-green-900 col-span-2 pl-2 py-2 placeholder:text-green-900  placeholder:text-xl  text-xl xl:mt-6 xl:mx-8 ";
   const activeStyle =
-    "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8";
+    "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid";
   const inactiveStyle =
-    "text-gray text-gray-600 rounded-lg py-2 text-2xl border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8";
+    "text-gray text-gray-600 rounded-lg py-2 text-2xl border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid";
   {
     return auth ? (
       <Navigate to="/dashboard" props={setAuth} />
@@ -66,17 +66,27 @@ const Login = () => {
           Student tracking for the busy teacher!
         </span>
         {/* {warning ? warning : ""} */}
-        <section className="relative z-10 rounded-lg border-[2px] border-solid border-green-900 bg-white px-8 pt-12 pb-8 xl:top-0 xl:row-start-3 xl:m-auto xl:grid xl:w-3/4 xl:-translate-y-20 xl:px-0 xl:pt-0">
+        <section className="relative z-10 rounded-lg border-[2px] border-solid border-green-900 bg-white px-8 pt-12 pb-8 xl:top-0 xl:row-start-3 xl:m-auto xl:grid xl:w-3/4 xl:-translate-y-12  xl:px-0 xl:pt-0">
           <form
             className=" grid grid-cols-2 gap-10 text-center  xl:gap-0"
             method="POST"
           >
             {login ? (
               <>
-                <span className={activeStyle} onClick={() => setLogin(true)}>
+                <span
+                  className={
+                    activeStyle + " xl:rounded-r-none xl:rounded-bl-none"
+                  }
+                  onClick={() => setLogin(true)}
+                >
                   Login
                 </span>
-                <span className={inactiveStyle} onClick={() => setLogin(false)}>
+                <span
+                  className={
+                    inactiveStyle + " xl:rounded-l-none xl:rounded-br-none"
+                  }
+                  onClick={() => setLogin(false)}
+                >
                   Signup
                 </span>
                 <input
@@ -100,7 +110,9 @@ const Login = () => {
               <>
                 {" "}
                 <span
-                  className={inactiveStyle}
+                  className={
+                    inactiveStyle + " xl:rounded-r-none xl:rounded-bl-none"
+                  }
                   onClick={() => {
                     setLogin(true);
                     setLoading(false);
@@ -109,7 +121,9 @@ const Login = () => {
                   Login
                 </span>
                 <span
-                  className={activeStyle}
+                  className={
+                    activeStyle + " xl:rounded-l-none xl:rounded-br-none"
+                  }
                   onClick={() => {
                     setLogin(false);
                     setLoading(null);

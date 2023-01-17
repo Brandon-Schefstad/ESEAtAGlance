@@ -55,7 +55,7 @@ const AddNewStudent = () => {
       <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
         Student Information
       </h1>
-      <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12">
+      <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <section className=" col-span-2">
           <span className={titleStyles}>First Name:</span>
           <input
@@ -123,7 +123,7 @@ const AddNewStudent = () => {
         <ButtonWithLoader
           handleClick={(e) => postNewStudent(e)}
           className={
-            "m-auto mt-6 rounded-lg bg-green-200 py-2 text-green-800 xl:w-64 xl:text-2xl"
+            "m-auto mt-6 rounded-lg bg-green-200 py-2 text-green-800 xl:w-64 xl:py-4 xl:text-3xl"
           }
           name={"Submit"}
           loading={loading}
