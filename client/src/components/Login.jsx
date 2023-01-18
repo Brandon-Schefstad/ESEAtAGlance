@@ -97,7 +97,7 @@ const Login = () => {
                   placeholder="Email"
                 />
                 <input
-                  type="text"
+                  type="password"
                   className={inputStyles}
                   onChange={(e) => formatAuthorizeInfo(e, "password")}
                   name="password"
@@ -155,7 +155,7 @@ const Login = () => {
                   placeholder="Last Name"
                 />
                 <input
-                  type="text"
+                  type="password"
                   className={inputStyles}
                   onChange={(e) => formatAuthorizeInfo(e, "password")}
                   name="password"
@@ -163,7 +163,7 @@ const Login = () => {
                   placeholder="Password"
                 />
                 <input
-                  type="text"
+                  type="password"
                   className={inputStyles}
                   onChange={(e) => formatAuthorizeInfo(e, "confirmPassword")}
                   name="confirmPassword"
