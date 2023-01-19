@@ -4,21 +4,28 @@ import { Navigate } from "react-router-dom";
 import AddNewGoals from "./AddNewGoals";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
+import UploadWidget from "./UploadWidget";
 const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
   const [student_id, setStudent_id] = useState(null);
   const [studentToSend, setStudentToSend] = useState({});
+  const [imageUrl, setImageUrl] = useState();
   const [loading, setLoading] = useState(false);
 
   async function postNewStudent(e) {
     e.preventDefault();
     setLoading(true);
     console.log(studentToSend);
+    console.log(imageUrl);
     const response = await axios
       .post(
         "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
 
-        { studentToSend: studentToSend, _id: localStorage.getItem("_id") },
+        {
+          studentToSend: studentToSend,
+          _id: localStorage.getItem("_id"),
+          imageUrl: imageUrl,
+        },
         {
           headers: {
             authorization: localStorage.getItem("auth"),
@@ -113,16 +120,7 @@ const AddNewStudent = () => {
             className={inputStyles + "+ col-span-2 w-full px-4"}
           />
         </section>
-        {/* <input
-					type="file"
-					id="image"
-					onChange={(e) => {
-						const fileToSend = e.target.files[0]
-						setStudentProfileImage(fileToSend)
-					}}
-					name="image"
-					encType="multipart/form-data"
-				/> */}
+        <UploadWidget setImageUrl={setImageUrl} />
         <ButtonWithLoader
           handleClick={(e) => postNewStudent(e)}
           className={

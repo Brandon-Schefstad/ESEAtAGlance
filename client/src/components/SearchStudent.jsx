@@ -49,7 +49,6 @@ const AddNewStudent = () => {
       <Navbar />
 
       <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:py-8 xl:text-3xl">
-
         <form>
           <label
             htmlFor="studentId"
@@ -62,9 +61,7 @@ const AddNewStudent = () => {
           <ButtonWithLoader
             handleClick={(e) => searchStudent(e)}
             className={
-
               "m-auto mt-4 rounded-lg bg-green-200 py-2 text-green-800 xl:ml-8 xl:mt-[-0.5rem]"
-
             }
             name={"Search"}
             loading={loading}

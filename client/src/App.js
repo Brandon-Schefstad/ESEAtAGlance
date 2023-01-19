@@ -1,3 +1,4 @@
+import { Cloudinary } from "@cloudinary/url-gen";
 import { useEffect } from "react";
 import {
   createBrowserRouter,
@@ -32,7 +33,11 @@ const router = createBrowserRouter(
     </>
   )
 );
-
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: "nlhd",
+  },
+});
 function App() {
   useEffect(() => {
     document.body.classList.add(

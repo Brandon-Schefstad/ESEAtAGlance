@@ -55,6 +55,7 @@ const Dashboard = () => {
           <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
             {students ? (
               students.map((student, index) => {
+                console.log(student.image);
                 return (
                   <div>
                     <section
@@ -66,11 +67,7 @@ const Dashboard = () => {
                     >
                       <section className=" grid grid-cols-2 bg-white p-4 xl:gap-8">
                         <img
-                          src={
-                            student.image
-                              ? student.image
-                              : "https://www.theyearinpictures.co.uk/images//image-placeholder.png"
-                          }
+                          src={student.image}
                           alt=""
                           className=" m-auto h-36"
                         />
