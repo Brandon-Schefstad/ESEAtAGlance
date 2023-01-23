@@ -18,6 +18,7 @@ const AddNewStudent = () => {
     console.log(studentToSend);
     console.log(imageUrl);
     const response = await axios
+
       .post(
         "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
 

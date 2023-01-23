@@ -18,7 +18,6 @@ module.exports = {
 				history: [],
 				accommodations: [],
 				IEPDueDate: studentToSend.IEP,
-				// cloudinaryID: result.public_id,
 				image: imageUrl,
 			})
 			if (!student) {
