@@ -30,15 +30,13 @@ module.exports = async function populateStudentObject(ID) {
 		let returnHistory = history.filter((subArr) => {
 			return subArr.length > 0
 		})
-		console.log(history)
-		console.log(returnHistory)
 
 		const studentObject = {
 			_id: student._id,
 			name: student.firstName + ' ' + student.lastName,
 			ID: student.ID,
 			grade: student.grade,
-			caseManager: student.caseManager.email,
+			caseManager: student.caseManager,
 			primary: student.primaryExceptionality,
 			history: history,
 			presentationList: separateAccommodationsIntoGroups(
@@ -60,6 +58,7 @@ module.exports = async function populateStudentObject(ID) {
 			IEP: student.IEPDueDate.toDateString().split(' ').splice(1, 4).join(' '),
 			image: student.image,
 		}
+		console.log(studentObject.image)
 		if (!studentObject) {
 			const errorObject = { error: 'No student was found' }
 			return errorObject

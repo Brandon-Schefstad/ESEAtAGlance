@@ -5,9 +5,8 @@ module.exports = {
 		try {
 			const studentSearchObject = await populateStudentObject(req.params.id)
 			if (!studentSearchObject) {
-				res.sendStatus(404)
+				res.json({ error: 'No Student Found!' })
 			}
-
 			res.json(studentSearchObject)
 		} catch (error) {
 			console.error(error)
