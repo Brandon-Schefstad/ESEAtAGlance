@@ -20,7 +20,7 @@ ESE-At-A-Glance is a central hub for submitting, reviewing, and viewing ESE stud
 Student data is enterable into the database and retrievable using the search features. The cards on the teacher's dashboard (which load in after the first student is submitted) link to that student's profile page.
 
 <div align="center">
-    <img width="1440" src="https://github.com/Brandon-Schefstad/portfolio-upload/blob/daisyui/dist/assets/ESEAAG-vid.mp4">
+    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/dev/client/src/assets/ESEAAG-vid.mp4">
 </div>
 
 ### Project Installation
