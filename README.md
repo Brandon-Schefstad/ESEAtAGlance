@@ -4,7 +4,8 @@
     <p>A dashboard for ESE student accommodations and IEP goals.</p>
 </div>
 
-# [Live Site](https://ese-at-a-glance.herokuapp.com/)
+# [Live Site](https://ese-at-a-glance.netlify.app/)
+# [Video Preview](https://youtu.be/RdijkKT18xY)
 
 #### README.md Sections:
 
@@ -19,9 +20,7 @@ ESE-At-A-Glance is a central hub for submitting, reviewing, and viewing ESE stud
 
 Student data is enterable into the database and retrievable using the search features. The cards on the teacher's dashboard (which load in after the first student is submitted) link to that student's profile page.
 
-<div align="center">
-    <img width="1440" src="https://github.com/Brandon-Schefstad/ESEAtAGlance/blob/dev/client/src/assets/ESEAAG-vid.mp4">
-</div>
+<video src="https://raw.githubusercontent.com/Brandon-Schefstad/ESEAtAGlance/main/client/src/assets/ESEAAG-vid.mp4"> </video>
 
 ### Project Installation
 
