@@ -92,7 +92,9 @@ const AddNewStudent = () => {
                   </section>
                   <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:px-12 xl:pb-2 xl:text-xl">
                     <h2 className="my-auto ">Case Manager: </h2>
-                    <h2 class="my-auto w-[120%]">{student.caseManager} </h2>
+                    <h2 class="my-auto w-[120%]">
+                      {student.caseManager.email}{" "}
+                    </h2>
                   </section>
                 </section>
                 <img
