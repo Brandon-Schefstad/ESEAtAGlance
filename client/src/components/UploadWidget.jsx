@@ -25,7 +25,7 @@ const UploadWidget = ({ setImageUrl }) => {
       }}
     >
       {" "}
-      Upload
+      Upload Image
     </button>
   );
 };

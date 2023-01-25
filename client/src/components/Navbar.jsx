@@ -9,15 +9,15 @@ const Navbar = () => {
   );
 
   const activeClass =
-    "text-green-900 bg-green-200  px-4 py-1.5 rounded-md  mx-4 ";
-  const inactiveClass = "px-4 mx-4 py-1.5";
+    "text-green-900 bg-green-200  px-4 py-1.5 rounded-md   max-w-36";
+  const inactiveClass = "max-w-36 px-4 py-1.5";
   return !auth ? (
     <Navigate to={"/"} />
   ) : (
     <nav className="flex min-w-full justify-between border-b-2 border-dashed border-rose-500/50 bg-white py-2 ">
       <ul
         className=" m-auto grid w-full grid-cols-3 items-center justify-evenly 
-       text-center text-sm font-extrabold text-gray-800 xl:flex xl:gap-24  xl:px-12 xl:text-xl xl:font-semibold"
+       text-center text-sm font-extrabold text-gray-800 lg:flex lg:gap-12  xl:px-12 xl:text-xl xl:font-semibold"
       >
         <Link
           className={active === "dashboard" ? activeClass : inactiveClass}

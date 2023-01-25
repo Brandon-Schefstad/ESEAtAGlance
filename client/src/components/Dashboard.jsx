@@ -1,3 +1,5 @@
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -9,9 +11,7 @@ const Dashboard = () => {
   async function getDashboard() {
     console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
-        "_id"
-      )}`,
+      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
@@ -20,6 +20,20 @@ const Dashboard = () => {
     );
     const { studentList } = await response.data;
     setStudents(studentList);
+  }
+  async function deleteStudent(ID) {
+    let result = await axios.delete(
+      "http://localhost:5501/api/student/deleteStudent",
+      {
+        headers: {
+          Authorization: localStorage.getItem("auth"),
+        },
+        data: {
+          ID,
+        },
+      }
+    );
+    result.status === 200 ? getDashboard() : console.error(result.status);
   }
   function makeHeading(index) {
     switch (index) {
@@ -47,8 +61,8 @@ const Dashboard = () => {
     ) : (
       <>
         <Navbar setAuth={setAuth} auth={auth} />
-        <section className="   pt-4 ">
-          <div className="my-4 mx-8 font-[Martel] text-5xl font-extrabold text-green-900">
+        <section className="   ">
+          <div className="col-span-2 mb-8 bg-blue-100 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-4xl">
             Your Students
           </div>
 
@@ -61,15 +75,21 @@ const Dashboard = () => {
                     <section
                       className={
                         index % 2 === 0
-                          ? " rounded-lg bg-green-900 py-8  "
-                          : " rounded-lg bg-rose-900 py-8  "
+                          ? " relative rounded-lg border-[2px] border-solid border-black bg-green-800 py-8"
+                          : "relative rounded-lg border-[2px] border-solid border-black bg-rose-800 py-8 "
                       }
                     >
-                      <section className=" grid grid-cols-2 bg-white p-4 xl:gap-8">
+                      <button
+                        onClick={() => deleteStudent(student.ID)}
+                        className="absolute right-0 mr-2"
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                      <section className=" grid gap-4 bg-white p-4 text-center align-middle sm:grid-cols-2 xl:gap-4 xl:px-8 xl:py-8">
                         <img
                           src={student.image}
-                          alt=""
-                          className=" m-auto h-36"
+                          alt={`Image of ${student.firstName} ${student.lastName}`}
+                          className=" m-auto max-h-36 rounded-full xl:ml-8 xl:max-h-40 "
                         />
                         <section className=" my-auto flex flex-col">
                           <section className="mb-2 text-xl">

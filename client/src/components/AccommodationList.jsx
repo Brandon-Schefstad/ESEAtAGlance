@@ -1,21 +1,25 @@
 import React from "react";
 
 const AccommodationList = ({ domain, accommsList }) => {
-  return (
-    <section className="mb-2 border-t-2 border-dashed border-rose-500/50 xl:col-span-4 xl:p-2">
-      <h2 className=" text-2xl ">{domain}</h2>
+  return accommsList.length > 0 ? (
+    <section className=" mt-4  xl:col-span-4 xl:mt-0 xl:p-2">
+      <h2 className=" mb-2 ml-4 text-2xl underline underline-offset-2 xl:ml-0">
+        {domain}
+      </h2>
       {
-        <section class="mx-4 flex flex-col rounded-lg  bg-amber-200/50  p-2 xl:col-span-4 xl:grid xl:grid-cols-3 xl:gap-4">
+        <ul class="text-semibold mx-4 flex list-[circle] flex-col bg-white p-2 md:col-span-4 md:grid md:list-none md:grid-cols-2 md:gap-2 md:px-0 md:py-2 xl:gap-4 xl:py-4">
           {accommsList.map((entry) => {
             return (
-              <span className="xl:m-auto xl:w-3/4 xl:rounded-lg  xl:bg-amber-50 xl:px-2 xl:py-2 xl:text-center xl:text-lg xl:text-gray-700">
+              <li className=" mx-4  md:bg-blue-900  md:px-2 md:py-2 md:text-center md:text-sm md:text-white xl:m-auto xl:w-5/6">
                 {entry}
-              </span>
+              </li>
             );
           })}
-        </section>
+        </ul>
       }
     </section>
+  ) : (
+    <></>
   );
 };
 

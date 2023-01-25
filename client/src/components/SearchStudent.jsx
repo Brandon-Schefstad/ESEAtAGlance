@@ -8,12 +8,14 @@ const AddNewStudent = () => {
   const [student, setStudent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState();
+  const [warning, setWarning] = useState(false);
   async function searchStudent(e) {
+    console.log(studentIdToSend);
     setLoading(true);
     e.preventDefault();
     const { data, status } = await axios
       .get(
-        `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
+        `http://localhost:5501/api/student/searchStudent/${studentIdToSend}`,
         {
           headers: {
             authorization: localStorage.getItem("auth"),
@@ -22,10 +24,11 @@ const AddNewStudent = () => {
       )
       .catch(() => {
         setLoading(false);
-        alert("Malformed Data");
+        setWarning(true);
       });
-    setLoading(false);
     if (status === 200) {
+      setWarning(false);
+      setLoading(false);
       setStudent(data);
     }
   }
@@ -47,17 +50,17 @@ const AddNewStudent = () => {
   return (
     <>
       <Navbar />
-
-      <section className="mx-8 mt-8 flex gap-16 bg-amber-100 py-4 px-8 text-slate-800  xl:py-8 xl:text-3xl">
-        <form>
-          <label
-            htmlFor="studentId"
-            className="text-2xl"
-            onChange={(e) => setStudentIdToSend(e.target.value)}
-          >
+      {warning ? <h1>Error, no student found</h1> : <></>}
+      <section>
+        <form className=" my-4 flex flex-col gap-4 bg-amber-100 px-6 pt-4 pb-6 text-slate-800 shadow-md md:px-12  lg:flex-row lg:px-20 lg:py-12 xl:mx-auto xl:mt-8 xl:w-1/2 xl:px-16 xl:pb-12 xl:shadow-md xl:shadow-blue-900/50">
+          <label htmlFor="studentId" className="text-2xl font-semibold">
             Enter Student Id:{" "}
-            <input type="number" className="pl-2 text-black" />
           </label>
+          <input
+            onChange={(e) => setStudentIdToSend(e.target.value)}
+            type="number"
+            className="px-2 text-black"
+          />
           <ButtonWithLoader
             handleClick={(e) => searchStudent(e)}
             className={
@@ -68,42 +71,34 @@ const AddNewStudent = () => {
           />
         </form>
       </section>
-      {student ? (
+      {student && !warning ? (
         <>
-          <section className="mt-8  bg-green-900 pt-8 shadow-lg shadow-amber-900 xl:mx-auto xl:w-3/4 xl:pt-12 xl:text-xl">
-            <section className="bg-amber-100 px-2 pt-4 text-black xl:pt-0 xl:pb-8">
-              <section className="grid xl:grid-cols-2 ">
-                <section className="text-md flex flex-col gap-2  xl:mt-[0rem] xl:h-full xl:gap-6 xl:border-r-2 xl:border-t-2 xl:border-dashed xl:border-rose-500/50">
-                  <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:mt-6 xl:px-12 xl:text-xl">
-                    <h1 class="">Name: </h1>
-                    <h1 class="my-auto">{student.name}</h1>
-                  </section>
-                  <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:px-12  xl:text-xl">
-                    <h2 class="">Id: </h2>
-                    <h2 class="my-auto">{student.ID} </h2>
-                  </section>
-                  <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:px-12  xl:text-xl">
-                    <h2 class="">Grade: </h2>
-                    <h2 class="my-auto">{student.grade} </h2>
-                  </section>
-                  <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:px-12  xl:text-xl">
-                    <h2 class="">Exceptionality: </h2>
-                    <h2 class="my-auto">{student.primary} </h2>
-                  </section>
-                  <section className="grid grid-cols-2 border-b-2 border-dashed border-rose-500/50 px-6 xl:px-12 xl:pb-2 xl:text-xl">
-                    <h2 className="my-auto ">Case Manager: </h2>
-                    <h2 class="my-auto w-[120%]">
-                      {student.caseManager.email}{" "}
-                    </h2>
+          <section className=" mx-auto lg:w-3/4 xl:w-5/6  xl:pt-12 xl:text-xl">
+            <section className=" bg-blue-100 px-2 pt-4 pb-8 text-black xl:grid xl:grid-cols-3 xl:gap-8 xl:px-12 xl:pt-4 xl:pb-4">
+              <section className="xl:my-4 xl:grid ">
+                <section className="text-md xl:max-h-1/2 m-auto flex flex-col gap-2 border-2 border-solid border-black bg-white py-4 md:w-2/3 xl:my-auto xl:w-full xl:gap-6">
+                  <img
+                    className="m-auto my-6 w-2/3 rounded-full border-2 border-solid border-white lg:w-1/3 xl:my-0 xl:w-3/5"
+                    src={student.image}
+                    alt={`Image of ${student.firstName} ${student.lastName}`}
+                  />
+                  <h1 class="my-auto px-6 text-center text-2xl font-bold text-blue-800 xl:mt-6 xl:px-12 xl:text-center xl:text-4xl ">
+                    {student.name}
+                  </h1>
+                  <h2 class="text-center text-sm xl:mb-[-1rem]">
+                    {student.caseManager.email}{" "}
+                  </h2>
+                  <section className="md:text-md m-auto grid grid-cols-3 gap-4  text-center font-semibold lg:text-lg xl:text-xl">
+                    <h2 class="">{student.ID} </h2>
+                    <h2 class="">{makeHeading(student.grade)} </h2>
+                    <h2 class="">{student.primary} </h2>
                   </section>
                 </section>
-                <img
-                  className="my-6 xl:m-auto xl:my-0 xl:w-3/5"
-                  src={student.image}
-                  alt=""
-                />
               </section>
-              <section className="accommodations grid xl:mt-8 xl:grid-cols-4">
+              <section className="accommodations grid xl:col-span-2 xl:grid-cols-4">
+                <h1 class="my-auto pt-6 text-center text-2xl font-bold text-black md:text-3xl lg:text-4xl  xl:col-span-4  xl:pt-0 xl:text-4xl ">
+                  Accommodations
+                </h1>
                 <AccommodationList
                   domain={"Presentation"}
                   accommsList={student.presentationList}
@@ -123,14 +118,16 @@ const AddNewStudent = () => {
               </section>
             </section>
           </section>
-          <h2 className="my-4 text-4xl">Goal History</h2>
 
-          <span>
+          <section className="pb-8 xl:px-28">
+            <h2 className=" my-4 text-3xl font-bold xl:ml-12   ">
+              Goal History
+            </h2>
             {student.history.map((grade, index) => {
               return grade.length > 0 ? (
                 <>
-                  <h3 class="my-2 text-2xl">{makeHeading(index)}</h3>
-                  <section className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  <h3 class="my-2 text-2xl xl:ml-12">{makeHeading(index)}</h3>
+                  <section className="grid bg-amber-100 sm:px-12 md:px-36 lg:grid-cols-2 lg:px-4 xl:grid-cols-3 xl:py-8">
                     {grade.map((goal) => {
                       return <GoalDisplay goal={goal} />;
                     })}
@@ -140,7 +137,7 @@ const AddNewStudent = () => {
                 <></>
               );
             })}
-          </span>
+          </section>
         </>
       ) : (
         <></>

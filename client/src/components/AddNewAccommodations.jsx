@@ -26,7 +26,7 @@ const AddNewAccommodations = ({ student_id }) => {
     e.preventDefault();
     const { data, status } = await axios
       .post(
-        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewAccommodations",
+        "http://localhost:5501/api/student/addNewAccommodations",
         {
           ID: studentId,
           accommodationsToSend,
@@ -48,8 +48,6 @@ const AddNewAccommodations = ({ student_id }) => {
       setStudentFinished(true);
     }
   }
-  const inputStyles =
-    " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl mb-4";
   const titleStyles =
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return studentFinished ? (
@@ -57,27 +55,29 @@ const AddNewAccommodations = ({ student_id }) => {
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2  font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl ">
+      <h1 className="col-span-2 mb-8 bg-blue-100  px-8 pt-4 pb-2  font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:pr-12 xl:text-center xl:text-4xl ">
         New Accommodations
       </h1>
       <form
         onSubmit={postNewAccommodations}
-        className=" m-8 grid grid-cols-2 gap-4 bg-amber-100 pb-4 pt-2 text-green-900 shadow-lg xl:mx-auto  xl:w-5/6 xl:grid-cols-3 xl:px-12 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"
+        className="mx-8 grid grid-cols-3  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-16 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"
       >
-        <label
-          className="  mt-8 ml-8 text-xl xl:col-span-2 xl:col-span-3  xl:mx-auto xl:block xl:w-1/2 xl:text-3xl"
-          htmlFor="studentNumber"
-        >
-          {" "}
-          Student number
+        <section className=" col-span-3 grid gap-4 pt-4 xl:grid-cols-3">
+          <label
+            className="  text-xl xl:col-span-1   xl:mx-auto xl:block xl:text-4xl"
+            htmlFor="studentNumber"
+          >
+            {" "}
+            Student number
+          </label>
           <input
             type="number"
             name="ID"
             id="studentNumber"
             onChange={(e) => setStudentId(e.target.value)}
-            className="  mt-2 pr-2 text-green-900 xl:ml-8"
+            className=" mb-4 border-2 border-solid border-rose-400/50 bg-gray-50 py-2 pl-2 placeholder:text-xl placeholder:text-yellow-100  xl:col-span-2 xl:w-3/4 xl:text-xl"
           />
-        </label>
+        </section>
         <AccommsSection
           name={"Presentation"}
           data={presentation}
