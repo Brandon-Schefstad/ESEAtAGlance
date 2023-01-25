@@ -10,7 +10,6 @@ module.exports = {
 		}
 
 		const token = bearer
-
 		if (!token) {
 			res.status(401)
 			res.send('No Token')
@@ -20,8 +19,6 @@ module.exports = {
 		try {
 			const payload = jwt.verify(token, process.env.JWT_SECRET)
 			req.user = payload
-			//
-
 			next()
 			return
 		} catch (e) {

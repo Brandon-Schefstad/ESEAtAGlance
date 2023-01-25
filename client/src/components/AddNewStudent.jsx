@@ -21,7 +21,7 @@ const AddNewStudent = () => {
     const response = await axios
 
       .post(
-        "http://localhost:5501/api/student/addNewStudent",
+        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
 
         {
           studentToSend: studentToSend,

@@ -26,12 +26,12 @@ const Login = () => {
     let response;
     if (login) {
       response = await axios.post(
-        "http://localhost:5501/api/login",
+        "https://ese-at-a-glance-api.cyclic.app/api/login",
         authorizeInfo
       );
     } else {
       response = await axios.post(
-        "http://localhost:5501/api/signup",
+        "https://ese-at-a-glance-api.cyclic.app/api/signup",
         authorizeInfo
       );
     }

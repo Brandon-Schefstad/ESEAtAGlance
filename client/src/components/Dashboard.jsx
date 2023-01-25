@@ -12,7 +12,9 @@ const Dashboard = () => {
   async function getDashboard() {
     console.log(localStorage.getItem("auth"));
     const response = await axios.get(
-      `http://localhost:5501/api/dashboard/${localStorage.getItem("_id")}`,
+      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
+        "_id"
+      )}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),
@@ -24,7 +26,7 @@ const Dashboard = () => {
   }
   async function deleteStudent(ID) {
     let result = await axios.delete(
-      "http://localhost:5501/api/student/deleteStudent",
+      "https://ese-at-a-glance-api.cyclic.app/api/student/deleteStudent",
       {
         headers: {
           Authorization: localStorage.getItem("auth"),
