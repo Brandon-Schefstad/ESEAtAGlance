@@ -5,6 +5,7 @@ import AddNewGoals from "./AddNewGoals";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import UploadWidget from "./UploadWidget";
+import bannerStyles from "./utils/styles";
 const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
   const [student_id, setStudent_id] = useState(null);
@@ -63,9 +64,7 @@ const AddNewStudent = () => {
     <>
       <Navbar />
 
-      <h1 className=" col-span-2 mb-8 bg-blue-100 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900  xl:py-4 xl:text-center xl:text-4xl">
-        New Student
-      </h1>
+      <h1 className={bannerStyles}>Enter Demogrpahic Information</h1>
       <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-24 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <section className=" col-span-2">
           <span className={titleStyles}>First Name:</span>

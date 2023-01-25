@@ -9,12 +9,12 @@ const Navbar = () => {
   );
 
   const activeClass =
-    "text-green-900 bg-green-200  px-4 py-1.5 rounded-md   max-w-36";
+    "text-blue-900 bg-blue-200  px-4 py-1.5 rounded-md   max-w-36";
   const inactiveClass = "max-w-36 px-4 py-1.5";
   return !auth ? (
     <Navigate to={"/"} />
   ) : (
-    <nav className="flex min-w-full justify-between border-b-2 border-dashed border-rose-500/50 bg-white py-2 ">
+    <nav className="flex min-w-full justify-between bg-white py-2 ">
       <ul
         className=" m-auto grid w-full grid-cols-3 items-center justify-evenly 
        text-center text-sm font-extrabold text-gray-800 lg:flex lg:gap-12  xl:px-12 xl:text-xl xl:font-semibold"
@@ -56,7 +56,7 @@ const Navbar = () => {
           <li>Search</li>
         </Link>
         <button
-          className="  col-start-3 row-start-1 my-[0.25rem] mx-4 rounded-md border-solid border-rose-700 bg-rose-200 py-[0.4rem] px-4 font-bold text-rose-900 xl:ml-[20%]"
+          className="  col-start-3 row-start-1 my-[0.25rem] mx-4 rounded-md border-solid  bg-red-600 py-[0.4rem] px-4 font-bold text-white xl:ml-[20%]"
           onClick={() => {
             localStorage.setItem("auth", false);
             localStorage.setItem("user", false);

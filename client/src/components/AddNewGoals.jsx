@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
+import bannerStyles from "./utils/styles";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
     goalGrade: "0",
@@ -100,9 +101,7 @@ const AddNewGoals = ({ student_id }) => {
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mb-8 bg-blue-100 px-8 pt-4 pb-2 text-right font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
-        New Goal
-      </h1>
+      <h1 className={bannerStyles}>Add a goal to a student profile</h1>
       <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-24 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <label className={titleStyles} htmlFor="studentNumber">
           Student number:

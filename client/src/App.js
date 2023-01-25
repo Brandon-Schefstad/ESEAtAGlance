@@ -41,10 +41,9 @@ const cld = new Cloudinary({
 function App() {
   useEffect(() => {
     document.body.classList.add(
-      "bg-green-50",
+      "bg-amber-50",
       "min-h-screen",
-      "px-6",
-      "max-w-[1800px]",
+      "max-w-[2000px]",
       "m-auto"
     );
   }, []);

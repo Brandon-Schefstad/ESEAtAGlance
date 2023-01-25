@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import bannerStyles from "./utils/styles";
 const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [students, setStudents] = useState();
@@ -62,9 +63,7 @@ const Dashboard = () => {
       <>
         <Navbar setAuth={setAuth} auth={auth} />
         <section className="   ">
-          <div className="col-span-2 mb-8 bg-blue-100 px-8 pt-4 pb-2 text-left font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-4xl">
-            Your Students
-          </div>
+          <div className={bannerStyles}>Your Students</div>
 
           <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
             {students ? (
@@ -75,8 +74,8 @@ const Dashboard = () => {
                     <section
                       className={
                         index % 2 === 0
-                          ? " relative rounded-lg border-[2px] border-solid border-black bg-green-800 py-8"
-                          : "relative rounded-lg border-[2px] border-solid border-black bg-rose-800 py-8 "
+                          ? " relative rounded-lg border-[2px] border-solid border-black bg-blue-900 py-8"
+                          : "relative rounded-lg border-[2px] border-solid border-black bg-red-800 py-8 "
                       }
                     >
                       <button

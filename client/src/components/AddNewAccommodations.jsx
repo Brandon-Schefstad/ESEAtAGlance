@@ -5,6 +5,7 @@ import AccommsSection from "./AccommsSection";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import accommodations from "./utils/accommodations";
+import bannerStyles from "./utils/styles";
 
 const AddNewAccommodations = ({ student_id }) => {
   const { presentation, response, scheduling, setting } = accommodations;
@@ -55,9 +56,7 @@ const AddNewAccommodations = ({ student_id }) => {
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mb-8 bg-blue-100  px-8 pt-4 pb-2  font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:pr-12 xl:text-center xl:text-4xl ">
-        New Accommodations
-      </h1>
+      <h1 className={bannerStyles}>Add accommodations to a student profile</h1>
       <form
         onSubmit={postNewAccommodations}
         className="mx-8 grid grid-cols-3  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-16 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"

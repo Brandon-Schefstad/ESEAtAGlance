@@ -58,7 +58,7 @@ const Login = () => {
       <Navigate to="/dashboard" props={setAuth} />
     ) : (
       <section className="px-4 xl:grid xl:grid-cols-2">
-        <h1 className="mainTitle mb-4 pt-16 text-[2.75rem] font-[900] text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
+        <h1 className="mainTitle mb-4 pt-16 font-[Martel] text-[2.75rem] font-[900] text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
           ESE-At-A-Glance
         </h1>
         <span className="mb-4 block text-lg font-semibold text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
