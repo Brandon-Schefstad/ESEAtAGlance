@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider
+  RouterProvider,
 } from "react-router-dom";
 import AddNewAccommodations from "./components/AddNewAccommodations";
 import AddNewGoals from "./components/AddNewGoals";
@@ -27,7 +27,15 @@ const router = createBrowserRouter(
             path={"/addNewAccommodations"}
             element={<AddNewAccommodations />}
           ></Route>
-          <Route path={"/searchStudent"} element={<SearchStudent />}></Route>
+          <Route
+            path={"/addNewAccommodations/:id"}
+            element={<AddNewAccommodations />}
+          ></Route>
+          <Route path={"/searchStudent/"} element={<SearchStudent />}></Route>
+          <Route
+            path={"/searchStudent/:id"}
+            element={<SearchStudent />}
+          ></Route>
         </Route>
       </>
     </>
