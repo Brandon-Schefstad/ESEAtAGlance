@@ -1,6 +1,6 @@
 import React from "react";
 
-const AccommodationList = ({ domain, accommsList }) => {
+const StudentAccommodationList = ({ domain, accommsList }) => {
   return accommsList.length > 0 ? (
     <section className=" mt-4  xl:col-span-4 xl:mt-0 xl:p-2">
       <h2 className=" mb-2 ml-4 text-2xl font-semibold underline underline-offset-2 xl:ml-0">
@@ -23,4 +23,4 @@ const AccommodationList = ({ domain, accommsList }) => {
   );
 };
 
-export default AccommodationList;
+export default StudentAccommodationList;
