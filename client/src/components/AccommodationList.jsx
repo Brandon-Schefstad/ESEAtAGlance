@@ -10,7 +10,7 @@ const AccommodationList = ({ domain, accommsList }) => {
         <ul class=" mx-4 flex list-[circle] flex-col  p-2 md:col-span-4 md:grid md:list-none md:grid-cols-2 md:gap-2 md:px-0 md:py-2 xl:gap-4 xl:py-4">
           {accommsList.map((entry) => {
             return (
-              <li className=" mx-4  md:bg-blue-900  md:px-2 md:py-2 md:text-center md:text-sm md:text-white xl:m-auto xl:w-5/6">
+              <li className=" mx-4  md:bg-green-900  md:px-2 md:py-2 md:text-center md:text-sm md:text-white xl:m-auto xl:w-5/6">
                 {entry}
               </li>
             );

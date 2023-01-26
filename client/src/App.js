@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
 import AddNewAccommodations from "./components/AddNewAccommodations";
 import AddNewGoals from "./components/AddNewGoals";
@@ -41,7 +41,7 @@ const cld = new Cloudinary({
 function App() {
   useEffect(() => {
     document.body.classList.add(
-      "bg-amber-50",
+      "bg-white",
       "min-h-screen",
       "max-w-[2000px]",
       "m-auto"
