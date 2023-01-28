@@ -1,18 +1,30 @@
 import axios from "axios";
-import React, { useState } from "react";
-import AccommodationList from "./AccommodationList";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
+import makeHeading from "./utils/makeHeading";
+import StudentAccommodationList from "./utils/StudentAccommodationList";
+
 const AddNewStudent = () => {
+  const urlId = useLocation().pathname.split("/")[2];
   const [student, setStudent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [studentIdToSend, setStudentIdToSend] = useState();
+  const [studentIdToSend, setStudentIdToSend] = useState(urlId || 0);
   const [warning, setWarning] = useState(false);
-  async function searchStudent(e) {
+  useEffect(() => {
+    if (urlId && typeof urlId) {
+      setLoading(true);
+      searchStudent(urlId);
+    }
+  }, [urlId]);
+  async function searchStudent(studentIdToSend, e = null) {
     console.log(studentIdToSend);
     setLoading(true);
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     const { data, status } = await axios
       .get(
         `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
@@ -32,27 +44,13 @@ const AddNewStudent = () => {
       setStudent(data);
     }
   }
-  function makeHeading(index) {
-    switch (index) {
-      case 0:
-        return "Kindergarten";
-      case 1:
-        return "1st Grade";
-      case 2:
-        return "2nd Grade";
-      case 3:
-        return "3rd Grade";
 
-      default:
-        return `${index}th Grade`;
-    }
-  }
   return (
     <section className="">
       <Navbar />
       {warning ? <h1>Error, no student found</h1> : <></>}
       <section>
-        <form className=" mb-4 flex flex-col items-center gap-4 px-6  pt-4 pb-6 align-middle text-green-900 md:px-12 lg:flex-row lg:px-20 xl:mx-auto xl:my-0 xl:py-4  xl:px-16 xl:text-4xl border-solid border-green-900 border-b-2 ">
+        <form className=" mb-4 flex flex-col items-center gap-4 border-b-2  border-solid border-green-900 px-6 pt-4 pb-6 align-middle text-green-900 md:px-12 lg:flex-row lg:px-20  xl:mx-auto xl:my-0 xl:py-4 xl:px-16 xl:text-4xl ">
           <label htmlFor="studentId" className=" font-semibold ">
             Student Id:{" "}
           </label>
@@ -60,10 +58,10 @@ const AddNewStudent = () => {
             onChange={(e) => setStudentIdToSend(e.target.value)}
             type="number"
             placeholder={"Enter"}
-            className="px-2 py-1 text-xl text-black border-b-2 border-solid border-black bg-yellow-50 placeholder:text-black "
+            className="border-b-2 border-solid border-black bg-yellow-50 px-2 py-1 text-xl text-black placeholder:text-black "
           />
           <ButtonWithLoader
-            handleClick={(e) => searchStudent(e)}
+            handleClick={(e) => searchStudent(studentIdToSend, e)}
             className={
               " m-auto mt-4 rounded-lg bg-green-200 text-green-900 xl:my-auto xl:ml-8 "
             }
@@ -81,7 +79,7 @@ const AddNewStudent = () => {
                   <img
                     className="m-auto my-6 w-2/3 rounded-full border-2 border-solid border-white lg:w-1/3 xl:my-0 xl:w-3/5"
                     src={student.image}
-                    alt={`Image of ${student.firstName} ${student.lastName}`}
+                    alt={`${student.firstName} ${student.lastName}`}
                   />
                   <h1 class="my-auto px-6 text-center text-2xl font-bold text-blue-900 xl:mt-6 xl:px-12 xl:text-center xl:text-4xl ">
                     {student.name}
@@ -97,19 +95,19 @@ const AddNewStudent = () => {
                 </section>
               </section>
               <section className="accommodations grid p-4 xl:col-span-2 xl:grid-cols-4">
-                <AccommodationList
+                <StudentAccommodationList
                   domain={"Presentation"}
                   accommsList={student.presentationList}
                 />
-                <AccommodationList
+                <StudentAccommodationList
                   domain={"Response"}
                   accommsList={student.responseList}
                 />
-                <AccommodationList
+                <StudentAccommodationList
                   domain={"Scheduling"}
                   accommsList={student.schedulingList}
                 />
-                <AccommodationList
+                <StudentAccommodationList
                   domain={"Setting"}
                   accommsList={student.settingList}
                 />

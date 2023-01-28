@@ -1,14 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import AddNewGoals from "./AddNewGoals";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import UploadWidget from "./UploadWidget";
 import bannerStyles from "./utils/styles";
 const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
-  const [student_id, setStudent_id] = useState(null);
   const [studentToSend, setStudentToSend] = useState({});
   const [imageUrl, setImageUrl] = useState();
   const [loading, setLoading] = useState(false);
@@ -42,7 +40,6 @@ const AddNewStudent = () => {
     setLoading(false);
 
     if (response.status === 200) {
-      setStudent_id(response.data.ID);
       setSuccess(true);
     }
   }
@@ -58,8 +55,6 @@ const AddNewStudent = () => {
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return success ? (
     <Navigate to="/addNewGoals" />
-  ) : success ? (
-    <AddNewGoals student_id={student_id} />
   ) : (
     <>
       <Navbar />

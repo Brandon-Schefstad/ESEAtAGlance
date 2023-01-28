@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
+import { domains, grades } from "./utils/accommodations";
 import bannerStyles from "./utils/styles";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
@@ -12,40 +13,14 @@ const AddNewGoals = ({ student_id }) => {
     attained: false,
     goalNotes: "None",
   };
-  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
   const [nextPage, setNextPage] = useState(false);
-  const [stopAnimation, setStopAnimation] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const grades = [
-    "Kindergarten",
-    "1st Grade",
-    "2nd Grade",
-    "3rd Grade",
-    "4th Grade",
-    "5th Grade",
-    "6th Grade",
-    "7th Grade",
-    "8th Grade",
-    "9th Grade",
-    "10th Grade",
-    "11th Grade",
-    "12th Grade",
-  ];
-  const domains = [
-    "Curriculum and Learning Environment",
-    "Social/Emotional",
-    "Independent Functioning",
-    "Healthcare",
-    "Communication",
-  ];
   async function postNewGoal(e) {
-    // console.log(goalToSend);
     setLoading(true);
     e.preventDefault();
-
     const response = await axios
       .post(
         "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
@@ -62,12 +37,10 @@ const AddNewGoals = ({ student_id }) => {
         setLoading(false);
         alert("Malformed Data");
       });
-    console.log(response);
     setLoading(false);
     if (response.status === 200) {
       setID(response.data.ID);
       setGoalToSend(defaultGoalText);
-      setStopAnimation(true);
       clearForms();
       return <Navigate to={"/addNewGoals"} replace={true} />;
     }
@@ -75,11 +48,8 @@ const AddNewGoals = ({ student_id }) => {
   function clearForms() {
     const arr = Array.from(document.querySelectorAll(".form-input"));
     arr.forEach((input) => (input.value = ""));
-    console.log(arr);
   }
   function setStateOnChange(e, name) {
-    console.log(goalToSend);
-
     name === "attained"
       ? setGoalToSend(
           goalToSend,
@@ -97,7 +67,7 @@ const AddNewGoals = ({ student_id }) => {
   return nextPage ? (
     <Navigate to="/addNewAccommodations" />
   ) : ID ? (
-    <AddNewGoals student_id={ID} />
+    <Navigate to={`/addNewAccommodations/${ID}`} />
   ) : (
     <>
       <Navbar />
