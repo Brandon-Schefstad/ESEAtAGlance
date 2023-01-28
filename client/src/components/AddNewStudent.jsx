@@ -64,7 +64,7 @@ const AddNewStudent = () => {
     <>
       <Navbar />
 
-      <h1 className={bannerStyles}>Enter Demogrpahic Information</h1>
+      <h1 className={bannerStyles}>Enter Demographic Information</h1>
       <form className=" mx-8 grid grid-cols-2 gap-4 bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-24 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <section className=" col-span-2">
           <span className={titleStyles}>First Name:</span>
