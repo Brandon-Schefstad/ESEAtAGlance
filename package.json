@@ -14,7 +14,6 @@
 	"license": "MIT",
 	"dependencies": {
 		"bcrypt": "^5.0.1",
-		"body-parser": "^1.20.1",
 		"cloudinary": "^1.32.0",
 		"connect-mongo": "^4.6.0",
 		"cookie-parser": "^1.4.6",
@@ -25,7 +24,6 @@
 		"express-flash": "^0.0.2",
 		"express-session": "^1.17.3",
 		"jsonwebtoken": "^9.0.0",
-		"method-override": "^3.0.0",
 		"mongo-store": "^0.0.2",
 		"mongodb": "^4.9.1",
 		"mongoose": "^6.5.4",

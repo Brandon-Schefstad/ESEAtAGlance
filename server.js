@@ -1,14 +1,11 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 const session = require('express-session')
-const methodOverride = require('method-override')
 const MongoStore = require('connect-mongo')
 const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
 require('dotenv').config({ path: './config/.env' })
-const bodyParser = require('body-parser')
 const cors = require('cors')
 const mainRoutes = require('./routes/main')
 const dashboardRoutes = require('./routes/dashboard.js')
@@ -42,18 +39,9 @@ async function connect() {
 connect()
 
 /**Express configs */
-app.set('view engine', 'pug')
-app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-app.use(bodyParser.json())
-app.use(
-	bodyParser.urlencoded({
-		extended: false,
-	})
-)
 app.use(logger('dev'))
-app.use(methodOverride('_method'))
 app.use(flash())
 
 app.use(cors(options))

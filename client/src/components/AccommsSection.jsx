@@ -2,7 +2,6 @@ import { faCaretDown, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 const AccommsSection = ({ name, data, handleChange, active }) => {
-  // const [selected, setSelected] = useState([]);
   const [expand, setExpand] = useState(false);
   const titleStyles =
     "block col-span-3 text-2xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-extrabold  py-2 px-8  text-green-900   xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative  xl:my-8 tracking-wider xl:col-span-3";
