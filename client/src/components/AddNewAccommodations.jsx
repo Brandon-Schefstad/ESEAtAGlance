@@ -5,6 +5,7 @@ import AccommsSection from "./AccommsSection";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import { accommodations } from "./utils/accommodations";
+import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 
 const AddNewAccommodations = () => {
@@ -25,7 +26,7 @@ const AddNewAccommodations = () => {
     e.preventDefault();
     const { status } = await axios
       .post(
-        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewAccommodations",
+        `${apiURL}api/student/addNewAccommodations`,
         {
           ID: studentId,
           accommodationsToSend,

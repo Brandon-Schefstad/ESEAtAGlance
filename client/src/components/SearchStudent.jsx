@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
+import apiURL from "./utils/apiURL";
 import makeHeading from "./utils/makeHeading";
 import StudentAccommodationList from "./utils/StudentAccommodationList";
 
@@ -26,14 +27,11 @@ const AddNewStudent = () => {
       e.preventDefault();
     }
     const { data, status } = await axios
-      .get(
-        `https://ese-at-a-glance-api.cyclic.app/api/student/searchStudent/${studentIdToSend}`,
-        {
-          headers: {
-            authorization: localStorage.getItem("auth"),
-          },
-        }
-      )
+      .get(`${apiURL}api/student/searchStudent/${studentIdToSend}`, {
+        headers: {
+          authorization: localStorage.getItem("auth"),
+        },
+      })
       .catch(() => {
         setLoading(false);
         setWarning(true);

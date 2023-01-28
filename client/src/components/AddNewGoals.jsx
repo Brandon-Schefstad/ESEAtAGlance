@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import { domains, grades } from "./utils/accommodations";
+import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
@@ -23,7 +24,7 @@ const AddNewGoals = ({ student_id }) => {
     e.preventDefault();
     const response = await axios
       .post(
-        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
+        `${apiURL}api/student/addNewGoal`,
         {
           goalToSend,
         },

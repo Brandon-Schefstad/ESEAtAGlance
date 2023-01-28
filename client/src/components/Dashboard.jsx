@@ -4,15 +4,14 @@ import { Navigate } from "react-router-dom";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 import StudentCard from "./StudentCard";
+import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [students, setStudents] = useState();
   async function getDashboard() {
     const response = await axios.get(
-      `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
-        "_id"
-      )}`,
+      `${apiURL}api/dashboard/${localStorage.getItem("_id")}`,
       {
         headers: {
           authorization: localStorage.getItem("auth"),

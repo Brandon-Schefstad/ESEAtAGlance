@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import bgimage from "../assets/bg-main.png";
 import ButtonWithLoader from "./ButtonWithLoader";
+import authorize from "./fetch/authorize";
 import Footer from "./Footer";
 
 const Login = () => {
@@ -20,47 +20,7 @@ const Login = () => {
   function formatAuthorizeInfo(e, name) {
     setAuthorizeInfo(authorizeInfo, ...(authorizeInfo[name] = e.target.value));
   }
-  async function demoAuthorize() {
-    let response = await axios.post(
-      "https://ese-at-a-glance-api.cyclic.app/api/login",
-      {
-        email: "bschefstad-admin@gmail.com",
-        password: "bschefstad-admin@gmail.com",
-      }
-    );
-    const { token, user } = await response.data;
-    if (token) {
-      localStorage.setItem("auth", token);
-      localStorage.setItem("_id", user._id);
-      setAuth(true);
-    } else {
-      localStorage.setItem("user", "none");
-      localStorage.setItem("auth", false);
-    }
-  }
-  async function authorize(e) {
-    let response;
-    if (login) {
-      response = await axios.post(
-        "https://ese-at-a-glance-api.cyclic.app/api/login",
-        authorizeInfo
-      );
-    } else {
-      response = await axios.post(
-        "https://ese-at-a-glance-api.cyclic.app/api/signup",
-        authorizeInfo
-      );
-    }
-    const { token, user } = await response.data;
-    if (token) {
-      localStorage.setItem("auth", token);
-      localStorage.setItem("_id", user._id);
-      setAuth(true);
-    } else {
-      localStorage.setItem("user", "none");
-      localStorage.setItem("auth", false);
-    }
-  }
+  async function demoAuthorize() {}
 
   const inputStyles =
     " border-b-2 border-green-800 border-solid text-green-900 col-span-2 pl-2 py-2 placeholder:text-green-900  placeholder:text-xl  text-xl xl:mt-6 xl:mx-8 ";
@@ -80,13 +40,20 @@ const Login = () => {
       <ButtonWithLoader
         name={"DEMO"}
         className={" m-auto w-1/2 bg-blue-900 text-white"}
-        handleClick={demoAuthorize}
+        handleClick={() =>
+          authorize(
+            login,
+            {
+              email: "bschefstad-admin@gmail.com",
+              password: "bschefstad-admin@gmail.com",
+            },
+            setAuth
+          )
+        }
       />
       <span className="mb-4 block text-lg font-semibold text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
         Student tracking for the busy teacher!
       </span>
-
-      {/* {warning ? warning : ""} */}
       <section className="relative z-10 row-start-4 rounded-lg border-[2px] border-solid border-green-900 bg-white px-8 pt-12 pb-8 xl:top-0 xl:row-start-3 xl:m-auto xl:grid xl:w-3/4  xl:-translate-y-12 xl:px-0 xl:pt-0">
         <form
           className=" grid grid-cols-2 gap-10 text-center  xl:gap-0"
@@ -198,7 +165,7 @@ const Login = () => {
             name={"Enter"}
             handleClick={(e) => {
               setLoading(true);
-              authorize(e);
+              authorize(login, authorizeInfo, setAuth);
             }}
             loading={loading}
             className={

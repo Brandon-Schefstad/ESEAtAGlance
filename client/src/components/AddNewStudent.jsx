@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
 import Navbar from "./Navbar";
 import UploadWidget from "./UploadWidget";
+import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
@@ -19,7 +20,7 @@ const AddNewStudent = () => {
     const response = await axios
 
       .post(
-        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewStudent",
+        `${apiURL}api/student/addNewStudent`,
 
         {
           studentToSend: studentToSend,

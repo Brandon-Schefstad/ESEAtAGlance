@@ -2,22 +2,20 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { React, useState } from "react";
+import apiURL from "./utils/apiURL";
 import makeHeading from "./utils/makeHeading";
 const StudentCard = ({ student, index, getDashboard }) => {
   const [showStudent, setShowStudent] = useState(false);
 
   async function deleteStudent(ID) {
-    let result = await axios.delete(
-      "https://ese-at-a-glance-api.cyclic.app/api/student/deleteStudent",
-      {
-        headers: {
-          Authorization: localStorage.getItem("auth"),
-        },
-        data: {
-          ID,
-        },
-      }
-    );
+    let result = await axios.delete(`${apiURL}api/student/deleteStudent`, {
+      headers: {
+        Authorization: localStorage.getItem("auth"),
+      },
+      data: {
+        ID,
+      },
+    });
     result.status === 200 ? getDashboard() : console.error(result.status);
   }
   return showStudent ? (
