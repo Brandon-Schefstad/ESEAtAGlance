@@ -9,7 +9,6 @@ const Dashboard = () => {
   const [auth, setAuth] = useState(true);
   const [students, setStudents] = useState();
   async function getDashboard() {
-    console.log(localStorage.getItem("auth"));
     const response = await axios.get(
       `https://ese-at-a-glance-api.cyclic.app/api/dashboard/${localStorage.getItem(
         "_id"
@@ -24,38 +23,37 @@ const Dashboard = () => {
     setStudents(studentList);
   }
 
-
   useEffect(() => {
     getDashboard();
   }, []);
-  const rowStyles =
-    "grid grid-cols-2 border-2 border-solid border-b-green-400 pl-10 py-2 text-lg";
-  {
-    return !auth ? (
-      <Navigate to="/" />
-    ) : (
-      <>
-        <Navbar setAuth={setAuth} auth={auth} />
-        <section className="   ">
-          <div className={bannerStyles}>Your Students</div>
 
-          <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
-            {students ? (
-              students.map((student, index) => {
-                console.log(student.image);
-                return (
-                  <StudentCard student={student} index={index} getDashboard={getDashboard}/>)
-                  
-              })
-            ) : (
-              <></>
-            )}
-          </section>
+  return !auth ? (
+    <Navigate to="/" />
+  ) : (
+    <>
+      <Navbar setAuth={setAuth} auth={auth} />
+      <section className="   ">
+        <div className={bannerStyles}>Your Students</div>
+
+        <section className="grid gap-8  px-4 py-4 text-black sm:px-12 md:mx-12 lg:grid-cols-2 xl:mt-8 xl:grid-cols-3 ">
+          {students ? (
+            students.map((student, index) => {
+              return (
+                <StudentCard
+                  student={student}
+                  index={index}
+                  getDashboard={getDashboard}
+                />
+              );
+            })
+          ) : (
+            <></>
+          )}
         </section>
-        <Footer />
-      </>
-    );
-  }
+      </section>
+      <Footer />
+    </>
+  );
 };
 
 export default Dashboard;

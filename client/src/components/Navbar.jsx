@@ -56,7 +56,7 @@ const Navbar = () => {
           <li>Search</li>
         </Link>
         <button
-          className="  col-start-3 row-start-1 my-[0.25rem] mx-4 rounded-md border-solid  bg-red-600 py-[0.4rem] px-4 font-bold text-white xl:ml-[20%]"
+          className="  col-start-3 row-start-1 my-[0.25rem] mx-4 rounded-md border-solid  bg-red-200 py-[0.4rem] px-4 font-bold text-red-800 xl:ml-[20%]"
           onClick={() => {
             localStorage.setItem("auth", false);
             localStorage.setItem("user", false);
