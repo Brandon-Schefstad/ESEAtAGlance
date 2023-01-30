@@ -10,7 +10,7 @@ module.exports = {
 				grade: goalGrade,
 				domain: domain,
 				text: goalText,
-				succeed: attained === 'on' ? true : false,
+				succeed: attained === 'true' ? true : false,
 				notes: goalNotes,
 			})
 

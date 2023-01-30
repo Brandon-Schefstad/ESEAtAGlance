@@ -27,7 +27,15 @@ const router = createBrowserRouter(
             path={"/addNewAccommodations"}
             element={<AddNewAccommodations />}
           ></Route>
-          <Route path={"/searchStudent"} element={<SearchStudent />}></Route>
+          <Route
+            path={"/addNewAccommodations/:id"}
+            element={<AddNewAccommodations />}
+          ></Route>
+          <Route path={"/searchStudent/"} element={<SearchStudent />}></Route>
+          <Route
+            path={"/searchStudent/:id"}
+            element={<SearchStudent />}
+          ></Route>
         </Route>
       </>
     </>
@@ -41,10 +49,9 @@ const cld = new Cloudinary({
 function App() {
   useEffect(() => {
     document.body.classList.add(
-      "bg-amber-50",
+      "bg-white",
       "min-h-screen",
-      "px-6",
-      "max-w-[1800px]",
+      "max-w-[2000px]",
       "m-auto"
     );
   }, []);

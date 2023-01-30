@@ -6,7 +6,6 @@ module.exports = {
 
 	postNewStudent: async (req, res) => {
 		const { studentToSend, _id, imageUrl } = req.body
-		console.log(imageUrl)
 		try {
 			const student = await Student.create({
 				firstName: studentToSend.firstName,
@@ -23,7 +22,6 @@ module.exports = {
 			if (!student) {
 				throw new Error('Malformed Data')
 			}
-			console.log(student)
 			res.send(student)
 		} catch (err) {
 			console.error(err)

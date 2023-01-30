@@ -1,86 +1,33 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
+import addNewGoal from "./fetch/addNewGoal";
 import Navbar from "./Navbar";
+import { domains, grades } from "./utils/accommodations";
+import bannerStyles from "./utils/styles";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
     goalGrade: "0",
     domain: "Curriculum and Learning Environment",
     goalText: "None",
-    succeed: "off",
+    attained: false,
     goalNotes: "None",
   };
-  const [studentFinished, setStudentFinished] = useState(false);
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
   const [nextPage, setNextPage] = useState(false);
-  const [stopAnimation, setStopAnimation] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [stopLoading, setStopLoading] = useState(false);
 
-  const grades = [
-    "Kindergarten",
-    "1st Grade",
-    "2nd Grade",
-    "3rd Grade",
-    "4th Grade",
-    "5th Grade",
-    "6th Grade",
-    "7th Grade",
-    "8th Grade",
-    "9th Grade",
-    "10th Grade",
-    "11th Grade",
-    "12th Grade",
-  ];
-  const domains = [
-    "Curriculum and Learning Environment",
-    "Social/Emotional",
-    "Independent Functioning",
-    "Healthcare",
-    "Communication",
-  ];
-  async function postNewGoal(e) {
-    // console.log(goalToSend);
-    setLoading(true);
-    e.preventDefault();
-
-    const response = await axios
-      .post(
-        "https://ese-at-a-glance-api.cyclic.app/api/student/addNewGoal",
-        {
-          goalToSend,
-        },
-        {
-          headers: {
-            authorization: localStorage.getItem("auth"),
-          },
-        }
-      )
-      .catch(() => {
-        setLoading(false);
-        alert("Malformed Data");
-      });
-    console.log(response);
-    setLoading(false);
-    if (response.status === 200) {
-      setID(response.data.ID);
-      setGoalToSend(defaultGoalText);
-      setStopAnimation(true);
-      clearForms();
-      return <Navigate to={"/addNewGoals"} replace={true} />;
-    }
-  }
-  function clearForms() {
-    const arr = Array.from(document.querySelectorAll(".form-input"));
-    arr.forEach((input) => (input.value = ""));
-    console.log(arr);
-  }
   function setStateOnChange(e, name) {
-    console.log(goalToSend);
-    setGoalToSend(goalToSend, ...(goalToSend[e.target.name] = e.target.value));
+    name === "attained"
+      ? setGoalToSend(
+          goalToSend,
+          ...(goalToSend["attained"] = e.target._valueTracker.getValue())
+        )
+      : setGoalToSend(
+          goalToSend,
+          ...(goalToSend[e.target.name] = e.target.value)
+        );
   }
   const inputStyles =
     " bg-gray-50 border-2 border-rose-400/50 border-solid col-span-2 pl-2 py-2 placeholder:text-yellow-100 placeholder:text-xl  xl:text-xl mb-4";
@@ -88,15 +35,11 @@ const AddNewGoals = ({ student_id }) => {
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return nextPage ? (
     <Navigate to="/addNewAccommodations" />
-  ) : ID ? (
-    <AddNewGoals student_id={ID} />
   ) : (
     <>
       <Navbar />
-      <h1 className="col-span-2 mt-4 mb-8 bg-blue-200 px-8 pt-4 pb-2 text-right font-[Martel] text-3xl font-semibold text-blue-900 xl:py-4 xl:text-center xl:text-4xl">
-        New Goal
-      </h1>
-      <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  xl:mx-auto xl:w-5/6 xl:px-12 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
+      <h1 className={bannerStyles}>Add a goal to a student profile</h1>
+      <form className=" mx-8 grid grid-cols-2  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-24 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50">
         <label className={titleStyles} htmlFor="studentNumber">
           Student number:
         </label>
@@ -151,55 +94,64 @@ const AddNewGoals = ({ student_id }) => {
           className={inputStyles + " form-input col-span-2 w-full px-4"}
         />
 
-        <label
-          className={
-            titleStyles +
-            " col-span-1 grid grid-cols-2 xl:col-start-1 xl:grid-cols-2"
-          }
-          htmlFor="attained"
-        >
-          Attained?
-          <input
-            type="checkbox"
-            onChange={(e) => setStateOnChange(e, "attained")}
-            name="attained"
-            className=" my-1 ml-8 bg-green-800 text-green-800 accent-amber-300 xl:h-8"
-          />
-        </label>
+        <section className="col-span-2 grid md:col-span-2 md:grid-cols-4 ">
+          <section className=" place-items-left col-span-2 grid lg:place-items-center  xl:col-span-1 xl:row-span-2">
+            <label
+              className={
+                titleStyles +
+                " col-span-1 grid grid-cols-2  text-left xl:col-start-1 xl:row-span-2 xl:my-auto  xl:grid-cols-2"
+              }
+              htmlFor="attained"
+            >
+              Attained?
+              <input
+                type="checkbox"
+                onChange={(e) => setStateOnChange(e, "attained")}
+                name="attained"
+                className=" my-1 ml-8 bg-green-800 text-green-800 accent-amber-300 xl:my-auto xl:h-8"
+              />
+            </label>
+          </section>
 
-        <label
-          className={titleStyles + " form-input xl:col-span-3  "}
-          htmlFor="goalNotes"
-        >
-          Additional Notes:
-        </label>
-        <textarea
-          cols={30}
-          rows={1}
-          onChange={(e) => setStateOnChange(e, "notes")}
-          name="goalNotes"
-          className={inputStyles + "xl:col-span-1"}
-        />
-        <section className="col-span-2 mt-6 grid grid-cols-2 justify-evenly xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
-          <ButtonWithLoader
-            handleClick={(e) => postNewGoal(e)}
+          <label
+            className={titleStyles + " form-input col-span-2 xl:col-span-1  "}
+            htmlFor="goalNotes"
+          >
+            Additional Notes:
+          </label>
+          <textarea
+            cols={30}
+            rows={1}
+            onChange={(e) => setStateOnChange(e, "notes")}
+            name="goalNotes"
             className={
-              "m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:py-4 xl:text-3xl"
+              inputStyles + " col-span-2 w-full xl:col-span-3 xl:col-start-2"
             }
-            name={"Submit"}
-            loading={loading}
+          />
+        </section>
+        <section className="col-span-2 mt-4 flex grid-cols-2 flex-col justify-evenly gap-6 lg:flex-row xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
+          <ButtonWithLoader
+            handleClick={() =>
+              addNewGoal(
+                goalToSend,
+                setID,
+                setGoalToSend,
+                defaultGoalText,
+                setStopLoading
+              )
+            }
+            className={
+              "col-span-2 m-auto rounded-lg bg-blue-200 py-2 px-4  font-bold text-blue-900 sm:col-span-1 sm:py-4  lg:px-12 lg:text-2xl"
+            }
+            name={"Confirm Goal"}
+            stopLoading={stopLoading}
           />
           <button
-            className="rounded-lg bg-blue-200 text-xs font-extrabold text-blue-900 xl:mx-4 xl:w-1/2 xl:text-2xl"
+            className="m-auto rounded-lg bg-green-200 py-2 px-4 font-bold text-green-900 sm:col-span-1 sm:py-4 lg:px-12 lg:text-2xl"
             onClick={() => setNextPage(true)}
           >
             {" "}
-            Accommodations
-            <FontAwesomeIcon
-              className="ml-2 xl:ml-4"
-              icon={faArrowRight}
-              stopAnimation={stopAnimation}
-            />
+            Next
           </button>
         </section>
       </form>
