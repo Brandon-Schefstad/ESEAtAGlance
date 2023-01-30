@@ -9,7 +9,6 @@ const Login = () => {
   const [authorizeInfo, setAuthorizeInfo] = useState({});
   const [auth, setAuth] = useState(null);
   const [login, setLogin] = useState(true);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     let user = localStorage.getItem("user");
@@ -39,8 +38,8 @@ const Login = () => {
       </h1>
       <ButtonWithLoader
         name={"DEMO"}
-        className={" m-auto w-1/2 bg-blue-900 text-white"}
-        handleClick={() =>
+        className={" max-w-1/2 m-auto mt-[-4rem] bg-blue-900 text-white"}
+        handleClick={() => {
           authorize(
             login,
             {
@@ -48,8 +47,8 @@ const Login = () => {
               password: "bschefstad-admin@gmail.com",
             },
             setAuth
-          )
-        }
+          );
+        }}
       />
       <span className="mb-4 block text-lg font-semibold text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
         Student tracking for the busy teacher!
@@ -103,7 +102,6 @@ const Login = () => {
                 }
                 onClick={() => {
                   setLogin(true);
-                  setLoading(false);
                 }}
               >
                 Login
@@ -114,7 +112,6 @@ const Login = () => {
                 }
                 onClick={() => {
                   setLogin(false);
-                  setLoading(null);
                 }}
               >
                 Signup
@@ -164,10 +161,8 @@ const Login = () => {
           <ButtonWithLoader
             name={"Enter"}
             handleClick={(e) => {
-              setLoading(true);
               authorize(login, authorizeInfo, setAuth);
             }}
-            loading={loading}
             className={
               "text:3xl col-span-2 m-auto mt-4 bg-green-300 text-green-900"
             }
