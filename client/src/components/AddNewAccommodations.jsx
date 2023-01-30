@@ -1,16 +1,15 @@
-import axios from "axios";
 import { React, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import AccommsSection from "./AccommsSection";
 import ButtonWithLoader from "./ButtonWithLoader";
+import postNewAccommodations from "./fetch/addNewAccomodations";
 import Navbar from "./Navbar";
 import { accommodations } from "./utils/accommodations";
-import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 
 const AddNewAccommodations = () => {
   const { presentation, response, scheduling, setting } = accommodations;
-  const [studentFinished, setStudentFinished] = useState(false);
+
   const [studentId, setStudentId] = useState(0);
   const [loading, setLoading] = useState(false);
   const pathName = useLocation().pathname.split("/")[2];
@@ -21,35 +20,8 @@ const AddNewAccommodations = () => {
       ? accommodationsToSend.splice(accommodationsToSend.indexOf(name), 1)
       : accommodationsToSend.push(name);
   }
-  async function postNewAccommodations(e) {
-    setLoading(true);
-    e.preventDefault();
-    const { status } = await axios
-      .post(
-        `${apiURL}api/student/addNewAccommodations`,
-        {
-          ID: studentId,
-          accommodationsToSend,
-        },
-        {
-          headers: {
-            authorization: localStorage.getItem("auth"),
-          },
-        }
-      )
-      .catch(() => {
-        setLoading(false);
-        alert("Malformed Data");
-      });
-    setLoading(false);
-    if (status === 200) {
-      accommodationsToSend = [];
-      setStudentFinished(true);
-    }
-  }
-  return studentFinished ? (
-    <Navigate to="/Dashboard" />
-  ) : pathName ? (
+
+  return pathName ? (
     <>
       {" "}
       <Navbar />
@@ -161,7 +133,9 @@ const AddNewAccommodations = () => {
         />
 
         <ButtonWithLoader
-          handleClick={(e) => postNewAccommodations(e)}
+          handleClick={() =>
+            postNewAccommodations(setLoading, studentId, accommodationsToSend)
+          }
           className={
             "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:col-span-3 xl:py-4 xl:text-3xl"
           }

@@ -14,6 +14,7 @@ const ButtonWithLoader = ({ name, width, className, handleClick, loading }) => {
       onClick={(e) => {
         handleClick(e);
       }}
+      type="button"
       className={` px-8 py-2 font-bold ${className} rounded-lg text-xl`}
     >
       {name}

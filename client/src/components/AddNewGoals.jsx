@@ -1,10 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
+import addNewGoal from "./fetch/addNewGoal";
 import Navbar from "./Navbar";
 import { domains, grades } from "./utils/accommodations";
-import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 const AddNewGoals = ({ student_id }) => {
   const defaultGoalText = {
@@ -19,37 +18,6 @@ const AddNewGoals = ({ student_id }) => {
   const [nextPage, setNextPage] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function postNewGoal(e) {
-    setLoading(true);
-    e.preventDefault();
-    const response = await axios
-      .post(
-        `${apiURL}api/student/addNewGoal`,
-        {
-          goalToSend,
-        },
-        {
-          headers: {
-            authorization: localStorage.getItem("auth"),
-          },
-        }
-      )
-      .catch(() => {
-        setLoading(false);
-        alert("Malformed Data");
-      });
-    setLoading(false);
-    if (response.status === 200) {
-      setID(response.data.ID);
-      setGoalToSend(defaultGoalText);
-      clearForms();
-      return <Navigate to={"/addNewGoals"} replace={true} />;
-    }
-  }
-  function clearForms() {
-    const arr = Array.from(document.querySelectorAll(".form-input"));
-    arr.forEach((input) => (input.value = ""));
-  }
   function setStateOnChange(e, name) {
     name === "attained"
       ? setGoalToSend(
@@ -165,7 +133,15 @@ const AddNewGoals = ({ student_id }) => {
         </section>
         <section className="col-span-2 mt-4 flex grid-cols-2 flex-col justify-evenly gap-6 lg:flex-row xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
           <ButtonWithLoader
-            handleClick={(e) => postNewGoal(e)}
+            handleClick={() =>
+              addNewGoal(
+                setLoading,
+                goalToSend,
+                setID,
+                setGoalToSend,
+                defaultGoalText
+              )
+            }
             className={
               "col-span-2 m-auto rounded-lg bg-blue-200 py-2 px-4  font-bold text-blue-900 sm:col-span-1 sm:py-4  lg:px-12 lg:text-2xl"
             }

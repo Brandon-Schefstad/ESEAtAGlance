@@ -1,10 +1,9 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
+import addNewStudent from "./fetch/addNewStudent";
 import Navbar from "./Navbar";
 import UploadWidget from "./UploadWidget";
-import apiURL from "./utils/apiURL";
 import bannerStyles from "./utils/styles";
 const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
@@ -12,38 +11,6 @@ const AddNewStudent = () => {
   const [imageUrl, setImageUrl] = useState();
   const [loading, setLoading] = useState(false);
 
-  async function postNewStudent(e) {
-    e.preventDefault();
-    setLoading(true);
-    console.log(studentToSend);
-    console.log(imageUrl);
-    const response = await axios
-
-      .post(
-        `${apiURL}api/student/addNewStudent`,
-
-        {
-          studentToSend: studentToSend,
-          _id: localStorage.getItem("_id"),
-          imageUrl: imageUrl,
-        },
-        {
-          headers: {
-            authorization: localStorage.getItem("auth"),
-          },
-        }
-      )
-      .catch(() => {
-        setLoading(false);
-        alert("Malformed Data");
-      });
-    console.log(response);
-    setLoading(false);
-
-    if (response.status === 200) {
-      setSuccess(true);
-    }
-  }
   function setStateOnChange(e) {
     setStudentToSend(
       studentToSend,
@@ -120,7 +87,9 @@ const AddNewStudent = () => {
             <UploadWidget setImageUrl={setImageUrl} />
           </section>
           <ButtonWithLoader
-            handleClick={(e) => postNewStudent(e)}
+            handleClick={() =>
+              addNewStudent(setLoading, studentToSend, imageUrl, setSuccess)
+            }
             className={
               "text-md col-span-2 m-auto mt-4 rounded-lg bg-green-200 py-2 px-4 font-bold text-green-900 sm:col-span-1 sm:py-4 lg:mt-8 lg:px-12 lg:text-2xl"
             }
