@@ -2,7 +2,14 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import apiURL from "../utils/apiURL";
 
-async function postNewGoal(goalToSend, setID, setGoalToSend, defaultGoalText) {
+async function postNewGoal(
+  goalToSend,
+  setID,
+  setGoalToSend,
+  defaultGoalText,
+  setStopLoading
+) {
+  console.log("Posting goal");
   const response = await axios
     .post(
       `${apiURL}api/student/addNewGoal`,
@@ -23,6 +30,7 @@ async function postNewGoal(goalToSend, setID, setGoalToSend, defaultGoalText) {
     setID(response.data.ID);
     setGoalToSend(defaultGoalText);
     clearForms();
+    setStopLoading(true)
     return <Navigate to={"/addNewGoals"} replace={true} />;
   }
 }

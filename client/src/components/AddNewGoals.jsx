@@ -16,6 +16,7 @@ const AddNewGoals = ({ student_id }) => {
   const [goalToSend, setGoalToSend] = useState(defaultGoalText);
   const [ID, setID] = useState(false);
   const [nextPage, setNextPage] = useState(false);
+  const [stopLoading, setStopLoading] = useState(false);
 
   function setStateOnChange(e, name) {
     name === "attained"
@@ -34,8 +35,6 @@ const AddNewGoals = ({ student_id }) => {
     "block col-span-2 text-xl mb-2 font-semibold xl:text-2xl ";
   return nextPage ? (
     <Navigate to="/addNewAccommodations" />
-  ) : ID ? (
-    <Navigate to={`/addNewAccommodations/${ID}`} />
   ) : (
     <>
       <Navbar />
@@ -133,12 +132,19 @@ const AddNewGoals = ({ student_id }) => {
         <section className="col-span-2 mt-4 flex grid-cols-2 flex-col justify-evenly gap-6 lg:flex-row xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
           <ButtonWithLoader
             handleClick={() =>
-              addNewGoal(goalToSend, setID, setGoalToSend, defaultGoalText)
+              addNewGoal(
+                goalToSend,
+                setID,
+                setGoalToSend,
+                defaultGoalText,
+                setStopLoading
+              )
             }
             className={
               "col-span-2 m-auto rounded-lg bg-blue-200 py-2 px-4  font-bold text-blue-900 sm:col-span-1 sm:py-4  lg:px-12 lg:text-2xl"
             }
             name={"Confirm Goal"}
+            stopLoading={stopLoading}
           />
           <button
             className="m-auto rounded-lg bg-green-200 py-2 px-4 font-bold text-green-900 sm:col-span-1 sm:py-4 lg:px-12 lg:text-2xl"

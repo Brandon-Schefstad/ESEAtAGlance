@@ -43,7 +43,7 @@ const SearchStudent = () => {
                 studentIdToSend,
                 setWarning,
                 setStudent,
-                stopLoading
+                setStopLoading
               )
             }
             className={
