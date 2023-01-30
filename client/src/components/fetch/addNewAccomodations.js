@@ -3,13 +3,10 @@ import { Navigate } from "react-router-dom";
 import apiURL from "../utils/apiURL";
 
 async function postNewAccommodations(
-  setLoading,
   studentId,
   accommodationsToSend,
   setStudentFinished
 ) {
-  setLoading(true);
-
   const { status } = await axios
     .post(
       `${apiURL}api/student/addNewAccommodations`,
@@ -24,10 +21,8 @@ async function postNewAccommodations(
       }
     )
     .catch(() => {
-      setLoading(false);
       alert("Malformed Data");
     });
-  setLoading(false);
   if (status === 200) {
     accommodationsToSend = [];
   }

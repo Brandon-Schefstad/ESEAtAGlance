@@ -19,7 +19,6 @@ const Login = () => {
   function formatAuthorizeInfo(e, name) {
     setAuthorizeInfo(authorizeInfo, ...(authorizeInfo[name] = e.target.value));
   }
-  async function demoAuthorize() {}
 
   const inputStyles =
     " border-b-2 border-green-800 border-solid text-green-900 col-span-2 pl-2 py-2 placeholder:text-green-900  placeholder:text-xl  text-xl xl:mt-6 xl:mx-8 ";
@@ -39,6 +38,7 @@ const Login = () => {
       <ButtonWithLoader
         name={"DEMO"}
         className={" max-w-1/2 m-auto mt-[-4rem] bg-blue-900 text-white"}
+        loaderStyle={{ background: "green" }}
         handleClick={() => {
           authorize(
             login,
@@ -163,6 +163,7 @@ const Login = () => {
             handleClick={(e) => {
               authorize(login, authorizeInfo, setAuth);
             }}
+            loaderStyles={{}}
             className={
               "text:3xl col-span-2 m-auto mt-4 bg-green-300 text-green-900"
             }

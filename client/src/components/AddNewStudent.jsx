@@ -9,7 +9,6 @@ const AddNewStudent = () => {
   const [success, setSuccess] = useState(false);
   const [studentToSend, setStudentToSend] = useState({});
   const [imageUrl, setImageUrl] = useState();
-  const [loading, setLoading] = useState(false);
 
   function setStateOnChange(e) {
     setStudentToSend(
@@ -88,13 +87,12 @@ const AddNewStudent = () => {
           </section>
           <ButtonWithLoader
             handleClick={() =>
-              addNewStudent(setLoading, studentToSend, imageUrl, setSuccess)
+              addNewStudent(studentToSend, imageUrl, setSuccess)
             }
             className={
               "text-md col-span-2 m-auto mt-4 rounded-lg bg-green-200 py-2 px-4 font-bold text-green-900 sm:col-span-1 sm:py-4 lg:mt-8 lg:px-12 lg:text-2xl"
             }
             name={"Next"}
-            loading={loading}
           />
         </section>
       </form>
@@ -103,5 +101,3 @@ const AddNewStudent = () => {
 };
 
 export default AddNewStudent;
-
-// TODO - Add image support

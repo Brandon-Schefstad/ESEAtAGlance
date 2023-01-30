@@ -2,14 +2,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import apiURL from "../utils/apiURL";
 
-async function postNewGoal(
-  setLoading,
-  goalToSend,
-  setID,
-  setGoalToSend,
-  defaultGoalText
-) {
-  setLoading(true);
+async function postNewGoal(goalToSend, setID, setGoalToSend, defaultGoalText) {
   const response = await axios
     .post(
       `${apiURL}api/student/addNewGoal`,
@@ -23,10 +16,9 @@ async function postNewGoal(
       }
     )
     .catch(() => {
-      setLoading(false);
       alert("Malformed Data");
     });
-  setLoading(false);
+
   if (response.status === 200) {
     setID(response.data.ID);
     setGoalToSend(defaultGoalText);

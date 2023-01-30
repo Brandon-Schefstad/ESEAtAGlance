@@ -11,7 +11,6 @@ const AddNewAccommodations = () => {
   const { presentation, response, scheduling, setting } = accommodations;
 
   const [studentId, setStudentId] = useState(0);
-  const [loading, setLoading] = useState(false);
   const pathName = useLocation().pathname.split("/")[2];
 
   let accommodationsToSend = [];
@@ -78,7 +77,6 @@ const AddNewAccommodations = () => {
             "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:col-span-3 xl:py-4 xl:text-3xl"
           }
           name={"Submit"}
-          loading={loading}
         />
       </form>
     </>
@@ -134,13 +132,12 @@ const AddNewAccommodations = () => {
 
         <ButtonWithLoader
           handleClick={() =>
-            postNewAccommodations(setLoading, studentId, accommodationsToSend)
+            postNewAccommodations(studentId, accommodationsToSend)
           }
           className={
             "col-span-2 m-auto rounded-lg bg-green-200 py-2 text-green-800 xl:col-span-3 xl:py-4 xl:text-3xl"
           }
           name={"Submit"}
-          loading={loading}
         />
       </form>
     </>

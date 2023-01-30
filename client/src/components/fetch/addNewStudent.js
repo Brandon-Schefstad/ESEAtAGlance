@@ -1,8 +1,7 @@
 import axios from "axios";
 import apiURL from "../utils/apiURL";
 
-async function addNewStudent(setLoading, studentToSend, imageUrl, setSuccess) {
-  setLoading(true);
+async function addNewStudent(studentToSend, imageUrl, setSuccess) {
   const response = await axios
     .post(
       `${apiURL}api/student/addNewStudent`,
@@ -18,10 +17,8 @@ async function addNewStudent(setLoading, studentToSend, imageUrl, setSuccess) {
       }
     )
     .catch(() => {
-      setLoading(false);
       alert("Malformed Data");
     });
-  setLoading(false);
   if (response.status === 200) {
     setSuccess(true);
   }

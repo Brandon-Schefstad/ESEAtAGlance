@@ -1,47 +1,26 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ButtonWithLoader from "./ButtonWithLoader";
+import searchStudent from "./fetch/searchStudent";
 import GoalDisplay from "./GoalDisplay";
 import Navbar from "./Navbar";
-import apiURL from "./utils/apiURL";
 import makeHeading from "./utils/makeHeading";
 import StudentAccommodationList from "./utils/StudentAccommodationList";
 
-const AddNewStudent = () => {
+const SearchStudent = () => {
   const urlId = useLocation().pathname.split("/")[2];
   const [student, setStudent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [stopLoading, setStopLoading] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState(urlId || 0);
   const [warning, setWarning] = useState(false);
+  console.log(`stop Loading: ${stopLoading}`);
   useEffect(() => {
     if (urlId && typeof urlId) {
-      setLoading(true);
-      searchStudent(urlId);
+      setStopLoading(true);
+      searchStudent(studentIdToSend, setWarning, setStudent);
+      setStopLoading(false);
     }
   }, [urlId]);
-  async function searchStudent(studentIdToSend, e = null) {
-    console.log(studentIdToSend);
-    setLoading(true);
-    if (e) {
-      e.preventDefault();
-    }
-    const { data, status } = await axios
-      .get(`${apiURL}api/student/searchStudent/${studentIdToSend}`, {
-        headers: {
-          authorization: localStorage.getItem("auth"),
-        },
-      })
-      .catch(() => {
-        setLoading(false);
-        setWarning(true);
-      });
-    if (status === 200) {
-      setWarning(false);
-      setLoading(false);
-      setStudent(data);
-    }
-  }
 
   return (
     <section className="">
@@ -59,12 +38,19 @@ const AddNewStudent = () => {
             className="border-b-2 border-solid border-black bg-yellow-50 px-2 py-1 text-xl text-black placeholder:text-black "
           />
           <ButtonWithLoader
-            handleClick={(e) => searchStudent(studentIdToSend, e)}
+            handleClick={() =>
+              searchStudent(
+                studentIdToSend,
+                setWarning,
+                setStudent,
+                stopLoading
+              )
+            }
             className={
               " m-auto mt-4 rounded-lg bg-green-200 text-green-900 xl:my-auto xl:ml-8 "
             }
             name={"Search"}
-            loading={loading}
+            stopLoading={stopLoading}
           />
         </form>
       </section>
@@ -79,16 +65,16 @@ const AddNewStudent = () => {
                     src={student.image}
                     alt={`${student.firstName} ${student.lastName}`}
                   />
-                  <h1 class="my-auto px-6 text-center text-2xl font-bold text-blue-900 xl:mt-6 xl:px-12 xl:text-center xl:text-4xl ">
+                  <h1 className="my-auto px-6 text-center text-2xl font-bold text-blue-900 xl:mt-6 xl:px-12 xl:text-center xl:text-4xl ">
                     {student.name}
                   </h1>
-                  <h2 class="text-center text-sm xl:mb-[-1rem]">
+                  <h2 className="text-center text-sm xl:mb-[-1rem]">
                     {student.caseManager.email}{" "}
                   </h2>
                   <section className="md:text-md m-auto grid grid-cols-3 gap-4  text-center font-semibold lg:text-lg xl:text-xl">
-                    <h2 class="">{student.ID} </h2>
-                    <h2 class="">{makeHeading(student.grade)} </h2>
-                    <h2 class="">{student.primary} </h2>
+                    <h2 className="">{student.ID} </h2>
+                    <h2 className="">{makeHeading(student.grade)} </h2>
+                    <h2 className="">{student.primary} </h2>
                   </section>
                 </section>
               </section>
@@ -120,7 +106,7 @@ const AddNewStudent = () => {
             {student.history.map((grade, index) => {
               return grade.length > 0 ? (
                 <>
-                  <h3 class="my-2 text-2xl underline underline-offset-2 xl:ml-12">
+                  <h3 className="my-2 text-2xl underline underline-offset-2 xl:ml-12">
                     {makeHeading(index)}
                   </h3>
                   <section className="grid sm:px-12 md:px-36 lg:grid-cols-2 lg:px-2 xl:mx-16 xl:grid-cols-3 xl:py-4">
@@ -142,4 +128,4 @@ const AddNewStudent = () => {
   );
 };
 
-export default AddNewStudent;
+export default SearchStudent;
