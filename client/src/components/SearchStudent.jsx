@@ -13,7 +13,6 @@ const SearchStudent = () => {
   const [stopLoading, setStopLoading] = useState(false);
   const [studentIdToSend, setStudentIdToSend] = useState(urlId || 0);
   const [warning, setWarning] = useState(false);
-  console.log(`stop Loading: ${stopLoading}`);
   useEffect(() => {
     if (urlId && typeof urlId) {
       setStopLoading(true);

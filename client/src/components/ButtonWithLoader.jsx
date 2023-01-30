@@ -4,7 +4,6 @@ import React, { useState } from "react";
 
 const ButtonWithLoader = ({ name, className, handleClick, stopLoading }) => {
   const [loading, setLoading] = useState(false);
-  console.log(`Stop Loading in Button ${stopLoading}`);
   return loading && !stopLoading ? (
     <section className={`px-8 font-bold text-amber-700 ${className}`}>
       <LoadingButton

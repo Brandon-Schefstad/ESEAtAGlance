@@ -9,7 +9,6 @@ async function postNewGoal(
   defaultGoalText,
   setStopLoading
 ) {
-  console.log("Posting goal");
   const response = await axios
     .post(
       `${apiURL}api/student/addNewGoal`,
@@ -30,7 +29,7 @@ async function postNewGoal(
     setID(response.data.ID);
     setGoalToSend(defaultGoalText);
     clearForms();
-    setStopLoading(true)
+    setStopLoading(true);
     return <Navigate to={"/addNewGoals"} replace={true} />;
   }
 }
