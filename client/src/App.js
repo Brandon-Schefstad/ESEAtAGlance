@@ -41,6 +41,7 @@ const router = createBrowserRouter(
     </>
   )
 );
+
 const cld = new Cloudinary({
   cloud: {
     cloudName: "nlhd",
