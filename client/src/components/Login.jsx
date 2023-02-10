@@ -81,7 +81,6 @@ const Login = () => {
                 className={inputStyles}
                 onChange={(e) => formatAuthorizeInfo(e, "email")}
                 name="email"
-                id=""
                 placeholder="Email"
               />
               <input
@@ -89,7 +88,6 @@ const Login = () => {
                 className={inputStyles}
                 onChange={(e) => formatAuthorizeInfo(e, "password")}
                 name="password"
-                id=""
                 placeholder="Password"
               />
             </>
