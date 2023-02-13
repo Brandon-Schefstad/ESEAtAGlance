@@ -27,15 +27,15 @@ const router = createBrowserRouter(
             path={"/addNewAccommodations"}
             element={<AddNewAccommodations />}
           ></Route>
-          <Route
+          {/* <Route
             path={"/addNewAccommodations/:id"}
             element={<AddNewAccommodations />}
-          ></Route>
+          ></Route> */}
           <Route path={"/searchStudent/"} element={<SearchStudent />}></Route>
-          <Route
+          {/* <Route
             path={"/searchStudent/:id"}
             element={<SearchStudent />}
-          ></Route>
+          ></Route> */}
         </Route>
       </>
     </>
@@ -56,6 +56,7 @@ function App() {
       "m-auto"
     );
   }, []);
+
   return <RouterProvider router={router} />;
 }
 

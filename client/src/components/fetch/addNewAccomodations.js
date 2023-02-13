@@ -23,10 +23,12 @@ async function postNewAccommodations(
     .catch(() => {
       alert("Malformed Data");
     });
-  if (status === 200) {
+  if (status === 200 && studentId) {
     accommodationsToSend = [];
+    return <Navigate to={`/searchStudent`} />;
+  } else {
+    return <Navigate to={`/addNewAccommodations`} />;
   }
-  <Navigate to={`/searchStudent/${studentId}`} />;
 }
 
 export default postNewAccommodations;

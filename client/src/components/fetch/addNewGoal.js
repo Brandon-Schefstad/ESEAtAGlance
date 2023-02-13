@@ -7,8 +7,10 @@ async function postNewGoal(
   setID,
   setGoalToSend,
   defaultGoalText,
-  setStopLoading
+  setStopLoading,
+  e
 ) {
+  e.preventDefault();
   const response = await axios
     .post(
       `${apiURL}api/student/addNewGoal`,

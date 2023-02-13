@@ -1,20 +1,35 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 // or
+import { CircularProgress } from "@mui/material";
 import React, { useState } from "react";
-
 const ButtonWithLoader = ({ name, className, handleClick, stopLoading }) => {
   const [loading, setLoading] = useState(false);
+  const primary = "#FFFFFF";
   return loading && !stopLoading ? (
-    <section className={`px-8 font-bold text-amber-700 ${className}`}>
+    <button
+      type="button"
+      className={`rounded-lg px-8 py-2 font-bold text-amber-700 ${className}`}
+    >
       <LoadingButton
-        style={{
-          paddingInline: "2rem",
-          paddingBlock: "1.35rem",
-          borderRadius: "0.5rem",
+        sx={{
+          height: "100%",
+          paddingBlock: "0.85rem",
+          width: "80%",
         }}
         loading={true}
+        loadingIndicator={
+          <CircularProgress
+            size={24}
+            sx={{
+              color: "white",
+              height: "100%",
+              width: "100%",
+              margin: "auto",
+            }}
+          />
+        }
       />
-    </section>
+    </button>
   ) : (
     <button
       onClick={(e) => {
@@ -22,7 +37,7 @@ const ButtonWithLoader = ({ name, className, handleClick, stopLoading }) => {
         handleClick(e);
       }}
       type="button"
-      className={` px-8 py-2 font-bold ${className} rounded-lg text-xl`}
+      className={`px-8 py-2 font-bold ${className} rounded-lg text-xl`}
     >
       {name}
     </button>

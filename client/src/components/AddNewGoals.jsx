@@ -109,6 +109,7 @@ const AddNewGoals = ({ student_id }) => {
                 onChange={(e) => setStateOnChange(e, "attained")}
                 name="attained"
                 className=" my-1 ml-8 bg-green-800 text-green-800 accent-amber-300 xl:my-auto xl:h-8"
+                id="attained"
               />
             </label>
           </section>
@@ -131,13 +132,14 @@ const AddNewGoals = ({ student_id }) => {
         </section>
         <section className="col-span-2 mt-4 flex grid-cols-2 flex-col justify-evenly gap-6 lg:flex-row xl:col-span-3 xl:col-start-1 xl:row-span-3 xl:row-start-[12]">
           <ButtonWithLoader
-            handleClick={() =>
+            handleClick={(e) =>
               addNewGoal(
                 goalToSend,
                 setID,
                 setGoalToSend,
                 defaultGoalText,
-                setStopLoading
+                setStopLoading,
+                e
               )
             }
             className={

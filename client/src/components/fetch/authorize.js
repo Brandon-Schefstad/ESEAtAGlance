@@ -2,6 +2,7 @@ import axios from "axios";
 import apiURL from "../utils/apiURL";
 const authorize = async (login, authorizeInfo, setAuth) => {
   let response;
+  console.log(authorizeInfo);
   if (login) {
     response = await axios.post(`${apiURL}api/login`, authorizeInfo);
   } else {

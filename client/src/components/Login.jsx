@@ -35,10 +35,13 @@ const Login = () => {
       <h1 className="mainTitle mb-4 pt-16 font-[Martel] text-[2.75rem] font-[900] text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
         ESE-At-A-Glance
       </h1>
+
       <ButtonWithLoader
+        type="button"
+        WithLoader
         name={"DEMO"}
-        className={" max-w-1/2 m-auto mt-[-4rem] bg-blue-900 text-white"}
-        loaderStyle={{ background: "green" }}
+        className={" m-auto  bg-blue-900  text-white"}
+        loaderStyle={{}}
         handleClick={() => {
           authorize(
             login,
@@ -50,118 +53,141 @@ const Login = () => {
           );
         }}
       />
-      <span className="mb-4 block text-lg font-semibold text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
+
+      <h2 className="mb-4 block text-lg font-semibold text-black xl:col-span-2 xl:row-start-2 xl:ml-24 xl:text-2xl">
         Student tracking for the busy teacher!
-      </span>
+      </h2>
       <section className="relative z-10 row-start-4 rounded-lg border-[2px] border-solid border-green-900 bg-white px-8 pt-12 pb-8 xl:top-0 xl:row-start-3 xl:m-auto xl:grid xl:w-3/4  xl:-translate-y-12 xl:px-0 xl:pt-0">
         <form
           className=" grid grid-cols-2 gap-10 text-center  xl:gap-0"
           method="POST"
         >
           {login ? (
-            <>
-              <span
+            <section id="tablist" className="col-span-2 grid grid-cols-2">
+              <button
+                type="button"
+                role={"tab"}
+                aria-controls="tabpanel"
+                aria-selected="true"
                 className={
                   activeStyle + " xl:rounded-r-none xl:rounded-bl-none"
                 }
                 onClick={() => setLogin(true)}
               >
                 Login
-              </span>
-              <span
+              </button>
+              <button
+                type="button"
+                role={"tab"}
+                aria-controls="tabpanel"
+                aria-selected="false"
                 className={
                   inactiveStyle + " xl:rounded-l-none xl:rounded-br-none"
                 }
                 onClick={() => setLogin(false)}
               >
                 Signup
-              </span>
-              <input
-                type="text"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "email")}
-                name="email"
-                placeholder="Email"
-              />
-              <input
-                type="password"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "password")}
-                name="password"
-                placeholder="Password"
-              />
-            </>
+              </button>
+              <section
+                id="tabpanel"
+                className="col-span-2 grid min-w-full grid-cols-2"
+              >
+                <input
+                  type="text"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "email")}
+                  name="email"
+                  placeholder="Email"
+                />
+                <input
+                  type="password"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "password")}
+                  name="password"
+                  placeholder="Password"
+                />
+              </section>
+            </section>
           ) : (
-            <>
-              {" "}
-              <span
+            <section id="tablist" className="col-span-2 grid grid-cols-2">
+              <button
+                type="button"
+                role={"tab"}
+                aria-selected="false"
+                aria-controls="tabpanel"
                 className={
                   inactiveStyle + " xl:rounded-r-none xl:rounded-bl-none"
                 }
-                onClick={() => {
-                  setLogin(true);
-                }}
+                onClick={() => setLogin(true)}
               >
                 Login
-              </span>
-              <span
+              </button>
+              <button
+                type="button"
+                role={"tab"}
+                aria-controls="tabpanel"
+                aria-selected="true"
                 className={
                   activeStyle + " xl:rounded-l-none xl:rounded-br-none"
                 }
-                onClick={() => {
-                  setLogin(false);
-                }}
+                onClick={() => setLogin(false)}
               >
                 Signup
-              </span>
-              <input
-                type="text"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "email")}
-                name="email"
-                id=""
-                placeholder="Email"
-              />
-              <input
-                type="text"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "firstName")}
-                name="firstName"
-                id=""
-                placeholder="First Name"
-              />
-              <input
-                type="text"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "lastName")}
-                name="lastName"
-                id=""
-                placeholder="Last Name"
-              />
-              <input
-                type="password"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "password")}
-                name="password"
-                id=""
-                placeholder="Password"
-              />
-              <input
-                type="password"
-                className={inputStyles}
-                onChange={(e) => formatAuthorizeInfo(e, "confirmPassword")}
-                name="confirmPassword"
-                id=""
-                placeholder="Confirm Password"
-              />
-            </>
+              </button>
+              <section
+                id="tabpanel"
+                className="col-span-2 grid min-w-full grid-cols-2"
+              >
+                <input
+                  type="text"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "email")}
+                  name="email"
+                  id=""
+                  placeholder="Email"
+                />
+                <input
+                  type="text"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "firstName")}
+                  name="firstName"
+                  id=""
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "lastName")}
+                  name="lastName"
+                  id=""
+                  placeholder="Last Name"
+                />
+                <input
+                  type="password"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "password")}
+                  name="password"
+                  id=""
+                  placeholder="Password"
+                />
+                <input
+                  type="password"
+                  className={inputStyles}
+                  onChange={(e) => formatAuthorizeInfo(e, "confirmPassword")}
+                  name="confirmPassword"
+                  id=""
+                  placeholder="Confirm Password"
+                />
+              </section>
+            </section>
           )}
           <ButtonWithLoader
+            WithLoader
             name={"Enter"}
             handleClick={(e) => {
+              e.preventDefault();
               authorize(login, authorizeInfo, setAuth);
             }}
-            loaderStyles={{}}
             className={
               "text:3xl col-span-2 m-auto mt-4 bg-green-300 text-green-900"
             }
@@ -172,7 +198,6 @@ const Login = () => {
         className="absolute bottom-12 left-0 z-0 xl:relative xl:row-start-3 xl:m-auto"
         src={bgimage}
         alt=""
-        srcset=""
       />
       <Footer />
     </section>

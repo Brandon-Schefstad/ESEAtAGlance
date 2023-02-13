@@ -1,7 +1,8 @@
 import axios from "axios";
 import apiURL from "../utils/apiURL";
 
-async function addNewStudent(studentToSend, imageUrl, setSuccess) {
+async function addNewStudent(studentToSend, imageUrl, setSuccess, e) {
+  e.preventDefault();
   const response = await axios
     .post(
       `${apiURL}api/student/addNewStudent`,
