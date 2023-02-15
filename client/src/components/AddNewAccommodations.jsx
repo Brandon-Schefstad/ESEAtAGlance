@@ -86,7 +86,7 @@ const AddNewAccommodations = () => {
       <h1 className={bannerStyles}>Add accommodations to a student profile</h1>
       <form
         onSubmit={postNewAccommodations}
-        className="mx-8 grid grid-cols-3  bg-amber-100  px-6 pt-4 pb-6   text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-16 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"
+        className="mx-8 grid grid-cols-3  bg-amber-100  px-6 pt-4 pb-6  text-slate-800 shadow-md  md:px-12 lg:px-20 lg:py-12 xl:mx-auto xl:w-5/6 xl:px-16 xl:pb-12 xl:shadow-lg xl:shadow-blue-900/50"
       >
         <section className=" col-span-3 grid gap-4 pt-4 xl:grid-cols-3">
           <label

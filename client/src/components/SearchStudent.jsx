@@ -26,25 +26,30 @@ const SearchStudent = () => {
       <Navbar />
       {warning ? <h1>Error, no student found</h1> : <></>}
       <section>
-        <form className=" mb-4 flex flex-col items-center gap-4 border-b-2  border-solid border-green-900 px-6 pt-4 pb-6 align-middle text-green-900 md:px-12 lg:flex-row lg:px-20  xl:mx-auto xl:my-0 xl:py-4 xl:px-16 xl:text-4xl ">
-          <label htmlFor="studentId" className=" font-semibold ">
+        <form
+          className=" mb-4 flex flex-col items-center gap-4 border-b-2  border-solid border-green-900 px-6 pt-4 pb-6 align-middle text-green-900 md:px-12 lg:flex-row lg:px-20  xl:mx-auto xl:my-0 xl:py-4 xl:px-16 xl:text-4xl "
+          onSubmit={(e) => e.preventDefault()}
+        >
+          <label for="studentId" className=" font-semibold ">
             Student Id:{" "}
           </label>
           <input
             onChange={(e) => setStudentIdToSend(e.target.value)}
             type="number"
+            id="studentId"
             placeholder={"Enter"}
             className="border-b-2 border-solid border-black bg-yellow-50 px-2 py-1 text-xl text-black placeholder:text-black "
           />
           <ButtonWithLoader
-            handleClick={() =>
+            handleClick={(e) => {
               searchStudent(
                 studentIdToSend,
                 setWarning,
                 setStudent,
-                setStopLoading
-              )
-            }
+                setStopLoading,
+                e
+              );
+            }}
             className={
               " m-auto mt-4 rounded-lg bg-green-200 text-green-900 xl:my-auto xl:ml-8 "
             }

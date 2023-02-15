@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { Navigate } from "react-router-dom";
@@ -7,9 +7,14 @@ const Navbar = () => {
   const [active, setActive] = useState(
     window.location.toString().split("/")[3]
   );
-
+  useEffect(() => {
+    const element = document.querySelector(".activeClass");
+    if (element) {
+      element.focus();
+    }
+  }, []);
   const activeClass =
-    "bg-blue-200  px-4 py-1.5 rounded-md   max-w-36 text-blue-900";
+    "bg-blue-200  px-4 py-1.5 rounded-md   max-w-36 text-blue-900 activeClass";
   const inactiveClass = "max-w-36 px-4 py-1.5";
   return !auth ? (
     <Navigate to={"/"} />

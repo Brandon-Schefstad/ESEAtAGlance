@@ -7,20 +7,26 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
     "block col-span-3 text-2xl  bg-amber-200/50  mt-2 border-b-2 border-rose-500 border-dotted font-extrabold  py-2 px-8  text-green-900   xl:text-3xl xl:font-extrabold xl:mx-16 mb-4 relative  xl:my-8 tracking-wider xl:col-span-3";
   return (
     <>
-      <h1 onClick={() => setExpand(!expand)} className={titleStyles}>
-        {name}
-        {expand ? (
-          <FontAwesomeIcon
-            className="absolute right-8 mt-1 xl:right-48"
-            icon={faCaretDown}
-          />
-        ) : (
-          <FontAwesomeIcon
-            className="absolute right-8  mt-1 xl:right-48"
-            icon={faCaretRight}
-          />
-        )}
-      </h1>
+      <button
+        type="button"
+        onClick={() => setExpand(!expand)}
+        className={titleStyles}
+      >
+        <h1>
+          {name}
+          {expand ? (
+            <FontAwesomeIcon
+              className="absolute right-8 mt-1 xl:right-48"
+              icon={faCaretDown}
+            />
+          ) : (
+            <FontAwesomeIcon
+              className="absolute right-8  mt-1 xl:right-48"
+              icon={faCaretRight}
+            />
+          )}{" "}
+        </h1>
+      </button>
 
       {expand ? (
         Object.keys(data).map((title, index) => {
@@ -40,12 +46,13 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
                   >
                     <label
                       className="text-left text-sm xl:text-lg"
-                      htmlFor={option}
+                      for={option}
                     >
                       {option}
                     </label>
                     {active.includes(option) ? (
                       <input
+                        id={option}
                         type="checkbox"
                         checked={true}
                         onChange={() => {
@@ -55,6 +62,7 @@ const AccommsSection = ({ name, data, handleChange, active }) => {
                       />
                     ) : (
                       <input
+                        id={option}
                         type="checkbox"
                         onChange={() => {
                           handleChange(option);

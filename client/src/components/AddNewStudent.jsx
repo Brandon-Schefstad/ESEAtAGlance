@@ -86,8 +86,8 @@ const AddNewStudent = () => {
             <UploadWidget setImageUrl={setImageUrl} />
           </section>
           <ButtonWithLoader
-            handleClick={() =>
-              addNewStudent(studentToSend, imageUrl, setSuccess)
+            handleClick={(e) =>
+              addNewStudent(studentToSend, imageUrl, setSuccess, e)
             }
             className={
               "text-md col-span-2 m-auto mt-4 rounded-lg bg-green-200 py-2 px-4 font-bold text-green-900 sm:col-span-1 sm:py-4 lg:mt-8 lg:px-12 lg:text-2xl"

@@ -5,8 +5,10 @@ async function searchStudent(
   studentIdToSend,
   setWarning,
   setStudent,
-  setStopLoading
+  setStopLoading,
+  e
 ) {
+  e.preventDefault();
   const { data, status } = await axios
     .get(`${apiURL}api/student/searchStudent/${studentIdToSend}`, {
       headers: {
