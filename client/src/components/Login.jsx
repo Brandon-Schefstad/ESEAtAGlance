@@ -24,14 +24,14 @@ const Login = () => {
     " border-b-2 border-green-800 border-solid text-green-900 col-span-2 pl-2 py-2 placeholder:text-green-900  placeholder:text-xl  text-xl xl:mt-6 xl:mx-8 ";
 
   const activeStyle =
-    "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid";
+    "text-amber-800 rounded-lg py-2 text-2xl border-2 border-amber-800 bg-amber-200 font-bold xl:bg-amber-500 xl:w-full xl:text-white xl:pb-2 xl:shadow-inner xl:shadow-amber-800 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid cursor-default";
   const inactiveStyle =
-    "text-gray text-gray-600 rounded-lg py-2 text-2xl border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid";
+    "text-gray text-gray-600 rounded-lg py-2 text-2xl border-gray-800 bg-gray-200 text-2xl xl:bg-yellow-400 xl:text-yellow-700 xl:py-4 xl:mb-8 xl:border-0 xl:border-b-2 xl:border-black xl:border-solid cursor-pointer";
 
   return auth ? (
     <Navigate to="/dashboard" props={setAuth} />
   ) : (
-    <section className="px-4 xl:grid xl:grid-cols-2">
+    <section className=" px-4 xl:grid xl:grid-cols-2">
       <h1 className="mainTitle mb-4 pt-16 font-[Martel] text-[2.75rem] font-[900] text-green-900 xl:col-span-2 xl:ml-24 xl:mb-0 xl:text-[5rem]">
         ESE-At-A-Glance
       </h1>
@@ -82,7 +82,7 @@ const Login = () => {
                 aria-controls="tabpanel"
                 aria-selected="false"
                 className={
-                  inactiveStyle + " xl:rounded-l-none xl:rounded-br-none"
+                  inactiveStyle + " xl:rounded-l-none xl:rounded-br-none "
                 }
                 onClick={() => setLogin(false)}
               >

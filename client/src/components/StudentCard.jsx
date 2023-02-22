@@ -64,7 +64,7 @@ const StudentCard = ({ student, index, getDashboard }) => {
       </section>
     </button>
   ) : (
-    <button onClick={() => setShowStudent(!showStudent)}>
+    <button onClick={() => setShowStudent(!showStudent)}  >
       <section
         className={
           index % 2 === 0
